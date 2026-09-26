@@ -8,6 +8,26 @@ enum class NativeStatus : std::uint8_t {
  NOT_INITIALIZED, OK, CONTEXT, OWNERSHIP, DEVICE, READY_LOW, READY_ERROR,
  REGISTER, POISONED, TIMEOUT, INVALID_ARGUMENT
 };
+enum class FailureSite : std::uint8_t {
+ NONE, SETUP, SETUP_OWNERSHIP, SETUP_READY, FIFO_OWNERSHIP, FIFO_READBACK,
+ WRITE_POISONED, WRITE_CONTEXT, WRITE_OWNERSHIP, WRITE_ARGUMENT,
+ TRANSMIT_OWNERSHIP, TRANSMIT_READY, TRANSMIT_DEADLINE, STORE_DEADLINE,
+ COMPLETE_OWNERSHIP, COMPLETE_READY, COMPLETE_DEADLINE, TC_DEADLINE,
+ CANCEL, REPEATED_BEGIN
+};
+enum class CleanupDisposition : std::uint8_t {
+ NOT_ATTEMPTED, SKIPPED_POISONED, SKIPPED_CONTEXT, SKIPPED_OWNERSHIP,
+ VERIFIED, READBACK_FAILED
+};
+struct FailureRecord {
+ NativeStatus reason = NativeStatus::NOT_INITIALIZED;
+ FailureSite site = FailureSite::NONE;
+ CleanupDisposition cleanup = CleanupDisposition::NOT_ATTEMPTED;
+ NativeStatus cleanup_ownership = NativeStatus::NOT_INITIALIZED;
+ std::uint8_t packet_offset = 0U, packet_size = 0U, payload_size = 0U;
+ bool ownership_evaluated = false;
+};
+static_assert(sizeof(FailureRecord) == 8U, "First failure is a bounded diagnostic record");
 enum class Buffering : std::uint8_t { LEGACY_SINGLE = 0U, FIFO8 = 1U };
 enum class ReceiveStream : std::uint8_t {
  TRUSTED_FRAMING = 0U, UNTRUSTED_RECEIVE_STREAM = 1U
@@ -37,6 +57,8 @@ public:
  bool ready();
  Port port();
  NativeStatus status() const { return status_; }
+ // Immutable first failure/cancellation evidence; not an atomic live snapshot.
+ const FailureRecord& firstFailure() const { return first_failure_; }
 private:
  const Buffering buffering_ = Buffering::LEGACY_SINGLE;
  static WriteResult write(void*, const char*, std::size_t);
@@ -45,13 +67,15 @@ private:
  NativeStatus ownership() const;
  NativeStatus ownedState(std::uint32_t expected, std::uint32_t alternate, bool live) const;
  NativeStatus beginFifo();
- NativeStatus failFifo(NativeStatus, std::uint32_t verified, std::uint32_t attempted);
+ NativeStatus failFifo(NativeStatus, FailureSite, std::uint32_t verified, std::uint32_t attempted);
  NativeStatus sampleReady() const;
- WriteResult fail(NativeStatus);
+ bool remember(NativeStatus, FailureSite);
+ NativeStatus setupFailure(NativeStatus, FailureSite = FailureSite::SETUP);
+ WriteResult fail(NativeStatus, FailureSite);
  bool prepare(const char*, std::size_t);
  bool withinDeadline(std::uint32_t) const;
  WriteResult transmit(std::uint32_t);
- void abort();
+ void abort(NativeStatus = NativeStatus::OK, FailureSite = FailureSite::CANCEL);
  void poison();
  NativeStatus status_ = NativeStatus::NOT_INITIALIZED;
  char payload_[64] = {};
@@ -62,5 +86,6 @@ private:
  std::uint32_t clock_registers_[8] = {};
  bool cleanup_verified_ = false;
  bool initialized_ = false, attempted_ = false, active_ = false, poisoned_ = false;
+ FailureRecord first_failure_;
 };
 } // namespace recorder::dump

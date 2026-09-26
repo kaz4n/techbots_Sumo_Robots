@@ -2,12 +2,18 @@
 // Controlled hardware faults occur at observed external boundaries, without owner seeding.
 // Each named subprocess has a fresh actual native singleton and immutable constructor mode.
 #include "fixture.h"
+#include "../dump_fixture.h"
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
 #include <type_traits>
 
 namespace fifo_test {
+bool sameFailure(const FailureRecord& a,const FailureRecord& b) {
+    return a.reason==b.reason&&a.site==b.site&&a.cleanup==b.cleanup&&a.cleanup_ownership==b.cleanup_ownership&&
+        a.ownership_evaluated==b.ownership_evaluated&&a.packet_offset==b.packet_offset&&
+        a.packet_size==b.packet_size&&a.payload_size==b.payload_size;
+}
 SetupGrant grants(){return {true,true,true,true};}
 bool start(UnoQDumpPort& owner) {
     const auto status=owner.begin(grants());VERIFY(status==NativeStatus::OK);
@@ -28,9 +34,12 @@ WriteResult send(UnoQDumpPort& owner,const std::string& data) {
 }
 void terminal(UnoQDumpPort& owner) {
     const auto init=hw.init,configure=hw.configure;const auto before=hw.submitted.size();
+    const auto first=owner.firstFailure();const auto port=owner.port();
     for(unsigned i=0;i<3;++i) {
+        port.cancel(port.context);
         VERIFY(!owner.ready());VERIFY(send(owner,"x").status==WriteStatus::ERROR);
         VERIFY(owner.begin(grants())!=NativeStatus::OK);
+        VERIFY(sameFailure(first,owner.firstFailure()));
     }
     VERIFY(hw.init==init&&hw.configure==configure);VERIFY(hw.submitted.size()==before);
 }
@@ -40,6 +49,7 @@ void passive() {
     UnoQDumpPort a,b(Buffering::FIFO8),c(static_cast<Buffering>(255));
     for(auto* p:{&a,&b,&c}) {
         VERIFY(p->status()==NativeStatus::NOT_INITIALIZED);
+        VERIFY(p->firstFailure().site==FailureSite::NONE);
         const auto port=p->port();const auto wrapped=app::unoQDumpPort(*p);
         VERIFY(port.context==p&&wrapped.context==p&&wrapped.output.context==p);
         VERIFY(port.write&&port.cancel&&wrapped.begin&&wrapped.ready&&wrapped.output.write&&wrapped.output.cancel);
@@ -55,6 +65,9 @@ void admission(unsigned mode,unsigned bits,unsigned context) {
     const auto status=owner.begin(g);
     const auto expected=mode>1?NativeStatus::INVALID_ARGUMENT:bits!=15?NativeStatus::OWNERSHIP:NativeStatus::CONTEXT;
     VERIFY(status==expected);VERIFY(owner.status()==status);VERIFY(hw.writes==0&&hw.init==0&&hw.configure==0);
+    VERIFY(owner.firstFailure().reason==expected&&owner.firstFailure().site==FailureSite::SETUP);
+    VERIFY(owner.firstFailure().cleanup==CleanupDisposition::NOT_ATTEMPTED);
+    VERIFY(!owner.firstFailure().ownership_evaluated);
     if(mode>1||bits!=15)VERIFY(hw.context_queries==0&&hw.reads==0&&hw.clocks==0);
     terminal(owner);
 }
@@ -112,6 +125,14 @@ void partial(unsigned stage,unsigned fault,bool cleanup_failure,unsigned mask) {
     if(cleanup)VERIFY(hw.trace[3*stage].kind=='W'&&hw.trace[3*stage].value==0);
     if(cleanup&&!cleanup_failure)VERIFY(LPUART1->CR1.value==0);
     if(cleanup_failure)VERIFY(LPUART1->CR1.value==0x40000000U);
+    const auto& first=owner.firstFailure();
+    VERIFY(first.reason==expected&&first.packet_offset==0&&first.packet_size==0&&first.payload_size==0);
+    VERIFY(first.site==(fault==0||fault==1||fault==8?FailureSite::FIFO_READBACK:
+        fault==9?FailureSite::SETUP_READY:FailureSite::FIFO_OWNERSHIP));
+    VERIFY(first.ownership_evaluated);
+    VERIFY(first.cleanup_ownership==(cleanup?NativeStatus::OK:fault==8?NativeStatus::CONTEXT:expected));
+    VERIFY(first.cleanup==(!cleanup?CleanupDisposition::SKIPPED_OWNERSHIP:
+        cleanup_failure?CleanupDisposition::READBACK_FAILED:CleanupDisposition::VERIFIED));
     const auto writes=hw.cr1_writes;terminal(owner);VERIFY(hw.cr1_writes==writes);
 }
 void model(unsigned size,bool wrap) {
@@ -188,6 +209,37 @@ void identity(unsigned kind) {
     else result=send(owner,std::string("a\0b",3));
     VERIFY(result.status==WriteStatus::ERROR&&result.count==0);VERIFY(hw.submitted.size()==before);terminal(owner);
 }
+void transferFailure(unsigned kind) {
+    UnoQDumpPort owner(Buffering::FIFO8);if(!start(owner))return;
+    recorder::AttemptRecorder source;dump_test::sealed(source);
+    VERIFY(source.phase()==recorder::AttemptPhase::SEALED);
+    Transfer transfer(owner.port());auto result=dump_test::eligible(10U,true);
+    if(kind==0||kind==4)hw.ready=0;
+    if(kind==1||kind==2){hw.live_kind=kind==1?10:3;hw.live_after_tdr=1;}
+    if(kind==3)hw.step=40;
+    if(kind==4){hw.cleanup_corrupt=true;hw.fault_fired=true;}
+    const auto clocks=hw.clocks;hw.call_started=static_cast<std::uint32_t>(hw.now);hw.enforce_budget=true;
+    auto report=transfer.step({10000U,10000U,true,Origin::SYNTHETIC},result,source);hw.enforce_budget=false;
+    VERIFY(hw.clocks-clocks<=64&&hw.rdr_reads==0&&hw.forbidden_writes==0&&hw.overflow==0);
+    if(kind==5){VERIFY(report.phase==Phase::ACTIVE);transfer.abort();report=transfer.report();}
+    VERIFY(report.phase==(kind==5?Phase::CANCELLED:Phase::FAILED));
+    VERIFY(report.reason==(kind==5?Reason::CONTEXT:Reason::PORT));VERIFY(report.bytes==0);
+    VERIFY(owner.status()==NativeStatus::POISONED);
+    const auto& first=owner.firstFailure();
+    const NativeStatus reasons[]={NativeStatus::READY_LOW,NativeStatus::READY_ERROR,NativeStatus::OWNERSHIP,
+        NativeStatus::TIMEOUT,NativeStatus::READY_LOW,NativeStatus::OK};
+    const FailureSite sites[]={FailureSite::TRANSMIT_READY,FailureSite::TRANSMIT_READY,
+        FailureSite::TRANSMIT_OWNERSHIP,FailureSite::TRANSMIT_DEADLINE,FailureSite::TRANSMIT_READY,FailureSite::CANCEL};
+    VERIFY(first.reason==reasons[kind]&&first.site==sites[kind]);
+    const std::string begin="SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1\n";
+    VERIFY(first.payload_size==begin.size()&&first.packet_size==begin.size()+15);
+    VERIFY(first.packet_offset==(kind==1||kind==2?1U:kind==5?8U:0U));
+    VERIFY(first.ownership_evaluated);
+    VERIFY(first.cleanup_ownership==(kind==2?NativeStatus::OWNERSHIP:NativeStatus::OK));
+    VERIFY(first.cleanup==(kind==2?CleanupDisposition::SKIPPED_OWNERSHIP:
+        kind==4?CleanupDisposition::READBACK_FAILED:CleanupDisposition::VERIFIED));
+    terminal(owner);
+}
 }
 int main(int argc,char** argv) {
     using namespace fifo_test;initialize();const std::string name=argc>1?argv[1]:"passive";
@@ -206,6 +258,7 @@ int main(int argc,char** argv) {
     else if(name=="live")live(arg(2),arg(3));
     else if(name=="cancel")cancel(arg(2));
     else if(name=="identity")identity(arg(2));
+    else if(name=="transfer_failure")transferFailure(arg(2));
     else if(name=="replay"&&argc==4)replay(argv[2],argv[3]);
     else if(name=="capacity"&&argc==3)capacity(argv[2]);
     else return 2;

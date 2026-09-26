@@ -278,6 +278,45 @@ void initialMetadata(unsigned kind) {
     VERIFY(hw.tx.empty());
     VERIFY(!native.ready());
 }
+bool sameFailure(const FailureRecord& a, const FailureRecord& b) {
+    return a.reason == b.reason && a.site == b.site && a.cleanup == b.cleanup &&
+        a.cleanup_ownership == b.cleanup_ownership && a.ownership_evaluated == b.ownership_evaluated &&
+        a.packet_offset == b.packet_offset && a.packet_size == b.packet_size && a.payload_size == b.payload_size;
+}
+void firstFailure(unsigned kind) {
+    UnoQDumpPort native; VERIFY(native.firstFailure().site == FailureSite::NONE);
+    if (!start(native)) return;
+    hw.txe_stop_after = 3U;
+    VERIFY(send(native, "abc\n").status == WriteStatus::PENDING);
+    const auto port = native.port();
+    if (kind == 0U) hw.ready = 0;
+    if (kind == 1U) hw.now += 100000U;
+    if (kind == 2U) hw.control = 1U;
+    if (kind == 3U) hw.irq_enabled = 1U;
+    if (kind == 4U) LPUART1->CR3.value = USART_CR3_DMAT;
+    if (kind == 5U) port.cancel(port.context);
+    else VERIFY(send(native, "abc\n").status == WriteStatus::ERROR);
+    const auto reads = hw.register_reads, clocks = hw.clock_calls;
+    const auto saved = native.firstFailure();
+    VERIFY(hw.register_reads == reads && hw.clock_calls == clocks);
+    const NativeStatus reasons[] = {NativeStatus::READY_LOW, NativeStatus::TIMEOUT, NativeStatus::CONTEXT,
+        NativeStatus::OWNERSHIP, NativeStatus::REGISTER, NativeStatus::OK};
+    const FailureSite sites[] = {FailureSite::TRANSMIT_READY, FailureSite::TRANSMIT_DEADLINE,
+        FailureSite::WRITE_CONTEXT, FailureSite::WRITE_OWNERSHIP, FailureSite::WRITE_OWNERSHIP, FailureSite::CANCEL};
+    VERIFY(saved.reason == reasons[kind] && saved.site == sites[kind]);
+    VERIFY(saved.packet_offset == 3U && saved.packet_size == 19U && saved.payload_size == 4U);
+    VERIFY(saved.cleanup == (kind == 2U ? CleanupDisposition::SKIPPED_CONTEXT :
+        kind == 3U || kind == 4U ? CleanupDisposition::SKIPPED_OWNERSHIP : CleanupDisposition::VERIFIED));
+    VERIFY(saved.ownership_evaluated == (kind != 2U));
+    VERIFY(saved.cleanup_ownership == (kind == 2U ? NativeStatus::NOT_INITIALIZED :
+        kind == 3U ? NativeStatus::OWNERSHIP : kind == 4U ? NativeStatus::REGISTER : NativeStatus::OK));
+    port.cancel(port.context); VERIFY(native.status() == NativeStatus::POISONED);
+    const auto writes = hw.register_writes;
+    VERIFY(!native.ready()); VERIFY(send(native, "abc\n").status == WriteStatus::ERROR);
+    VERIFY(native.begin(grant()) == NativeStatus::POISONED); port.cancel(port.context);
+    VERIFY(sameFailure(saved, native.firstFailure())); VERIFY(hw.register_writes == writes);
+    VERIFY(hw.tx.size() == 3U);
+}
 } // namespace
 
 device dump_devices[4] = {{&uart_metadata, &uart_data, &api, &states[0]},
@@ -337,6 +376,7 @@ int main(int argc, char** argv) {
     else if (name == "cancel") cancel(value != 0U);
     else if (name == "budget") stepBudget(value);
     else if (name == "metadata") initialMetadata(value);
+    else if (name == "first_failure") firstFailure(value);
     else return 2;
     std::printf("checks=%u failures=%d tx=%zu clock_calls=%u\n", checks, failed, hw.tx.size(), hw.clock_calls);
     return failed == 0 ? 0 : 1;

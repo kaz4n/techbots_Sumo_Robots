@@ -1,0 +1,69 @@
+setUpClass (test_dump_uart_unoq.NativeDumpTests) ... ERROR
+setUpClass (test_dump_uart_fifo.DumpUartFifoTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (test_dump_uart_unoq.NativeDumpTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/tooling/test_dump_uart_unoq.py", line 46, in setUpClass
+    if syntax.returncode: raise AssertionError(syntax.stderr)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: In file included from /mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/fixtures/dump_uart_native/cmsis_core.h:5,
+                 from /mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/fixtures/dump_uart_native/stm32_ll_usart.h:5,
+                 from /mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/fixtures/dump_uart_native/uart_stm32.h:9,
+                 from /mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/fixtures/dump_uart_native/cases.cc:5:
+/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/fixtures/dump_uart_native/installed_uart.h:5:10: fatal error: ../../native_qtr/installed_types.h: No such file or directory
+    5 | #include "../../native_qtr/installed_types.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+ERROR: setUpClass (test_dump_uart_fifo.DumpUartFifoTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/tooling/test_dump_uart_fifo.py", line 92, in setUpClass
+    binary=cls.stage/label;command([*common(cls.stage),*flags,*sources,'-o',binary]);cls.binaries.append(binary)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-first-failure-20260927/tests/tooling/test_dump_uart_fifo.py", line 39, in command
+    if result.returncode!=expected:raise AssertionError(result.stdout+result.stderr)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: In file included from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/cmsis_core.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/stm32_ll_usart.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/uart_stm32.h:9,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/fixture.h:7,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/hardware.cc:4:
+/dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/installed_uart.h:5:10: fatal error: ../../native_qtr/installed_types.h: No such file or directory
+    5 | #include "../../native_qtr/installed_types.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/cmsis_core.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/stm32_ll_usart.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/uart_stm32.h:9,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/fixture.h:7,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/cases.cc:4:
+/dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/installed_uart.h:5:10: fatal error: ../../native_qtr/installed_types.h: No such file or directory
+    5 | #include "../../native_qtr/installed_types.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/cmsis_core.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/stm32_ll_usart.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/uart_stm32.h:9,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/fixture.h:7,
+                 from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_fifo/streams.cc:4:
+/dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/installed_uart.h:5:10: fatal error: ../../native_qtr/installed_types.h: No such file or directory
+    5 | #include "../../native_qtr/installed_types.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/cmsis_core.h:5,
+                 from /dev/shm/d117-native-dg7jkhuy/src/hal/dump_uart_unoq.cpp:9:
+/dev/shm/d117-native-dg7jkhuy/tests/fixtures/dump_uart_native/installed_uart.h:5:10: fatal error: ../../native_qtr/installed_types.h: No such file or directory
+    5 | #include "../../native_qtr/installed_types.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 12.907s
+
+FAILED (errors=2)

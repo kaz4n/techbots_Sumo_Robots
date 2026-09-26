@@ -136,33 +136,33 @@ bool irqIdle() {
 } // namespace
 
 NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
-    if (attempted_ || poisoned_) { abort(); return status_; }
+    if (attempted_ || poisoned_) { abort(NativeStatus::OK, FailureSite::REPEATED_BEGIN); return status_; }
     attempted_ = true;
     if (buffering_ != Buffering::LEGACY_SINGLE && buffering_ != Buffering::FIFO8)
-        return status_ = NativeStatus::INVALID_ARGUMENT;
-    if (!setupGrantAccepted(grant)) return status_ = NativeStatus::OWNERSHIP;
-    if (!threadContext()) return status_ = NativeStatus::CONTEXT;
-    if (uart_owner != nullptr) return status_ = NativeStatus::OWNERSHIP;
+        return setupFailure(NativeStatus::INVALID_ARGUMENT);
+    if (!setupGrantAccepted(grant)) return setupFailure(NativeStatus::OWNERSHIP);
+    if (!threadContext()) return setupFailure(NativeStatus::CONTEXT);
+    if (uart_owner != nullptr) return setupFailure(NativeStatus::OWNERSHIP);
     if (!metadata() || !device_is_ready(ready_pad.port) ||
         !device_is_ready(DEVICE_DT_GET(DT_NODELABEL(rcc))))
-        return status_ = NativeStatus::DEVICE;
+        return setupFailure(NativeStatus::DEVICE);
     if (uartDevice()->state->initialized || uartDevice()->state->init_res != 0U ||
-        !irqIdle()) return status_ = NativeStatus::OWNERSHIP;
+        !irqIdle()) return setupFailure(NativeStatus::OWNERSHIP);
     uart_owner = this; // Never released, including failed initialization.
     if (gpio_pin_configure_dt(&ready_pad, GPIO_INPUT | GPIO_PULL_DOWN) != 0)
-        return status_ = NativeStatus::READY_ERROR;
+        return setupFailure(NativeStatus::READY_ERROR);
     // Verified unbounded TEACK/REACK waits live ONLY here, in explicit setup.
     if (device_init(uartDevice()) != 0 || !device_is_ready(uartDevice()))
-        return status_ = NativeStatus::DEVICE;
+        return setupFailure(NativeStatus::DEVICE);
     const InterruptMask mask;
     if (!threadContext() || !metadata() || !clocksAvailable() || !nominalClock() ||
         NVIC_GetActive(LPUART1_IRQn) != 0U || NVIC_GetPendingIRQ(LPUART1_IRQn) != 0U)
-        return status_ = NativeStatus::OWNERSHIP;
+        return setupFailure(NativeStatus::OWNERSHIP);
     if (LPUART1_NS->CR1 != (TX_MODE | USART_CR1_RE) || LPUART1_NS->CR2 != 0U ||
         LPUART1_NS->CR3 != 0U || LPUART1_NS->PRESC != 0U ||
         LPUART1_NS->BRR != 355556U ||
         (buffering_ == Buffering::FIFO8 && LPUART1_NS->AUTOCR != 0U))
-        return status_ = NativeStatus::REGISTER;
+        return setupFailure(NativeStatus::REGISTER);
     NVIC_DisableIRQ(LPUART1_IRQn);
     NVIC_ClearPendingIRQ(LPUART1_IRQn);
     if (buffering_ == Buffering::FIFO8) return status_ = beginFifo();
@@ -174,13 +174,13 @@ NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
     status_ = ownership();
     if (status_ != NativeStatus::OK) {
         const auto reason = status_;
-        abort();
+        abort(reason, FailureSite::SETUP_OWNERSHIP);
         return status_ = reason;
     }
     // LOW is legitimate at setup, particularly with Immediate startup.
     const auto ready_status = sampleReady();
     if (ready_status == NativeStatus::READY_ERROR) {
-        abort();
+        abort(ready_status, FailureSite::SETUP_READY);
         return status_ = ready_status;
     }
     return status_ = NativeStatus::OK;
@@ -218,31 +218,40 @@ NativeStatus UnoQDumpPort::beginFifo() {
     for (unsigned i = 0U; i < 3U; ++i) {
         const auto reason = ownedState(verified, verified, false);
         if (reason != NativeStatus::OK)
-            return i == 0U ? reason : failFifo(reason, verified, verified);
+            return i == 0U ? setupFailure(reason, FailureSite::FIFO_OWNERSHIP) :
+                failFifo(reason, FailureSite::FIFO_OWNERSHIP, verified, verified);
         const std::uint32_t attempted = i == 0U ? 0U :
             USART_CR1_TE | USART_CR1_FIFOEN | (i == 2U ? USART_CR1_UE : 0U);
         LPUART1_NS->CR1 = attempted;
         __DMB();
         if (LPUART1_NS->CR1 != attempted)
-            return failFifo(NativeStatus::REGISTER, verified, attempted);
+            return failFifo(NativeStatus::REGISTER, FailureSite::FIFO_READBACK, verified, attempted);
         verified = attempted;
     }
     initialized_ = true;
     const auto reason = ownership();
-    if (reason != NativeStatus::OK) return failFifo(reason, verified, verified);
+    if (reason != NativeStatus::OK) return failFifo(reason, FailureSite::FIFO_OWNERSHIP, verified, verified);
     const auto ready_status = sampleReady();
     if (ready_status == NativeStatus::READY_ERROR)
-        return failFifo(ready_status, verified, verified);
+        return failFifo(ready_status, FailureSite::SETUP_READY, verified, verified);
     return NativeStatus::OK;
 }
 
-NativeStatus UnoQDumpPort::failFifo(NativeStatus reason, std::uint32_t verified,
+NativeStatus UnoQDumpPort::failFifo(NativeStatus reason, FailureSite site, std::uint32_t verified,
                                   std::uint32_t attempted) {
     // Setup owns the interrupt mask. Missing TEACK alone cannot bypass inhibit.
-    if (ownedState(verified, attempted, false) == NativeStatus::OK) {
+    const bool first = remember(reason, site);
+    const auto owner_status = ownedState(verified, attempted, false);
+    if (owner_status == NativeStatus::OK) {
         LPUART1_NS->CR1 = 0U;
         __DMB();
         cleanup_verified_ = LPUART1_NS->CR1 == 0U;
+    }
+    if (first) {
+        first_failure_.ownership_evaluated = true;
+        first_failure_.cleanup_ownership = owner_status;
+        first_failure_.cleanup = owner_status != NativeStatus::OK ? CleanupDisposition::SKIPPED_OWNERSHIP :
+            cleanup_verified_ ? CleanupDisposition::VERIFIED : CleanupDisposition::READBACK_FAILED;
     }
     poison();
     return status_ = reason;
@@ -304,36 +313,36 @@ bool UnoQDumpPort::withinDeadline(std::uint32_t step_started) const {
 }
 
 WriteResult UnoQDumpPort::advance(const char* data, std::size_t count) {
-    if (poisoned_) return fail(NativeStatus::POISONED);
-    if (!threadContext()) return fail(NativeStatus::CONTEXT);
+    if (poisoned_) return fail(NativeStatus::POISONED, FailureSite::WRITE_POISONED);
+    if (!threadContext()) return fail(NativeStatus::CONTEXT, FailureSite::WRITE_CONTEXT);
     const auto step_started = clockUs();
     const InterruptMask mask;
     const auto owner_status = ownership();
-    if (owner_status != NativeStatus::OK) return fail(owner_status);
-    if (!prepare(data, count)) return fail(NativeStatus::INVALID_ARGUMENT);
+    if (owner_status != NativeStatus::OK) return fail(owner_status, FailureSite::WRITE_OWNERSHIP);
+    if (!prepare(data, count)) return fail(NativeStatus::INVALID_ARGUMENT, FailureSite::WRITE_ARGUMENT);
     return transmit(step_started);
 }
 
 WriteResult UnoQDumpPort::transmit(std::uint32_t step_started) {
     for (std::uint32_t i = 0U; i < config::DUMP_UART_STEP_BYTES && offset_ < packet_size_; ++i) {
         const auto owner_status = ownership();
-        if (owner_status != NativeStatus::OK) return fail(owner_status);
+        if (owner_status != NativeStatus::OK) return fail(owner_status, FailureSite::TRANSMIT_OWNERSHIP);
         const auto ready_status = sampleReady();
-        if (ready_status != NativeStatus::OK) return fail(ready_status);
-        if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+        if (ready_status != NativeStatus::OK) return fail(ready_status, FailureSite::TRANSMIT_READY);
+        if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT, FailureSite::TRANSMIT_DEADLINE);
         // Bit7 means TXE in legacy mode and TXFNF in the selected FIFO mode.
         // Unlike the public ISR-only API, this is one nonwaiting Thread store.
         if ((LPUART1_NS->ISR & USART_ISR_TXE) == 0U) break;
-        if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+        if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT, FailureSite::STORE_DEADLINE);
         LPUART1_NS->TDR = packet_[offset_++];
     }
     const auto owner_status = ownership();
-    if (owner_status != NativeStatus::OK) return fail(owner_status);
+    if (owner_status != NativeStatus::OK) return fail(owner_status, FailureSite::COMPLETE_OWNERSHIP);
     const auto ready_status = sampleReady();
-    if (ready_status != NativeStatus::OK) return fail(ready_status);
-    if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+    if (ready_status != NativeStatus::OK) return fail(ready_status, FailureSite::COMPLETE_READY);
+    if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT, FailureSite::COMPLETE_DEADLINE);
     const bool complete = offset_ == packet_size_ && (LPUART1_NS->ISR & USART_ISR_TC) != 0U;
-    if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+    if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT, FailureSite::TC_DEADLINE);
     status_ = NativeStatus::OK;
     if (!complete) return {WriteStatus::PENDING, 0U};
     active_ = false;
@@ -342,24 +351,52 @@ WriteResult UnoQDumpPort::transmit(std::uint32_t step_started) {
     return {WriteStatus::PROGRESS, submitted};
 }
 
-WriteResult UnoQDumpPort::fail(NativeStatus reason) {
-    abort();
+bool UnoQDumpPort::remember(NativeStatus reason, FailureSite site) {
+    if (first_failure_.site != FailureSite::NONE) return false;
+    first_failure_.reason = reason;
+    first_failure_.site = site;
+    first_failure_.packet_offset = static_cast<std::uint8_t>(offset_);
+    first_failure_.packet_size = static_cast<std::uint8_t>(packet_size_);
+    first_failure_.payload_size = static_cast<std::uint8_t>(payload_size_);
+    return true;
+}
+
+NativeStatus UnoQDumpPort::setupFailure(NativeStatus reason, FailureSite site) {
+    remember(reason, site);
+    return status_ = reason;
+}
+
+WriteResult UnoQDumpPort::fail(NativeStatus reason, FailureSite site) {
+    abort(reason, site);
     status_ = reason;
     return {WriteStatus::ERROR, 0U};
 }
 
-void UnoQDumpPort::abort() {
+void UnoQDumpPort::abort(NativeStatus reason, FailureSite site) {
+    const bool first = remember(reason, site);
+    auto cleanup = poisoned_ ? CleanupDisposition::SKIPPED_POISONED : CleanupDisposition::SKIPPED_CONTEXT;
+    auto owner_status = NativeStatus::NOT_INITIALIZED;
+    bool evaluated = false;
     // No ownership means no write to potentially foreign peripheral registers.
     if (!poisoned_ && threadContext()) {
         const InterruptMask mask;
-        if (ownership() == NativeStatus::OK) {
+        owner_status = ownership();
+        evaluated = true;
+        cleanup = CleanupDisposition::SKIPPED_OWNERSHIP;
+        if (owner_status == NativeStatus::OK) {
             LPUART1_NS->CR1 = 0U;
             __DMB();
             // Installed LL LPUART header:520-537 and RM0456 Rev6:p2882
             // document immediate discard on UE=0. Neither mode treats room or
             // a FIFO flush as proof of complete framing at the remote decoder.
             cleanup_verified_ = LPUART1_NS->CR1 == 0U;
+            cleanup = cleanup_verified_ ? CleanupDisposition::VERIFIED : CleanupDisposition::READBACK_FAILED;
         }
+    }
+    if (first) {
+        first_failure_.cleanup = cleanup;
+        first_failure_.ownership_evaluated = evaluated;
+        first_failure_.cleanup_ownership = owner_status;
     }
     poison();
 }

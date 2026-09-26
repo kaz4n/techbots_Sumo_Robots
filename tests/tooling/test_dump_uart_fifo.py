@@ -131,6 +131,9 @@ class DumpUartFifoTests(unittest.TestCase):
     def test_cancellation_keeps_shifted_prefix_and_never_repairs_foreign_state(self):
         self.cases([('cancel',kind) for kind in (0,1,2)])
 
+    def test_real_transfer_failure_then_cancel_retains_first_evidence(self):
+        self.cases([('transfer_failure',kind) for kind in range(6)])
+
     def test_actual_d116_payload_packet_replay_and_strict_receiver(self):
         wire=D116_WIRE.read_bytes();self.assertEqual(hashlib.sha256(wire).hexdigest(),D116_HASH)
         sys.path.insert(0,str(ROOT/'tools'));receiver=importlib.import_module('dump_match')

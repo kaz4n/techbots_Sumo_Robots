@@ -95,6 +95,9 @@ class NativeDumpTests(unittest.TestCase):
     def test_initial_clock_metadata_and_baud_corruption_refuse(self):
         self.run_cases([("metadata", index) for index in range(16)])
 
+    def test_first_failure_progress_cleanup_and_terminal_retention(self):
+        self.run_cases([("first_failure", index) for index in range(6)])
+
 
 if __name__ == "__main__":
     unittest.main()

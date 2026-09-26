@@ -24,5 +24,5 @@ physical sensors/motors, initialized robot WCET or a human gate. Framing-clean
 claim remains UNKNOWN. D237's missing-envelope failure and its conditional
 prior-partial-decoder explanation remain preserved; no stream was repaired.
 
-Independent actual review is pending. D240 application delivery tooling and
+Independent actual review4408e544 is PASS. D240 application delivery tooling and
 D241 current static production MATCH compile/deploy preparation remain separate.

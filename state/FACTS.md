@@ -1007,3 +1007,6 @@ missed0; not full-loopWCET. No coherence,liveRAM,delivery or physical acceptance
 
 ### D237/D238 six-store synthetic recorder result (2026-09-27T02:23:43.508852+04:00)
 Source: analysis/P7_recorder_six_result_actual_validation.md, actualreview034c70df and deliveryreviewdd50e6e7. Confidence high for saved software values bounded by fullflash comparisons; snapshot coherence UNPROVEN. Both65field samples report nativeOK/inactive/unpoisoned, no recordedfirstfailure, Runner/TransferSENT_UNCONFIRMED,607508bytes/5001frames/8events/CRC2865663826/session8582740024591403637. The same-session receiver retained607448bytes with no opening60-byte envelope; deliveryremainsFAILED. A conditional priorpartialdecoder explanation is source-supported, not observed cause. No motor/sensor/physical/gate acceptance.
+
+### D239 complete identified synthetic delivery (2026-09-27T02:44:36.991459+04:00)
+Source: analysis/P7_recorder_repeat_delivery_actual_validation.md and actualreview4408e544. Confidence high for this single savedattempt; no physicalacceptance. Source3d9306d7/package3a1bbd2f/session3840709944287840472 delivered607508B originalwire withBEGIN/ENDCRC1933962482,5001frames8events,SEALED/no reportedloss. Source/upload/receiver closingchecksPASS. This doesnotestablishroutercleanliness, abort/reopen or currentproductionMATCHfit.

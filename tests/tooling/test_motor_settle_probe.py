@@ -28,6 +28,7 @@ UNCHANGED = {
     "bench/motor_fault/src/motor_fault.cpp": "a5e3624ec89cf37f8344e069fed2e2f25bce1be8e0e6911b7aee774297c2f8c6",
     "bench/motor_fault/src/motor_fault.h": "0b6daf206692baab509fba12ff1afb17b812caf1ff36817883b6ee9d358c1728",
     "src/config.h": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+    "src/core/opp_fusion.cpp": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85",
     "src/hal/motor_port_unoq.h": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5",
     "src/hal/motors.cpp": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b",
     "src/hal/motors.h": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149",
@@ -108,7 +109,7 @@ class MotorSettleProbeTests(unittest.TestCase):
         cls.original = cls.stage / 'original_native.cpp'
         cls.original.write_bytes(original)
         cls.common = []
-        for index, source in enumerate((FIXTURE / 'native_fixture.cc', ROOT / 'src/hal/native_pins.cpp', ROOT / 'src/hal/motors.cpp')):
+        for index, source in enumerate((FIXTURE / 'native_fixture.cc', ROOT / 'src/hal/native_pins.cpp', ROOT / 'src/hal/motors.cpp', ROOT / 'src/core/opp_fusion.cpp')):
             target = cls.stage / f'common-{index}.o'
             cls.command([*cls.flags(0), '-c', str(source), '-o', str(target)], label=f'build-common-{index}')
             cls.common.append(target)

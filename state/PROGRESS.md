@@ -1592,3 +1592,6 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 
 
 2026-09-26T23:34:31.301064+04:00 | P7/D224-D226 | D224 session freshness and D225 one-attempt delivery caller accepted by independent reviews b881a492/42e3b241; 42 applicable Windows and 43 Linux caller methods PASS, core/legacy evidence retained. Committed isolated source8cbce5a1/d4f85db4; main source remains frozen for D222 native matrix. D226 exact stale-copy cleanup preparation accepted a1f8f484; five focused local methods PASS, fresh read-only inventory only. No cleanup or recorder native action yet. | isolated preparation commit
+
+
+2026-09-26T23:51:00.892116+04:00 | P7 | D222 matrix14/14COMPILE_CHECKED, source9044; rootexecuted unchangedreviewer reconciliation14PASS beforeD224integration. D224/D225integrated7f7cc0d0/299cb922. D226 actualexactcleanup PASS,3files2387320B/3protectedscans/6closingPASS; originalsretained, firmwareunchanged; no retries.

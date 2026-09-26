@@ -558,3 +558,6 @@ alternative deletion occurred. No new disposable build output was generated.
 
 
 2026-09-26T23:34:31.301064+04:00 | D224-D226 preparation | Retained compact session/caller tests, original failures and reviewed cleanup plans; test-owned temporary fixtures and host compiler scratch released by their owners. Restored two worktree CLI inventory files to exact main/HEAD bytes after checkout newline conversion; guards unchanged. New attributes preserve frozen receipt bytes. C: free approximately5.0GB before next native work. No board deletion yet. Previously policyblocked764405-byte local stage remains untouched and excluded.
+
+
+2026-09-26T23:51:00.892116+04:00 | P7 | D226 removed only three verified stale D221 upload copies2387320B and empty/tmp/remoteocd dev34ino2281; actual_closure01 records3protectedscans, originalsunchanged and6closingPASS. Native cleanup source/evidence retained for reproduction. Old policyblockedlocalstage764405B remains excluded and unchanged.

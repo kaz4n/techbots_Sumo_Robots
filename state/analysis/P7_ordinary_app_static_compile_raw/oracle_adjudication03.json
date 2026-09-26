@@ -1,0 +1,28 @@
+{
+  "schema": "d208-oracle-revision-adjudication-v1",
+  "revision": 3,
+  "created": "2026-09-26T15:15:47.654241+04:00",
+  "status": "BOUNDED_FIXTURE_REVISION_AUTHORIZED",
+  "basis": "Independent remote reviewer and independent author reconstructed exact frozen caller fixture; the two negative mutation replacements are identities after ordinary FLAGS adaptation. They preserve valid input, so observed acceptance does not identify a product defect.",
+  "first_failure": {
+    "path": "first_failure01.json",
+    "bytes": 3088,
+    "sha256": "5e7787d5e12b459e92a31e47566b8160895fdf99b61319ea043562b3fbf9f9db"
+  },
+  "authorized_change": {
+    "scope": "Only two caller-fixture negative mutation literals",
+    "old": "'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0'",
+    "new": "'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1'",
+    "count": 2
+  },
+  "requirements": [
+    "Keep all test assertions and80/55 method counts.",
+    "Retain exact product implementation unchanged.",
+    "Create fixture_derivation03, independent_freeze03 and revision receipt; refresh only required self-pins in active oracles.",
+    "Preserve original failed result; corrected suite uses a fresh exclusive owner after independent review.",
+    "No native operation until all host and source closure passes."
+  ],
+  "first_suite_status": "FAILED_78_PASS_2_FAIL",
+  "subject_changes": false,
+  "native_calls": 0
+}

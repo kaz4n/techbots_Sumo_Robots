@@ -1456,3 +1456,12 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T14:48:17.014662+04:00 | P7 | D207 actual inhibited diagnostic accepted | PASS review b5624884. At clean 676e3625: one upload/capture, 13 transports, 26 reads, all firmware comparisons pass. Retrieved/independently decoded 2034 scalar fields: begin succeeds, EPOCH_LIMIT at 10000, no recorded callback/SETTLE failure, max519us/missed0, final callback-level inhibition acknowledged. BOOT/ungranted peripherals and 59953 trace losses remain explicit. Next ordinary-app static compile preparation. | commit pending
+
+
+2026-09-26T14:56:29.828888+04:00 | P7 | D208 ordinary static compile preparation adopted | Contract06cd96f1/data09f0d107/preparationreview62ef1cee PASS. Current production bytes unchanged; six explicit caller adaptations and independent tests next. No compiler/device operation yet. | commit pending
+
+
+2026-09-26 P7: D208 source/host preparation accepted (reviews87a81920/e69387e0). Linux135PASS; Windows111PASS/24 Linux-covered skips;191pins stable, all scoped fixtures empty. Original78/2 failed fixture run and corrections preserved. Ordinary app tool unchanged; fresh read-only board admission and compile-only scope are next. No new flash or phase gate.
+
+
+2026-09-26 P7: D208 actual board admission,125-file ordinary manifest and15-role compile scope accepted by review7bf556e3. Index audit228 exact blobs/191 frozen pins PASS; no tested working bytes changed. Next: clean reviewed commit, check-only, then one jobs1 ordinary static M0 compile; current verified flash remains D207. No phase gate or motor authorization.

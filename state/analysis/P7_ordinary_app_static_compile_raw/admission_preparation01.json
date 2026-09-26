@@ -1,0 +1,114 @@
+{
+  "schema": "d208-readonly-admission-preparation-v1",
+  "created": "2026-09-26T15:29:55.484531+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "files": {
+    "state/reviews/P7_ordinary_app_static_compile_source_review.md": {
+      "bytes": 27777,
+      "sha256": "87a81920b400154dbdd01d13fac163592ec716f2402bee0a3410db89b349902a"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_remote_review.md": {
+      "bytes": 19198,
+      "sha256": "e69387e0aa28f993972c4eaf6bf8ffcd236a70fb076cf59f638afc1c94d4a78c"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_preparation_review.md": {
+      "bytes": 13525,
+      "sha256": "62ef1ceeb9316e9be70f9101ce2ab0947a940172c6b559de034929029b85c19c"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_contract.md": {
+      "bytes": 21756,
+      "sha256": "06cd96f1c84fb50368050344853e4f5dfe0540a2d9a95b43def853b402b87f5d"
+    },
+    "state/analysis/P7_motor_const_compile_raw/admission_source01.py": {
+      "bytes": 10224,
+      "sha256": "12794a70c417dbc2b816557a5817ee9738a55f8d8f8a88a2eb83960d50c5387d"
+    },
+    "state/analysis/P7_motor_const_compile_raw/admission01.json": {
+      "bytes": 29735,
+      "sha256": "dc082eac69bbd86a35c10636b3015580f6faf8c7553aa7833b8c033b897d5514"
+    },
+    "state/reviews/P7_motor_const_compile_admission_review.md": {
+      "bytes": 8108,
+      "sha256": "e85747afa928f58d0612b6b9409ccaf9247235ad6f8efbc8c41de4fd0e7cf267"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/compile_derivation01.json": {
+      "bytes": 66454,
+      "sha256": "09f0d107c0336f1831bdecc58dc53b11dabb9c15df30b5b3513ed1bc3cb99c91"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/implementation01.json": {
+      "bytes": 5832,
+      "sha256": "d81c0e82603109cdf85c01bbd297eb2b69fd957f3872f7c75f2a8dcc89b8d1bd"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/coordinator_freeze03.json": {
+      "bytes": 32250,
+      "sha256": "50816ef830e9c0c1b9501c0cb9f87b97d9f90cebfdc8b5c5ed8a4a55895dfabb"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/host_closing01.json": {
+      "bytes": 86354,
+      "sha256": "cd0c8ff33ca7a4456e883bb7f7e4a1a4f0a9cff3bcb6def820bb2ff7ab1f544f"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/admission_source01.py": {
+      "bytes": 10221,
+      "sha256": "051ca7806d85f2ac0fa28da91b38d666c4eb73dea1374eee45e1b0472210f5ef"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/admission_closing_source01.py": {
+      "bytes": 1912,
+      "sha256": "405913a787fcd41f801c108503bb8fc5e4bae07abb4a3af71af791a680ac981d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/admission_driver01.py": {
+      "bytes": 6430,
+      "sha256": "eb2e7156973e72a4b33499bb87091d6c6ff9c63b3f539f060aa3b39843c76bda"
+    }
+  },
+  "commands": [
+    {
+      "source": "admission_source01.py",
+      "bytes": 10221,
+      "sha256": "051ca7806d85f2ac0fa28da91b38d666c4eb73dea1374eee45e1b0472210f5ef",
+      "command_utf16_units": 12767,
+      "outer_timeout_seconds": 75
+    },
+    {
+      "source": "admission_closing_source01.py",
+      "bytes": 1912,
+      "sha256": "405913a787fcd41f801c108503bb8fc5e4bae07abb4a3af71af791a680ac981d",
+      "command_utf16_units": 2490,
+      "outer_timeout_seconds": 75
+    }
+  ],
+  "expected_boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "expected_cli_sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433",
+  "expected_identity": {
+    "uid": 1000,
+    "gid": 1000,
+    "user": "arduino",
+    "home": "/home/arduino",
+    "sysname": "Linux",
+    "release": "6.16.7-g0dd6551ae96b",
+    "machine": "aarch64",
+    "python": [
+      3,
+      13,
+      5
+    ],
+    "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8"
+  },
+  "installed_file_count": 28,
+  "remote_owner": "/home/arduino/sumox26_codex_build/ordinary-app-static01",
+  "derivation": {
+    "observer": "Exact D203 observer12794a70 with one attempt substitution and one scope label substitution.",
+    "closing": "Exact D203 saved closinge02fb34b with one attempt substitution.",
+    "old_attempt": "app-motor-const-static01",
+    "new_attempt": "ordinary-app-static01"
+  },
+  "limits": {
+    "windows_command_utf16_units": 30000,
+    "local_free_bytes": 134217728,
+    "board_root_and_home_free_bytes": 1073741824,
+    "observer_alarm_seconds": 45,
+    "closing_alarm_seconds": 60
+  },
+  "scope": "Exactly two read-only board observations; retain all28 pins/descriptor/identity/resource/conflict/absence checks. No owner claim, stage, query, compiler, upload, reset, MCU read, sudo or cleanup.",
+  "closing": "Both programs are attempted independently; first error and local closing errors are retained. Exclusive intent/result consume this observation attempt.",
+  "expected_not_observed": "Remote owner absence, current boot and resources remain unobserved for D208 until this prepared operation runs."
+}

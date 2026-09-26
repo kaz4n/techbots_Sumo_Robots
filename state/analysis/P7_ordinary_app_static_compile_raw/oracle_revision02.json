@@ -1,0 +1,76 @@
+{
+  "adjudication": {
+    "bytes": 1535,
+    "path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_adjudication02.json",
+    "sha256": "fe60d28483771ec5f972703b1bb9cd9b51ce6d92079644cd7f2e4f83b9cbc684"
+  },
+  "created_utc": "2026-09-26T11:11:26.368856+00:00",
+  "execution_count": 0,
+  "literal_changes": [
+    "Remote selection replaces broad subclass loading with exactly the named added test.",
+    "Only check_caller_boundary(actual) moves after the test ExitStack and stays conditional on caller.",
+    "Caller fixture path/pin and remote support pin refreshed; projected fixture byte identity refreshed."
+  ],
+  "method_inventory_check": "AST/data only; no unittest loading, imports of subjects or test execution",
+  "preserved": {
+    "caller01": {
+      "bytes": 22397,
+      "sha256": "6cfa43c9dd78b8644c9f151b6cc5e737d61b5e434e230cf7f88a5ab574813c94"
+    },
+    "fixture01": {
+      "bytes": 73421,
+      "sha256": "a9d25c2c99c80848fcee15e9906cc556e856e1604fa4118795dc2ba9d76ed0f5"
+    },
+    "independent_freeze01": {
+      "bytes": 30642,
+      "sha256": "6f230a82745d7ff46958b2cafc4499b3fd9171ad96a6b706d5cb1cb451c6cea8"
+    },
+    "remote01": {
+      "bytes": 5353,
+      "sha256": "e0e84cf45be918a76f52e8297a9f95f8a6af43d55e9d96712ca7255f5bd950bd"
+    }
+  },
+  "schema": "d208-oracle-revision-v1",
+  "status": "FINAL_STATIC_FIXTURE_CORRECTION",
+  "unchanged": {
+    "additional_caller_methods": 11,
+    "additional_remote_methods": 2,
+    "all_assertion_call_ASTs_preserved": true,
+    "counts": {
+      "D187_already_selected": 18,
+      "D187_new_selected": 15,
+      "D187_total": 33,
+      "caller_additional": 11,
+      "caller_inherited": 69,
+      "caller_total": 80,
+      "remote_additional": 2,
+      "remote_inherited_before_D187_completion": 38,
+      "remote_inherited_complete": 53,
+      "remote_total": 55
+    },
+    "new_subject_unread_unhashed_unimported_unexecuted": true,
+    "other_eight_fixture_projections_identical": true,
+    "selected_inherited_caller_methods": 69,
+    "selected_inherited_remote_methods": 53,
+    "source_driver_historical_files_unchanged": true,
+    "subject_projector_and_all_old_assertions_under_IO_guard": true
+  },
+  "updated": {
+    "caller02": {
+      "bytes": 22397,
+      "sha256": "0deb42025ccc3dd0d3a37471b58a100fa48960159016ea818414a3a5b46e6847"
+    },
+    "fixture02": {
+      "bytes": 76087,
+      "sha256": "1565b1824f1b02cf7506f0c72e43910a61f69f794bec17931d673f0b0cea427e"
+    },
+    "projected_D193_fixture": {
+      "bytes": 30178,
+      "sha256": "c7154c51ebbb5513f591410e07ab4bbd111756bee27e4d06f3d0386e4513e167"
+    },
+    "remote02": {
+      "bytes": 5392,
+      "sha256": "b66163e72315e2b972c210d3b3c2ab4cac2710fe7bbba0d374155940d8b8b8c8"
+    }
+  }
+}

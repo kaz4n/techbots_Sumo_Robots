@@ -1,0 +1,1777 @@
+{
+  "additional_methods": {
+    "caller": [
+      "test_current_ordinary_numeric_inventory_mapping_and_real_helper_are_exact",
+      "test_config_probe_and_seventeen_grants_are_unchanged_with_two_flags",
+      "test_nested_local_top_level_and_path_order_mapping_agree_with_real_helper",
+      "test_each_empty_or_file_reserved_local_owner_is_refused",
+      "test_missing_app_and_each_top_level_override_are_rejected_by_mapper",
+      "test_case_folded_destinations_and_reserved_portable_names_are_refused",
+      "test_unmapped_source_stays_in_manifest_and_is_rechecked",
+      "test_match_helper_pin_cannot_be_repaired_in_manifest",
+      "test_real_helper_disagreement_stops_re_admission",
+      "test_each_projected_output_pin_is_enforced_before_private_execution",
+      "test_const_consumed_owners_and_stale_source_manifest_artifacts_stay_rejected"
+    ],
+    "remote": [
+      "test_consumed_const_build_export_and_combined_owners_are_rejected",
+      "test_identity_aliases_preserve_all_seven_objects_and_reject_diagnostic_probe_profile"
+    ]
+  },
+  "caller_metadata": {
+    "final_identity": null,
+    "intermediate_bytes": 29819,
+    "intermediate_only": true,
+    "intermediate_sha256": "402fea3fdb0f2b1af99dff3f4a80afebf63529ae05466958b957ac1bd6038275",
+    "original": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "six_semantic_seams": {
+      "__init__": {
+        "bytes": 1494,
+        "first_line": 188,
+        "last_line": 208,
+        "sha256": "a3039344b74c17e19101cbf5ede7cfa16159d0c2cb29dbac9f69e7510f63e35b",
+        "signature": "arguments(args=[arg(arg='self'), arg(arg='reviewed_head')], kwonlyargs=[arg(arg='root')], kw_defaults=[Name(id='ROOT', ctx=Load())])"
+      },
+      "admission": {
+        "bytes": 1951,
+        "first_line": 251,
+        "last_line": 279,
+        "sha256": "09edf45241ed1028c20ed9f52ec0c484e14bfe08ce56cf01c9c772fbaee13828",
+        "signature": "arguments(args=[arg(arg='self')])"
+      },
+      "source_admission": {
+        "bytes": 1005,
+        "first_line": 319,
+        "last_line": 335,
+        "sha256": "ff3fd412540ef53442d651056c15fd0192d6315946a73043299e6aa877b0d4a3",
+        "signature": "arguments(args=[arg(arg='self')])"
+      },
+      "source_mapping": {
+        "bytes": 1309,
+        "first_line": 227,
+        "last_line": 249,
+        "sha256": "61f721db9e8d73e57c02b263b80559eea1c47f2176e58dafc2ef09cdc89b3db6",
+        "signature": "arguments(args=[arg(arg='self'), arg(arg='code'), arg(arg='names')])"
+      },
+      "source_names": {
+        "bytes": 764,
+        "first_line": 210,
+        "last_line": 225,
+        "sha256": "940bd25debd7bb846aec2eac65c491bc75e9abce4bcbac59d7f7bd7607f36a1f",
+        "signature": "arguments(args=[arg(arg='self')])"
+      },
+      "stage": {
+        "bytes": 1602,
+        "first_line": 342,
+        "last_line": 366,
+        "sha256": "a0a4acc3d18ebf54b61866617951026ffc7d803e4ee2af12da37764e88f2b0de",
+        "signature": "arguments(args=[arg(arg='self')])"
+      }
+    },
+    "source": "tools/compile_app_motor_fault.py",
+    "steps": [
+      {
+        "count": 1,
+        "new": "CALLER = 'tools/compile_ordinary_app_static.py'",
+        "old": "CALLER = 'tools/compile_app_motor_fault.py'",
+        "result_bytes": 29806,
+        "result_sha256": "1efdcc9195a6abc29394bcd1205da67202ef32675f981a2413b6a28e64e0455a"
+      },
+      {
+        "count": 1,
+        "new": "P7_ordinary_app_static_compile_contract.md",
+        "old": "P7_app_motor_fault_compile_contract.md",
+        "result_bytes": 29810,
+        "result_sha256": "61a0c2cb45df033227514791a9fd4228a6304e9df5c861cbed09f3e44e72c278"
+      },
+      {
+        "count": 1,
+        "new": "P7_ordinary_app_static_compile_raw",
+        "old": "P7_app_motor_fault_compile_raw",
+        "result_bytes": 29814,
+        "result_sha256": "44c07c3a0c6e88fab343462bfbf830172ee660f8f25096bbcffcf9ee774f19bd"
+      },
+      {
+        "count": 6,
+        "new": "ordinary-app-static",
+        "old": "app-motor-fault-static",
+        "result_bytes": 29796,
+        "result_sha256": "d7328b26b2e245137b5a97c79bb8098d8c781db802615bc5f0632f1c9dbacbb1"
+      },
+      {
+        "count": 1,
+        "new": "'app.ino'",
+        "old": "'app_motor_fault.ino'",
+        "result_bytes": 29784,
+        "result_sha256": "90ec4313910ba4ea3c1e27e7479779abd8df4002cf378cbf05f4eef0d6551475"
+      },
+      {
+        "count": 1,
+        "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+        "result_bytes": 29756,
+        "result_sha256": "1f83c7ca1fe3e73739f99884c964ebf6455709f9576306ba06d5c3e6219d2dd4"
+      },
+      {
+        "count": 1,
+        "new": "STATIC_ORDINARY_APP_LAYOUT_PACKAGE_PASS",
+        "old": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS",
+        "result_bytes": 29753,
+        "result_sha256": "1ab9f83952af779185a0008ea3e9db4a2e3ff1d9480a942d9aaadbbd5e380566"
+      },
+      {
+        "count": 2,
+        "new": "project_adapter(self.code[ADAPTER])",
+        "old": "self.code[ADAPTER]",
+        "result_bytes": 29787,
+        "result_sha256": "421e2553b1759b89e4b3f254c826434b1865eefc19c44b7c664e8abbc750e0c0"
+      },
+      {
+        "count": 2,
+        "new": "project_remote(self.code[REMOTE_HELPER])",
+        "old": "self.code[REMOTE_HELPER]",
+        "result_bytes": 29819,
+        "result_sha256": "402fea3fdb0f2b1af99dff3f4a80afebf63529ae05466958b957ac1bd6038275"
+      }
+    ]
+  },
+  "contract_projections": {
+    "adapter": {
+      "expected": {
+        "bytes": 8219,
+        "sha256": "d1a78ad713d0550ed52805a6751640823a31ce4e96edafc3c058a7587c5e4863"
+      },
+      "original": {
+        "bytes": 8262,
+        "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+      },
+      "source": "tools/app_motor_fault_static_policy.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "'app.ino'",
+          "old": "'app_motor_fault.ino'",
+          "result_bytes": 8250,
+          "result_sha256": "9e6d04325ea0851a180a36f19aaee7a828b4bf704166bc432b949c848a00f02e"
+        },
+        {
+          "count": 1,
+          "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+          "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+          "result_bytes": 8222,
+          "result_sha256": "b20f5dcd765b7459472b5436bb77b0a96771e04e69bbb9e98054221abc729a56"
+        },
+        {
+          "count": 1,
+          "new": "STATIC_ORDINARY_APP_LAYOUT_PACKAGE_PASS",
+          "old": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS",
+          "result_bytes": 8219,
+          "result_sha256": "d1a78ad713d0550ed52805a6751640823a31ce4e96edafc3c058a7587c5e4863"
+        }
+      ]
+    },
+    "remote": {
+      "expected": {
+        "bytes": 6845,
+        "sha256": "71c189ea3c354b7ccb969b35ae3f1a92a517380735059d00ff4c735b45cf4389"
+      },
+      "original": {
+        "bytes": 6891,
+        "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+      },
+      "source": "tools/app_motor_fault_compile_remote.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "ordinary-app-static01",
+          "old": "app-motor-fault-static01",
+          "result_bytes": 6888,
+          "result_sha256": "0bf72a18921417a99cc7c84043058a69a18a723a4386344b0dbe83f9b6145c0b"
+        },
+        {
+          "count": 1,
+          "new": "'app.ino'",
+          "old": "'app_motor_fault.ino'",
+          "result_bytes": 6876,
+          "result_sha256": "4211c28b0c40f84a99c4e83f31997e546e8dfb70ca2a686f75da931b36514a3b"
+        },
+        {
+          "count": 1,
+          "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+          "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+          "result_bytes": 6848,
+          "result_sha256": "78e9e332191d3f4f4e016cfc5df1a45330a9b5a4822aa479447234b4bf7e98d6"
+        },
+        {
+          "count": 1,
+          "new": "ordinary-app-static-artifacts-v1",
+          "old": "app-motor-fault-static-artifacts-v1",
+          "result_bytes": 6845,
+          "result_sha256": "94e25307336bba5fc99a6cb231f7a9d7acc855651850e006d88298b9a2301885"
+        },
+        {
+          "count": 1,
+          "new": "d1a78ad713d0550ed52805a6751640823a31ce4e96edafc3c058a7587c5e4863",
+          "old": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270",
+          "result_bytes": 6845,
+          "result_sha256": "71c189ea3c354b7ccb969b35ae3f1a92a517380735059d00ff4c735b45cf4389"
+        }
+      ]
+    }
+  },
+  "counts": {
+    "D187_already_selected": 18,
+    "D187_new_selected": 15,
+    "D187_total": 33,
+    "caller_additional": 11,
+    "caller_inherited": 69,
+    "caller_total": 80,
+    "remote_additional": 2,
+    "remote_inherited_before_D187_completion": 38,
+    "remote_inherited_complete": 53,
+    "remote_total": 55
+  },
+  "created_utc": "2026-09-26T11:16:55.627264+00:00",
+  "execution": "None: source/AST/data authoring only. No test, subject import, compiler, transport or device action.",
+  "fixtures": {
+    "adapter": {
+      "assertion_calls": 45,
+      "methods": [
+        "test_constants_and_reference_substitution_counts_are_exact",
+        "test_both_interfaces_accept_and_return_complete_actual_properties",
+        "test_raw_text_and_caller_paths_reach_historical_validator_unchanged",
+        "test_inserted_paths_are_substituted_once_and_never_name_rewritten",
+        "test_recursively_expanded_or_rewritten_command_paths_fail",
+        "test_original_project_and_old_flags_fail_even_when_coherent",
+        "test_fixed_profile_rejects_each_unreviewed_alternative",
+        "test_every_controlled_command_is_required_and_literal",
+        "test_extra_controlled_keys_and_duplicate_properties_fail",
+        "test_all_required_uncontrolled_metadata_is_exact",
+        "test_platform_version_core_and_variant_bind_to_caller_data",
+        "test_noncanonical_or_unsafe_path_arguments_fail",
+        "test_compile_rejects_external_libraries_and_preserves_absent_default",
+        "test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types",
+        "test_json_result_and_builder_shapes_remain_strict",
+        "test_exact_success_contains_unmodified_complete_legacy_report",
+        "test_real_validator_receives_exact_seven_original_byte_objects",
+        "test_returned_dictionaries_are_isolated_between_calls",
+        "test_each_required_actual_filename_and_only_those_names",
+        "test_artifact_container_and_each_value_type_or_empty_are_rejected",
+        "test_export_must_be_bytes_and_exactly_equal_build_flat_package",
+        "test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced",
+        "test_each_of_six_tls_names_is_required_in_every_elf",
+        "test_each_tls_tuple_field_in_each_image_is_checked",
+        "test_wrong_tls_type_duplicate_or_additional_symbols_fail",
+        "test_elf_identity_bounds_entry_and_initialization_rejections_propagate",
+        "test_all_three_allocated_images_must_agree",
+        "test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate",
+        "test_ordinary_relocated_minimal_tree_accepts_all_interfaces",
+        "test_each_call_rechecks_missing_changed_oversized_and_nonfile_dependencies",
+        "test_each_dependency_symlink_and_its_ancestor_symlink_fail_after_import",
+        "test_reparse_attribute_on_files_and_ancestors_is_rejected",
+        "test_adapter_does_not_mutate_other_historical_consumers"
+      ],
+      "original": {
+        "bytes": 36715,
+        "sha256": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c"
+      },
+      "original_assertion_calls": 45,
+      "projected": {
+        "bytes": 37255,
+        "sha256": "37905cb6ebfbc7368ff96128ae9b91a1613f4f858040e36e7c8b4e0fe14755e4"
+      },
+      "source": "tests/tooling/test_app_motor_fault_static_policy.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "PROJECT = 'app.ino'",
+          "old": "PROJECT = 'app_motor_fault.ino'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "FLAGS = OLD_FLAGS",
+          "old": "FLAGS = OLD_FLAGS + ' -DSUMOX_MOTOR_FAULT_PROBE=1'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 2,
+          "new": "STATIC_ORDINARY_APP_LAYOUT_PACKAGE_PASS",
+          "old": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "correct.replace('app.ino', 'app_motor_fault.ino')",
+          "old": "correct.replace('app.ino', PROJECT)",
+          "reason": "preserve nonidentity path corruption"
+        },
+        {
+          "count": 1,
+          "new": "    def test_original_project_and_old_flags_fail_even_when_coherent(self):\n        self.reject_metadata(self.support.public_envelope({k:v.replace('app.ino','app_motor_fault.ino').replace(OLD_FLAGS,OLD_FLAGS+' -DSUMOX_MOTOR_FAULT_PROBE=1') for k,v in self.reference.items()}, BUILD, DATA))\n        for key, value in (('build.project_name', 'app_motor_fault.ino'),\n                           ('compiler.c.extra_flags', OLD_FLAGS + ' -DSUMOX_MOTOR_FAULT_PROBE=1'),\n                           ('compiler.cpp.extra_flags', OLD_FLAGS + ' -DSUMOX_MOTOR_FAULT_PROBE=1')):\n            envelope = self.envelope()\n            self.support.replace_property(envelope, key, value)\n            self.reject_metadata(envelope)\n",
+          "old": "    def test_original_project_and_old_flags_fail_even_when_coherent(self):\n        self.reject_metadata(self.support.public_envelope(self.reference, BUILD, DATA))\n        for key, value in (('build.project_name', 'app.ino'),\n                           ('compiler.c.extra_flags', OLD_FLAGS),\n                           ('compiler.cpp.extra_flags', OLD_FLAGS)):\n            envelope = self.envelope()\n            self.support.replace_property(envelope, key, value)\n            self.reject_metadata(envelope)\n",
+          "reason": "coherent stale diagnostic profile replaces now-positive ordinary input; all rejection assertions retained"
+        },
+        {
+          "count": 1,
+          "new": "'build.project_name': ('other.ino', 'app_motor_fault.ino', PROJECT + ' ')",
+          "old": "'build.project_name': ('other.ino', 'app.ino', PROJECT + ' ')",
+          "reason": "stale project remains negative"
+        },
+        {
+          "count": 2,
+          "new": "FLAGS + ' -DSUMOX_MOTOR_FAULT_PROBE=1'",
+          "old": "FLAGS.replace('PROBE=1', 'PROBE=0')",
+          "reason": "extra probe define remains negative, never identity mutation"
+        },
+        {
+          "count": 1,
+          "new": "self.reject_artifacts({name.replace('app.ino','app_motor_fault.ino'): value for name,value in self.fixture.packet().items()}, exported=b'legacy keys')",
+          "old": "self.reject_artifacts(self.fixture.packet(), exported=b'legacy keys')",
+          "reason": "legacy artifact namespace stays stale despite identity aliases"
+        },
+        {
+          "count": 1,
+          "new": "(*(name.replace('app.ino','app_motor_fault.ino') for name in ALIASES.values()), 'app_motor_fault.ino.hex', 'other.ino.elf', 7)",
+          "old": "(*ALIASES.values(), 'app_motor_fault.ino.hex', 'other.ino.elf', 7)",
+          "reason": "extra-key cases must remain extra, not overwrite required keys"
+        },
+        {
+          "count": 1,
+          "new": "ram = tempfile.gettempdir() if os.name == 'nt' else os.environ.get('SUMOX_TEST_RAM_DIR')",
+          "old": "ram = os.environ.get('SUMOX_TEST_RAM_DIR')",
+          "reason": "dedicated Windows TEMP allows four portable provenance cases; actual symlink skip unchanged"
+        },
+        {
+          "count": 1,
+          "new": "getattr(original, method)(json.dumps(self.support.public_envelope({k:v.replace('app.ino','app_motor_fault.ino').replace(OLD_FLAGS,OLD_FLAGS+' -DSUMOX_MOTOR_FAULT_PROBE=1') for k,v in self.reference.items()}, BUILD, DATA)),",
+          "old": "getattr(original, method)(json.dumps(self.envelope()),",
+          "reason": "original-consumer rejection gets coherent stale diagnostic; current ordinary invariance assertions retained"
+        }
+      ]
+    },
+    "caller": {
+      "assertion_calls": 97,
+      "methods": [
+        "test_import_never_dispatches_or_writes",
+        "test_exact_cli_and_invalid_forms_reject_before_io",
+        "test_invalid_constructor_head_rejects_without_io",
+        "test_check_only_is_read_only_with_exact_current_source_and_fixed_paths",
+        "test_head_clean_tree_and_bytecode_are_mandatory",
+        "test_execute_prefix_and_existing_owner_requirements_precede_contact",
+        "test_manifest_shape_duplicate_nonfinite_bounds_boot_and_source_fail",
+        "test_manifest_file_set_paths_hashes_and_each_hard_pin_are_enforced",
+        "test_input_symlinks_and_per_file_bound_refuse",
+        "test_staging_map_exact_real_bytes_and_no_old_stage_reuse",
+        "test_stage_collision_cannot_be_hidden_by_manifest",
+        "test_manifest_and_source_are_rechecked_after_admission",
+        "test_tracked_output_changes_remain_disallowed_after_claim",
+        "test_low_local_space_stops_before_any_owner_or_transport",
+        "test_combined_source_file_count_entry_count_and_bytes_are_bounded",
+        "test_reparse_metadata_is_rejected_for_ancestry_and_plain_files",
+        "test_exact_synthetic_response_accepted_without_external_effects",
+        "test_response_schema_json_types_duplicates_nonfinite_and_errors_fail",
+        "test_each_file_record_name_hash_type_size_and_identity_is_checked",
+        "test_installed_hash_layout_and_every_final_check_bind_response",
+        "test_actual_preflight_exact_order_and_commands_use_checked_validators",
+        "test_every_preflight_prerequisite_failure_stops_before_properties_and_compile",
+        "test_wrong_cli_resolved_directories_and_installed_pin_bytes_refuse",
+        "test_raw_expanded_properties_still_require_actual_fixed_adapter",
+        "test_actual_canonical_source_program_accepts_exact_reuse",
+        "test_actual_canonical_source_refuses_extra_empty_directory_sibling_and_partial",
+        "test_fixed_compile_argv_has_no_upload_reset_or_generic_profile",
+        "test_complete_pipeline_one_query_compiler_fresh_stage_and_closure",
+        "test_exact_existing_source_reuses_without_push_partial_refuses_compile",
+        "test_partial_existing_canonical_source_refuses_without_repair",
+        "test_failed_prerequisite_prevents_stage_and_compile_but_closes_independently",
+        "test_compiler_failure_identity_survives_final_result_write_failure",
+        "test_compiler_timeout_is_not_retried_and_final_checks_still_run",
+        "test_manifest_byte_drift_after_query_prevents_compiler",
+        "test_changed_raw_compile_metadata_is_rejected_by_actual_adapter",
+        "test_returned_nonzero_compiler_keeps_streams_and_closes",
+        "test_successful_child_with_failed_result_receipt_is_not_success",
+        "test_all_closing_actions_are_attempted_after_each_prior_failure",
+        "test_successful_compile_cannot_survive_artifact_final_identity_drift",
+        "test_actual_artifact_program_fits_real_windows_command_and_bound_enforced"
+      ],
+      "original": {
+        "bytes": 45438,
+        "sha256": "53d547ad4c9c4df9e55313014e89ab731fddcf8edde6983c5cb535d253f73e96"
+      },
+      "original_assertion_calls": 97,
+      "projected": {
+        "bytes": 45157,
+        "sha256": "7ac3bb97858486e07446a52a87d418cfc5c953947db4d1277cbd70332d7499c7"
+      },
+      "source": "tests/tooling/test_app_motor_fault_compile.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "RAW = 'state/analysis/P7_ordinary_app_static_compile_raw'",
+          "old": "RAW = 'state/analysis/P7_app_motor_fault_compile_raw'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "CALLER = 'tools/compile_ordinary_app_static.py'",
+          "old": "CALLER = 'tools/compile_app_motor_fault.py'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "CONTRACT = 'state/analysis/P7_ordinary_app_static_compile_contract.md'",
+          "old": "CONTRACT = 'state/analysis/P7_app_motor_fault_compile_contract.md'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "TREES = ('src',)",
+          "old": "TREES = ('src', 'bench/app_motor_fault', 'bench/motor_fault/src')",
+          "reason": "ordinary src-only fixture inventory"
+        },
+        {
+          "count": 1,
+          "new": "PROJECT = 'app.ino'",
+          "old": "PROJECT = 'app_motor_fault.ino'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+          "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 4,
+          "new": "ordinary-app-static",
+          "old": "app-motor-fault-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "def expected_stage(root):\n    result = {}\n    extensions = ('.c', '.cc', '.cpp', '.h', '.hpp')\n    for path in (root / 'src').rglob('*'):\n        if not path.is_file():\n            continue\n        name = path.relative_to(root).as_posix()\n        target = None\n        if name == 'src/config.h' or name.startswith(('src/core/', 'src/hal/')):\n            target = name\n        elif name.startswith('src/app/'):\n            tail = path.relative_to(root / 'src/app')\n            if tail.parts[0] == 'src':\n                target = tail.as_posix()\n            elif tail.suffix in extensions:\n                target = 'src/app/' + tail.as_posix()\n            elif len(tail.parts) == 1 and tail.name != '.gitkeep':\n                target = tail.name\n        if target is not None:\n            if target in result:\n                raise ValueError('Fixture stage collision: ' + target)\n            result[target] = path.read_bytes()\n    return result\n",
+          "old": "def expected_stage(root):\n    result = {}\n    for folder in TREES:\n        for path in (root / folder).rglob('*'):\n            if not path.is_file(): continue\n            relative = path.relative_to(root).as_posix()\n            target = None\n            if folder == 'bench/app_motor_fault':\n                tail = path.relative_to(root / folder).as_posix()\n                if tail != '.gitkeep': target = tail\n            elif folder == 'bench/motor_fault/src':\n                if path.name in ('motor_fault.h', 'motor_fault.cpp') and path.parent == root / folder:\n                    target = 'src/' + path.name\n            elif relative == 'src/config.h' or relative.startswith(('src/core/', 'src/hal/')):\n                target = relative\n            elif relative.startswith('src/app/') and not relative.startswith('src/app/src/') \\\n                    and path.suffix in ('.c', '.cc', '.cpp', '.h', '.hpp'):\n                target = relative\n            if target is not None:\n                if target in result: raise ValueError('Fixture stage collision: ' + target)\n                result[target] = path.read_bytes()\n    return result\n",
+          "reason": "independent ordinary fixture mapping, not subject output"
+        },
+        {
+          "count": 1,
+          "new": "def source_hash(mapping):\n    value = hashlib.sha256()\n    for name in sorted(mapping, key=Path):\n        value.update(name.encode()); value.update(b'\\0'); value.update(mapping[name])\n    return value.hexdigest()\n",
+          "old": "def source_hash(mapping):\n    value = hashlib.sha256()\n    for name, raw in sorted(mapping.items()):\n        value.update(name.encode()); value.update(b'\\0'); value.update(raw)\n    return value.hexdigest()\n",
+          "reason": "Path-order canonical digest required by contract"
+        },
+        {
+          "count": 2,
+          "new": "'/app'",
+          "old": "'/app_motor_fault'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "'/app/'",
+          "old": "'/app_motor_fault/'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 2,
+          "new": "/ 'app'",
+          "old": "/ 'app_motor_fault'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "path = self.root / 'src/app/src/core/types.h'\n        path.parent.mkdir(parents=True, exist_ok=True)",
+          "old": "path = self.root / 'bench/app_motor_fault/src/motor_fault.h'",
+          "reason": "ordinary reserved collision fixture"
+        },
+        {
+          "count": 1,
+          "new": "'src/app/app.ino'",
+          "old": "'bench/app_motor_fault/app_motor_fault.ino'",
+          "reason": "ordinary source drift target"
+        },
+        {
+          "count": 1,
+          "new": "'src/hal/motor_settle_probe.h'",
+          "old": "'bench/motor_fault/src/motor_fault.h'",
+          "reason": "ordinary shared header drift target"
+        },
+        {
+          "count": 1,
+          "new": "'src/app'",
+          "old": "'bench/app_motor_fault'",
+          "reason": "ordinary ancestry reparse injection"
+        },
+        {
+          "count": 1,
+          "new": "('project', 'app_motor_fault.ino')",
+          "old": "('project', 'app.ino')",
+          "reason": "keep invalid artifact project negative after ordinary becomes current"
+        },
+        {
+          "count": 2,
+          "new": "'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1'",
+          "old": "'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0'",
+          "reason": "Revision03 preserves invalid compiler metadata: current ordinary two-flag input must gain the prohibited diagnostic probe flag, not remain unchanged."
+        }
+      ]
+    },
+    "d198": {
+      "assertion_calls": 25,
+      "methods": [
+        "test_exact_launcher_is_only_the_ten_frozen_metadata_substitutions",
+        "test_private_compile_identity_and_adapter_remain_fixed",
+        "test_header_is_in_exact_inventory_mapping_source_digest_and_staged_bytes",
+        "test_header_omission_missing_file_and_byte_drift_refuse",
+        "test_consumed_d188_d193_local_owners_are_untouched_by_new_check",
+        "test_both_historical_manifest_and_artifact_owner_identities_are_refused"
+      ],
+      "original": {
+        "bytes": 11340,
+        "sha256": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+      },
+      "original_assertion_calls": 25,
+      "projected": {
+        "bytes": 11340,
+        "sha256": "9aacf93b1bf0729418444011838f8442605fe283b55d481aeb9f208aeb720432"
+      },
+      "select": [
+        "DerivativeIdentityTests",
+        "new_owner_cases"
+      ],
+      "selection": {
+        "bytes": 5498,
+        "sha256": "6ee39764380bbc1166149a61e66cdeb6b48048adfda23c740f1f40c5eb090490"
+      },
+      "source": "tests/tooling/test_motor_settle_compile.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "    def test_exact_launcher_is_only_the_ten_frozen_metadata_substitutions(self):\n        original = checked(ROOT / OLD_LAUNCHER, *OLD_LAUNCHER_PIN)\n        actual = checked(ROOT / SUBJECT, *SUBJECT_PIN)\n        check_launcher_boundary(actual)\n        self.assertEqual(sha(actual), SUBJECT_PIN[1])\n        self.assertEqual(sha((ROOT / CONTRACT).read_bytes()), CONTRACT_SHA)\n",
+          "old": "    def test_exact_launcher_is_only_the_ten_frozen_metadata_substitutions(self):\n        original = checked(ROOT / OLD_LAUNCHER, *OLD_LAUNCHER_PIN)\n        self.assertEqual(checked(ROOT / SUBJECT, *SUBJECT_PIN), expected_launcher(original))\n        self.assertEqual(sha((ROOT / CONTRACT).read_bytes()), CONTRACT_SHA)\n",
+          "reason": "contract replaces ten-name-only equality with exact frozen identity and unchanged bootstrap/six-span boundary"
+        },
+        {
+          "count": 2,
+          "new": "'_sumox_d208_ordinary_app_static_compile'",
+          "old": "'_sumox_d198_settle_compile'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "'app.ino'",
+          "old": "'app_motor_observe.ino'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+          "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "field_projection('adapter', original_adapter)",
+          "old": "old.project_adapter(original_adapter)",
+          "reason": "adapter now three explicit metadata projections"
+        },
+        {
+          "count": 1,
+          "new": "'/app'",
+          "old": "'/app_motor_observe'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "'app')",
+          "old": "'app_motor_observe')",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 5,
+          "new": "ordinary-app-static",
+          "old": "app-motor-settle-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 2,
+          "new": "P7_ordinary_app_static_compile_raw",
+          "old": "P7_motor_settle_compile_raw",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "/app'",
+          "old": "/app_motor_observe'",
+          "reason": "contract metadata"
+        }
+      ]
+    },
+    "d203": {
+      "assertion_calls": 18,
+      "methods": [
+        "test_exact_d198_derivative_keeps_all_unsubstituted_bytes_and_runtime_dependencies",
+        "test_current_motor_cpp_exact_bytes_mapping_digest_drift_refusal_and_staging",
+        "test_consumed_d198_local_output_and_stage_survive_new_check_unchanged",
+        "test_d198_manifest_and_artifact_ownership_cannot_substitute_for_d203"
+      ],
+      "original": {
+        "bytes": 9992,
+        "sha256": "647a98ea97438e67860a8bc9794cbd4685127f494c5e3d123bca73c8e2894129"
+      },
+      "original_assertion_calls": 18,
+      "projected": {
+        "bytes": 10003,
+        "sha256": "84152104cf5864f5280736fe5af7352ad4733f4fbb4561ae00f26d75249bd878"
+      },
+      "select": [
+        "DerivativeContractTests",
+        "additional_owner_cases"
+      ],
+      "selection": {
+        "bytes": 4237,
+        "sha256": "f86e2f9d1dd1df3329d0ab1823ca5302ddf3dd1463c887d0f9b35c7721bf1949"
+      },
+      "source": "tests/tooling/test_motor_const_compile.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "    def test_exact_d198_derivative_keeps_all_unsubstituted_bytes_and_runtime_dependencies(self):\n        original = checked(ROOT / BASELINE, *BASELINE_PIN)\n        expected = SUBJECT_PIN[1]\n        actual = checked(ROOT / SUBJECT, *SUBJECT_PIN)\n        check_launcher_boundary(actual)\n        self.assertEqual(sha(actual), expected)\n        checked(ROOT / CONTRACT, *CONTRACT_PIN)\n        launcher = private_module(actual, ROOT / SUBJECT, '_d203_exact_identity')\n        caller = launcher.load_caller(root=ROOT)\n        self.assertEqual(caller.__name__, '_sumox_d208_ordinary_app_static_compile')\n        for name in (BASELINE, 'state/analysis/P7_motor_settle_compile_contract.md'):\n            self.assertNotIn(name, caller.HARD_PINS)\n            self.assertNotIn(name, caller.REQUIRED)\n        self.assertFalse(any(value is caller for value in sys.modules.values()))\n",
+          "old": "    def test_exact_d198_derivative_keeps_all_unsubstituted_bytes_and_runtime_dependencies(self):\n        original = checked(ROOT / BASELINE, *BASELINE_PIN)\n        expected = project(original, LAUNCHER_REPLACEMENTS)\n        actual = checked(ROOT / SUBJECT, *SUBJECT_PIN)\n        self.assertEqual(actual, expected)\n        checked(ROOT / CONTRACT, *CONTRACT_PIN)\n        launcher = private_module(actual, ROOT / SUBJECT, '_d203_exact_identity')\n        caller = launcher.load_caller(root=ROOT)\n        self.assertEqual(caller.__name__, '_sumox_d203_const_compile')\n        for name in (BASELINE, 'state/analysis/P7_motor_settle_compile_contract.md'):\n            self.assertNotIn(name, caller.HARD_PINS)\n            self.assertNotIn(name, caller.REQUIRED)\n        self.assertFalse(any(value is caller for value in sys.modules.values()))\n",
+          "reason": "replace obsolete metadata-only derivative equality with current boundary plus exact sealed identity"
+        },
+        {
+          "count": 1,
+          "new": "'app'",
+          "old": "'app_motor_observe'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 6,
+          "new": "ordinary-app-static",
+          "old": "app-motor-const-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 3,
+          "new": "P7_ordinary_app_static_compile_raw",
+          "old": "P7_motor_const_compile_raw",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "/app'",
+          "old": "/app_motor_observe'",
+          "reason": "contract metadata"
+        }
+      ]
+    },
+    "projection": {
+      "assertion_calls": 59,
+      "methods": [
+        "test_import_only_defines_without_source_reads_writes_or_dispatch",
+        "test_every_projector_matches_independent_order_counts_bytes_and_hash",
+        "test_projectors_reject_nonbytes_drift_line_endings_missing_extra_occurrences",
+        "test_cli_exact_forms_and_main_invalid_forms_precede_source_load",
+        "test_main_requires_no_bytecode_then_delegates_once_and_preserves_result_error",
+        "test_checked_originals_accept_exact_files_and_reject_unlisted_names_before_read",
+        "test_each_original_missing_empty_oversize_and_content_drift_refuse",
+        "test_original_hardlinks_refuse",
+        "test_original_symlink_and_parent_link_refuse",
+        "test_reparse_on_file_parent_and_fixture_root_refuses",
+        "test_descriptor_identity_and_same_api_ctime_drift_refuse",
+        "test_read_bound_primary_read_error_and_secondary_close_error_are_truthful",
+        "test_opened_descriptor_drift_rejects_before_any_read",
+        "test_regular_to_fifo_swap_is_nonblocking_and_never_read",
+        "test_all_three_checks_complete_before_execution_and_failure_executes_nothing",
+        "test_private_loading_preserves_modules_defaults_original_paths_and_hard_pins",
+        "test_added_original_caller_remote_hard_pins_cannot_be_manifest_repaired",
+        "test_owner_code_preserves_originals_and_payload_projects_only_two_sources",
+        "test_old_manifest_source_tree_and_artifact_packets_remain_rejected"
+      ],
+      "original": {
+        "bytes": 29767,
+        "sha256": "ae42938cace40745068421bf6e8e813295b12c16b376c93bd00b019b311b724d"
+      },
+      "original_assertion_calls": 57,
+      "projected": {
+        "bytes": 30178,
+        "sha256": "c7154c51ebbb5513f591410e07ab4bbd111756bee27e4d06f3d0386e4513e167"
+      },
+      "source": "tests/tooling/test_app_motor_observe_compile.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "cls.raw = subject_raw()",
+          "old": "cls.raw = (ROOT / LAUNCHER).read_bytes()",
+          "reason": "check metadata-only sealed launcher identity before private execution"
+        },
+        {
+          "count": 1,
+          "new": "    def test_every_projector_matches_independent_order_counts_bytes_and_hash(self):\n        for kind, original in self.originals.items():\n            with self.subTest(kind=kind), ExitStack() as stack:\n                for owner, names in ((Path, ('read_bytes', 'read_text', 'open', 'write_bytes',\n                                             'write_text', 'mkdir', 'unlink')),\n                                     (builtins, ('open',)), (io, ('open',)), (os, ('open',))):\n                    for name in names:\n                        stack.enter_context(mock.patch.object(owner, name,\n                            side_effect=AssertionError('Projection did I/O: ' + name)))\n                expected = expected_projection(kind, original) if kind != 'caller' else PROJECTED['caller']\n                actual = getattr(self.subject, 'project_' + kind)(original)\n                self.assertIs(type(actual), bytes)\n                if kind == 'caller':\n                    self.assertEqual((len(actual), digest(actual)), expected)\n                else:\n                    self.assertEqual(actual, expected)\n                self.assertEqual(digest(original), ORIGINALS[kind][2])\n            if kind == 'caller':\n                check_caller_boundary(actual)\n",
+          "old": "    def test_every_projector_matches_independent_order_counts_bytes_and_hash(self):\n        for kind, original in self.originals.items():\n            with self.subTest(kind=kind), ExitStack() as stack:\n                for owner, names in ((Path, ('read_bytes', 'read_text', 'open', 'write_bytes',\n                                             'write_text', 'mkdir', 'unlink')),\n                                     (builtins, ('open',)), (io, ('open',)), (os, ('open',))):\n                    for name in names:\n                        stack.enter_context(mock.patch.object(owner, name,\n                            side_effect=AssertionError('Projection did I/O: ' + name)))\n                expected = expected_projection(kind, original)\n                actual = getattr(self.subject, 'project_' + kind)(original)\n                self.assertIs(type(actual), bytes)\n                self.assertEqual(actual, expected)\n                self.assertEqual(digest(original), ORIGINALS[kind][2])\n",
+          "reason": "caller has six semantic seams: exact sealed identity plus byte restoration outside seams replaces impossible metadata-only whole-byte expectation; revision02 moves only fixture boundary I/O after ExitStack while subject projection and all assertions remain guarded"
+        },
+        {
+          "count": 1,
+          "new": "expected.update({ORIGINALS[k][0]: ORIGINALS[k][2] for k in ('caller', 'remote')})\n        expected['tools/match_deploy.py'] = MATCH_DEPLOY_SHA",
+          "old": "expected.update({ORIGINALS[k][0]: ORIGINALS[k][2] for k in ('caller', 'remote')})",
+          "reason": "one new hard pin required"
+        },
+        {
+          "count": 2,
+          "new": "'ordinary-app-static01'",
+          "old": "'app-motor-observe-static01'",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 2,
+          "new": "'/home/arduino/sumox26_codex_build/app-motor-fault-static01'",
+          "old": "REMOTE.replace('observe', 'fault')",
+          "reason": "do not turn stale fault owners into current owner"
+        },
+        {
+          "count": 1,
+          "new": "self.assertNotIn('bench/app_motor_observe/app_motor_observe.ino', self.files)\n            self.assertIn('src/app/app.ino', self.files)",
+          "old": "self.assertIn('bench/app_motor_observe/app_motor_observe.ino', self.files)",
+          "reason": "ordinary inventory positive and both diagnostic benches negative"
+        }
+      ]
+    },
+    "remote": {
+      "assertion_calls": 32,
+      "methods": [
+        "test_exact_success_real_validation_and_all_eight_identities",
+        "test_invalid_bundle_names_types_and_each_pin_fail",
+        "test_only_exact_fixed_build_and_export_paths_are_allowed",
+        "test_each_artifact_missing_empty_and_oversize_fails",
+        "test_each_file_symlink_and_fifo_fail_without_blocking",
+        "test_export_equal_length_byte_change_fails",
+        "test_actual_native_validator_rejects_corrupt_elf_despite_coherent_export",
+        "test_loader_and_tls_missing_empty_changed_oversize_or_link_fail",
+        "test_final_loader_tls_and_artifact_drift_checks_are_independent",
+        "test_final_inode_replacement_fails_even_with_unchanged_bytes",
+        "test_first_initial_error_survives_independent_final_errors",
+        "test_linked_build_artifacts_and_installed_ancestors_fail",
+        "test_unavailable_fixture_root_has_three_failed_checks_without_cwd_reads",
+        "test_file_replaced_during_descriptor_read_fails_as_unstable"
+      ],
+      "original": {
+        "bytes": 18332,
+        "sha256": "db0ff0284eb7c528a852f39a57fcb668c72c098543b6d6813298fc2dfeddd80b"
+      },
+      "original_assertion_calls": 32,
+      "projected": {
+        "bytes": 18280,
+        "sha256": "498a109608e6fa5afb64c24237f3df13fa08918e0a9aea4b800447c324fbd802"
+      },
+      "source": "tests/tooling/test_app_motor_fault_compile_remote.py",
+      "steps": [
+        {
+          "count": 2,
+          "new": "ordinary-app-static",
+          "old": "app-motor-fault-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "app.ino",
+          "old": "app_motor_fault.ino",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 2,
+          "new": "STATIC_ORDINARY_APP_LAYOUT_PACKAGE_PASS",
+          "old": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+          "old": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+          "reason": "contract metadata"
+        }
+      ]
+    },
+    "remote193": {
+      "assertion_calls": 10,
+      "methods": [
+        "test_original_adapter_bundle_and_old_attempt_paths_are_rejected",
+        "test_success_binds_new_schema_names_aliases_and_projected_dependency_bytes",
+        "test_old_d188_project_is_rejected_even_with_coherent_properties_and_packet"
+      ],
+      "original": {
+        "bytes": 8787,
+        "sha256": "897ae6e468aaa619ff72fa03532278458a250cfc440add52fd8eff180d587413"
+      },
+      "original_assertion_calls": 10,
+      "projected": {
+        "bytes": 8803,
+        "sha256": "e6eaa8c9645ef862af8db2fa5fd8d83c3d78f8ef03147f7418f6f8c078b5bc53"
+      },
+      "select": [
+        "extra_remote_cases",
+        "extra_adapter_cases"
+      ],
+      "selection": {
+        "bytes": 2565,
+        "sha256": "9df20fcf2f9a761d76a6190b15a45aa9a7225e28c67ae909275f9e972de33e9f"
+      },
+      "source": "tests/tooling/test_app_motor_observe_compile_remote.py",
+      "steps": [
+        {
+          "count": 2,
+          "new": "ordinary-app-static",
+          "old": "app-motor-observe-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "'/home/arduino/sumox26_codex_build/app-motor-fault-static01'",
+          "old": "REMOTE.replace('observe', 'fault')",
+          "reason": "explicit stale owner preserved"
+        }
+      ]
+    },
+    "remote198": {
+      "assertion_calls": 7,
+      "methods": [
+        "test_previous_d193_build_and_artifact_paths_are_refused_separately_and_together",
+        "test_new_owner_keeps_observer_project_and_existing_layout_status"
+      ],
+      "original": {
+        "bytes": 3412,
+        "sha256": "b2da457db6da3d01412dd300d495f075a8631294c75627f66b91dc1ee9fbd2e7"
+      },
+      "original_assertion_calls": 7,
+      "projected": {
+        "bytes": 3361,
+        "sha256": "99052d4e5e76c008d4512b0cd6cb206223a9df02f39425a1f9bbe6bb37141f9b"
+      },
+      "select": [
+        "additional_cases"
+      ],
+      "selection": {
+        "bytes": 1383,
+        "sha256": "c68558d0e04d2a04e35ef1ff4b03ff6050988a51cead579423b9148b5bdfdf1d"
+      },
+      "source": "tests/tooling/test_motor_settle_compile_remote.py",
+      "steps": [
+        {
+          "count": 1,
+          "new": "ordinary-app-static",
+          "old": "app-motor-settle-static",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 3,
+          "new": "app.ino",
+          "old": "app_motor_observe.ino",
+          "reason": "contract metadata"
+        },
+        {
+          "count": 1,
+          "new": "STATIC_ORDINARY_APP_LAYOUT_PACKAGE_PASS",
+          "old": "STATIC_APP_MOTOR_OBSERVE_LAYOUT_PACKAGE_PASS",
+          "reason": "contract metadata"
+        }
+      ]
+    },
+    "remote203": {
+      "assertion_calls": 1,
+      "methods": [
+        "test_consumed_d198_build_artifacts_and_combined_paths_are_refused"
+      ],
+      "original": {
+        "bytes": 3451,
+        "sha256": "aa9b2520f96e110b962bb184766cea3e01ef352834d80834371a1fae0540f559"
+      },
+      "original_assertion_calls": 1,
+      "projected": {
+        "bytes": 3451,
+        "sha256": "aa9b2520f96e110b962bb184766cea3e01ef352834d80834371a1fae0540f559"
+      },
+      "select": [
+        "additional_case"
+      ],
+      "selection": {
+        "bytes": 670,
+        "sha256": "2ab5f2ccd796facc3bf811d76f40551d658cfe445ea0613751abe82e9addd1f2"
+      },
+      "source": "tests/tooling/test_motor_const_compile_remote.py",
+      "steps": []
+    }
+  },
+  "host_commands": [
+    "python -I -B tests/tooling/test_compile_ordinary_app_static.py",
+    "python -I -B tests/tooling/test_compile_ordinary_app_static_remote.py"
+  ],
+  "implementation": {
+    "adapter": {
+      "bytes": 8219,
+      "sha256": "d1a78ad713d0550ed52805a6751640823a31ce4e96edafc3c058a7587c5e4863"
+    },
+    "caller": {
+      "bytes": 30744,
+      "sha256": "412121c6b6b8efc363a93f80762e29db7ad0671c23c19b2c1f2f281798b69a6e"
+    },
+    "launcher": {
+      "bytes": 26136,
+      "sha256": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89"
+    },
+    "remote": {
+      "bytes": 6845,
+      "sha256": "71c189ea3c354b7ccb969b35ae3f1a92a517380735059d00ff4c735b45cf4389"
+    }
+  },
+  "implementation_boundary": "Only the checked metadata receipt was read; new launcher and projected caller bodies were never read, hashed, imported or executed by this author.",
+  "independence": "Contract and pinned historical assertions determine behavior. Final implementation metadata supplies byte identities only; all source bodies remain unread through FINAL.",
+  "inputs": {
+    "src/app/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/app/app.ino": {
+      "bytes": 868,
+      "sha256": "538755487e58609d8e7d2bb69b8466cb9bd1ffcfe360149bca4d4ff246302d57"
+    },
+    "src/app/calibration_output.h": {
+      "bytes": 880,
+      "sha256": "ed7e085f8504895d375938ebac45f264e8da4c84d56fb4b6805095185464533a"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 1943,
+      "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+    },
+    "src/app/dump_port.h": {
+      "bytes": 676,
+      "sha256": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+    },
+    "src/app/dump_port_unoq.cpp": {
+      "bytes": 755,
+      "sha256": "162ff2bc33e1c1e79def845ef89c491e6628e234b59d7d5ae60826d8c8ee8335"
+    },
+    "src/app/native_sources_unoq.cpp": {
+      "bytes": 2430,
+      "sha256": "291e88a6ae007a18a5e94d105e722c15b2bdc7dbce81062f2ab5f218d9576047"
+    },
+    "src/app/native_sources_unoq.h": {
+      "bytes": 1689,
+      "sha256": "11cd88cc1ae4f94b4b0f3ccafbf68bc9087b7098cbb008ec5daeca4298c381b5"
+    },
+    "src/app/runtime.cpp": {
+      "bytes": 14005,
+      "sha256": "5c10dda3eb1b2f071c7da7b8965520c8b99447d51e1f8590579e4dbc2bc75015"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9819,
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03"
+    },
+    "src/app/runtime_calibration.cpp": {
+      "bytes": 9248,
+      "sha256": "18bf09803ad4140ac16ffe57646953d81020c16cadcaccb8539b31f48c60c3e6"
+    },
+    "src/app/runtime_dump.cpp": {
+      "bytes": 2735,
+      "sha256": "aedd9c81b39e524cbdda00dc0d4be7614001935b6d6001d3071c7a47b913d4df"
+    },
+    "src/app/runtime_inputs.cpp": {
+      "bytes": 10716,
+      "sha256": "fc1d095ab96f97fa4f81e3609bdd3108c39ed4b6b17639b4843e6d6f4e5cc4dc"
+    },
+    "src/app/runtime_service.cpp": {
+      "bytes": 8467,
+      "sha256": "3ba957b06df00767c20afdf6f73923af77d767691876ac245ea49c80e118dc7e"
+    },
+    "src/app/transaction.cpp": {
+      "bytes": 5739,
+      "sha256": "ada8080d67d76750a1bc41fc522bbe17076d66a3f887d735c8530f7414993f63"
+    },
+    "src/app/transaction.h": {
+      "bytes": 3710,
+      "sha256": "a3c3f12eb49e517f116560b1efed1376110da0e424f6a1714098fcc3c8a84b19"
+    },
+    "src/app/transaction_service.cpp": {
+      "bytes": 2127,
+      "sha256": "978bf71921ae3cc0806461ce3e17c48f195a9f0cff310cafb8faa8b104e7b271"
+    },
+    "src/config.h": {
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    "src/core/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/core/countdown.cpp": {
+      "bytes": 19273,
+      "sha256": "4875714d84e2a1caff22c006dbf4e9d2cc389db9e9686346581181d1c0ede5e6"
+    },
+    "src/core/countdown.h": {
+      "bytes": 17321,
+      "sha256": "283a8bbeda0e1f6b5f2c171c4d3a0e00fd2d3a0e532886c787d0ce55dca866f7"
+    },
+    "src/core/edge.cpp": {
+      "bytes": 18797,
+      "sha256": "ffd8d1d2fd5900c540aba011a8f79a43fb7be8b200e13769035a25766b45ede6"
+    },
+    "src/core/edge.h": {
+      "bytes": 13823,
+      "sha256": "b29b3982e27138be1fae361fde0b22e7ff58cf84e80d4cd4f3738a68c4796271"
+    },
+    "src/core/fsm.cpp": {
+      "bytes": 26474,
+      "sha256": "cad394ff8ee7f9072a8596a566092e2f3b9fadfda5966170e3d126ea18c71bb0"
+    },
+    "src/core/fsm.h": {
+      "bytes": 41126,
+      "sha256": "878e4524d6ceceec2a40b86158b11f8a5c18bd03afe35ee5507241dd89562485"
+    },
+    "src/core/fsm_buttons.cpp": {
+      "bytes": 4396,
+      "sha256": "82ba1038c75e172012d59921051aadf98e9928f5b1acb27dbb4e91eef3dbfbdd"
+    },
+    "src/core/fsm_drive_test.cpp": {
+      "bytes": 1139,
+      "sha256": "d1e7c0ce587637e8a4ad95818d1ebfca356797e860112a2ed4bb734b13849421"
+    },
+    "src/core/fsm_imu.cpp": {
+      "bytes": 5234,
+      "sha256": "5e873f5825e97976bc64c1d2fdd85eb44bc51697176bfec737677aa4e367d1e7"
+    },
+    "src/core/fsm_line.cpp": {
+      "bytes": 4746,
+      "sha256": "5ade80a598b501aa1ef7b2b3226916aefbc8e54ba7396d47b1ece5c7e48dd372"
+    },
+    "src/core/fsm_opener_timing.cpp": {
+      "bytes": 5359,
+      "sha256": "eda6945e6bc5535bab9174872642ae266b3e22baaee9895b47c05fd5d40d7d72"
+    },
+    "src/core/fsm_qtr_cal.cpp": {
+      "bytes": 6632,
+      "sha256": "bc1ce76fc3021c2a1f8434322c8a37324ecf86cadc9f0f9e4373a43b0dcceb00"
+    },
+    "src/core/fsm_robot.cpp": {
+      "bytes": 49551,
+      "sha256": "2efd83e51ecdd6d213a5e97cd6e23cf9e7084d50fd4cf49fc8b202967827dfd8"
+    },
+    "src/core/fsm_stand.cpp": {
+      "bytes": 2774,
+      "sha256": "c766dbe959a68c17f8c17085f0b8a00bcad518c6e99dfefcbf580c4a8c969550"
+    },
+    "src/core/fsm_stop_trial.cpp": {
+      "bytes": 5630,
+      "sha256": "78410d6775ea1e114c2083f1b5238e6c8c03ea7b1ab75b3cbeee5ef94e62ebac"
+    },
+    "src/core/fsm_timing.cpp": {
+      "bytes": 6937,
+      "sha256": "e372d59115373f563f0599117676f1d7d05e8169c30799d8c5e99d903fb2c0b7"
+    },
+    "src/core/fsm_turn_trial.cpp": {
+      "bytes": 4359,
+      "sha256": "4d4af54e72097626be8870153559a138530021945d7e5d3cd3c1e4e40be748e3"
+    },
+    "src/core/governor.cpp": {
+      "bytes": 4052,
+      "sha256": "1047daacf8acdf62854aa543f5c6020d7755216ca8df2456ef963b81bd2aa7b8"
+    },
+    "src/core/governor.h": {
+      "bytes": 2023,
+      "sha256": "13c2f5b334aeaf799445ffbffb8c3632f06606999a282e44396cfce16d05e042"
+    },
+    "src/core/logframe.cpp": {
+      "bytes": 13820,
+      "sha256": "2c23e3b504f452a0316f9b8db594f8a54fbe6fd8af68c9a54535239387753ff3"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/motion.cpp": {
+      "bytes": 9185,
+      "sha256": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656"
+    },
+    "src/core/motion.h": {
+      "bytes": 6982,
+      "sha256": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78"
+    },
+    "src/core/openers.cpp": {
+      "bytes": 13552,
+      "sha256": "fafaabe0373e97dd72becca0eabf1a7948dcfe8a20656016201c3d4dad871d80"
+    },
+    "src/core/openers.h": {
+      "bytes": 10478,
+      "sha256": "3982ac808a831bbf1ee17b2e5307129bd615e8d96de17488835e048679a743f4"
+    },
+    "src/core/opp_fusion.cpp": {
+      "bytes": 16361,
+      "sha256": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85"
+    },
+    "src/core/opp_fusion.h": {
+      "bytes": 12108,
+      "sha256": "66b31cd0b85aaee4a52a6574fc596a4117bbc0ffcca8180936b29ab467cc454b"
+    },
+    "src/core/stall.cpp": {
+      "bytes": 4456,
+      "sha256": "46e0f67eb3d3b820150d156eb2a1cae2e074e44c56f98d6ab4b739c837229436"
+    },
+    "src/core/stall.h": {
+      "bytes": 3700,
+      "sha256": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3"
+    },
+    "src/core/stand_sequence.cpp": {
+      "bytes": 3762,
+      "sha256": "7c76616dc8adef0560fe88fc7b9ec198f60dc191f9162220dbc929ca8471b476"
+    },
+    "src/core/stand_sequence.h": {
+      "bytes": 1602,
+      "sha256": "8e4d3e8f631529555d3adb8031de8ea33f3a221c6326c9a09f13fd6b87f6f843"
+    },
+    "src/core/stop_trial.h": {
+      "bytes": 1026,
+      "sha256": "11e400c333cec032d321a28d72bdfaf1a7362dea4343a6b76f2b67f8198c6d0c"
+    },
+    "src/core/turn_trial.cpp": {
+      "bytes": 4149,
+      "sha256": "cc88727fa5a19117ceb88ad3c4b068ea4df815a8570f7d5c7b80c23ae4d3d62f"
+    },
+    "src/core/turn_trial.h": {
+      "bytes": 1892,
+      "sha256": "74f6a41c750e72f7b5ad355d8700da39054de702928fac52d5893f6cc72009c0"
+    },
+    "src/core/types.h": {
+      "bytes": 4094,
+      "sha256": "8fec6d334fcb1c631c48ed0a076100d2925fee812706af721bb8a208c8c5b8eb"
+    },
+    "src/hal/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "bytes": 17505,
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 2227,
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e"
+    },
+    "src/hal/imu.cpp": {
+      "bytes": 10419,
+      "sha256": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37"
+    },
+    "src/hal/imu.h": {
+      "bytes": 2743,
+      "sha256": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750"
+    },
+    "src/hal/imu_acquisition.cpp": {
+      "bytes": 7164,
+      "sha256": "0f5aef4921c961cc85bc0c335792740972c9a02bb04c2d9624ea4c22a10c6f0e"
+    },
+    "src/hal/imu_acquisition.h": {
+      "bytes": 3658,
+      "sha256": "2528f6ff678550f2655ae6c42b1e133792385cdcec99a875712a2690b8b440df"
+    },
+    "src/hal/imu_acquisition_async.cpp": {
+      "bytes": 6907,
+      "sha256": "1bcdf95293eec7ec13c2b014726274bd97d7d53de1b7222361e38b01b83b59e9"
+    },
+    "src/hal/imu_adapter.cpp": {
+      "bytes": 4549,
+      "sha256": "4e82f5659c6b4ceda6b76292b0b374efeb66d30b9739ee1fa14519101d7dd340"
+    },
+    "src/hal/imu_adapter.h": {
+      "bytes": 654,
+      "sha256": "27ef58be36c239bee56c7f205cbf1a3043c7a472a90f78b5c06245385d4314d6"
+    },
+    "src/hal/imu_bus_async_unoq.cpp": {
+      "bytes": 8839,
+      "sha256": "097c5ae9a2f99f8155652ef78e4c7d254fbd3ea2b826faade9af8bd5faba5e29"
+    },
+    "src/hal/imu_bus_unoq.cpp": {
+      "bytes": 25366,
+      "sha256": "48ab37f899805c8ed99003ca8bc36bd74b3138969c0c430fcd4db832653f468e"
+    },
+    "src/hal/imu_bus_unoq.h": {
+      "bytes": 6677,
+      "sha256": "bb00c91780ef35e4de7d9118039fec558218b0a63f5e9e141e23c2573b512ffe"
+    },
+    "src/hal/imu_heading.cpp": {
+      "bytes": 8863,
+      "sha256": "e314f57b78980993f782cf85aa48f0cd6ffadf1cb1ae99fb801c7981f1736411"
+    },
+    "src/hal/imu_heading.h": {
+      "bytes": 3175,
+      "sha256": "178f0c24a8b2b2c637a5fd6c860169906792f1d71acca662a8ec14448763848d"
+    },
+    "src/hal/line_qtr.cpp": {
+      "bytes": 18927,
+      "sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a"
+    },
+    "src/hal/line_qtr.h": {
+      "bytes": 3751,
+      "sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24"
+    },
+    "src/hal/line_qtr_adapter.cpp": {
+      "bytes": 9600,
+      "sha256": "f6257c422b97d8ac5bd63768401d55750eaaa8d3faf83982e516b0e7de3c02d0"
+    },
+    "src/hal/line_qtr_adapter.h": {
+      "bytes": 1638,
+      "sha256": "2374055556fe4f3e2ddf1ec7273e11135256cbaa553d2e88b67c9647067dff54"
+    },
+    "src/hal/loop_hook.cpp": {
+      "bytes": 259,
+      "sha256": "bc481ea9f4567a4c8f8dde741134c94ac4f70b42257a39807a80c7ed93ba6839"
+    },
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "src/hal/motor_port_unoq.h": {
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "src/hal/motors.cpp": {
+      "bytes": 9997,
+      "sha256": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+    },
+    "src/hal/motors.h": {
+      "bytes": 2428,
+      "sha256": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149"
+    },
+    "src/hal/native_pins.cpp": {
+      "bytes": 629,
+      "sha256": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+    },
+    "src/hal/native_pins.h": {
+      "bytes": 456,
+      "sha256": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c"
+    },
+    "src/hal/opp_sensors.cpp": {
+      "bytes": 3316,
+      "sha256": "c68f13bf8d3aa41e52f94d7a1af2e8e47216df2e9ec0e5c15d45605d8f033509"
+    },
+    "src/hal/opp_sensors.h": {
+      "bytes": 935,
+      "sha256": "445fb48b903b32fdc885bae41cd1d5e923aac12195363379881a2f7cee0ca97b"
+    },
+    "src/hal/power.cpp": {
+      "bytes": 23632,
+      "sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599"
+    },
+    "src/hal/power.h": {
+      "bytes": 3142,
+      "sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d"
+    },
+    "src/hal/power_inputs.cpp": {
+      "bytes": 9306,
+      "sha256": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c"
+    },
+    "src/hal/power_inputs.h": {
+      "bytes": 3521,
+      "sha256": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864"
+    },
+    "src/hal/power_inputs_unoq.cpp": {
+      "bytes": 862,
+      "sha256": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173"
+    },
+    "src/hal/qtr_cal.cpp": {
+      "bytes": 9618,
+      "sha256": "b23a7e7665eb89a18eea8fb98334e5794b611a35dbc0de7542dbdd095905ca60"
+    },
+    "src/hal/qtr_cal.h": {
+      "bytes": 2925,
+      "sha256": "d8af2a7ad89974642b2afd84904cae740f981d822184ef3351b832157ca5e03e"
+    },
+    "src/hal/qtr_cal_format.cpp": {
+      "bytes": 2010,
+      "sha256": "90da4efc9377cbf4f814421ee97bfdcd1f0cbf426dc05856c8bd3ec04d8cb6b7"
+    },
+    "src/hal/recorder.cpp": {
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder_csv.cpp": {
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_dump.cpp": {
+      "bytes": 15093,
+      "sha256": "222193fd96c9dfa1c15437785879fb154c8e9a9ee6ff20291824ce72f338f058"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3034,
+      "sha256": "9d6f56ad1472ca4f66cb6e4ea7ad217baa89b39270bd8a4ebf1467314a663c17"
+    },
+    "src/hal/recorder_frames.cpp": {
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/ui.cpp": {
+      "bytes": 3413,
+      "sha256": "cfda5ea3077b28325425e45bee0dc54fb95803ab826ee4e098348a359ed4a3e8"
+    },
+    "src/hal/ui.h": {
+      "bytes": 889,
+      "sha256": "fc0231e65be092c8b26d73fc16b0c13d220347c30e5959d00aed13acb811a326"
+    },
+    "src/hal/ui_display.cpp": {
+      "bytes": 12037,
+      "sha256": "496b5f289e5199f8aad6d01313befbd5d12401b65e3c3977397ac605c884991d"
+    },
+    "src/hal/ui_display.h": {
+      "bytes": 2314,
+      "sha256": "5619adc7a0228fca3b15cb2ef2007d71eea4e620a41616de5e4a7f0c25004e02"
+    },
+    "src/hal/ui_matrix_unoq.cpp": {
+      "bytes": 3206,
+      "sha256": "c42cd52a399d4177d9e28b7595349babf0ee8e9069328be2d272a2538b8af412"
+    },
+    "src/hal/ui_matrix_unoq.h": {
+      "bytes": 1344,
+      "sha256": "4df1c4f5404c0c19b032d62f7e1a24777da3ce328030afbab7a7d41d824d5024"
+    },
+    "state/analysis/P2_ui_adc_probe_raw/root_capture_inputs/zephyr-arduino_uno_q_stm32u585xx.elf": {
+      "bytes": 2303728,
+      "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+    },
+    "state/analysis/P7_app_motor_fault_compile_contract.md": {
+      "bytes": 11098,
+      "sha256": "204e0d3a8299972e545c1fffb92785955d78690fe87133e990018081eaf47826"
+    },
+    "state/analysis/P7_app_motor_fault_static_contract.md": {
+      "bytes": 5465,
+      "sha256": "21b572bf9f3ec105814f7421fee2447e6c12551ba2a61f53d994b9b1abd57688"
+    },
+    "state/analysis/P7_current_app_compile_contract.md": {
+      "bytes": 9021,
+      "sha256": "2f2c90d58913c208aadef126733e465d4bf6de249b5065147e2ff870391174d4"
+    },
+    "state/analysis/P7_current_app_compile_raw/compile_current_app.py": {
+      "bytes": 29311,
+      "sha256": "aed3fbf4db5c962761affd5a3e2e52b1002feaaefe4e44f9f34df6ec78ba5ede"
+    },
+    "state/analysis/P7_current_app_compile_raw/test_compile_current_app.py": {
+      "bytes": 31760,
+      "sha256": "9caf2709027af7184026d6d30f09f27e758663eb985c869380b6b74be43dca56"
+    },
+    "state/analysis/P7_current_app_compile_raw/test_compile_current_app_errors.py": {
+      "bytes": 7150,
+      "sha256": "462e246693c4683e73d7a1992ce9413e8e9f237e7ca77c8fdfc7706d8b8d7183"
+    },
+    "state/analysis/P7_current_app_static_followup.md": {
+      "bytes": 2759,
+      "sha256": "ae1b5503dc48d1e2d581c08dccbe56f2408cb44583f17bbe25285cf9e6be5c83"
+    },
+    "state/analysis/P7_motor_const_compile_contract.md": {
+      "bytes": 11305,
+      "sha256": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174"
+    },
+    "state/analysis/P7_motor_const_compile_raw/derivation01.json": {
+      "bytes": 17980,
+      "sha256": "d4c89cd5b52eca4a9f428d498d06fafaa4963b56e8286350907212f26b8168de"
+    },
+    "state/analysis/P7_motor_const_compile_raw/host_closing01.json": {
+      "bytes": 3355,
+      "sha256": "b36f777e4001b814817bef0fd6f635349005f93fcc1c12d91732117080d85601"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_local_closing01.json": {
+      "bytes": 1153,
+      "sha256": "cf3e16fb6884900e5ac662482118dc8a6a9fc14157978b6063c4965816f91135"
+    },
+    "state/analysis/P7_motor_fault_raw/compile_motor_fault.py": {
+      "bytes": 22843,
+      "sha256": "84efd00611b3a6a8129655005930ff58e555221f6bd8d88a23c7fa1c4381ac0d"
+    },
+    "state/analysis/P7_motor_settle_compile_contract.md": {
+      "bytes": 14344,
+      "sha256": "c0b352810c41c8b3744acdd1c15bc4b21ecb76bc15d76d4fedea4fdde37dc756"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_contract.md": {
+      "bytes": 21756,
+      "sha256": "06cd96f1c84fb50368050344853e4f5dfe0540a2d9a95b43def853b402b87f5d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/compile_derivation01.json": {
+      "bytes": 66454,
+      "sha256": "09f0d107c0336f1831bdecc58dc53b11dabb9c15df30b5b3513ed1bc3cb99c91"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/first_caller_linux01/intent.json": {
+      "bytes": 553,
+      "sha256": "502aa7e6986546fe3cea5693a5ab70dd23ebdac4d80c9bfb84b751519b8015a7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/first_caller_linux01/result.json": {
+      "bytes": 878,
+      "sha256": "d33a2b49d381826cd875e3780e9a3803473a2e792ac18f910784d74ddb7df9e9"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/first_caller_linux01/stderr": {
+      "bytes": 16880,
+      "sha256": "47fffe62adaf1bd96fce4668d9dc33de1b5667ded060c40330a6305d5ba4a100"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/first_caller_linux01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/first_failure01.json": {
+      "bytes": 3088,
+      "sha256": "5e7787d5e12b459e92a31e47566b8160895fdf99b61319ea043562b3fbf9f9db"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/fixture_derivation02.json": {
+      "bytes": 76087,
+      "sha256": "1565b1824f1b02cf7506f0c72e43910a61f69f794bec17931d673f0b0cea427e"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/implementation01.json": {
+      "bytes": 5832,
+      "sha256": "d81c0e82603109cdf85c01bbd297eb2b69fd957f3872f7c75f2a8dcc89b8d1bd"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze02.json": {
+      "bytes": 33098,
+      "sha256": "f695457757767754b7d7a9205dc56cf95c712bac91b716bec1225ef87399dac8"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_adjudication02.json": {
+      "bytes": 1535,
+      "sha256": "fe60d28483771ec5f972703b1bb9cd9b51ce6d92079644cd7f2e4f83b9cbc684"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_adjudication03.json": {
+      "bytes": 1437,
+      "sha256": "20cbc5415f445621fc336da30abce180339ca648b1bf7bdea0dbd22d3a514b35"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_finding01.json": {
+      "bytes": 2160,
+      "sha256": "f85f231f35c71b8831723f967440eb0dcd1e7282c0b2d63c3813c4242093ee47"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_revision02.json": {
+      "bytes": 2745,
+      "sha256": "05c8aae69b3b665aa0207404dc4f72d22b5356d75cdb40258805fa6909fb2a83"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/coordinator_freeze01.json": {
+      "bytes": 28181,
+      "sha256": "1a055d64005611d21be052be77b5eef4399a96e352bdd42eb717b0fe6dfcfd52"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/fixture_derivation01.json": {
+      "bytes": 73421,
+      "sha256": "a9d25c2c99c80848fcee15e9906cc556e856e1604fa4118795dc2ba9d76ed0f5"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/independent_freeze01.json": {
+      "bytes": 30642,
+      "sha256": "6f230a82745d7ff46958b2cafc4499b3fd9171ad96a6b706d5cb1cb451c6cea8"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/test_compile_ordinary_app_static.py": {
+      "bytes": 22397,
+      "sha256": "6cfa43c9dd78b8644c9f151b6cc5e737d61b5e434e230cf7f88a5ab574813c94"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/test_compile_ordinary_app_static_remote.py": {
+      "bytes": 5353,
+      "sha256": "e0e84cf45be918a76f52e8297a9f95f8a6af43d55e9d96712ca7255f5bd950bd"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version02_preserved/test_compile_ordinary_app_static.py": {
+      "bytes": 22397,
+      "sha256": "0deb42025ccc3dd0d3a37471b58a100fa48960159016ea818414a3a5b46e6847"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version02_preserved/test_compile_ordinary_app_static_remote.py": {
+      "bytes": 5392,
+      "sha256": "b66163e72315e2b972c210d3b3c2ab4cac2710fe7bbba0d374155940d8b8b8c8"
+    },
+    "state/analysis/P7_static_artifact_test_draft/synthetic_elf.py": {
+      "bytes": 7632,
+      "sha256": "503a04ea49e6452725cc489101dd3dbf7b8231c2dddac9198fdb01b7bfb2f2ef"
+    },
+    "state/analysis/P7_static_artifact_test_draft/test_static_artifact_consistency.py": {
+      "bytes": 5095,
+      "sha256": "68fb11a61a8e65440392656974dca759f7fbf9502aa2a5134539f5d88350451b"
+    },
+    "state/analysis/P7_static_artifact_test_draft/test_static_artifacts.py": {
+      "bytes": 25556,
+      "sha256": "104699553e04678840463450200a29a762a059f2a713a889ec533313469616a4"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": {
+      "bytes": 18322,
+      "sha256": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": {
+      "bytes": 3718,
+      "sha256": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": {
+      "bytes": 4836,
+      "sha256": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": {
+      "bytes": 17809,
+      "sha256": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": {
+      "bytes": 20240,
+      "sha256": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1"
+    },
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy_paths.py": {
+      "bytes": 6204,
+      "sha256": "ea044a6f4654c60985184300bf9833f28c61fda724819a934f98b16c8503dd16"
+    },
+    "state/analysis/P7_static_native_tls_test_draft/synthetic_native_elf.py": {
+      "bytes": 2542,
+      "sha256": "5a86d5dcde5822d87d51369f943605a702b3918e39fa992e1da4798402683e15"
+    },
+    "state/analysis/P7_static_native_tls_test_draft/test_static_native_artifacts.py": {
+      "bytes": 20673,
+      "sha256": "fd1c7a8ff64d394f7509b6c936299f5c858926425588d5758fdbd9f3f1ad41e7"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_startup_raw/cli_builtin_files_inventory.json": {
+      "bytes": 17400,
+      "sha256": "a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb"
+    },
+    "state/analysis/P7_static_startup_raw/cli_initialization_inventory.json": {
+      "bytes": 19987,
+      "sha256": "aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62"
+    },
+    "state/analysis/P7_static_tls_raw/observed/tls-syms.S": {
+      "bytes": 977,
+      "sha256": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70"
+    },
+    "state/reviews/P7_app_motor_fault_static_final_review.md": {
+      "bytes": 2088,
+      "sha256": "1bc4b4db5a497222026abdb33d7d3136caaf9a5c0d1d873f7aa65324f13dd76e"
+    },
+    "state/reviews/P7_current_app_compile_review.md": {
+      "bytes": 9581,
+      "sha256": "94fff07d2b563a323bbd95b806e04b3e87c69d12a7b98e17bc9a419e61b00e3f"
+    },
+    "state/reviews/P7_motor_const_compile_actual_review.md": {
+      "bytes": 10135,
+      "sha256": "9c3e8cfe07ae33cac8d4a91f74127c33d3929e299bd5da339934943d784f21df"
+    },
+    "state/reviews/P7_motor_const_compile_review.md": {
+      "bytes": 19413,
+      "sha256": "c68852ff788e3c862e0d2c83cbbff23e9e53e69f77a4d3b4d7b3906619bcc9d1"
+    },
+    "state/reviews/P7_motor_const_run_actual_review.md": {
+      "bytes": 14825,
+      "sha256": "b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937"
+    },
+    "tests/tooling/test_app_motor_fault_compile.py": {
+      "bytes": 45438,
+      "sha256": "53d547ad4c9c4df9e55313014e89ab731fddcf8edde6983c5cb535d253f73e96"
+    },
+    "tests/tooling/test_app_motor_fault_compile_remote.py": {
+      "bytes": 18332,
+      "sha256": "db0ff0284eb7c528a852f39a57fcb668c72c098543b6d6813298fc2dfeddd80b"
+    },
+    "tests/tooling/test_app_motor_fault_static_policy.py": {
+      "bytes": 36715,
+      "sha256": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c"
+    },
+    "tests/tooling/test_app_motor_observe_compile.py": {
+      "bytes": 29767,
+      "sha256": "ae42938cace40745068421bf6e8e813295b12c16b376c93bd00b019b311b724d"
+    },
+    "tests/tooling/test_app_motor_observe_compile_remote.py": {
+      "bytes": 8787,
+      "sha256": "897ae6e468aaa619ff72fa03532278458a250cfc440add52fd8eff180d587413"
+    },
+    "tests/tooling/test_motor_const_compile.py": {
+      "bytes": 9992,
+      "sha256": "647a98ea97438e67860a8bc9794cbd4685127f494c5e3d123bca73c8e2894129"
+    },
+    "tests/tooling/test_motor_const_compile_remote.py": {
+      "bytes": 3451,
+      "sha256": "aa9b2520f96e110b962bb184766cea3e01ef352834d80834371a1fae0540f559"
+    },
+    "tests/tooling/test_motor_settle_compile.py": {
+      "bytes": 11340,
+      "sha256": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+    },
+    "tests/tooling/test_motor_settle_compile_remote.py": {
+      "bytes": 3412,
+      "sha256": "b2da457db6da3d01412dd300d495f075a8631294c75627f66b91dc1ee9fbd2e7"
+    },
+    "tools/app_build_commands.json": {
+      "bytes": 17617,
+      "sha256": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d"
+    },
+    "tools/app_build_pins.json": {
+      "bytes": 2100,
+      "sha256": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b"
+    },
+    "tools/app_build_policy.py": {
+      "bytes": 14956,
+      "sha256": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8"
+    },
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/board_tool.py": {
+      "bytes": 37039,
+      "sha256": "0ba071553971374339fce2809780f32685567f4e7b46544557df75dddc25f255"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "tools/compile_app_motor_observe.py": {
+      "bytes": 7583,
+      "sha256": "70e1f016cec041b40c98c7c5dd5ee20223d75c4a876c76d2fcdea3d790d63827"
+    },
+    "tools/compile_motor_const.py": {
+      "bytes": 7557,
+      "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+    },
+    "tools/compile_motor_settle_probe.py": {
+      "bytes": 7570,
+      "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+    },
+    "tools/match_deploy.py": {
+      "bytes": 26266,
+      "sha256": "3acacad6e95aff1012e9d0d1f8ef60905c026ebe865569fdb71384abd607d2a9"
+    }
+  },
+  "original_subjects": {
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    }
+  },
+  "platforms": {
+    "linux": {
+      "caller": 80,
+      "expected_skips": 0,
+      "remote": 55,
+      "temporary": "owned /dev/shm, actual nonroot WSL account"
+    },
+    "no_oracle_specific_environment_required": true,
+    "windows": {
+      "caller": 80,
+      "caller_explicit_fifo_skip": 1,
+      "caller_possible_symlink_privilege_skips": 2,
+      "remote": 55,
+      "remote_explicit_POSIX_symlink_skip": 1,
+      "remote_linux_only_descriptor_and_owner_skips": 20,
+      "temporary": "Dedicated TEMP/TMP/TMPDIR before startup; four portable D187 provenance methods run there rather than being blanket-skipped"
+    }
+  },
+  "revision": {
+    "adjudication": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_adjudication03.json",
+    "barrier_preserved": true,
+    "changes": [
+      "One counted two-occurrence negative compiler metadata replacement only; current ordinary FLAGS becomes prohibited diagnostic probe metadata."
+    ],
+    "new_subject_read_hashed_imported_executed_by_author": false,
+    "number": 3,
+    "previous_authorized_revision": {
+      "adjudication": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_adjudication02.json",
+      "barrier_preserved": true,
+      "changes": [
+        "Select only the named remote addition; do not reselect its 14 inherited tests.",
+        "Move fixture-only caller boundary read after the no-I/O ExitStack; keep subject projection and every prior assertion guarded."
+      ],
+      "new_subject_read_hashed_imported_executed_by_author": false,
+      "number": 2,
+      "prior_fixture": {
+        "bytes": 73421,
+        "path": "state/analysis/P7_ordinary_app_static_compile_raw/fixture_derivation01.json",
+        "sha256": "a9d25c2c99c80848fcee15e9906cc556e856e1604fa4118795dc2ba9d76ed0f5"
+      },
+      "prior_independent_freeze": {
+        "bytes": 30642,
+        "path": "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze01.json",
+        "sha256": "6f230a82745d7ff46958b2cafc4499b3fd9171ad96a6b706d5cb1cb451c6cea8"
+      },
+      "tests_executed_by_author": 0
+    },
+    "prior_fixture": {
+      "bytes": 76087,
+      "path": "state/analysis/P7_ordinary_app_static_compile_raw/fixture_derivation02.json",
+      "sha256": "1565b1824f1b02cf7506f0c72e43910a61f69f794bec17931d673f0b0cea427e"
+    },
+    "prior_independent_freeze": {
+      "bytes": 33098,
+      "path": "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze02.json",
+      "sha256": "f695457757767754b7d7a9205dc56cf95c712bac91b716bec1225ef87399dac8"
+    },
+    "tests_executed_by_author": 0
+  },
+  "schema": "d208-independent-fixture-derivation-v1",
+  "selection": {
+    "caller": [
+      "D188 LocalAdmissionContract16",
+      "D188 ArtifactReplyContract4",
+      "D188 PreflightContract4",
+      "D188 ExecutionContract16",
+      "D193 ProjectionContract16",
+      "D193 NewOwnerContract3",
+      "D198 DerivativeIdentityTests2",
+      "D198 SettleOwnerTests4",
+      "D203 DerivativeContractTests1",
+      "D203 ConstOwnerTests3"
+    ],
+    "remote": [
+      "D188 RemoteArtifactContract14",
+      "D187 FixedMetadataContract15",
+      "D187 FixedArtifactContract13",
+      "D187 DependencyProvenanceContract5",
+      "D193 ProjectedBundleContract2",
+      "D193 OldIdentityContract1",
+      "D198 NewRemoteOwnerTests2",
+      "D203 ConsumedSettleOwner1"
+    ]
+  },
+  "serial": true,
+  "source_guard": "All production source pins inherited from adopted proposal; no edit or bytecode generated by author.",
+  "status": "FROZEN_BEFORE_NEW_SUBJECT_INSPECTION",
+  "temporary_cleanup": "Inherited TemporaryDirectory cleanup callbacks run on each case; only uniquely created caller/original/remote/D187 temporary directories. No repository scratch deletion.",
+  "timeout_seconds": 600,
+  "unchanged_launcher_functions": [
+    "_plain_chain",
+    "_project",
+    "_read_handle",
+    "_stamp",
+    "_verify",
+    "main",
+    "parse_request",
+    "project_adapter",
+    "project_remote",
+    "read_original",
+    "require"
+  ]
+}

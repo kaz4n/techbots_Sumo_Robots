@@ -1,0 +1,40 @@
+{
+  "schema": "d208-index-byte-audit-before-v1",
+  "created": "2026-09-26T15:38:53.228093+04:00",
+  "audited_input_count": 227,
+  "mismatches": [
+    {
+      "path": "state/analysis/P7_motor_const_compile_raw/host_closing01.json",
+      "index_bytes": 3257,
+      "index_sha256": "e407c67ee37a018bd54942e091fe7d88df02b86717196c75401f52885a8cd998",
+      "working_bytes": 3355,
+      "working_sha256": "b36f777e4001b814817bef0fd6f635349005f93fcc1c12d91732117080d85601",
+      "difference": "CRLF toLF conversion only"
+    },
+    {
+      "path": "state/analysis/P7_motor_const_compile_raw/inputs_static.json",
+      "index_bytes": 13423,
+      "index_sha256": "7626abe1d37f4521178ae017c238ff50862ef658092e902e217886bcfd656e21",
+      "working_bytes": 13559,
+      "working_sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95",
+      "difference": "CRLF toLF conversion only"
+    },
+    {
+      "path": "state/analysis/P7_motor_const_compile_raw/native_local_closing01.json",
+      "index_bytes": 1111,
+      "index_sha256": "a95744c5b6d64ff64b410fa79fc0a3de2ca23c25cd9b820c9e6840a5d037e05a",
+      "working_bytes": 1153,
+      "working_sha256": "cf3e16fb6884900e5ac662482118dc8a6a9fc14157978b6063c4965816f91135",
+      "difference": "CRLF toLF conversion only"
+    },
+    {
+      "path": "tools/app_build_pins.json",
+      "index_bytes": 2076,
+      "index_sha256": "c95937aafe03dfbaa02fa1705d2fef78994e4f4e8bb445e2f5e7755187cd001f",
+      "working_bytes": 2100,
+      "working_sha256": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b",
+      "difference": "CRLF toLF conversion only"
+    }
+  ],
+  "disposition": "Add exact-path -text attributes and stage these unchanged frozen working bytes. No working-file, JSON value, test assertion, pin or scope change. Preserve frozen oracle terminal blank lines with narrowly scoped blank-at-eof whitespace attributes."
+}

@@ -305,3 +305,14 @@ state/analysis/P7_app_motor_observe_abi_raw/** -text whitespace=cr-at-eol
 # D207 pinned source, first-run streams and native evidence retain exact bytes.
 state/analysis/P7_motor_const_run_raw/** -text whitespace=cr-at-eol
 state/analysis/P7_motor_const_compile_raw/abi_static01_decode_fields.json -text whitespace=cr-at-eol
+
+# D208 exact compile-tool freezes and first host/native receipts.
+state/analysis/P7_ordinary_app_static_compile_raw/** -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve inherited CRLF pin bytes and frozen D208 oracle EOF bytes.
+state/analysis/P7_motor_const_compile_raw/host_closing01.json -text whitespace=cr-at-eol
+state/analysis/P7_motor_const_compile_raw/inputs_static.json -text whitespace=cr-at-eol
+state/analysis/P7_motor_const_compile_raw/native_local_closing01.json -text whitespace=cr-at-eol
+tools/app_build_pins.json -text whitespace=cr-at-eol
+tests/tooling/test_compile_ordinary_app_static.py whitespace=-blank-at-eof
+tests/tooling/test_compile_ordinary_app_static_remote.py whitespace=-blank-at-eof

@@ -1,0 +1,27 @@
+{
+  "schema": "d208-oracle-revision-adjudication-v1",
+  "created": "2026-09-26T15:10:16.255947+04:00",
+  "status": "BOUNDED_REVISION_AUTHORIZED",
+  "findings": [
+    {
+      "id": "O1",
+      "finding": "Remote addition selection also includes14 already-selected inherited test methods, yielding69 rather than55.",
+      "correction": "Select only test_consumed_const_build_export_and_combined_owners_are_rejected as an explicit case; preserve all53 inherited cases and every assertion."
+    },
+    {
+      "id": "O2",
+      "finding": "Fixture check_caller_boundary reads a pinned historical source inside the subject projector no-I/O guard.",
+      "correction": "Move only check_caller_boundary(actual) just after the ExitStack block, still inside the kind loop and caller conditional. Keep subject projection and existing identity/type/equality/digest assertions guarded; preserve the full boundary check."
+    }
+  ],
+  "preserved_originals": "oracle_version01_preserved",
+  "finding_receipt_sha256": "f85f231f35c71b8831723f967440eb0dcd1e7282c0b2d63c3813c4242093ee47",
+  "authorized_followup": "Independent author updates only the two fixture selections/scopes and necessary self-pins/recipe metadata, creates fixture_derivation02.json and independent_freeze02.json plus revision receipt; source reviewers check before any first suite. Root then creates coordinator_freeze02 and driver02.",
+  "subject_changes": false,
+  "suite_invocations": 0,
+  "native_calls": 0,
+  "counts_unchanged": {
+    "caller": 80,
+    "remote": 55
+  }
+}

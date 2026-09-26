@@ -1,0 +1,117 @@
+{
+  "schema": "d208-prepared-compile-scope-v1",
+  "created": "2026-09-26T15:33:37.521831+04:00",
+  "operation": "Exactly one compile-only attempt after independent actual-admission/scope review, clean committed reviewed HEAD and successful local check-only. No upload, reset, MCU operation, installation or retry.",
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "board_serial": "2629958581",
+  "project": "app.ino",
+  "fqbn": "arduino:zephyr:unoq:link_mode=static",
+  "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0",
+  "startup": "default",
+  "probe_default": 0,
+  "setup_grants": "All17 pinned defaults remain0; no hardware acceptance inferred.",
+  "attempt": "ordinary-app-static01",
+  "local_output": "state/analysis/P7_ordinary_app_static_compile_raw/native_static01",
+  "stage_owner": "build/stage/ordinary-app-static01",
+  "stage_child": "app",
+  "remote_owner": "/home/arduino/sumox26_codex_build/ordinary-app-static01",
+  "canonical_source": "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app",
+  "canonical_reuse": "Only complete existing single-app child/source-file/directory equality permits reuse; no repair.",
+  "manifest_files": 125,
+  "source_inventory_files": 105,
+  "staged_files": 104,
+  "staged_bytes": 764405,
+  "limits": {
+    "queries": 1,
+    "query_seconds": 60,
+    "compilers": 1,
+    "jobs": 1,
+    "compile_seconds": 720,
+    "reap_seconds": 5,
+    "windows_command_utf16_units": 30000,
+    "local_free_bytes": 134217728,
+    "board_free_bytes": 1073741824
+  },
+  "authorization": "D051 and D208 engineering continuation; no motor-capable run permission or human gate.",
+  "roles": {
+    "launcher": "tools/compile_ordinary_app_static.py",
+    "contract": "state/analysis/P7_ordinary_app_static_compile_contract.md",
+    "contract_review": "state/reviews/P7_ordinary_app_static_compile_preparation_review.md",
+    "caller_review": "state/reviews/P7_ordinary_app_static_compile_source_review.md",
+    "adapter_remote_review": "state/reviews/P7_ordinary_app_static_compile_remote_review.md",
+    "readonly_admission_review": "state/reviews/P7_ordinary_app_static_readonly_admission_review.md",
+    "derivation": "state/analysis/P7_ordinary_app_static_compile_raw/compile_derivation01.json",
+    "implementation": "state/analysis/P7_ordinary_app_static_compile_raw/implementation01.json",
+    "independent_freeze": "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze03.json",
+    "coordinator_freeze": "state/analysis/P7_ordinary_app_static_compile_raw/coordinator_freeze03.json",
+    "host_closing": "state/analysis/P7_ordinary_app_static_compile_raw/host_closing01.json",
+    "manifest": "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json",
+    "manifest_preparation": "state/analysis/P7_ordinary_app_static_compile_raw/manifest_preparation01.json",
+    "admission_preparation": "state/analysis/P7_ordinary_app_static_compile_raw/admission_preparation01.json",
+    "admission_actual": "state/analysis/P7_ordinary_app_static_compile_raw/admission01.json"
+  },
+  "files": {
+    "tools/compile_ordinary_app_static.py": {
+      "bytes": 26136,
+      "sha256": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_contract.md": {
+      "bytes": 21756,
+      "sha256": "06cd96f1c84fb50368050344853e4f5dfe0540a2d9a95b43def853b402b87f5d"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_preparation_review.md": {
+      "bytes": 13525,
+      "sha256": "62ef1ceeb9316e9be70f9101ce2ab0947a940172c6b559de034929029b85c19c"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_source_review.md": {
+      "bytes": 27777,
+      "sha256": "87a81920b400154dbdd01d13fac163592ec716f2402bee0a3410db89b349902a"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_remote_review.md": {
+      "bytes": 19198,
+      "sha256": "e69387e0aa28f993972c4eaf6bf8ffcd236a70fb076cf59f638afc1c94d4a78c"
+    },
+    "state/reviews/P7_ordinary_app_static_readonly_admission_review.md": {
+      "bytes": 7987,
+      "sha256": "40fc337d9001e8cecab0bb7281d7d180ef0e1da3f1c2612266dd66946cda97d5"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/compile_derivation01.json": {
+      "bytes": 66454,
+      "sha256": "09f0d107c0336f1831bdecc58dc53b11dabb9c15df30b5b3513ed1bc3cb99c91"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/implementation01.json": {
+      "bytes": 5832,
+      "sha256": "d81c0e82603109cdf85c01bbd297eb2b69fd957f3872f7c75f2a8dcc89b8d1bd"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze03.json": {
+      "bytes": 35345,
+      "sha256": "c5358e7deb6c85ea1fd1947ecb4625f60bf946471ca1bb99b1e720a560e84fd6"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/coordinator_freeze03.json": {
+      "bytes": 32250,
+      "sha256": "50816ef830e9c0c1b9501c0cb9f87b97d9f90cebfdc8b5c5ed8a4a55895dfabb"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/host_closing01.json": {
+      "bytes": 86354,
+      "sha256": "cd0c8ff33ca7a4456e883bb7f7e4a1a4f0a9cff3bcb6def820bb2ff7ab1f544f"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/manifest_preparation01.json": {
+      "bytes": 15551,
+      "sha256": "7dcc86b56e7326e4bc6c0eb86d2bf128ae08eb1a70bfc91a130ecf03412de4f1"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/admission_preparation01.json": {
+      "bytes": 4892,
+      "sha256": "5c775095995f7515da6496b1b7f089c556933339bc9588221add612a8725019a"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/admission01.json": {
+      "bytes": 64692,
+      "sha256": "3dce8640708944cfcc4a32c38dc805191731e032a1d0c581ebfde26b254548a9"
+    }
+  },
+  "evidence_boundary": "Current inhibited ordinary app static file artifacts/layout only. Loading, live RAM/stack, ordinary runtime/timing, UART ownership/rearm, sensors/motors and gates remain separate."
+}

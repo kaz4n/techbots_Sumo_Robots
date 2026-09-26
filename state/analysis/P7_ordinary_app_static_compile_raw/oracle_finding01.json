@@ -1,0 +1,37 @@
+{
+  "schema": "d208-pre-execution-oracle-finding-v1",
+  "created": "2026-09-26T15:08:58.057859+04:00",
+  "status": "ORIGINALS_PRESERVED_REVISION_NOT_AUTHORIZED_YET",
+  "finding": "Remote addition loader selects 14 inherited methods plus one new method; expected selection is only the new method. Frozen total55 would become69. Independent caller review is checking for the same pattern.",
+  "source": "Independent const_cleanup_review source-only review",
+  "files": {
+    "tests/tooling/test_compile_ordinary_app_static.py": {
+      "archived_path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/test_compile_ordinary_app_static.py",
+      "bytes": 22397,
+      "sha256": "6cfa43c9dd78b8644c9f151b6cc5e737d61b5e434e230cf7f88a5ab574813c94"
+    },
+    "tests/tooling/test_compile_ordinary_app_static_remote.py": {
+      "archived_path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/test_compile_ordinary_app_static_remote.py",
+      "bytes": 5353,
+      "sha256": "e0e84cf45be918a76f52e8297a9f95f8a6af43d55e9d96712ca7255f5bd950bd"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/fixture_derivation01.json": {
+      "archived_path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/fixture_derivation01.json",
+      "bytes": 73421,
+      "sha256": "a9d25c2c99c80848fcee15e9906cc556e856e1604fa4118795dc2ba9d76ed0f5"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/independent_freeze01.json": {
+      "archived_path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/independent_freeze01.json",
+      "bytes": 30642,
+      "sha256": "6f230a82745d7ff46958b2cafc4499b3fd9171ad96a6b706d5cb1cb451c6cea8"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/coordinator_freeze01.json": {
+      "archived_path": "state/analysis/P7_ordinary_app_static_compile_raw/oracle_version01_preserved/coordinator_freeze01.json",
+      "bytes": 28181,
+      "sha256": "1a055d64005611d21be052be77b5eef4399a96e352bdd42eb717b0fe6dfcfd52"
+    }
+  },
+  "subject_changes": false,
+  "suite_invocations": 0,
+  "native_calls": 0
+}

@@ -1,0 +1,643 @@
+{
+  "schema": "d208-readonly-board-admission-v1",
+  "status": "PASS",
+  "started": "2026-09-26T15:32:05.390186+04:00",
+  "preparation_sha256": "5c775095995f7515da6496b1b7f089c556933339bc9588221add612a8725019a",
+  "local_before": {
+    "frozen_inputs": 191,
+    "changed_inputs": [],
+    "owners_exist": {
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\ordinary-app-static01": false,
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_ordinary_app_static_compile_raw\\native_static01": false
+    },
+    "local_free_bytes": 7399079936,
+    "adb_sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982"
+  },
+  "commands": [
+    {
+      "source": "admission_source01.py",
+      "source_pin": {
+        "bytes": 10221,
+        "sha256": "051ca7806d85f2ac0fa28da91b38d666c4eb73dea1374eee45e1b0472210f5ef"
+      },
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "/usr/bin/python3 -I -B -c 'PACKET={'\"'\"'expected_identity'\"'\"': {'\"'\"'uid'\"'\"': 1000, '\"'\"'gid'\"'\"': 1000, '\"'\"'user'\"'\"': '\"'\"'arduino'\"'\"', '\"'\"'home'\"'\"': '\"'\"'/home/arduino'\"'\"', '\"'\"'sysname'\"'\"': '\"'\"'Linux'\"'\"', '\"'\"'release'\"'\"': '\"'\"'6.16.7-g0dd6551ae96b'\"'\"', '\"'\"'machine'\"'\"': '\"'\"'aarch64'\"'\"', '\"'\"'python'\"'\"': [3, 13, 5], '\"'\"'boot_id'\"'\"': '\"'\"'55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\"'\"'}, '\"'\"'pins'\"'\"': {'\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt'\"'\"': '\"'\"'d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt'\"'\"': '\"'\"'bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h'\"'\"': '\"'\"'5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp'\"'\"': '\"'\"'d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h'\"'\"': '\"'\"'7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h'\"'\"': '\"'\"'b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt'\"'\"': '\"'\"'7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt'\"'\"': '\"'\"'d96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt'\"'\"': '\"'\"'386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt'\"'\"': '\"'\"'fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h'\"'\"': '\"'\"'52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf'\"'\"': '\"'\"'39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld'\"'\"': '\"'\"'2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld'\"'\"': '\"'\"'ac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld'\"'\"': '\"'\"'04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc'\"'\"': '\"'\"'7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++'\"'\"': '\"'\"'caf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld'\"'\"': '\"'\"'d5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7'\"'\"', '\"'\"'/usr/bin/arduino-cli'\"'\"': '\"'\"'b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/tls-syms.S'\"'\"': '\"'\"'68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70'\"'\"', '\"'\"'/home/arduino/.arduino15/package_index.json'\"'\"': '\"'\"'3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e'\"'\"', '\"'\"'/home/arduino/.arduino15/library_index.json'\"'\"': '\"'\"'36dad4c25b8c5e765408d9874a6e05bc0621e62ee14a35216dc7a7537185f851'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json'\"'\"': '\"'\"'985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/builtin/tools/ctags/5.8-arduino11/ctags'\"'\"': '\"'\"'15320824d56ab9f016a5531ebe768426f420228e0ded7dc3cb013c19dc7f5ab4'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/builtin/tools/dfu-discovery/0.1.2/dfu-discovery'\"'\"': '\"'\"'bd0e06284f2cff675596f184fe6a5b8483cc4ef43644531785b2441312645a14'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/builtin/tools/mdns-discovery/1.1.0/mdns-discovery'\"'\"': '\"'\"'845abd095513f342a8757affb2c5bf7f27769fb9f598e2e0181c150299bde104'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/builtin/tools/serial-discovery/1.5.2/serial-discovery'\"'\"': '\"'\"'765a543e8b8ae7d34629efb72072661dc024fd40151cfaf7548964d9e0a11e65'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/builtin/tools/serial-monitor/0.15.0/serial-monitor'\"'\"': '\"'\"'22499c1457f40843edadfff4e46bb0bc79c3ed1ea93d7a1b29600551270d3bef'\"'\"'}, '\"'\"'remote_owner'\"'\"': '\"'\"'/home/arduino/sumox26_codex_build/ordinary-app-static01'\"'\"'}\nimport os,pwd,sys,json,hashlib,stat,signal,re,resource\nfrom pathlib import Path\nsignal.alarm(45)\nout={'\"'\"'status'\"'\"':'\"'\"'FAILED'\"'\"','\"'\"'scope'\"'\"':'\"'\"'Read-only D208 compile admission; no tool invocation, owner claim, source staging, MCU read or firmware operation'\"'\"','\"'\"'files'\"'\"':{}}\ndef need(condition,message):\n if not condition:raise ValueError(message)\ndef stamp(s):return (s.st_dev,s.st_ino,s.st_mode,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\ndef current_identity():\n u=os.uname();p=pwd.getpwuid(os.getuid())\n return dict(uid=os.getuid(),gid=os.getgid(),user=p.pw_name,home=p.pw_dir,sysname=u.sysname,release=u.release,machine=u.machine,python=list(sys.version_info[:3]),boot_id=Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip())\ndef credentials():\n status=Path('\"'\"'/proc/self/status'\"'\"').read_text()\n result={}\n for label in ('\"'\"'Uid'\"'\"','\"'\"'Gid'\"'\"','\"'\"'Groups'\"'\"'):\n  rows=[line for line in status.splitlines() if line.startswith(label+'\"'\"':'\"'\"')]\n  need(len(rows)==1,'\"'\"'Missing credential row'\"'\"')\n  result[label.lower()]=[int(v) for v in rows[0].split('\"'\"':'\"'\"',1)[1].split()]\n result['\"'\"'resuid'\"'\"']=list(os.getresuid());result['\"'\"'resgid'\"'\"']=list(os.getresgid())\n return result\ntry:\n out['\"'\"'identity'\"'\"']=current_identity();out['\"'\"'credentials'\"'\"']=credentials()\n need(out['\"'\"'identity'\"'\"']==PACKET['\"'\"'expected_identity'\"'\"'],'\"'\"'Board identity changed'\"'\"')\n need(out['\"'\"'credentials'\"'\"']['\"'\"'uid'\"'\"']==[1000]*4 and out['\"'\"'credentials'\"'\"']['\"'\"'gid'\"'\"']==[1000]*4 and out['\"'\"'credentials'\"'\"']['\"'\"'resuid'\"'\"']==[1000]*3 and out['\"'\"'credentials'\"'\"']['\"'\"'resgid'\"'\"']==[1000]*3,'\"'\"'UID/GID credentials changed'\"'\"')\n out['\"'\"'file_size_rlimit'\"'\"']=list(resource.getrlimit(resource.RLIMIT_FSIZE))\n need(tuple(out['\"'\"'file_size_rlimit'\"'\"'])==(resource.RLIM_INFINITY,resource.RLIM_INFINITY),'\"'\"'Inherited file-size limit'\"'\"')\n out['\"'\"'remote_owner_exists'\"'\"']=os.path.lexists(PACKET['\"'\"'remote_owner'\"'\"'])\n need(not out['\"'\"'remote_owner_exists'\"'\"'],'\"'\"'Remote owner already exists'\"'\"')\n out['\"'\"'ancestry'\"'\"']={}\n for name in ('\"'\"'/home/arduino'\"'\"',str(Path(PACKET['\"'\"'remote_owner'\"'\"']).parent)):\n  p=Path(name);s=p.lstat();need(stat.S_ISDIR(s.st_mode) and p.resolve()==p,'\"'\"'Linked remote ancestry'\"'\"')\n  out['\"'\"'ancestry'\"'\"'][name]=stamp(s)\n out['\"'\"'resources'\"'\"']={}\n for key,name in (('\"'\"'root_free_bytes'\"'\"','\"'\"'/'\"'\"'),('\"'\"'home_free_bytes'\"'\"','\"'\"'/home/arduino'\"'\"'),('\"'\"'tmp_free_bytes'\"'\"','\"'\"'/tmp'\"'\"')):\n  s=os.statvfs(name);out['\"'\"'resources'\"'\"'][key]=s.f_bavail*s.f_frsize\n need(out['\"'\"'resources'\"'\"']['\"'\"'root_free_bytes'\"'\"']>=1073741824 and out['\"'\"'resources'\"'\"']['\"'\"'home_free_bytes'\"'\"']>=1073741824,'\"'\"'Less than 1GiB board free space'\"'\"')\n mem=Path('\"'\"'/proc/meminfo'\"'\"').read_text()\n for key in ('\"'\"'MemTotal'\"'\"','\"'\"'MemAvailable'\"'\"','\"'\"'SwapTotal'\"'\"','\"'\"'SwapFree'\"'\"'):\n  rows=[line for line in mem.splitlines() if line.startswith(key+'\"'\"':'\"'\"')]\n  need(len(rows)==1,'\"'\"'Missing memory observation'\"'\"')\n  match=re.fullmatch(key+r'\"'\"':\\s+([0-9]+) kB'\"'\"',rows[0]);need(match is not None,'\"'\"'Malformed memory observation'\"'\"')\n  out['\"'\"'resources'\"'\"'][key+'\"'\"'_bytes'\"'\"']=int(match[1])*1024\n pids=sorted((p for p in Path('\"'\"'/proc'\"'\"').iterdir() if p.name.isdigit()),key=lambda p:int(p.name))\n need(len(pids)<=4096,'\"'\"'Process count bound'\"'\"')\n out['\"'\"'process_count'\"'\"']=len(pids);out['\"'\"'process_conflicts'\"'\"']=[];out['\"'\"'departed_pids'\"'\"']=[]\n for p in pids:\n  try:\n   with (p/'\"'\"'cmdline'\"'\"').open('\"'\"'rb'\"'\"') as f:raw=f.read(65537)\n   with (p/'\"'\"'comm'\"'\"').open('\"'\"'rb'\"'\"') as f:comm=f.read(65537)\n   need(len(raw)<=65536 and len(comm)<=65536,'\"'\"'Process metadata bound'\"'\"')\n   need(not raw or raw.endswith(b'\"'\"'\\0'\"'\"'),'\"'\"'Incomplete command line'\"'\"')\n   args=raw.split(b'\"'\"'\\0'\"'\"');name=Path(os.fsdecode(args[0])).name if args[0] else '\"'\"''\"'\"'\n   comm=comm.decode('\"'\"'utf-8'\"'\"').rstrip('\"'\"'\\n'\"'\"')\n  except FileNotFoundError:\n   if os.path.lexists(p):raise\n   out['\"'\"'departed_pids'\"'\"'].append(int(p.name));continue\n  if any(n in ('\"'\"'arduino-cli'\"'\"','\"'\"'openocd'\"'\"','\"'\"'remoteocd'\"'\"','\"'\"'gdb'\"'\"','\"'\"'arm-zephyr-eabi-gdb'\"'\"') or re.fullmatch(r'\"'\"'(?:.*-)?(?:gcc|g\\+\\+|cc|c\\+\\+|cc1|cc1plus|collect2|as|ld|ld.bfd|lto-wrapper|lto1)'\"'\"',n) for n in (name,comm)):\n   out['\"'\"'process_conflicts'\"'\"'].append({'\"'\"'pid'\"'\"':int(p.name),'\"'\"'argv0'\"'\"':os.fsdecode(args[0]),'\"'\"'comm'\"'\"':comm})\n need(not out['\"'\"'process_conflicts'\"'\"'],'\"'\"'Conflicting compile/native process'\"'\"')\n for name,expected in sorted(PACKET['\"'\"'pins'\"'\"'].items()):\n  p=Path(name);before=p.lstat()\n  need(stat.S_ISREG(before.st_mode) and 0<before.st_size<=134217728,'\"'\"'Nonordinary or oversized installed input: '\"'\"'+name)\n  fd=os.open(p,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)\n  try:\n   need(stamp(os.fstat(fd))==stamp(before),'\"'\"'Opened input drift: '\"'\"'+name)\n   h=hashlib.sha256();total=0\n   while True:\n    chunk=os.read(fd,65536)\n    if not chunk:break\n    total+=len(chunk);need(total<=134217728,'\"'\"'Installed input read bound'\"'\"');h.update(chunk)\n   need(stamp(os.fstat(fd))==stamp(before),'\"'\"'Read input drift: '\"'\"'+name)\n  finally:os.close(fd)\n  need(stamp(p.lstat())==stamp(before) and total==before.st_size,'\"'\"'Final input drift: '\"'\"'+name)\n  out['\"'\"'files'\"'\"'][name]={'\"'\"'bytes'\"'\"':total,'\"'\"'sha256'\"'\"':h.hexdigest(),'\"'\"'identity'\"'\"':stamp(before),'\"'\"'expected_sha256'\"'\"':expected}\n  need(h.hexdigest()==expected,'\"'\"'Installed input hash changed: '\"'\"'+name)\n out['\"'\"'closing_identity'\"'\"']=current_identity();out['\"'\"'closing_credentials'\"'\"']=credentials()\n need(out['\"'\"'closing_identity'\"'\"']==out['\"'\"'identity'\"'\"'] and out['\"'\"'closing_credentials'\"'\"']==out['\"'\"'credentials'\"'\"'],'\"'\"'Identity changed during observation'\"'\"')\n out['\"'\"'closing_remote_owner_exists'\"'\"']=os.path.lexists(PACKET['\"'\"'remote_owner'\"'\"'])\n need(not out['\"'\"'closing_remote_owner_exists'\"'\"'],'\"'\"'Remote owner appeared during observation'\"'\"')\n out['\"'\"'status'\"'\"']='\"'\"'PASS'\"'\"'\nexcept Exception as error:\n out['\"'\"'error'\"'\"']={'\"'\"'type'\"'\"':type(error).__name__,'\"'\"'message'\"'\"':str(error)}\nprint(json.dumps(out,separators=('\"'\"','\"'\"','\"'\"':'\"'\"')))\nif out['\"'\"'status'\"'\"']!='\"'\"'PASS'\"'\"':raise SystemExit(1)\n'"
+      ],
+      "command_utf16_units": 12767,
+      "timeout_seconds": 75,
+      "started": "2026-09-26T15:32:05.507206+04:00",
+      "returncode": 0,
+      "stdout": "{\"status\":\"PASS\",\"scope\":\"Read-only D208 compile admission; no tool invocation, owner claim, source staging, MCU read or firmware operation\",\"files\":{\"/home/arduino/.arduino15/library_index.json\":{\"bytes\":58226703,\"sha256\":\"36dad4c25b8c5e765408d9874a6e05bc0621e62ee14a35216dc7a7537185f851\",\"identity\":[66341,6858,33188,1,58226703,1790103068753734773,1790103069025734773],\"expected_sha256\":\"36dad4c25b8c5e765408d9874a6e05bc0621e62ee14a35216dc7a7537185f851\"},\"/home/arduino/.arduino15/package_index.json\":{\"bytes\":1691790,\"sha256\":\"3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e\",\"identity\":[66341,25,33188,1,1691790,1790337898033722152,1790337898042819547],\"expected_sha256\":\"3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt\":{\"bytes\":6101,\"sha256\":\"bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84\",\"identity\":[66341,14098,33152,1,6101,1790092186173496717,1790092186173496717],\"expected_sha256\":\"bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h\":{\"bytes\":6277,\"sha256\":\"5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514\",\"identity\":[66341,14130,33188,1,6277,1790092186194358264,1790092186194358264],\"expected_sha256\":\"5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp\":{\"bytes\":2515,\"sha256\":\"d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed\",\"identity\":[66341,14107,33188,1,2515,1790092186184619209,1790092186184619209],\"expected_sha256\":\"d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf\":{\"bytes\":2303728,\"sha256\":\"39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd\",\"identity\":[66341,18245,33261,1,2303728,1790092194602372651,1790092194602372651],\"expected_sha256\":\"39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json\":{\"bytes\":303397,\"sha256\":\"985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9\",\"identity\":[66341,7568,33188,1,303397,1790092361932226124,1790092361932226124],\"expected_sha256\":\"985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt\":{\"bytes\":20947,\"sha256\":\"d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638\",\"identity\":[66341,14099,33152,1,20947,1790092186177497164,1790092186177497164],\"expected_sha256\":\"d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld\":{\"bytes\":1460,\"sha256\":\"2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c\",\"identity\":[66341,14255,33188,1,1460,1790092186361517703,1790092186361517703],\"expected_sha256\":\"2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld\":{\"bytes\":2369,\"sha256\":\"04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e\",\"identity\":[66341,14254,33188,1,2369,1790092186361517703,1790092186361517703],\"expected_sha256\":\"04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld\":{\"bytes\":486,\"sha256\":\"ac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8\",\"identity\":[66341,14252,33188,1,486,1790092186361139797,1790092186361139797],\"expected_sha256\":\"ac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt\":{\"bytes\":713,\"sha256\":\"386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6\",\"identity\":[66341,18240,33188,1,713,1790092194035674270,1790092194035674270],\"expected_sha256\":\"386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt\":{\"bytes\":665,\"sha256\":\"fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800\",\"identity\":[66341,18233,33188,1,665,1790092194031700762,1790092194031700762],\"expected_sha256\":\"fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\":{\"bytes\":1163,\"sha256\":\"7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575\",\"identity\":[66341,18234,33188,1,1163,1790092194032142471,1790092194032142471],\"expected_sha256\":\"7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h\":{\"bytes\":22526,\"sha256\":\"52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c\",\"identity\":[66341,15936,33188,1,22526,1790092190246776066,1790092190246776066],\"expected_sha256\":\"52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt\":{\"bytes\":144,\"sha256\":\"d96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391\",\"identity\":[66341,18227,33188,1,144,1790092194027138291,1790092194027138291],\"expected_sha256\":\"d96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h\":{\"bytes\":627,\"sha256\":\"7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79\",\"identity\":[66341,18237,33188,1,627,1790092194032972031,1790092194032972031],\"expected_sha256\":\"7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/tls-syms.S\":{\"bytes\":977,\"sha256\":\"68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70\",\"identity\":[66341,18231,33188,1,977,1790092194028099894,1790092194028099894],\"expected_sha256\":\"68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70\"},\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h\":{\"bytes\":1540,\"sha256\":\"b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678\",\"identity\":[66341,18228,33188,1,1540,1790092194027379148,1790092194027379148],\"expected_sha256\":\"b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678\"},\"/home/arduino/.arduino15/packages/builtin/tools/ctags/5.8-arduino11/ctags\":{\"bytes\":249920,\"sha256\":\"15320824d56ab9f016a5531ebe768426f420228e0ded7dc3cb013c19dc7f5ab4\",\"identity\":[66341,40,33261,1,249920,1762843339735793224,1762844014932680804],\"expected_sha256\":\"15320824d56ab9f016a5531ebe768426f420228e0ded7dc3cb013c19dc7f5ab4\"},\"/home/arduino/.arduino15/packages/builtin/tools/dfu-discovery/0.1.2/dfu-discovery\":{\"bytes\":2852640,\"sha256\":\"bd0e06284f2cff675596f184fe6a5b8483cc4ef43644531785b2441312645a14\",\"identity\":[66341,36,33261,1,2852640,1762843339963798090,1762844014930619409],\"expected_sha256\":\"bd0e06284f2cff675596f184fe6a5b8483cc4ef43644531785b2441312645a14\"},\"/home/arduino/.arduino15/packages/builtin/tools/mdns-discovery/1.1.0/mdns-discovery\":{\"bytes\":5484390,\"sha256\":\"845abd095513f342a8757affb2c5bf7f27769fb9f598e2e0181c150299bde104\",\"identity\":[66341,7552,33261,1,5484390,1790091864156799438,1790091864156799438],\"expected_sha256\":\"845abd095513f342a8757affb2c5bf7f27769fb9f598e2e0181c150299bde104\"},\"/home/arduino/.arduino15/packages/builtin/tools/serial-discovery/1.5.2/serial-discovery\":{\"bytes\":3537405,\"sha256\":\"765a543e8b8ae7d34629efb72072661dc024fd40151cfaf7548964d9e0a11e65\",\"identity\":[66341,7557,33261,1,3537405,1790091864812799437,1790091864812799437],\"expected_sha256\":\"765a543e8b8ae7d34629efb72072661dc024fd40151cfaf7548964d9e0a11e65\"},\"/home/arduino/.arduino15/packages/builtin/tools/serial-monitor/0.15.0/serial-monitor\":{\"bytes\":4146389,\"sha256\":\"22499c1457f40843edadfff4e46bb0bc79c3ed1ea93d7a1b29600551270d3bef\",\"identity\":[66341,44,33261,1,4146389,1762843340341806158,1762844014936619579],\"expected_sha256\":\"22499c1457f40843edadfff4e46bb0bc79c3ed1ea93d7a1b29600551270d3bef\"},\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++\":{\"bytes\":2014168,\"sha256\":\"caf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935\",\"identity\":[66341,11989,33261,2,2014168,1790092146054182627,1790092174148688449],\"expected_sha256\":\"caf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935\"},\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc\":{\"bytes\":2010072,\"sha256\":\"7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19\",\"identity\":[66341,11980,33261,2,2010072,1790092136198916035,1790092174148688449],\"expected_sha256\":\"7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19\"},\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld\":{\"bytes\":1883424,\"sha256\":\"d5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7\",\"identity\":[66341,10360,33261,4,1883424,1790091919852327395,1790092174148688449],\"expected_sha256\":\"d5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7\"},\"/usr/bin/arduino-cli\":{\"bytes\":34651734,\"sha256\":\"b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433\",\"identity\":[66340,130139,33261,1,34651734,1780654958000000000,1790092307285542675],\"expected_sha256\":\"b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433\"}},\"identity\":{\"uid\":1000,\"gid\":1000,\"user\":\"arduino\",\"home\":\"/home/arduino\",\"sysname\":\"Linux\",\"release\":\"6.16.7-g0dd6551ae96b\",\"machine\":\"aarch64\",\"python\":[3,13,5],\"boot_id\":\"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\"},\"credentials\":{\"uid\":[1000,1000,1000,1000],\"gid\":[1000,1000,1000,1000],\"groups\":[4,20,27,29,44,100,101,102,103,987,991,995,1000,1001],\"resuid\":[1000,1000,1000],\"resgid\":[1000,1000,1000]},\"file_size_rlimit\":[-1,-1],\"remote_owner_exists\":false,\"ancestry\":{\"/home/arduino\":[66341,2,16877,20,4096,1790201190355199361,1790201190355199361],\"/home/arduino/sumox26_codex_build\":[66341,239108,16893,119,12288,1790418845324055996,1790418845324055996]},\"resources\":{\"root_free_bytes\":2935255040,\"home_free_bytes\":13913214976,\"tmp_free_bytes\":1921687552,\"MemTotal_bytes\":3848208384,\"MemAvailable_bytes\":3227373568,\"SwapTotal_bytes\":1924100096,\"SwapFree_bytes\":1924100096},\"process_count\":164,\"process_conflicts\":[],\"departed_pids\":[],\"closing_identity\":{\"uid\":1000,\"gid\":1000,\"user\":\"arduino\",\"home\":\"/home/arduino\",\"sysname\":\"Linux\",\"release\":\"6.16.7-g0dd6551ae96b\",\"machine\":\"aarch64\",\"python\":[3,13,5],\"boot_id\":\"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\"},\"closing_credentials\":{\"uid\":[1000,1000,1000,1000],\"gid\":[1000,1000,1000,1000],\"groups\":[4,20,27,29,44,100,101,102,103,987,991,995,1000,1001],\"resuid\":[1000,1000,1000],\"resgid\":[1000,1000,1000]},\"closing_remote_owner_exists\":false}\r\n",
+      "stderr": "",
+      "stdout_base64": "eyJzdGF0dXMiOiJQQVNTIiwic2NvcGUiOiJSZWFkLW9ubHkgRDIwOCBjb21waWxlIGFkbWlzc2lvbjsgbm8gdG9vbCBpbnZvY2F0aW9uLCBvd25lciBjbGFpbSwgc291cmNlIHN0YWdpbmcsIE1DVSByZWFkIG9yIGZpcm13YXJlIG9wZXJhdGlvbiIsImZpbGVzIjp7Ii9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9saWJyYXJ5X2luZGV4Lmpzb24iOnsiYnl0ZXMiOjU4MjI2NzAzLCJzaGEyNTYiOiIzNmRhZDRjMjViOGM1ZTc2NTQwOGQ5ODc0YTZlMDViYzA2MjFlNjJlZTE0YTM1MjE2ZGM3YTc1MzcxODVmODUxIiwiaWRlbnRpdHkiOls2NjM0MSw2ODU4LDMzMTg4LDEsNTgyMjY3MDMsMTc5MDEwMzA2ODc1MzczNDc3MywxNzkwMTAzMDY5MDI1NzM0NzczXSwiZXhwZWN0ZWRfc2hhMjU2IjoiMzZkYWQ0YzI1YjhjNWU3NjU0MDhkOTg3NGE2ZTA1YmMwNjIxZTYyZWUxNGEzNTIxNmRjN2E3NTM3MTg1Zjg1MSJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZV9pbmRleC5qc29uIjp7ImJ5dGVzIjoxNjkxNzkwLCJzaGEyNTYiOiIzY2I5NjkxZGM4MTQ1M2YwYWQ0MjljNzIxYWY0YWFmODdmZjE4ZDk0MzE0MDhmNGNkNzVjOGJiNDc5NDE5YzNlIiwiaWRlbnRpdHkiOls2NjM0MSwyNSwzMzE4OCwxLDE2OTE3OTAsMTc5MDMzNzg5ODAzMzcyMjE1MiwxNzkwMzM3ODk4MDQyODE5NTQ3XSwiZXhwZWN0ZWRfc2hhMjU2IjoiM2NiOTY5MWRjODE0NTNmMGFkNDI5YzcyMWFmNGFhZjg3ZmYxOGQ5NDMxNDA4ZjRjZDc1YzhiYjQ3OTQxOWMzZSJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvYm9hcmRzLnR4dCI6eyJieXRlcyI6NjEwMSwic2hhMjU2IjoiYmQ0ZjAzOTA0ZDhmZTE2YmY4NDViYWYwOWQwNDM1ZTc5ZjVhNDZjNmU2YTRmNDQ1ZjNlZTU5Mjk5NDY1MmI4NCIsImlkZW50aXR5IjpbNjYzNDEsMTQwOTgsMzMxNTIsMSw2MTAxLDE3OTAwOTIxODYxNzM0OTY3MTcsMTc5MDA5MjE4NjE3MzQ5NjcxN10sImV4cGVjdGVkX3NoYTI1NiI6ImJkNGYwMzkwNGQ4ZmUxNmJmODQ1YmFmMDlkMDQzNWU3OWY1YTQ2YzZlNmE0ZjQ0NWYzZWU1OTI5OTQ2NTJiODQifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2FyZHVpbm8vaGFyZHdhcmUvemVwaHlyLzEuMC4wL2NvcmVzL2FyZHVpbm8vQXJkdWluby5oIjp7ImJ5dGVzIjo2Mjc3LCJzaGEyNTYiOiI1ZjA2OGMxMGEwYWViMmY2ZDNjZWMxZmE4YjJhMzEzYjFmNzM3NGJjYjc3NzE2ZjBiNmNkZGJhNWJjMTk4NTE0IiwiaWRlbnRpdHkiOls2NjM0MSwxNDEzMCwzMzE4OCwxLDYyNzcsMTc5MDA5MjE4NjE5NDM1ODI2NCwxNzkwMDkyMTg2MTk0MzU4MjY0XSwiZXhwZWN0ZWRfc2hhMjU2IjoiNWYwNjhjMTBhMGFlYjJmNmQzY2VjMWZhOGIyYTMxM2IxZjczNzRiY2I3NzcxNmYwYjZjZGRiYTViYzE5ODUxNCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvY29yZXMvYXJkdWluby9tYWluLmNwcCI6eyJieXRlcyI6MjUxNSwic2hhMjU2IjoiZDMxZGM1Zjc4YWNmMGEzNTM1YjQ2NTBhNjNhODk1MjkwOGY4YzZmNGJmODE2NGQ2MzlkYTRhMDI0ODZiODdlZCIsImlkZW50aXR5IjpbNjYzNDEsMTQxMDcsMzMxODgsMSwyNTE1LDE3OTAwOTIxODYxODQ2MTkyMDksMTc5MDA5MjE4NjE4NDYxOTIwOV0sImV4cGVjdGVkX3NoYTI1NiI6ImQzMWRjNWY3OGFjZjBhMzUzNWI0NjUwYTYzYTg5NTI5MDhmOGM2ZjRiZjgxNjRkNjM5ZGE0YTAyNDg2Yjg3ZWQifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2FyZHVpbm8vaGFyZHdhcmUvemVwaHlyLzEuMC4wL2Zpcm13YXJlcy96ZXBoeXItYXJkdWlub191bm9fcV9zdG0zMnU1ODV4eC5lbGYiOnsiYnl0ZXMiOjIzMDM3MjgsInNoYTI1NiI6IjM5ZDRhNGZkNDcyNDE2NjMzMjNmNmUwNGY5NGRkOGY1YTlmOWFkNjU4MmNmMWRmMzdmOTcwOWI3NDAyNmFkY2QiLCJpZGVudGl0eSI6WzY2MzQxLDE4MjQ1LDMzMjYxLDEsMjMwMzcyOCwxNzkwMDkyMTk0NjAyMzcyNjUxLDE3OTAwOTIxOTQ2MDIzNzI2NTFdLCJleHBlY3RlZF9zaGEyNTYiOiIzOWQ0YTRmZDQ3MjQxNjYzMzIzZjZlMDRmOTRkZDhmNWE5ZjlhZDY1ODJjZjFkZjM3Zjk3MDliNzQwMjZhZGNkIn0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy9hcmR1aW5vL2hhcmR3YXJlL3plcGh5ci8xLjAuMC9pbnN0YWxsZWQuanNvbiI6eyJieXRlcyI6MzAzMzk3LCJzaGEyNTYiOiI5ODVkM2JhMTAyZWJmNDQwZWNhNGZiOWE5Zjc2N2IzNTEzNGUzZDgyNzkxOTIyNGJiNzYzNWI0YjEwNmY4NmY5IiwiaWRlbnRpdHkiOls2NjM0MSw3NTY4LDMzMTg4LDEsMzAzMzk3LDE3OTAwOTIzNjE5MzIyMjYxMjQsMTc5MDA5MjM2MTkzMjIyNjEyNF0sImV4cGVjdGVkX3NoYTI1NiI6Ijk4NWQzYmExMDJlYmY0NDBlY2E0ZmI5YTlmNzY3YjM1MTM0ZTNkODI3OTE5MjI0YmI3NjM1YjRiMTA2Zjg2ZjkifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2FyZHVpbm8vaGFyZHdhcmUvemVwaHlyLzEuMC4wL3BsYXRmb3JtLnR4dCI6eyJieXRlcyI6MjA5NDcsInNoYTI1NiI6ImQ0YzgyNGZjZWIyZjRjZjAwNTdkYTRkZjMyMzVkM2FlZTE5NWJiYmQ3MWY1OWE0OGQzNDRjODE4ZmNkNWU2MzgiLCJpZGVudGl0eSI6WzY2MzQxLDE0MDk5LDMzMTUyLDEsMjA5NDcsMTc5MDA5MjE4NjE3NzQ5NzE2NCwxNzkwMDkyMTg2MTc3NDk3MTY0XSwiZXhwZWN0ZWRfc2hhMjU2IjoiZDRjODI0ZmNlYjJmNGNmMDA1N2RhNGRmMzIzNWQzYWVlMTk1YmJiZDcxZjU5YTQ4ZDM0NGM4MThmY2Q1ZTYzOCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvX2xkc2NyaXB0cy9idWlsZC1keW5hbWljLmxkIjp7ImJ5dGVzIjoxNDYwLCJzaGEyNTYiOiIyYWJhNzdhOGRiYjllZGY0YWVlYjk2Y2JkNDYwODQ0ZmUzZmNmZjgxYzVmZjMzMGNhNTU3ZWQxMjE4ZGJmMDJjIiwiaWRlbnRpdHkiOls2NjM0MSwxNDI1NSwzMzE4OCwxLDE0NjAsMTc5MDA5MjE4NjM2MTUxNzcwMywxNzkwMDkyMTg2MzYxNTE3NzAzXSwiZXhwZWN0ZWRfc2hhMjU2IjoiMmFiYTc3YThkYmI5ZWRmNGFlZWI5NmNiZDQ2MDg0NGZlM2ZjZmY4MWM1ZmYzMzBjYTU1N2VkMTIxOGRiZjAyYyJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvX2xkc2NyaXB0cy9idWlsZC1zdGF0aWMubGQiOnsiYnl0ZXMiOjIzNjksInNoYTI1NiI6IjA0YmUwNjExNTZlYmI4OGZhNDM1MzdjODExZTBhOGZkYzJiNzIxZDFiY2MwYTFhOWFjNTk5MDAxODUzNjEyM2UiLCJpZGVudGl0eSI6WzY2MzQxLDE0MjU0LDMzMTg4LDEsMjM2OSwxNzkwMDkyMTg2MzYxNTE3NzAzLDE3OTAwOTIxODYzNjE1MTc3MDNdLCJleHBlY3RlZF9zaGEyNTYiOiIwNGJlMDYxMTU2ZWJiODhmYTQzNTM3YzgxMWUwYThmZGMyYjcyMWQxYmNjMGExYTlhYzU5OTAwMTg1MzYxMjNlIn0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy9hcmR1aW5vL2hhcmR3YXJlL3plcGh5ci8xLjAuMC92YXJpYW50cy9fbGRzY3JpcHRzL21lbW9yeS1jaGVjay5sZCI6eyJieXRlcyI6NDg2LCJzaGEyNTYiOiJhYzM4YTA1OGMzMTY3MzNlMzQwNWI0NDcyZWI2Y2YxNWM3ZDM0NDAwYTQwOTY5ODNkNGUyN2ZhMGY3ZTg4NmU4IiwiaWRlbnRpdHkiOls2NjM0MSwxNDI1MiwzMzE4OCwxLDQ4NiwxNzkwMDkyMTg2MzYxMTM5Nzk3LDE3OTAwOTIxODYzNjExMzk3OTddLCJleHBlY3RlZF9zaGEyNTYiOiJhYzM4YTA1OGMzMTY3MzNlMzQwNWI0NDcyZWI2Y2YxNWM3ZDM0NDAwYTQwOTY5ODNkNGUyN2ZhMGY3ZTg4NmU4In0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy9hcmR1aW5vL2hhcmR3YXJlL3plcGh5ci8xLjAuMC92YXJpYW50cy9hcmR1aW5vX3Vub19xX3N0bTMydTU4NXh4L2NmbGFncy50eHQiOnsiYnl0ZXMiOjcxMywic2hhMjU2IjoiMzg2YzIwOWViY2RjM2QxYzhhODdmNzY1YmNlNzQ0YWRkNWU4NzQ1MzAzNWZkMjYwNmYxN2Q5NjRiMGVkODdhNiIsImlkZW50aXR5IjpbNjYzNDEsMTgyNDAsMzMxODgsMSw3MTMsMTc5MDA5MjE5NDAzNTY3NDI3MCwxNzkwMDkyMTk0MDM1Njc0MjcwXSwiZXhwZWN0ZWRfc2hhMjU2IjoiMzg2YzIwOWViY2RjM2QxYzhhODdmNzY1YmNlNzQ0YWRkNWU4NzQ1MzAzNWZkMjYwNmYxN2Q5NjRiMGVkODdhNiJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvYXJkdWlub191bm9fcV9zdG0zMnU1ODV4eC9jeHhmbGFncy50eHQiOnsiYnl0ZXMiOjY2NSwic2hhMjU2IjoiZmQzZDQwNDYzY2UzNTE4NGY1MmM3ZTQxMDEwY2Q5NmY0ZDRmMWFlNDAzY2ZkNzg0NDcyZTNlYTUxYjBlYzgwMCIsImlkZW50aXR5IjpbNjYzNDEsMTgyMzMsMzMxODgsMSw2NjUsMTc5MDA5MjE5NDAzMTcwMDc2MiwxNzkwMDkyMTk0MDMxNzAwNzYyXSwiZXhwZWN0ZWRfc2hhMjU2IjoiZmQzZDQwNDYzY2UzNTE4NGY1MmM3ZTQxMDEwY2Q5NmY0ZDRmMWFlNDAzY2ZkNzg0NDcyZTNlYTUxYjBlYzgwMCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvYXJkdWlub191bm9fcV9zdG0zMnU1ODV4eC9pbmNsdWRlcy50eHQiOnsiYnl0ZXMiOjExNjMsInNoYTI1NiI6IjcxODliZDlhMDA3NTVjMTI5MjE5NDcxNmNhYmFjNjhkNWYwOGVmOGZjZWZhMjJmMDFhZTRiODgxMGY0ODA1NzUiLCJpZGVudGl0eSI6WzY2MzQxLDE4MjM0LDMzMTg4LDEsMTE2MywxNzkwMDkyMTk0MDMyMTQyNDcxLDE3OTAwOTIxOTQwMzIxNDI0NzFdLCJleHBlY3RlZF9zaGEyNTYiOiI3MTg5YmQ5YTAwNzU1YzEyOTIxOTQ3MTZjYWJhYzY4ZDVmMDhlZjhmY2VmYTIyZjAxYWU0Yjg4MTBmNDgwNTc1In0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy9hcmR1aW5vL2hhcmR3YXJlL3plcGh5ci8xLjAuMC92YXJpYW50cy9hcmR1aW5vX3Vub19xX3N0bTMydTU4NXh4L2xsZXh0LWVkay9pbmNsdWRlL3plcGh5ci9pbmNsdWRlL2dlbmVyYXRlZC96ZXBoeXIvYXV0b2NvbmYuaCI6eyJieXRlcyI6MjI1MjYsInNoYTI1NiI6IjUyMTc4ZjVlZWZjZjI3NjcyMGI4NTliZGQ2MGZjODdjYTQyMDdiMDEzMGFjMWZkNWJhMDk5YWY3NGI4NzdhMGMiLCJpZGVudGl0eSI6WzY2MzQxLDE1OTM2LDMzMTg4LDEsMjI1MjYsMTc5MDA5MjE5MDI0Njc3NjA2NiwxNzkwMDkyMTkwMjQ2Nzc2MDY2XSwiZXhwZWN0ZWRfc2hhMjU2IjoiNTIxNzhmNWVlZmNmMjc2NzIwYjg1OWJkZDYwZmM4N2NhNDIwN2IwMTMwYWMxZmQ1YmEwOTlhZjc0Yjg3N2EwYyJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvYXJkdWlub191bm9fcV9zdG0zMnU1ODV4eC9tYWNoaW5lX2ZsYWdzLnR4dCI6eyJieXRlcyI6MTQ0LCJzaGEyNTYiOiJkOTZmZTNhOThkMWRjOTExNjRlMmYwNmNmZmE1YTBmOGJjM2NjZDg1MmYwMjY1YmY5ZmYyZjgyNTVhZGM4MzkxIiwiaWRlbnRpdHkiOls2NjM0MSwxODIyNywzMzE4OCwxLDE0NCwxNzkwMDkyMTk0MDI3MTM4MjkxLDE3OTAwOTIxOTQwMjcxMzgyOTFdLCJleHBlY3RlZF9zaGEyNTYiOiJkOTZmZTNhOThkMWRjOTExNjRlMmYwNmNmZmE1YTBmOGJjM2NjZDg1MmYwMjY1YmY5ZmYyZjgyNTVhZGM4MzkxIn0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy9hcmR1aW5vL2hhcmR3YXJlL3plcGh5ci8xLjAuMC92YXJpYW50cy9hcmR1aW5vX3Vub19xX3N0bTMydTU4NXh4L3Bvc3R2YXJpYW50LmgiOnsiYnl0ZXMiOjYyNywic2hhMjU2IjoiN2E5Nzg5YTFiOTc1MmE4ZGEzZjk2ZmY1YmM5YzNmOWMxOGFiMzdjYjFlZWYyYzZhODcxZjRmMzAzNjU4OWU3OSIsImlkZW50aXR5IjpbNjYzNDEsMTgyMzcsMzMxODgsMSw2MjcsMTc5MDA5MjE5NDAzMjk3MjAzMSwxNzkwMDkyMTk0MDMyOTcyMDMxXSwiZXhwZWN0ZWRfc2hhMjU2IjoiN2E5Nzg5YTFiOTc1MmE4ZGEzZjk2ZmY1YmM5YzNmOWMxOGFiMzdjYjFlZWYyYzZhODcxZjRmMzAzNjU4OWU3OSJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYXJkdWluby9oYXJkd2FyZS96ZXBoeXIvMS4wLjAvdmFyaWFudHMvYXJkdWlub191bm9fcV9zdG0zMnU1ODV4eC90bHMtc3ltcy5TIjp7ImJ5dGVzIjo5NzcsInNoYTI1NiI6IjY4YmIxNDc2MTU4MTM2NjZkNTI4YjliZDY1MGUwMmZiOGUyNDBmMGRiODQxOTM5ZTg0NjBkN2E1MmZkMmVlNzAiLCJpZGVudGl0eSI6WzY2MzQxLDE4MjMxLDMzMTg4LDEsOTc3LDE3OTAwOTIxOTQwMjgwOTk4OTQsMTc5MDA5MjE5NDAyODA5OTg5NF0sImV4cGVjdGVkX3NoYTI1NiI6IjY4YmIxNDc2MTU4MTM2NjZkNTI4YjliZDY1MGUwMmZiOGUyNDBmMGRiODQxOTM5ZTg0NjBkN2E1MmZkMmVlNzAifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2FyZHVpbm8vaGFyZHdhcmUvemVwaHlyLzEuMC4wL3ZhcmlhbnRzL2FyZHVpbm9fdW5vX3Ffc3RtMzJ1NTg1eHgvdmFyaWFudC5oIjp7ImJ5dGVzIjoxNTQwLCJzaGEyNTYiOiJiNjg0MDAwODQ4YjkxMDBiNjc4MTE4NTA0NTY4OGRjYzY3MDExODRmYTNkNDNiMTI2OTZmNzM3NDc2MjNkNjc4IiwiaWRlbnRpdHkiOls2NjM0MSwxODIyOCwzMzE4OCwxLDE1NDAsMTc5MDA5MjE5NDAyNzM3OTE0OCwxNzkwMDkyMTk0MDI3Mzc5MTQ4XSwiZXhwZWN0ZWRfc2hhMjU2IjoiYjY4NDAwMDg0OGI5MTAwYjY3ODExODUwNDU2ODhkY2M2NzAxMTg0ZmEzZDQzYjEyNjk2ZjczNzQ3NjIzZDY3OCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYnVpbHRpbi90b29scy9jdGFncy81LjgtYXJkdWlubzExL2N0YWdzIjp7ImJ5dGVzIjoyNDk5MjAsInNoYTI1NiI6IjE1MzIwODI0ZDU2YWI5ZjAxNmE1NTMxZWJlNzY4NDI2ZjQyMDIyOGUwZGVkN2RjM2NiMDEzYzE5ZGM3ZjVhYjQiLCJpZGVudGl0eSI6WzY2MzQxLDQwLDMzMjYxLDEsMjQ5OTIwLDE3NjI4NDMzMzk3MzU3OTMyMjQsMTc2Mjg0NDAxNDkzMjY4MDgwNF0sImV4cGVjdGVkX3NoYTI1NiI6IjE1MzIwODI0ZDU2YWI5ZjAxNmE1NTMxZWJlNzY4NDI2ZjQyMDIyOGUwZGVkN2RjM2NiMDEzYzE5ZGM3ZjVhYjQifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2J1aWx0aW4vdG9vbHMvZGZ1LWRpc2NvdmVyeS8wLjEuMi9kZnUtZGlzY292ZXJ5Ijp7ImJ5dGVzIjoyODUyNjQwLCJzaGEyNTYiOiJiZDBlMDYyODRmMmNmZjY3NTU5NmYxODRmZTZhNWI4NDgzY2M0ZWY0MzY0NDUzMTc4NWIyNDQxMzEyNjQ1YTE0IiwiaWRlbnRpdHkiOls2NjM0MSwzNiwzMzI2MSwxLDI4NTI2NDAsMTc2Mjg0MzMzOTk2Mzc5ODA5MCwxNzYyODQ0MDE0OTMwNjE5NDA5XSwiZXhwZWN0ZWRfc2hhMjU2IjoiYmQwZTA2Mjg0ZjJjZmY2NzU1OTZmMTg0ZmU2YTViODQ4M2NjNGVmNDM2NDQ1MzE3ODViMjQ0MTMxMjY0NWExNCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYnVpbHRpbi90b29scy9tZG5zLWRpc2NvdmVyeS8xLjEuMC9tZG5zLWRpc2NvdmVyeSI6eyJieXRlcyI6NTQ4NDM5MCwic2hhMjU2IjoiODQ1YWJkMDk1NTEzZjM0MmE4NzU3YWZmYjJjNWJmN2YyNzc2OWZiOWY1OThlMmUwMTgxYzE1MDI5OWJkZTEwNCIsImlkZW50aXR5IjpbNjYzNDEsNzU1MiwzMzI2MSwxLDU0ODQzOTAsMTc5MDA5MTg2NDE1Njc5OTQzOCwxNzkwMDkxODY0MTU2Nzk5NDM4XSwiZXhwZWN0ZWRfc2hhMjU2IjoiODQ1YWJkMDk1NTEzZjM0MmE4NzU3YWZmYjJjNWJmN2YyNzc2OWZiOWY1OThlMmUwMTgxYzE1MDI5OWJkZTEwNCJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvYnVpbHRpbi90b29scy9zZXJpYWwtZGlzY292ZXJ5LzEuNS4yL3NlcmlhbC1kaXNjb3ZlcnkiOnsiYnl0ZXMiOjM1Mzc0MDUsInNoYTI1NiI6Ijc2NWE1NDNlOGI4YWU3ZDM0NjI5ZWZiNzIwNzI2NjFkYzAyNGZkNDAxNTFjZmFmNzU0ODk2NGQ5ZTBhMTFlNjUiLCJpZGVudGl0eSI6WzY2MzQxLDc1NTcsMzMyNjEsMSwzNTM3NDA1LDE3OTAwOTE4NjQ4MTI3OTk0MzcsMTc5MDA5MTg2NDgxMjc5OTQzN10sImV4cGVjdGVkX3NoYTI1NiI6Ijc2NWE1NDNlOGI4YWU3ZDM0NjI5ZWZiNzIwNzI2NjFkYzAyNGZkNDAxNTFjZmFmNzU0ODk2NGQ5ZTBhMTFlNjUifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL2J1aWx0aW4vdG9vbHMvc2VyaWFsLW1vbml0b3IvMC4xNS4wL3NlcmlhbC1tb25pdG9yIjp7ImJ5dGVzIjo0MTQ2Mzg5LCJzaGEyNTYiOiIyMjQ5OWMxNDU3ZjQwODQzZWRhZGZmZjRlNDZiYjBiYzc5YzNlZDFlYTkzZDdhMWIyOTYwMDU1MTI3MGQzYmVmIiwiaWRlbnRpdHkiOls2NjM0MSw0NCwzMzI2MSwxLDQxNDYzODksMTc2Mjg0MzM0MDM0MTgwNjE1OCwxNzYyODQ0MDE0OTM2NjE5NTc5XSwiZXhwZWN0ZWRfc2hhMjU2IjoiMjI0OTljMTQ1N2Y0MDg0M2VkYWRmZmY0ZTQ2YmIwYmM3OWMzZWQxZWE5M2Q3YTFiMjk2MDA1NTEyNzBkM2JlZiJ9LCIvaG9tZS9hcmR1aW5vLy5hcmR1aW5vMTUvcGFja2FnZXMvemVwaHlyL3Rvb2xzL2FybS16ZXBoeXItZWFiaS8xLjAuMS9iaW4vYXJtLXplcGh5ci1lYWJpLWcrKyI6eyJieXRlcyI6MjAxNDE2OCwic2hhMjU2IjoiY2FmMzY1NTRlMmQwOThkODI2YTUxMzcyNGNmZGFiMDcxYjhhNDIwYTBmNGY4YzBhMjEyYTJhY2FhZmFlZDkzNSIsImlkZW50aXR5IjpbNjYzNDEsMTE5ODksMzMyNjEsMiwyMDE0MTY4LDE3OTAwOTIxNDYwNTQxODI2MjcsMTc5MDA5MjE3NDE0ODY4ODQ0OV0sImV4cGVjdGVkX3NoYTI1NiI6ImNhZjM2NTU0ZTJkMDk4ZDgyNmE1MTM3MjRjZmRhYjA3MWI4YTQyMGEwZjRmOGMwYTIxMmEyYWNhYWZhZWQ5MzUifSwiL2hvbWUvYXJkdWluby8uYXJkdWlubzE1L3BhY2thZ2VzL3plcGh5ci90b29scy9hcm0temVwaHlyLWVhYmkvMS4wLjEvYmluL2FybS16ZXBoeXItZWFiaS1nY2MiOnsiYnl0ZXMiOjIwMTAwNzIsInNoYTI1NiI6IjdiOGM5ZDQ4MjJhM2VlNDUyZmM0MGZlMDA1YWFhOThhODYxMGE1NmNmZjJhYzZmZTZlMjQ0MDU3NGU5YjZjMTkiLCJpZGVudGl0eSI6WzY2MzQxLDExOTgwLDMzMjYxLDIsMjAxMDA3MiwxNzkwMDkyMTM2MTk4OTE2MDM1LDE3OTAwOTIxNzQxNDg2ODg0NDldLCJleHBlY3RlZF9zaGEyNTYiOiI3YjhjOWQ0ODIyYTNlZTQ1MmZjNDBmZTAwNWFhYTk4YTg2MTBhNTZjZmYyYWM2ZmU2ZTI0NDA1NzRlOWI2YzE5In0sIi9ob21lL2FyZHVpbm8vLmFyZHVpbm8xNS9wYWNrYWdlcy96ZXBoeXIvdG9vbHMvYXJtLXplcGh5ci1lYWJpLzEuMC4xL2Jpbi9hcm0temVwaHlyLWVhYmktbGQiOnsiYnl0ZXMiOjE4ODM0MjQsInNoYTI1NiI6ImQ1ZmIwMzEwNzYxZmY4NjNjNTgzZjQ5Mjc0NTIyMzczNDFmNTRhY2Q2MDI2Yjc3ZWZmMmU4MmE4NGUwMGZmZjciLCJpZGVudGl0eSI6WzY2MzQxLDEwMzYwLDMzMjYxLDQsMTg4MzQyNCwxNzkwMDkxOTE5ODUyMzI3Mzk1LDE3OTAwOTIxNzQxNDg2ODg0NDldLCJleHBlY3RlZF9zaGEyNTYiOiJkNWZiMDMxMDc2MWZmODYzYzU4M2Y0OTI3NDUyMjM3MzQxZjU0YWNkNjAyNmI3N2VmZjJlODJhODRlMDBmZmY3In0sIi91c3IvYmluL2FyZHVpbm8tY2xpIjp7ImJ5dGVzIjozNDY1MTczNCwic2hhMjU2IjoiYjg3ODYzMjI5ODk1OGQ2MWZkMWViMTllNzBhYzVkMmU4MDNkODNkYjg5MzBiYzcyZGM2OTE1ZWVlNmU4ZjQzMyIsImlkZW50aXR5IjpbNjYzNDAsMTMwMTM5LDMzMjYxLDEsMzQ2NTE3MzQsMTc4MDY1NDk1ODAwMDAwMDAwMCwxNzkwMDkyMzA3Mjg1NTQyNjc1XSwiZXhwZWN0ZWRfc2hhMjU2IjoiYjg3ODYzMjI5ODk1OGQ2MWZkMWViMTllNzBhYzVkMmU4MDNkODNkYjg5MzBiYzcyZGM2OTE1ZWVlNmU4ZjQzMyJ9fSwiaWRlbnRpdHkiOnsidWlkIjoxMDAwLCJnaWQiOjEwMDAsInVzZXIiOiJhcmR1aW5vIiwiaG9tZSI6Ii9ob21lL2FyZHVpbm8iLCJzeXNuYW1lIjoiTGludXgiLCJyZWxlYXNlIjoiNi4xNi43LWcwZGQ2NTUxYWU5NmIiLCJtYWNoaW5lIjoiYWFyY2g2NCIsInB5dGhvbiI6WzMsMTMsNV0sImJvb3RfaWQiOiI1NWMzODZiOS1mZTZkLTQzODgtYTdmNC0xZDkxZTBiYjQ5ZDgifSwiY3JlZGVudGlhbHMiOnsidWlkIjpbMTAwMCwxMDAwLDEwMDAsMTAwMF0sImdpZCI6WzEwMDAsMTAwMCwxMDAwLDEwMDBdLCJncm91cHMiOls0LDIwLDI3LDI5LDQ0LDEwMCwxMDEsMTAyLDEwMyw5ODcsOTkxLDk5NSwxMDAwLDEwMDFdLCJyZXN1aWQiOlsxMDAwLDEwMDAsMTAwMF0sInJlc2dpZCI6WzEwMDAsMTAwMCwxMDAwXX0sImZpbGVfc2l6ZV9ybGltaXQiOlstMSwtMV0sInJlbW90ZV9vd25lcl9leGlzdHMiOmZhbHNlLCJhbmNlc3RyeSI6eyIvaG9tZS9hcmR1aW5vIjpbNjYzNDEsMiwxNjg3NywyMCw0MDk2LDE3OTAyMDExOTAzNTUxOTkzNjEsMTc5MDIwMTE5MDM1NTE5OTM2MV0sIi9ob21lL2FyZHVpbm8vc3Vtb3gyNl9jb2RleF9idWlsZCI6WzY2MzQxLDIzOTEwOCwxNjg5MywxMTksMTIyODgsMTc5MDQxODg0NTMyNDA1NTk5NiwxNzkwNDE4ODQ1MzI0MDU1OTk2XX0sInJlc291cmNlcyI6eyJyb290X2ZyZWVfYnl0ZXMiOjI5MzUyNTUwNDAsImhvbWVfZnJlZV9ieXRlcyI6MTM5MTMyMTQ5NzYsInRtcF9mcmVlX2J5dGVzIjoxOTIxNjg3NTUyLCJNZW1Ub3RhbF9ieXRlcyI6Mzg0ODIwODM4NCwiTWVtQXZhaWxhYmxlX2J5dGVzIjozMjI3MzczNTY4LCJTd2FwVG90YWxfYnl0ZXMiOjE5MjQxMDAwOTYsIlN3YXBGcmVlX2J5dGVzIjoxOTI0MTAwMDk2fSwicHJvY2Vzc19jb3VudCI6MTY0LCJwcm9jZXNzX2NvbmZsaWN0cyI6W10sImRlcGFydGVkX3BpZHMiOltdLCJjbG9zaW5nX2lkZW50aXR5Ijp7InVpZCI6MTAwMCwiZ2lkIjoxMDAwLCJ1c2VyIjoiYXJkdWlubyIsImhvbWUiOiIvaG9tZS9hcmR1aW5vIiwic3lzbmFtZSI6IkxpbnV4IiwicmVsZWFzZSI6IjYuMTYuNy1nMGRkNjU1MWFlOTZiIiwibWFjaGluZSI6ImFhcmNoNjQiLCJweXRob24iOlszLDEzLDVdLCJib290X2lkIjoiNTVjMzg2YjktZmU2ZC00Mzg4LWE3ZjQtMWQ5MWUwYmI0OWQ4In0sImNsb3NpbmdfY3JlZGVudGlhbHMiOnsidWlkIjpbMTAwMCwxMDAwLDEwMDAsMTAwMF0sImdpZCI6WzEwMDAsMTAwMCwxMDAwLDEwMDBdLCJncm91cHMiOls0LDIwLDI3LDI5LDQ0LDEwMCwxMDEsMTAyLDEwMyw5ODcsOTkxLDk5NSwxMDAwLDEwMDFdLCJyZXN1aWQiOlsxMDAwLDEwMDAsMTAwMF0sInJlc2dpZCI6WzEwMDAsMTAwMCwxMDAwXX0sImNsb3NpbmdfcmVtb3RlX293bmVyX2V4aXN0cyI6ZmFsc2V9DQo=",
+      "stderr_base64": "",
+      "observed": {
+        "status": "PASS",
+        "scope": "Read-only D208 compile admission; no tool invocation, owner claim, source staging, MCU read or firmware operation",
+        "files": {
+          "/home/arduino/.arduino15/library_index.json": {
+            "bytes": 58226703,
+            "sha256": "36dad4c25b8c5e765408d9874a6e05bc0621e62ee14a35216dc7a7537185f851",
+            "identity": [
+              66341,
+              6858,
+              33188,
+              1,
+              58226703,
+              1790103068753734773,
+              1790103069025734773
+            ],
+            "expected_sha256": "36dad4c25b8c5e765408d9874a6e05bc0621e62ee14a35216dc7a7537185f851"
+          },
+          "/home/arduino/.arduino15/package_index.json": {
+            "bytes": 1691790,
+            "sha256": "3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e",
+            "identity": [
+              66341,
+              25,
+              33188,
+              1,
+              1691790,
+              1790337898033722152,
+              1790337898042819547
+            ],
+            "expected_sha256": "3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt": {
+            "bytes": 6101,
+            "sha256": "bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84",
+            "identity": [
+              66341,
+              14098,
+              33152,
+              1,
+              6101,
+              1790092186173496717,
+              1790092186173496717
+            ],
+            "expected_sha256": "bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h": {
+            "bytes": 6277,
+            "sha256": "5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514",
+            "identity": [
+              66341,
+              14130,
+              33188,
+              1,
+              6277,
+              1790092186194358264,
+              1790092186194358264
+            ],
+            "expected_sha256": "5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp": {
+            "bytes": 2515,
+            "sha256": "d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed",
+            "identity": [
+              66341,
+              14107,
+              33188,
+              1,
+              2515,
+              1790092186184619209,
+              1790092186184619209
+            ],
+            "expected_sha256": "d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf": {
+            "bytes": 2303728,
+            "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+            "identity": [
+              66341,
+              18245,
+              33261,
+              1,
+              2303728,
+              1790092194602372651,
+              1790092194602372651
+            ],
+            "expected_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json": {
+            "bytes": 303397,
+            "sha256": "985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9",
+            "identity": [
+              66341,
+              7568,
+              33188,
+              1,
+              303397,
+              1790092361932226124,
+              1790092361932226124
+            ],
+            "expected_sha256": "985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt": {
+            "bytes": 20947,
+            "sha256": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638",
+            "identity": [
+              66341,
+              14099,
+              33152,
+              1,
+              20947,
+              1790092186177497164,
+              1790092186177497164
+            ],
+            "expected_sha256": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld": {
+            "bytes": 1460,
+            "sha256": "2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c",
+            "identity": [
+              66341,
+              14255,
+              33188,
+              1,
+              1460,
+              1790092186361517703,
+              1790092186361517703
+            ],
+            "expected_sha256": "2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld": {
+            "bytes": 2369,
+            "sha256": "04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e",
+            "identity": [
+              66341,
+              14254,
+              33188,
+              1,
+              2369,
+              1790092186361517703,
+              1790092186361517703
+            ],
+            "expected_sha256": "04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld": {
+            "bytes": 486,
+            "sha256": "ac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8",
+            "identity": [
+              66341,
+              14252,
+              33188,
+              1,
+              486,
+              1790092186361139797,
+              1790092186361139797
+            ],
+            "expected_sha256": "ac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt": {
+            "bytes": 713,
+            "sha256": "386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6",
+            "identity": [
+              66341,
+              18240,
+              33188,
+              1,
+              713,
+              1790092194035674270,
+              1790092194035674270
+            ],
+            "expected_sha256": "386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt": {
+            "bytes": 665,
+            "sha256": "fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800",
+            "identity": [
+              66341,
+              18233,
+              33188,
+              1,
+              665,
+              1790092194031700762,
+              1790092194031700762
+            ],
+            "expected_sha256": "fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt": {
+            "bytes": 1163,
+            "sha256": "7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575",
+            "identity": [
+              66341,
+              18234,
+              33188,
+              1,
+              1163,
+              1790092194032142471,
+              1790092194032142471
+            ],
+            "expected_sha256": "7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h": {
+            "bytes": 22526,
+            "sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c",
+            "identity": [
+              66341,
+              15936,
+              33188,
+              1,
+              22526,
+              1790092190246776066,
+              1790092190246776066
+            ],
+            "expected_sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt": {
+            "bytes": 144,
+            "sha256": "d96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391",
+            "identity": [
+              66341,
+              18227,
+              33188,
+              1,
+              144,
+              1790092194027138291,
+              1790092194027138291
+            ],
+            "expected_sha256": "d96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h": {
+            "bytes": 627,
+            "sha256": "7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79",
+            "identity": [
+              66341,
+              18237,
+              33188,
+              1,
+              627,
+              1790092194032972031,
+              1790092194032972031
+            ],
+            "expected_sha256": "7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/tls-syms.S": {
+            "bytes": 977,
+            "sha256": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70",
+            "identity": [
+              66341,
+              18231,
+              33188,
+              1,
+              977,
+              1790092194028099894,
+              1790092194028099894
+            ],
+            "expected_sha256": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70"
+          },
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h": {
+            "bytes": 1540,
+            "sha256": "b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678",
+            "identity": [
+              66341,
+              18228,
+              33188,
+              1,
+              1540,
+              1790092194027379148,
+              1790092194027379148
+            ],
+            "expected_sha256": "b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678"
+          },
+          "/home/arduino/.arduino15/packages/builtin/tools/ctags/5.8-arduino11/ctags": {
+            "bytes": 249920,
+            "sha256": "15320824d56ab9f016a5531ebe768426f420228e0ded7dc3cb013c19dc7f5ab4",
+            "identity": [
+              66341,
+              40,
+              33261,
+              1,
+              249920,
+              1762843339735793224,
+              1762844014932680804
+            ],
+            "expected_sha256": "15320824d56ab9f016a5531ebe768426f420228e0ded7dc3cb013c19dc7f5ab4"
+          },
+          "/home/arduino/.arduino15/packages/builtin/tools/dfu-discovery/0.1.2/dfu-discovery": {
+            "bytes": 2852640,
+            "sha256": "bd0e06284f2cff675596f184fe6a5b8483cc4ef43644531785b2441312645a14",
+            "identity": [
+              66341,
+              36,
+              33261,
+              1,
+              2852640,
+              1762843339963798090,
+              1762844014930619409
+            ],
+            "expected_sha256": "bd0e06284f2cff675596f184fe6a5b8483cc4ef43644531785b2441312645a14"
+          },
+          "/home/arduino/.arduino15/packages/builtin/tools/mdns-discovery/1.1.0/mdns-discovery": {
+            "bytes": 5484390,
+            "sha256": "845abd095513f342a8757affb2c5bf7f27769fb9f598e2e0181c150299bde104",
+            "identity": [
+              66341,
+              7552,
+              33261,
+              1,
+              5484390,
+              1790091864156799438,
+              1790091864156799438
+            ],
+            "expected_sha256": "845abd095513f342a8757affb2c5bf7f27769fb9f598e2e0181c150299bde104"
+          },
+          "/home/arduino/.arduino15/packages/builtin/tools/serial-discovery/1.5.2/serial-discovery": {
+            "bytes": 3537405,
+            "sha256": "765a543e8b8ae7d34629efb72072661dc024fd40151cfaf7548964d9e0a11e65",
+            "identity": [
+              66341,
+              7557,
+              33261,
+              1,
+              3537405,
+              1790091864812799437,
+              1790091864812799437
+            ],
+            "expected_sha256": "765a543e8b8ae7d34629efb72072661dc024fd40151cfaf7548964d9e0a11e65"
+          },
+          "/home/arduino/.arduino15/packages/builtin/tools/serial-monitor/0.15.0/serial-monitor": {
+            "bytes": 4146389,
+            "sha256": "22499c1457f40843edadfff4e46bb0bc79c3ed1ea93d7a1b29600551270d3bef",
+            "identity": [
+              66341,
+              44,
+              33261,
+              1,
+              4146389,
+              1762843340341806158,
+              1762844014936619579
+            ],
+            "expected_sha256": "22499c1457f40843edadfff4e46bb0bc79c3ed1ea93d7a1b29600551270d3bef"
+          },
+          "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++": {
+            "bytes": 2014168,
+            "sha256": "caf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935",
+            "identity": [
+              66341,
+              11989,
+              33261,
+              2,
+              2014168,
+              1790092146054182627,
+              1790092174148688449
+            ],
+            "expected_sha256": "caf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935"
+          },
+          "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc": {
+            "bytes": 2010072,
+            "sha256": "7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19",
+            "identity": [
+              66341,
+              11980,
+              33261,
+              2,
+              2010072,
+              1790092136198916035,
+              1790092174148688449
+            ],
+            "expected_sha256": "7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19"
+          },
+          "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld": {
+            "bytes": 1883424,
+            "sha256": "d5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7",
+            "identity": [
+              66341,
+              10360,
+              33261,
+              4,
+              1883424,
+              1790091919852327395,
+              1790092174148688449
+            ],
+            "expected_sha256": "d5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7"
+          },
+          "/usr/bin/arduino-cli": {
+            "bytes": 34651734,
+            "sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433",
+            "identity": [
+              66340,
+              130139,
+              33261,
+              1,
+              34651734,
+              1780654958000000000,
+              1790092307285542675
+            ],
+            "expected_sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433"
+          }
+        },
+        "identity": {
+          "uid": 1000,
+          "gid": 1000,
+          "user": "arduino",
+          "home": "/home/arduino",
+          "sysname": "Linux",
+          "release": "6.16.7-g0dd6551ae96b",
+          "machine": "aarch64",
+          "python": [
+            3,
+            13,
+            5
+          ],
+          "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8"
+        },
+        "credentials": {
+          "uid": [
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "gid": [
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "groups": [
+            4,
+            20,
+            27,
+            29,
+            44,
+            100,
+            101,
+            102,
+            103,
+            987,
+            991,
+            995,
+            1000,
+            1001
+          ],
+          "resuid": [
+            1000,
+            1000,
+            1000
+          ],
+          "resgid": [
+            1000,
+            1000,
+            1000
+          ]
+        },
+        "file_size_rlimit": [
+          -1,
+          -1
+        ],
+        "remote_owner_exists": false,
+        "ancestry": {
+          "/home/arduino": [
+            66341,
+            2,
+            16877,
+            20,
+            4096,
+            1790201190355199361,
+            1790201190355199361
+          ],
+          "/home/arduino/sumox26_codex_build": [
+            66341,
+            239108,
+            16893,
+            119,
+            12288,
+            1790418845324055996,
+            1790418845324055996
+          ]
+        },
+        "resources": {
+          "root_free_bytes": 2935255040,
+          "home_free_bytes": 13913214976,
+          "tmp_free_bytes": 1921687552,
+          "MemTotal_bytes": 3848208384,
+          "MemAvailable_bytes": 3227373568,
+          "SwapTotal_bytes": 1924100096,
+          "SwapFree_bytes": 1924100096
+        },
+        "process_count": 164,
+        "process_conflicts": [],
+        "departed_pids": [],
+        "closing_identity": {
+          "uid": 1000,
+          "gid": 1000,
+          "user": "arduino",
+          "home": "/home/arduino",
+          "sysname": "Linux",
+          "release": "6.16.7-g0dd6551ae96b",
+          "machine": "aarch64",
+          "python": [
+            3,
+            13,
+            5
+          ],
+          "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8"
+        },
+        "closing_credentials": {
+          "uid": [
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "gid": [
+            1000,
+            1000,
+            1000,
+            1000
+          ],
+          "groups": [
+            4,
+            20,
+            27,
+            29,
+            44,
+            100,
+            101,
+            102,
+            103,
+            987,
+            991,
+            995,
+            1000,
+            1001
+          ],
+          "resuid": [
+            1000,
+            1000,
+            1000
+          ],
+          "resgid": [
+            1000,
+            1000,
+            1000
+          ]
+        },
+        "closing_remote_owner_exists": false
+      },
+      "elapsed_seconds": 0.5686892999801785
+    },
+    {
+      "source": "admission_closing_source01.py",
+      "source_pin": {
+        "bytes": 1912,
+        "sha256": "405913a787fcd41f801c108503bb8fc5e4bae07abb4a3af71af791a680ac981d"
+      },
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "/usr/bin/python3 -I -B -c 'BOOT='\"'\"'55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\"'\"'\nCLI='\"'\"'/usr/bin/arduino-cli'\"'\"'\nCLI_SHA='\"'\"'b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433'\"'\"'\nREMOTE='\"'\"'/home/arduino/sumox26_codex_build/ordinary-app-static01'\"'\"'\nimport hashlib,json,os,pwd,re,resource,signal,sys\nfrom pathlib import Path\nsignal.alarm(60)\nif os.getuid()!=1000 or pwd.getpwuid(os.getuid()).pw_name!='\"'\"'arduino'\"'\"':raise ValueError('\"'\"'UID changed'\"'\"')\nif Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip()!=BOOT:raise ValueError('\"'\"'Boot changed'\"'\"')\nif hashlib.sha256(Path(CLI).read_bytes()).hexdigest()!=CLI_SHA:raise ValueError('\"'\"'CLI changed'\"'\"')\nif resource.getrlimit(resource.RLIMIT_FSIZE)!=(resource.RLIM_INFINITY,resource.RLIM_INFINITY):raise ValueError('\"'\"'Inherited file-size limit'\"'\"')\nfor p in (Path('\"'\"'/home/arduino'\"'\"'),Path(REMOTE).parent):\n if p.resolve()!=p:raise ValueError('\"'\"'Linked remote ancestry'\"'\"')\nspace=os.statvfs('\"'\"'/home/arduino'\"'\"');free=space.f_bavail*space.f_frsize\nconflicts=[]\nfor p in Path('\"'\"'/proc'\"'\"').iterdir():\n if not p.name.isdigit():continue\n try:\n  args=(p/'\"'\"'cmdline'\"'\"').read_bytes().split(b'\"'\"'\\0'\"'\"');name=Path(os.fsdecode(args[0])).name if args[0] else '\"'\"''\"'\"'\n except FileNotFoundError:continue\n if name in ('\"'\"'arduino-cli'\"'\"','\"'\"'openocd'\"'\"','\"'\"'remoteocd'\"'\"') or re.fullmatch(r'\"'\"'(?:.*-)?(?:gcc|g\\+\\+|cc|c\\+\\+|cc1|cc1plus|collect2|as|ld|ld.bfd|lto-wrapper|lto1)'\"'\"',name):conflicts.append({'\"'\"'pid'\"'\"':int(p.name),'\"'\"'argv0'\"'\"':os.fsdecode(args[0])})\nif conflicts:raise ValueError('\"'\"'Conflicting processes: '\"'\"'+repr(conflicts))\nidentity={'\"'\"'uid'\"'\"':os.getuid(),'\"'\"'user'\"'\"':pwd.getpwuid(os.getuid()).pw_name,'\"'\"'boot_id'\"'\"':BOOT,'\"'\"'cli_sha256'\"'\"':CLI_SHA,'\"'\"'free_bytes'\"'\"':free,'\"'\"'conflicts'\"'\"':conflicts}\n\nidentity['\"'\"'resuid'\"'\"']=list(os.getresuid());identity['\"'\"'resgid'\"'\"']=list(os.getresgid())\nidentity['\"'\"'remote_owner_exists'\"'\"']=os.path.lexists(REMOTE)\nif identity['\"'\"'resuid'\"'\"']!=[1000]*3 or identity['\"'\"'resgid'\"'\"']!=[1000]*3 or identity['\"'\"'remote_owner_exists'\"'\"']:raise ValueError('\"'\"'Closing identity or owner changed'\"'\"')\nprint(json.dumps(identity))\n'"
+      ],
+      "command_utf16_units": 2490,
+      "timeout_seconds": 75,
+      "started": "2026-09-26T15:32:06.076693+04:00",
+      "returncode": 0,
+      "stdout": "{\"uid\": 1000, \"user\": \"arduino\", \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\", \"cli_sha256\": \"b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433\", \"free_bytes\": 13913214976, \"conflicts\": [], \"resuid\": [1000, 1000, 1000], \"resgid\": [1000, 1000, 1000], \"remote_owner_exists\": false}\r\n",
+      "stderr": "",
+      "stdout_base64": "eyJ1aWQiOiAxMDAwLCAidXNlciI6ICJhcmR1aW5vIiwgImJvb3RfaWQiOiAiNTVjMzg2YjktZmU2ZC00Mzg4LWE3ZjQtMWQ5MWUwYmI0OWQ4IiwgImNsaV9zaGEyNTYiOiAiYjg3ODYzMjI5ODk1OGQ2MWZkMWViMTllNzBhYzVkMmU4MDNkODNkYjg5MzBiYzcyZGM2OTE1ZWVlNmU4ZjQzMyIsICJmcmVlX2J5dGVzIjogMTM5MTMyMTQ5NzYsICJjb25mbGljdHMiOiBbXSwgInJlc3VpZCI6IFsxMDAwLCAxMDAwLCAxMDAwXSwgInJlc2dpZCI6IFsxMDAwLCAxMDAwLCAxMDAwXSwgInJlbW90ZV9vd25lcl9leGlzdHMiOiBmYWxzZX0NCg==",
+      "stderr_base64": "",
+      "observed": {
+        "uid": 1000,
+        "user": "arduino",
+        "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+        "cli_sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433",
+        "free_bytes": 13913214976,
+        "conflicts": [],
+        "resuid": [
+          1000,
+          1000,
+          1000
+        ],
+        "resgid": [
+          1000,
+          1000,
+          1000
+        ],
+        "remote_owner_exists": false
+      },
+      "elapsed_seconds": 0.33827000006567687
+    }
+  ],
+  "first_error": null,
+  "local_after": {
+    "frozen_inputs": 191,
+    "changed_inputs": [],
+    "owners_exist": {
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\ordinary-app-static01": false,
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_ordinary_app_static_compile_raw\\native_static01": false
+    },
+    "local_free_bytes": 7399075840,
+    "adb_sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982"
+  },
+  "finished": "2026-09-26T15:32:06.460517+04:00"
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "d194-windows-mode-independent-regression-freeze-v1",
+  "frozen_utc": "2026-09-26T04:32:48.7301758Z",
+  "oracle": {
+    "path": "tests/tooling/test_app_motor_observe_abi_windows_mode.py",
+    "bytes": 9907,
+    "sha256": "9777060b05f041f409a822e30c68c1630192b0354d6462b89f47cb1a2b1ac687",
+    "methods": 14
+  },
+  "before_fix_subject": {
+    "path": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py",
+    "sha256": "297eac8b2c9878b8c8e5480053e5541dfc48e9bd35c1a99a924eadc9374d632d"
+  },
+  "existing_oracle_unchanged": {
+    "path": "tests/tooling/test_app_motor_observe_abi.py",
+    "sha256": "ac571bd4a1e4eeba9516795236c9d79329a0d2967999c22f81a953f7aa957cb2"
+  },
+  "rule": "Exact cross-API mode remains accepted. Only Windows regular files with final case-insensitive .exe/.bat/.cmd/.com may additionally accept path_mode == handle_mode | 0111 with complete path-only 0111 difference. All other mode and identity fields remain exact, apart from the existing Windows cross-API ctime exception; full path and descriptor stamps remain individually stable.",
+  "derivation": "Parent-authorized proposed contract amendment plus primary CPython v3.13.11 update_st_mode_from_path and attributes_to_mode. No new implementation or existing wrapper body read for this regression; no source fix yet.",
+  "primary_sources": [
+    "https://github.com/python/cpython/blob/v3.13.11/Modules/posixmodule.c#L1831-L1852",
+    "https://github.com/python/cpython/blob/v3.13.11/Python/fileutils.c#L999-L1028"
+  ],
+  "fixtures": "Real tiny executable-named regular file on each host; controlled immutable path/fstat views plus private os-name proxy on both platforms. Linux scratch /dev/shm; small Windows temporary directory; all automatically removed. Process/socket endpoints blocked. No file is launched.",
+  "coverage": [
+    "All4extensions/case, readonly and exact-equal modes",
+    "NonWindows/nonmatching/partial/reverse/other-bit mode refusals before fdopen/read",
+    "Inode/device/type/attributes/link/size/mtime mismatches before fdopen/read",
+    "Full within-API mode and ctime drift, exact content digest retention"
+  ],
+  "execution": "Not executed. Root runs original implementation regression first, preserves failures, then coordinates source correction and reruns.",
+  "command": "python -B -m unittest discover -s tests/tooling -p test_app_motor_observe_abi_windows_mode.py -v",
+  "limits": "Host portability regression only. No native operation, board access, ADB launch, upload, reset or MCU read."
+}

@@ -338,3 +338,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D194 file-only ABIwrapper host-tested:44Linux/42WindowsPASS, two explicitWindowsskips. NoactualABIowner/call; localspacebelow128MiB, userrequestedfree200MB. Keepnativegateunchanged andresumeviahandoffafterspace/read-onlyreview.
+
+
+- [x] D194 Windows executable-stat portability correction and ABI02 query correction host-tested/reviewed. ActualABI02 at efadbe5c passes4filechildren/13remote+localchecks; acceptedABI dfc34596, originalfailed01 preserved. Bothownersconsumed; D190stilllatestflashed. Nextnewobserved-entry reader/semanticreview then separatelyscopedlonger inhibitedcapture. Userfreedover21GB; recheckspace. Currenthandoffsupersedeshistoricalpendingparagraphs.

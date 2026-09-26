@@ -53,10 +53,14 @@ native_abi_static01 is CONSUMED. No complete ABI was accepted.
 
 New inspect_static_abi02.py a0a5aef1/contract772615cd pins that failure and queries
 ALIGN of actual observed unsigned int, while confirming current member ptype.
-All old source/tests remain unchanged. Independent21Windows+21Linux methods PASS,
-no skips;142pins stable. Read P7_app_motor_observe_abi02_validation.md and final
-review. At cleanHEAD run its Python-B --check-only --reviewed-head <40hexHEAD>,
-then one --execute with that HEAD. native_abi_static02 is UNUSED.
+Independent21Windows+21Linux methods PASS;142pins stable. ActualABI02 now PASSED
+at cleanefadbe5c: check0/execute0,1transport/4filechildren0/13remote+localPASS.
+Resulta5e67635/ABIdfc34596: Runner0x20013960/169736B/align8; polls4B/align4/
+offset168572. Read P7_app_motor_observe_abi02_validation.md and actualreview.
+Both native_abi_static01 and02 are CONSUMED. No firmware/MCU operation occurred.
+Next prepare a new file-only entry reader from successful ABI02 observed symbols,
+then independently test/review before one new entry observation. The draft entry
+contract is owned by run02_audit; do not treat an unfinished draft as adopted.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
 Recheck free space and fresh board/boot identity before admission; retain the
 128MiB native-reader gate. Do not lower the gate or retry any earlier denied

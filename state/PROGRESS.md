@@ -1369,3 +1369,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:44:55.106220+04:00 | P7 D194 ABI02 host closure | Supplementary772615cd/sourcea0a5aef1 preservesalloldfiles, observedunsignedint ALIGN-only query/newowner02; originalFAILED01 remainsconsumed. Independentoracle9e50373e gives21Windows+21LinuxPASS/noskips firstserialruns;142pinsunchanged. Finalreview and cleanHEAD precede freshonefile-onlyquery. No newfirmware/MCU/gate.
+
+
+2026-09-26T08:48:03.916477+04:00 | P7 D194 actual ABI02 PASS | Atcleanefadbe5c check0/execute0;1transport/4filechildren0reaped/emptystderr/13remoteclosing+localPASS. Resulta5e67635/ABIdfc34596,142pinsstable;Runner0x20013960/169736B/align8, polls4B/align4/offset168572. OriginalFAILED01retained;02CONSUMED. No compile/upload/reset/MCUread; actualreviewthenentryinstructionobservation next.

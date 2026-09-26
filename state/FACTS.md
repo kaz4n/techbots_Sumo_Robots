@@ -814,3 +814,7 @@ DEVICE-FILES-OBSERVED: source3a08ddeb/static/default/MATCH0/MOTORS0/probe1 compi
 
 ## F208 - Longer observation ABI reader host behavior (2026-09-26T01:43:00.541970+04:00)
 HOST-VERIFIED: D194wrapper297eac8b/contract889d6a76 andindependentoracleac571bd4 pass44Linux/42Windowsmethods withtwoWindowsplatformskips. Testscovernewpollsmemberqueries, decimal/0xnormalization withrawretention, strongerlocaldescriptorchecks andunchangedcontrolledlifecycle;135pinsstable. This doesnotobserve targetGDBsupport/ABI/addresses/runtime. Nativeownerunused; source: analysis/P7_app_motor_observe_abi_validation.md and frozenfirst/correctedreceipts.
+
+
+## F209 - Longer observation actual file ABI (2026-09-26T08:48:03.916477+04:00)
+FILE-OBSERVED only: D194 ABI02 at efadbe5c returnsSTATIC_ABI_OBSERVED,4children0/emptyerrors/13remote+localclosingPASS. Current D193 ELF2fd70da8/debug33e3b34d definesRunner169736B/alignment8/address0x20013960;20size/alignmentgroups/11windows validated. Actualpollsunsignedint4B/align4/Runneroffset168572/Reportoffset12; alignmentqueried fromobservedtype after original01syntaxrefusal. Failed01e83afc5f retained; acceptedresulta5e67635/ABIdfc34596. No MCU/runtime/RAM/WCET/faultfix/physicalgate. Source: analysis/P7_app_motor_observe_abi02_validation.md and native_abi_static02 receipts.

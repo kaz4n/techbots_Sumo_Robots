@@ -391,3 +391,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T08:41:17.506475+04:00 | D194 resumed storage and failed ABI evidence | UserreportedfreeingC; livefree21195640832B. Retain attempt011821492B originaltransport/parsedreceipt/closure for reproduction, queryrepairandreview; retaincompacthostregressionfirstfailures/fixedresults. No firmware/debugbinary downloaded; no hostbuildoutputs/newbytecodeorownedtesttempremnantsneeded. No cleanup/reclaimedbytesclaimed; priorpolicydeniedtargetsuntouched.
+
+
+2026-09-26T08:48:35.553352+04:00 | D194 successful ABI02 evidence | Retain 1825319B nativeowner receipts/rawtransport/compact3704BABI andinvocation tobind actualfileobservations andfutureentry/capture. No ELF/debugdownload.142frozenpinsunchanged; zeroownedABI02 testtempremnants verifiedbothplatforms. Cfree21182382080B. No newcleanup/reclaimedbytes; priorblockedtargetsuntouched.

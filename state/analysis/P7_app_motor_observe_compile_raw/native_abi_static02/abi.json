@@ -1,0 +1,135 @@
+{
+  "address": 536951136,
+  "alignments": {
+    "app::Runtime": 8,
+    "app::RuntimeReport": 8,
+    "app::Transaction": 8,
+    "app::TransactionReport": 8,
+    "app_motor_observe::Report": 8,
+    "app_motor_observe::Runner": 8,
+    "app_motor_observe::Snapshot": 8,
+    "bool": 1,
+    "core::Outputs": 4,
+    "countdown::LifecycleResult": 4,
+    "countdown::Result": 4,
+    "fsm::PreviousTick": 8,
+    "fsm::RobotResult": 8,
+    "motor_fault::Call": 4,
+    "motor_fault::Trace": 4,
+    "motor_fault::TraceReport": 4,
+    "motors::HaltResult": 4,
+    "motors::MotorGate": 8,
+    "motors::Result": 8,
+    "report_.polls": 4
+  },
+  "bytes": 169736,
+  "limitation": "File layout only; no MCU contents, runtime acceptance, RAM or WCET measurement",
+  "polls_alignment_type": {
+    "evidence_sha256": "e83afc5f10cec2ed72f88d6567f6f13e5809518e1b89f3d5988d988b297e78f5",
+    "type": "unsigned int"
+  },
+  "readelf_size_projection": {
+    "changed": true,
+    "original_stdout_bytes": 158577,
+    "original_stdout_sha256": "b3542b0d38be98be71ff1318648b3f1817ce406e9f62cf64e1dcdcc9c0e4fc0b",
+    "original_token": "0x29708",
+    "projected_stdout_bytes": 158576,
+    "projected_stdout_sha256": "c908abee8dca8c102d390a2b088476930e36406e1dff79d8e928e22d5f7ff95a",
+    "projected_token": "169736",
+    "size_bytes": 169736,
+    "symbol": "_ZN12_GLOBAL__N_110diagnosticE"
+  },
+  "section": 5,
+  "sizes": {
+    "app::Runtime": 166376,
+    "app::RuntimeReport": 600,
+    "app::Transaction": 162544,
+    "app::TransactionReport": 504,
+    "app_motor_observe::Report": 1168,
+    "app_motor_observe::Runner": 169736,
+    "app_motor_observe::Snapshot": 1152,
+    "bool": 1,
+    "core::Outputs": 12,
+    "countdown::LifecycleResult": 28,
+    "countdown::Result": 8,
+    "fsm::PreviousTick": 48,
+    "fsm::RobotResult": 400,
+    "motor_fault::Call": 32,
+    "motor_fault::Trace": 2180,
+    "motor_fault::TraceReport": 2128,
+    "motors::HaltResult": 16,
+    "motors::MotorGate": 88,
+    "motors::Result": 56,
+    "report_.polls": 4
+  },
+  "status": "STATIC_ABI_OBSERVED",
+  "symbol": "_ZN12_GLOBAL__N_110diagnosticE",
+  "windows": {
+    "attempted_": {
+      "address": 537120864,
+      "bytes": 1,
+      "offset": 169728,
+      "type": "bool"
+    },
+    "report_": {
+      "address": 537119696,
+      "bytes": 1168,
+      "offset": 168560,
+      "type": "app_motor_observe::Report"
+    },
+    "report_.before_abort.previous": {
+      "address": 537120816,
+      "bytes": 48,
+      "offset": 169680,
+      "type": "fsm::PreviousTick"
+    },
+    "report_.before_abort.runtime": {
+      "address": 537119712,
+      "bytes": 600,
+      "offset": 168576,
+      "type": "app::RuntimeReport"
+    },
+    "report_.before_abort.transaction": {
+      "address": 537120312,
+      "bytes": 504,
+      "offset": 169176,
+      "type": "app::TransactionReport"
+    },
+    "report_.polls": {
+      "address": 537119708,
+      "bytes": 4,
+      "offset": 168572,
+      "type": "report_.polls"
+    },
+    "runtime_.report_": {
+      "address": 537117984,
+      "bytes": 600,
+      "offset": 166848,
+      "type": "app::RuntimeReport"
+    },
+    "runtime_.transaction_.gate_": {
+      "address": 536953520,
+      "bytes": 88,
+      "offset": 2384,
+      "type": "motors::MotorGate"
+    },
+    "runtime_.transaction_.previous_": {
+      "address": 537115952,
+      "bytes": 48,
+      "offset": 164816,
+      "type": "fsm::PreviousTick"
+    },
+    "runtime_.transaction_.report_": {
+      "address": 537115448,
+      "bytes": 504,
+      "offset": 164312,
+      "type": "app::TransactionReport"
+    },
+    "trace_.report_": {
+      "address": 536951180,
+      "bytes": 2128,
+      "offset": 44,
+      "type": "motor_fault::TraceReport"
+    }
+  }
+}

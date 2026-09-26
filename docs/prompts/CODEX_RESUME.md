@@ -13,8 +13,10 @@ physical acceptance. Do not reset the project to P0.
    observation is now the latest flashed image and reproduced SETTLE failure at
    application921. Its final halt did not confirm inhibition; exact internal
    cause remains unknown. Read analysis/P7_app_motor_observe_actual_validation.md.
-   The next task is minimal internal rejection evidence, preserving150us/4096poll
-   bounds, empty grants, hardware-call order and production behavior. All current
+   D197 internal rejection instrumentation is host-validated, and D198 target
+   compile-only succeeded. Next observe its file ABI and publication stores,
+   then prepare a fresh inhibited capture; preserve150us/4096poll bounds,
+   empty grants, hardware-call order and production behavior. All current
    native owners and completed D191/D196 cleanups are consumed. Tests, review,
    new artifacts and observed ABI/entry precede a fresh inhibited native scope.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin

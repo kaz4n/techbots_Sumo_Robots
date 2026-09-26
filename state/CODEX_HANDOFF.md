@@ -43,11 +43,15 @@ launcherb98a5f54,102Linux/81WindowsPASS21coveredplatformskips,167pinsstable,
 review50a276b9. Originalnewfixture/admissionobserver failures are preserved;
 corrections changed neither assertions norproductionguards. New129pinmanifest
 aa314548 binds source117cc0e7/108stagedfiles780479B; readonlyadmission1c6c5ca3
-verifies sameboot/fullidentity/28installedpins andunusedapp-motor-settle-static01
-owners. Finalscope review/cleanHEAD precede onecompile-onlyattempt; no actual
-D198compile yet. Sameobserver sketch/static/default/M0/probe1 profile remains.
-Actual target28Breport symbol/ABI/zero-init/storepath need file-only observation
-before a separately bound inhibitedcapture. D195 remains the latestflashedimage.
+verified same-boot identity, installed pins and unused owners before execution.
+D198 actual compile now passes at clean reviewed HEAD18c1135c: one query, one
+compiler, 238 transports and all eight closing checks. Result9b7f0c44 and
+artifact receipte18384c1 bind ELF6091f27d/debugdc610650/packagee4000781 (95520B).
+All129 source pins remain exact; app-motor-settle-static01 is consumed.
+See analysis/P7_motor_settle_compile_actual_validation.md and its actual review.
+D199 file-only ABI preparation is next, followed by entry ranges derived from
+that actual symbol table. The separate report's target layout, zero-init range
+and publication stores remain unobserved. D195 is still the latest flashed image.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

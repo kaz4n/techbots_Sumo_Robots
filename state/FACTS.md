@@ -838,3 +838,7 @@ HOST-VERIFIED: D197sourcef1ee755a/header2eced554 defineprobe-only28B report,seve
 
 ## F214 - Fresh internal-probe compile workflow preparation (2026-09-26T10:04:25.022331+04:00)
 HOST-VERIFIED: D198b98a5f54 exactmetadata derivative/contractc0b35281 passes102Linux and81Windowsmethods/21explicitcoveredplatformskips;167pinsstable/review50a276b9PASS. Preparedmanifestaa314548 has129pins,110inventoryfiles/781347B mappedto108files780479B/source117cc0e7. DEVICE-READONLY: admission1c6c5ca3 matchesfullsamebootUIDGID1000 identity,28installedpins, no recognizedconflicts/newownersabsent; correctedonlyextraobserverhardlinkrestriction, notproductionguards. No actualcompile/upload/MCUread orruntimecauseevidence. Source: analysis/P7_motor_settle_compile_validation.md andrawreceipts.
+
+
+## F215 - Internal SETTLE probe target compilation (2026-09-26T10:16:08.181213+04:00)
+DEVICE-FILES-OBSERVED: D198 source117cc0e7/static/default/MATCH0/MOTORS0/probe1 compiles once at18c1135c; all8 closing checks PASS and129pins unchanged. ELF6091f27d/debugdc610650/packagee4000781 (95520B), all8 artifact identities stable. CLI171892B globals/90252B remaining; structural90256B RAM tail/data208B/BSS-clear170664B. These are layout accounting, not measured live RAM/stack/WCET or proof of report retention. Independent reviewf046db47 PASS; D195 remains flashed. Source: analysis/P7_motor_settle_compile_actual_validation.md.

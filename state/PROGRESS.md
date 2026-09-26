@@ -1402,3 +1402,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T10:04:25.022331+04:00 | P7 D198 host compile preparation PASS | Launcherb98a5f54/contractc0b35281 preserve D193 lifecycle withfreshapp-motor-settle-static01 owners. Independent102LinuxPASS/81WindowsPASS21explicitcoveredskips,167pinsstable; review50a276b9PASS. Firstnewfixturestagingomission4c61913e preserved/correctedonlycontrolledclaim-stagecalls/allassertionsretained. Readonlyadmission02all28installed/21localpinsPASS/sameboot; originalaccidentalobserverhardlinkrestrictionpreservedthenrestoredbaseline, noproductionguardchange. Manifest129pinsaa314548/source117cc0e7/108stagefiles780479B. Noactualcompile/nativeowner yet; finalscopecleanHEADnext.
+
+
+2026-09-26T10:16:08.181213+04:00 | P7 D198 actual compile PASS | One query/compiler, 238 transports, all eight closing checks at reviewed18c1135c. Result9b7f0c44/artifactse18384c1, source117cc0e7 and129pins exact. ELF6091f27d/debugdc610650/packagee4000781 (95520B). Independent actual reviewf046db47 PASS. Owner consumed; no upload/MCU read. D195 remains flashed; actual new ABI/publication evidence next.

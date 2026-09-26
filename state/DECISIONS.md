@@ -2250,3 +2250,6 @@ D-197 host outcome 2026-09-26T09:52:54.246983+04:00: exactimplementationf1ee755a
 
 
 D-198 host outcome 2026-09-26T10:04:25.022331+04:00: exactsourceb98a5f54 passes102Linux/81Windowsmethodswith21explicitplatformskipscoveredLinux,167pinsstable. Firstnewstagingfixture omitted claim/stage afterprepare; preserve4c61913e, correctonlycontrolledfixturelifecycle+coupledhelperhash/allassertionsunchanged. Admission01extrainventorynlink1 restriction wasunnecessaryforinstalledhardlinkedcompiler; originalD193predicate restoredonlyinreadonlyadmission02 afterstablemetadata/hashproof, noproductionguardchange. Review50a276b9PASS. Exact129pinmanifestaa314548/source117cc0e7 prepared; newfixedcompile-onlyscope/cleanHEAD precedeexecution. No nativeartifact/faultrepair/gatecreated.
+
+
+D-198 actual outcome 2026-09-26T10:16:08.181213+04:00: the single fixed compile-only attempt succeeded at clean18c1135c, with one compiler/one query and all eight closing checks. Result9b7f0c44 and artifactse18384c1 bind the new source117cc0e7; all129 manifest pins remain unchanged. Independent reviewf046db47 confirms complete source/tool/artifact closure. Consume app-motor-settle-static01; do not retry. Target report retention/layout/stores require new file-only evidence before a separate inhibited capture. No firmware upload, altered settle bound, physical qualification or gate follows.

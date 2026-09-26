@@ -409,3 +409,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T10:04:25.022331+04:00 | D198 hostpreparation retention | Keep36compactfiles/216183logicalB includinguniqueoriginalfixture/admissionfailures, correctedreceipts, manifest/scope andsourcehashreproduction. Hostfixtures selfcleaned; closing8e80ad67 observes0relevantRAM/Windowstempremnants. No targetartifactdownload/build/sourcecopycreatedyet; no reclaimedbytes/deniedpathretry. Cfree20808589312B separatelyobserved.
+
+
+2026-09-26T10:16:08.181213+04:00 | D198 actual compile evidence | Retain1004 unique native receipt files/1699771 logical bytes, compact invocation3560B and local closure1123B plus validation/review. The108-file/780479B local stage and original target artifacts support upcoming file-only ABI/entry checks. No duplicate firmware/debug downloads, no new bytecode or host compiler objects. C: observed20804710400B free. No deletion/reclaimed-byte claim or prior denied target retry.

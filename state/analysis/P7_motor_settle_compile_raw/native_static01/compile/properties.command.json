@@ -1,0 +1,19 @@
+[
+  "arduino-cli",
+  "compile",
+  "--json",
+  "--fqbn",
+  "arduino:zephyr:unoq:link_mode=static",
+  "--build-path",
+  "/home/arduino/sumox26_codex_build/app-motor-settle-static01/build",
+  "--output-dir",
+  "/home/arduino/sumox26_codex_build/app-motor-settle-static01/artifacts",
+  "--build-property",
+  "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+  "--build-property",
+  "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+  "--build-property",
+  "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+  "--show-properties=expanded",
+  "/home/arduino/sumox26_codex_build/117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da/app_motor_observe"
+]

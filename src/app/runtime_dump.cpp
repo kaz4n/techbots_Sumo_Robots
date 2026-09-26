@@ -52,7 +52,8 @@ bool Runtime::serviceDump() {
     const bool ready = dumpReadyContext(now) && dump_port_.ready(dump_port_.context);
     if (!clock(now)) return false;
     const auto& tick = transaction_.report();
-    const recorder::dump::Context context{now, tick.decision_us, ready, grants_.dump_origin};
+    const recorder::dump::Context context{now, tick.decision_us, ready, grants_.dump_origin,
+                                         grants_.dump.session};
     report_.dump = dump_.step(context, tick.robot, transaction_.recording());
     return clock(now);
 }

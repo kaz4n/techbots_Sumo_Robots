@@ -62,9 +62,12 @@ namespace power { struct InputPort { int identity; }; }
 namespace recorder::dump {
 enum class Origin : std::uint8_t { UNKNOWN, SYNTHETIC, HARDWARE_REPORTED };
 enum class Buffering : std::uint8_t { LEGACY_SINGLE, FIFO8 };
+enum class ReceiveStream : std::uint8_t { TRUSTED_FRAMING, UNTRUSTED_RECEIVE_STREAM };
 struct SetupGrant {
     bool setup_phase = false, exclusive_uart = false;
     bool ready_pin_owned = false, framing_clean = false;
+    ReceiveStream receive_stream = ReceiveStream::TRUSTED_FRAMING;
+    std::uint64_t session = 0U;
 };
 struct UnoQDumpPort {
     explicit UnoQDumpPort(Buffering value) : buffering(value) {}
@@ -111,17 +114,21 @@ struct Runtime {
 '''
 
 
-def expected_fields(flags=None, axes=(0, 0, 0), origin=0):
+def expected_fields(flags=None, axes=(0, 0, 0), origin=0, stream=0, session=0):
     enabled = flags or {}
     values = {field: 'true' if enabled.get(name, 0) else 'false'
               for name, field in FLAGS}
     values.update({f'mounting.body_axis[{index}]': str(value)
                    for index, value in enumerate(axes)})
     values['dump_origin'] = 'recorder::dump::Origin::' + ORIGINS[origin]
+    values['dump.receive_stream'] = ('recorder::dump::ReceiveStream::' +
+        ('TRUSTED_FRAMING', 'UNTRUSTED_RECEIVE_STREAM')[stream])
+    values['dump.session'] = str(session) + 'ULL'
     return values
 
 
-def constant_assertions(flags=None, axes=(0, 0, 0), origin=0, defaults=False):
+def constant_assertions(flags=None, axes=(0, 0, 0), origin=0, defaults=False,
+                        stream=0, session=0):
     text = ['#include "src/app/configured_setup.h"', '#include <type_traits>',
             'constexpr app::SetupGrants actual = app::configuredSetupGrants();',
             'static_assert(std::is_same_v<decltype(app::configuredSetupGrants()), '
@@ -134,10 +141,14 @@ def constant_assertions(flags=None, axes=(0, 0, 0), origin=0, defaults=False):
         'config::APP_IMU_BODY_AXIS)>, std::int32_t[3]>);',
         'static_assert(std::is_same_v<std::remove_cv_t<decltype('
         'config::APP_DUMP_ORIGIN)>, std::uint32_t>);',
+        'static_assert(std::is_same_v<std::remove_cv_t<decltype('
+        'config::APP_DUMP_RECEIVE_STREAM_ID)>, std::uint32_t>);',
+        'static_assert(std::is_same_v<std::remove_cv_t<decltype('
+        'config::APP_DUMP_SESSION_ID)>, std::uint64_t>);',
     ))
     if defaults:
         text.append('constexpr app::SetupGrants empty{};')
-    for field, value in expected_fields(flags, axes, origin).items():
+    for field, value in expected_fields(flags, axes, origin, stream, session).items():
         text.append(f'static_assert(actual.{field} == {value}, "{field}");')
         if defaults:
             text.append(f'static_assert(actual.{field} == empty.{field});')
@@ -195,13 +206,16 @@ class ConfiguredSetupTests(unittest.TestCase):
         finally:
             os.close(descriptor)
 
-    def configure(self, flags=None, axes=None, origin=None):
+    def configure(self, flags=None, axes=None, origin=None, stream=0, session=0):
         text = self.config
         replacements = dict(flags or {})
         if origin is not None:
             replacements['APP_DUMP_ORIGIN'] = origin
+        replacements['APP_DUMP_RECEIVE_STREAM_ID'] = stream
+        replacements['APP_DUMP_SESSION_ID'] = session
         for name, value in replacements.items():
-            pattern = (r'(inline\s+constexpr\s+std::uint32_t\s+' + re.escape(name)
+            width = '64' if name == 'APP_DUMP_SESSION_ID' else '32'
+            pattern = (r'(inline\s+constexpr\s+std::uint' + width + r'_t\s+' + re.escape(name)
                        + r'\s*=\s*)0U(\s*;)')
             text, count = re.subn(pattern, lambda match: match[1] + str(value) +
                                   'U' + match[2], text)
@@ -215,10 +229,10 @@ class ConfiguredSetupTests(unittest.TestCase):
         (self.real / 'src/config.h').write_text(text, encoding='utf-8')
 
     def compile_case(self, flags=None, axes=(0, 0, 0), origin=0,
-                     build=(0, 0), defaults=False):
-        self.configure(flags, axes, origin)
+                     build=(0, 0), defaults=False, stream=0, session=0):
+        self.configure(flags, axes, origin, stream, session)
         source = self.real / 'case.cc'
-        source.write_text(constant_assertions(flags, axes, origin, defaults), encoding='utf-8')
+        source.write_text(constant_assertions(flags, axes, origin, defaults, stream, session), encoding='utf-8')
         self.command([*self.base, f'-DMATCH={build[0]}', f'-DMOTORS_ALLOWED={build[1]}',
                       '-I', self.real, '-fsyntax-only', source])
 
@@ -334,14 +348,14 @@ int main() {
             with self.subTest(origin=origin):
                 self.reject_case(origin=origin)
 
-    def entry_case(self, flags=None, axes=(0, 0, 0), origin=0, build=(0, 0)):
+    def entry_case(self, flags=None, axes=(0, 0, 0), origin=0, build=(0, 0), stream=0, session=0):
         stage = self.ram / 'entry'
         for folder in ('src/app', 'src/hal'):
             (stage / folder).mkdir(parents=True, exist_ok=True)
         (stage / 'types.h').write_text(ENTRY_TYPES, encoding='utf-8')
         for name in ('src/app/native_sources_unoq.h', 'src/hal/motor_port_unoq.h'):
             (stage / name).write_text('#include "types.h"\n', encoding='utf-8')
-        values = expected_fields(flags, axes, origin)
+        values = expected_fields(flags, axes, origin, stream, session)
         assignments = '\n'.join(f'    grants.{field} = {value};' for field, value in values.items())
         builder = '#include "types.h"\nnamespace app {\nSetupGrants configuredSetupGrants() {\n'
         builder += '    ++fixture::builders;\n    SetupGrants grants{};\n' + assignments
@@ -391,6 +405,10 @@ int main() {
         from tests.tooling import test_runtime_config_registry as registry
         additions = {name: 0 for name, _ in FLAGS}
         additions['APP_DUMP_ORIGIN'] = 0
+        additions['APP_DUMP_RECEIVE_STREAM_ID'] = 0
+        additions['TICK_DISTRIBUTION_LIMIT_US'] = 800  # Accepted D229 diagnostic range.
+        additions['APP_MOTOR_OBSERVE_EPOCHS'] = 10000  # Accepted observation contract.
+        additions['APP_MOTOR_OBSERVE_MAX_POLLS'] = 10000000
         wrong = self.ram / 'registry_wrong'
         (wrong / 'docs').mkdir(parents=True)
         (wrong / 'src').mkdir()
@@ -401,12 +419,29 @@ int main() {
             patches.enter_context(mock.patch.dict(registry.legacy.BEHAVIOR_EXTRA_DEFAULTS,
                                                   additions))
             patches.enter_context(mock.patch.dict(registry.legacy.BEHAVIOR_DERIVED_TYPES,
-                                                  {'APP_IMU_BODY_AXIS[3]': 'std::int32_t'}))
+                                                  {'APP_IMU_BODY_AXIS[3]': 'std::int32_t',
+                                                   'APP_DUMP_SESSION_ID': 'std::uint64_t'}))
             patches.enter_context(mock.patch.object(registry, 'RAW', self.ram / 'registry_raw'))
             patches.enter_context(mock.patch.object(tempfile, 'tempdir', str(self.ram)))
             case = registry.RuntimeConfigRegistryTests('runTest')
             case.run_registry('D180-approved-defaults')
             case.run_registry('D180-opponents-wrong-value', wrong, expected_failure=True)
+
+    def test_16_D234_session_and_stream_are_exact_without_manufacturing_grants(self):
+        for stream, session in ((0, 0), (0, 1), (1, 0), (1, 4294967296),
+                                (1, 9223372036854775808), (1, 18446744073709551615)):
+            for build in BUILD_FLAGS:
+                with self.subTest(stream=stream, session=session, build=build):
+                    self.compile_case(stream=stream, session=session, build=build)
+        for build in BUILD_FLAGS:
+            self.entry_case(stream=1, session=18446744073709551615, build=build)
+
+    def test_17_D234_undefined_receive_stream_is_rejected_before_enum_cast(self):
+        for stream in (2, 255, 256, 4294967295):
+            self.configure(stream=stream, session=1)
+            source = self.real / 'reject-stream.cc'
+            source.write_text('#include "src/app/configured_setup.h"\n', encoding='utf-8')
+            self.command([*self.base, '-I', self.real, '-fsyntax-only', source], success=False)
 
 
 if __name__ == '__main__':

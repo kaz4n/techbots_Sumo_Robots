@@ -95,6 +95,8 @@ inline constexpr std::uint32_t APP_GRANT_DUMP_EXCLUSIVE_UART = 0U;
 inline constexpr std::uint32_t APP_GRANT_DUMP_READY_PIN_OWNED = 0U;
 inline constexpr std::uint32_t APP_GRANT_DUMP_FRAMING_CLEAN = 0U;
 inline constexpr std::uint32_t APP_DUMP_ORIGIN = 0U; // enum ID: unknown0, synthetic1, hardware-reported2
+inline constexpr std::uint32_t APP_DUMP_RECEIVE_STREAM_ID = 0U; // trusted0, identified/untrusted1
+inline constexpr std::uint64_t APP_DUMP_SESSION_ID = 0U; // zero preserves legacy per-request identity
 inline constexpr std::uint32_t APP_GRANT_LOCAL_SERVICE_RESET = 0U;
 inline constexpr std::uint32_t APP_GRANT_CALIBRATION_OUTPUT = 0U;
 static_assert(APP_GRANT_OPPONENTS <= 1U && APP_GRANT_ADC_PAIR <= 1U &&
@@ -111,6 +113,7 @@ static_assert(APP_IMU_BODY_AXIS[0] >= -3 && APP_IMU_BODY_AXIS[0] <= 3 &&
               APP_IMU_BODY_AXIS[2] >= -3 && APP_IMU_BODY_AXIS[2] <= 3,
               "App mounting entries must be signed sensor-axis IDs or zero");
 static_assert(APP_DUMP_ORIGIN <= 2U, "App dump origin must be a declared origin ID");
+static_assert(APP_DUMP_RECEIVE_STREAM_ID <= 1U, "App dump stream must be a declared stream ID");
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
 // Pin assignments await P0 source verification and human PINMAP OK.
 // D076 copies HARDWARE3 proposals for compile-only HAL development, not approval.

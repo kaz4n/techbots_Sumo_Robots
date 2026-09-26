@@ -25,6 +25,8 @@ constexpr SetupGrants configuredSetupGrants() {
     grants.dump.exclusive_uart = config::APP_GRANT_DUMP_EXCLUSIVE_UART != 0U;
     grants.dump.ready_pin_owned = config::APP_GRANT_DUMP_READY_PIN_OWNED != 0U;
     grants.dump.framing_clean = config::APP_GRANT_DUMP_FRAMING_CLEAN != 0U;
+    grants.dump.receive_stream = static_cast<recorder::dump::ReceiveStream>(config::APP_DUMP_RECEIVE_STREAM_ID);
+    grants.dump.session = config::APP_DUMP_SESSION_ID;
     grants.dump_origin = static_cast<recorder::dump::Origin>(config::APP_DUMP_ORIGIN);
     grants.local_service_reset = config::APP_GRANT_LOCAL_SERVICE_RESET != 0U;
     grants.calibration_output_enabled = config::APP_GRANT_CALIBRATION_OUTPUT != 0U;

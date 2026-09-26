@@ -1,0 +1,89 @@
+test_D234_identified_dump_fields_need_separate_deployment_workflow (tests.tooling.test_commissioning_deploy.AdmissionTests.test_D234_identified_dump_fields_need_separate_deployment_workflow) ... ok
+test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators) ... 
+  test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators) (profile='b4_stand', motors=1) ... ERROR
+test_authorization_exact_reply_message_and_fresh_utc_window (tests.tooling.test_commissioning_deploy.AdmissionTests.test_authorization_exact_reply_message_and_fresh_utc_window) ... ok
+test_check_only_is_local_read_only_and_does_not_claim (tests.tooling.test_commissioning_deploy.AdmissionTests.test_check_only_is_local_read_only_and_does_not_claim) ... ok
+test_cli_requires_exact_order_types_closed_fields_and_head (tests.tooling.test_commissioning_deploy.AdmissionTests.test_cli_requires_exact_order_types_closed_fields_and_head) ... ok
+test_compile_counts_closures_commands_properties_and_stderr_are_semantic (tests.tooling.test_commissioning_deploy.AdmissionTests.test_compile_counts_closures_commands_properties_and_stderr_are_semantic) ... ok
+test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) ... ok
+test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax) ... ok
+test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse (tests.tooling.test_commissioning_deploy.AdmissionTests.test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse) ... ok
+test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject) ... ok
+test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) ... ok
+test_operational_requires_source_grants_configured_buttons_and_every_evidence_check (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_requires_source_grants_configured_buttons_and_every_evidence_check) ... ok
+test_operational_turn_basis_and_gates_are_profile_specific (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_turn_basis_and_gates_are_profile_specific) ... ok
+test_profile_motor_startup_config_and_artifact_swaps_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_profile_motor_startup_config_and_artifact_swaps_reject) ... ok
+test_qualification_and_authorization_bind_entire_request_and_run (tests.tooling.test_commissioning_deploy.AdmissionTests.test_qualification_and_authorization_bind_entire_request_and_run) ... ok
+test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent (tests.tooling.test_commissioning_deploy.AdmissionTests.test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent) ... ok
+test_admission_refusal_never_claims_or_contacts_board (tests.tooling.test_commissioning_deploy.LifecycleTests.test_admission_refusal_never_claims_or_contacts_board) ... ok
+test_closing_failures_are_independent_and_never_accept (tests.tooling.test_commissioning_deploy.LifecycleTests.test_closing_failures_are_independent_and_never_accept) ... ERROR
+test_outcome_write_failure_cannot_be_success (tests.tooling.test_commissioning_deploy.LifecycleTests.test_outcome_write_failure_cannot_be_success) ... ok
+test_success_one_upload_two_prerequisites_each_side_consumed_owner (tests.tooling.test_commissioning_deploy.LifecycleTests.test_success_one_upload_two_prerequisites_each_side_consumed_owner) ... ok
+test_timeout_unknown_preserves_primary_runs_closing_and_never_retries (tests.tooling.test_commissioning_deploy.LifecycleTests.test_timeout_unknown_preserves_primary_runs_closing_and_never_retries) ... ok
+
+======================================================================
+ERROR: test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators) (profile='b4_stand', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tests\tooling\test_commissioning_deploy.py", line 243, in test_all_fourteen_tuples_with_real_git_and_complete_compile_validators
+    result = self.admit()
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tools\deploy_commissioning_app.py", line 384, in load_scope
+    owner = compile_owner(base, compiler, root, request)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tools\deploy_commissioning_app.py", line 138, in compile_owner
+    owner = compiler.make_owner(args, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_commissioning_app.py", line 301, in make_owner
+    return load_caller(request, root=root).CompileDiagnostic(request['reviewed_head'], root=root)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_commissioning_app.py", line 287, in load_caller
+    module = bootstrap.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_b4_app_static.py", line 137, in load_caller
+    raw = read_original(PREDECESSOR, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_b4_app_static.py", line 124, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_b4_app_static.py", line 100, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_rrxjxirf\tools\compile_b4_app_static.py", line 46, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/compile_ordinary_app_static.py
+
+======================================================================
+ERROR: test_closing_failures_are_independent_and_never_accept (tests.tooling.test_commissioning_deploy.LifecycleTests.test_closing_failures_are_independent_and_never_accept)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tests\tooling\test_commissioning_deploy.py", line 89, in setUp
+    self.make()
+    ~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tests\tooling\test_commissioning_deploy.py", line 130, in make
+    owner = self.compiler.make_owner(request, root=self.root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tools\compile_commissioning_app.py", line 301, in make_owner
+    return load_caller(request, root=root).CompileDiagnostic(request['reviewed_head'], root=root)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-app-session-20260927\tools\compile_commissioning_app.py", line 287, in load_caller
+    module = bootstrap.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_j9bopa79\tools\compile_b4_app_static.py", line 137, in load_caller
+    raw = read_original(PREDECESSOR, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_j9bopa79\tools\compile_b4_app_static.py", line 124, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_j9bopa79\tools\compile_b4_app_static.py", line 100, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_j9bopa79\tools\compile_b4_app_static.py", line 46, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/compile_ordinary_app_static.py
+
+----------------------------------------------------------------------
+Ran 21 tests in 197.499s
+
+FAILED (errors=2)

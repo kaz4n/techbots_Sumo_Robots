@@ -88,6 +88,35 @@ TEST_CASE("B13 B15 D101 early step never pumps dump and terminal calls remain pa
 }
 
 #ifdef APP_TEST_CONFIGURED_BUTTONS
+TEST_CASE("B13 B15 D234 Runtime retains configured identity from setup through every wire envelope") {
+    for (const auto identity : {std::uint64_t{1U}, std::uint64_t{4294967296ULL},
+                               std::numeric_limits<std::uint64_t>::max()}) {
+        Rig rig; auto grants = rig.grants();
+        grants.dump.receive_stream = dump::ReceiveStream::UNTRUSTED_RECEIVE_STREAM;
+        grants.dump.session = identity;
+        AD_REQUIRE(rig.owner.begin(grants));
+        CHECK(rig.sink.received.session == identity);
+        CHECK(rig.sink.received.receive_stream == dump::ReceiveStream::UNTRUSTED_RECEIVE_STREAM);
+        grants.dump.session = 2U; // Caller changes cannot mutate the stored grant.
+        AD_REQUIRE(rig.seal()); AD_REQUIRE(rig.selectDump()); AD_REQUIRE(rig.requestDump());
+        AD_REQUIRE(rig.finish());
+        CHECK(rig.owner.report().dump.session == identity);
+        CHECK(rig.sink.cancels == 0U);
+        const auto& wire = rig.sink.bytes;
+        const std::string expected = std::to_string(identity) + ",";
+        std::size_t offset = 0U, envelopes = 0U;
+        while (offset < wire.size()) {
+            const auto end = wire.find('\n', offset);
+            REQUIRE(end != std::string::npos);
+            const auto value = envelopes == 0U ? offset + 15U : wire.find(',', offset) + 1U;
+            CHECK(wire.compare(value, expected.size(), expected) == 0);
+            offset = end + 1U; ++envelopes;
+        }
+        CHECK(envelopes > 3U);
+        inhibited(rig);
+    }
+}
+
 TEST_CASE("B3 B13 B15 D101 real cancelled countdown tail seals then genuine local menu exports exact attempt") {
     Rig rig; AD_REQUIRE(rig.begin()); AD_REQUIRE(rig.seal());
     const auto original = recorder::csv::captureSummary(rig.owner.transaction().recording());

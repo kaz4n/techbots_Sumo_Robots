@@ -1,0 +1,52 @@
+test_00_D180_real_type_constexpr_defaults_in_all_build_combinations (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_00_D180_real_type_constexpr_defaults_in_all_build_combinations) ... ok
+test_01_D180_each_of_seventeen_grants_maps_only_its_declared_field (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_01_D180_each_of_seventeen_grants_maps_only_its_declared_field) ... ok
+test_03_D180_mixed_grants_are_independent_of_build_flags (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_03_D180_mixed_grants_are_independent_of_build_flags) ... ok
+test_13_D180_actual_entry_forwards_defaults_once_and_only_steps_in_loop (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_13_D180_actual_entry_forwards_defaults_once_and_only_steps_in_loop) ... ok
+test_14_D180_actual_entry_forwards_complete_synthetic_nonzero_grants (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_14_D180_actual_entry_forwards_complete_synthetic_nonzero_grants) ... ok
+test_16_D234_session_and_stream_are_exact_without_manufacturing_grants (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_16_D234_session_and_stream_are_exact_without_manufacturing_grants) ... ok
+test_17_D234_undefined_receive_stream_is_rejected_before_enum_cast (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_17_D234_undefined_receive_stream_is_rejected_before_enum_cast) ... ok
+setUpClass (tests.tooling.test_commissioning_deploy.AdmissionTests) ... ERROR
+setUpClass (tests.tooling.test_commissioning_deploy.LifecycleTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (tests.tooling.test_commissioning_deploy.AdmissionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_commissioning_deploy.py", line 68, in setUpClass
+    cls.legacy_fixture.Fixture.setUpClass()
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_b4_app_static_policy.py", line 319, in setUpClass
+    checked(path)
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_b4_app_static_policy.py", line 273, in checked
+    raw = (ROOT / relative).read_bytes()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1021, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/state/analysis/P7_static_link_probe_test_draft/test_static_policy.py'
+
+======================================================================
+ERROR: setUpClass (tests.tooling.test_commissioning_deploy.LifecycleTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_commissioning_deploy.py", line 68, in setUpClass
+    cls.legacy_fixture.Fixture.setUpClass()
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_b4_app_static_policy.py", line 319, in setUpClass
+    checked(path)
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_b4_app_static_policy.py", line 273, in checked
+    raw = (ROOT / relative).read_bytes()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1021, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/state/analysis/P7_static_link_probe_test_draft/test_static_policy.py'
+
+----------------------------------------------------------------------
+Ran 7 tests in 10.065s
+
+FAILED (errors=2)

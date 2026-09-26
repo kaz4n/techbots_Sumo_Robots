@@ -1,0 +1,63 @@
+test_15_D180_additive_registry_preserves_all_legacy_assertions (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_15_D180_additive_registry_preserves_all_legacy_assertions) ... FAIL
+
+======================================================================
+FAIL: test_15_D180_additive_registry_preserves_all_legacy_assertions (tests.tooling.test_configured_setup.ConfiguredSetupTests.test_15_D180_additive_registry_preserves_all_legacy_assertions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_configured_setup.py", line 425, in test_15_D180_additive_registry_preserves_all_legacy_assertions
+    case.run_registry('D180-approved-defaults')
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_runtime_config_registry.py", line 85, in run_registry
+    self.assertIsNone(error, error)
+AssertionError: 'False is not true : test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks (tests.tooling.test_dump_match.DumpCaptureTests.test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks) ... FAIL\n\n======================================================================\nFAIL: test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks (tests.tooling.test_dump_match.DumpCaptureTests.test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_dump_match.py", line 445, in test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks\n    self.assertTrue(result.wasSuccessful(), output.getvalue())\nAssertionError: False is not true : test_b16_literal_categories_and_array_extent_are_preserved (tests.tooling.test_p0_config.P0ConfigTests.test_b16_literal_categories_and_array_extent_are_preserved) ... ok\ntest_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows (tests.tooling.test_p0_config.P0ConfigTests.test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows) ... ok\ntest_b3_service_defaults_match_d024 (tests.tooling.test_p0_config.P0ConfigTests.test_b3_service_defaults_match_d024) ... ok\ntest_b4_forward_inner_ratio_matches_seventy_percent (tests.tooling.test_p0_config.P0ConfigTests.test_b4_forward_inner_ratio_matches_seventy_percent) ... ok\ntest_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3 (tests.tooling.test_p0_config.P0ConfigTests.test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3) ... ok\ntest_d077_motor_proposals_and_development_limits_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d077_motor_proposals_and_development_limits_are_explicit) ... ok\ntest_d078_native_power_limits_and_nominal_scaling_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d078_native_power_limits_and_nominal_scaling_are_explicit) ... ok\ntest_d079_native_imu_bus_route_timing_address_and_bounds_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d079_native_imu_bus_route_timing_address_and_bounds_are_explicit) ... ok\ntest_d080_checked_profile_waits_deadline_and_count_caps_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d080_checked_profile_waits_deadline_and_count_caps_are_explicit) ... ok\ntest_d081_observed_silence_is_exactly_the_existing_b14_twenty_ms (tests.tooling.test_p0_config.P0ConfigTests.test_d081_observed_silence_is_exactly_the_existing_b14_twenty_ms) ... ok\ntest_d082_heading_gap_is_exactly_the_selected_two_ms_policy (tests.tooling.test_p0_config.P0ConfigTests.test_d082_heading_gap_is_exactly_the_selected_two_ms_policy) ... ok\ntest_d085_qtr_guards_and_unchanged_pin_proposals_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d085_qtr_guards_and_unchanged_pin_proposals_are_explicit) ... ok\ntest_d086_button_pin_is_the_unchanged_explicit_a1_proposal (tests.tooling.test_p0_config.P0ConfigTests.test_d086_button_pin_is_the_unchanged_explicit_a1_proposal) ... ok\ntest_d087_windows_are_unconfigured_and_age_policy_is_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d087_windows_are_unconfigured_and_age_policy_is_explicit) ... ok\ntest_each_b16_default_matches_its_documented_value (tests.tooling.test_p0_config.P0ConfigTests.test_each_b16_default_matches_its_documented_value) ... ok\ntest_explicit_behavior_text_defaults_match_spec (tests.tooling.test_p0_config.P0ConfigTests.test_explicit_behavior_text_defaults_match_spec) ... ok\ntest_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared (tests.tooling.test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared) ... FAIL\ntest_p0_diagnostic_defaults_are_explicit_and_unchanged (tests.tooling.test_p0_config.P0ConfigTests.test_p0_diagnostic_defaults_are_explicit_and_unchanged) ... ok\n\n======================================================================\nFAIL: test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared (tests.tooling.test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_p0_config.py", line 188, in test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared\n    self.assertEqual(expected, set(config_declarations()))\nAssertionError: Items in the second set but not the first:\n\'APP_MOTOR_OBSERVE_MAX_POLLS\'\n\'APP_MOTOR_OBSERVE_EPOCHS\'\n\n----------------------------------------------------------------------\nRan 18 tests in 0.124s\n\nFAILED (failures=1)\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.267s\n\nFAILED (failures=1)\n' is not None : False is not true : test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks (tests.tooling.test_dump_match.DumpCaptureTests.test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks) ... FAIL
+
+======================================================================
+FAIL: test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks (tests.tooling.test_dump_match.DumpCaptureTests.test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_dump_match.py", line 445, in test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks
+    self.assertTrue(result.wasSuccessful(), output.getvalue())
+AssertionError: False is not true : test_b16_literal_categories_and_array_extent_are_preserved (tests.tooling.test_p0_config.P0ConfigTests.test_b16_literal_categories_and_array_extent_are_preserved) ... ok
+test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows (tests.tooling.test_p0_config.P0ConfigTests.test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows) ... ok
+test_b3_service_defaults_match_d024 (tests.tooling.test_p0_config.P0ConfigTests.test_b3_service_defaults_match_d024) ... ok
+test_b4_forward_inner_ratio_matches_seventy_percent (tests.tooling.test_p0_config.P0ConfigTests.test_b4_forward_inner_ratio_matches_seventy_percent) ... ok
+test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3 (tests.tooling.test_p0_config.P0ConfigTests.test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3) ... ok
+test_d077_motor_proposals_and_development_limits_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d077_motor_proposals_and_development_limits_are_explicit) ... ok
+test_d078_native_power_limits_and_nominal_scaling_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d078_native_power_limits_and_nominal_scaling_are_explicit) ... ok
+test_d079_native_imu_bus_route_timing_address_and_bounds_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d079_native_imu_bus_route_timing_address_and_bounds_are_explicit) ... ok
+test_d080_checked_profile_waits_deadline_and_count_caps_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d080_checked_profile_waits_deadline_and_count_caps_are_explicit) ... ok
+test_d081_observed_silence_is_exactly_the_existing_b14_twenty_ms (tests.tooling.test_p0_config.P0ConfigTests.test_d081_observed_silence_is_exactly_the_existing_b14_twenty_ms) ... ok
+test_d082_heading_gap_is_exactly_the_selected_two_ms_policy (tests.tooling.test_p0_config.P0ConfigTests.test_d082_heading_gap_is_exactly_the_selected_two_ms_policy) ... ok
+test_d085_qtr_guards_and_unchanged_pin_proposals_are_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d085_qtr_guards_and_unchanged_pin_proposals_are_explicit) ... ok
+test_d086_button_pin_is_the_unchanged_explicit_a1_proposal (tests.tooling.test_p0_config.P0ConfigTests.test_d086_button_pin_is_the_unchanged_explicit_a1_proposal) ... ok
+test_d087_windows_are_unconfigured_and_age_policy_is_explicit (tests.tooling.test_p0_config.P0ConfigTests.test_d087_windows_are_unconfigured_and_age_policy_is_explicit) ... ok
+test_each_b16_default_matches_its_documented_value (tests.tooling.test_p0_config.P0ConfigTests.test_each_b16_default_matches_its_documented_value) ... ok
+test_explicit_behavior_text_defaults_match_spec (tests.tooling.test_p0_config.P0ConfigTests.test_explicit_behavior_text_defaults_match_spec) ... ok
+test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared (tests.tooling.test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared) ... FAIL
+test_p0_diagnostic_defaults_are_explicit_and_unchanged (tests.tooling.test_p0_config.P0ConfigTests.test_p0_diagnostic_defaults_are_explicit_and_unchanged) ... ok
+
+======================================================================
+FAIL: test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared (tests.tooling.test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/AppData/Local/Temp/sumox-app-session-20260927/tests/tooling/test_p0_config.py", line 188, in test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared
+    self.assertEqual(expected, set(config_declarations()))
+AssertionError: Items in the second set but not the first:
+'APP_MOTOR_OBSERVE_MAX_POLLS'
+'APP_MOTOR_OBSERVE_EPOCHS'
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.124s
+
+FAILED (failures=1)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.267s
+
+FAILED (failures=1)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.199s
+
+FAILED (failures=1)

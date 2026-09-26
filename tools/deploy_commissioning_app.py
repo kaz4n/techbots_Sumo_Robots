@@ -204,7 +204,7 @@ def config_text(raw):
     require(not re.search(r'\\\r?\n|\b(?:u8|[uUL])?R"', text), 'Unsupported config literal syntax')
     token = r'/\*[\s\S]*?\*/|//[^\n]*|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\''
     text = re.sub(token, lambda item: re.sub(r'[^\n]', ' ', item.group()), text)
-    protected = r'\b(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|BUTTON_WINDOWS_CONFIGURED|BUTTON_LOW_RAW|BUTTON_HIGH_RAW)\b'
+    protected = r'\b(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|APP_DUMP_RECEIVE_STREAM_ID|APP_DUMP_SESSION_ID|BUTTON_WINDOWS_CONFIGURED|BUTTON_LOW_RAW|BUTTON_HIGH_RAW)\b'
     depth = 0
     for line in text.splitlines():
         directive = re.match(r'^\s*#\s*(\w+)\b', line)
@@ -229,7 +229,7 @@ def config_literals(raw):
     require(set(re.findall(r'\bAPP_GRANT_[A-Z0-9_]+\b', text)) == expected, 'Unsupported setup grant set')
     values, accepted = {}, []
     number = r'(?:0|[1-9][0-9]*)'
-    for name in (*sorted(expected), 'APP_DUMP_ORIGIN', 'BUTTON_WINDOWS_CONFIGURED'):
+    for name in (*sorted(expected), 'APP_DUMP_ORIGIN', 'APP_DUMP_RECEIVE_STREAM_ID', 'BUTTON_WINDOWS_CONFIGURED'):
         rows = list(re.finditer(r'\binline\s+constexpr\s+std::uint32_t\s+' + name +
                                r'\s*=\s*(' + number + r')U\s*;', text))
         require(len(rows) == 1, 'Unsupported or duplicate config literal: ' + name)
@@ -237,6 +237,14 @@ def config_literals(raw):
         accepted.append(rows[0].group())
     require(all(values[name] in (0, 1) for name in expected) and values['APP_DUMP_ORIGIN'] in (0, 1, 2)
             and values['BUTTON_WINDOWS_CONFIGURED'] in (0, 1), 'Invalid config literal values')
+    rows = list(re.finditer(r'\binline\s+constexpr\s+std::uint64_t\s+APP_DUMP_SESSION_ID'
+                           r'\s*=\s*(' + number + r')U\s*;', text))
+    require(len(rows) == 1, 'Unsupported or duplicate dump session literal')
+    values['APP_DUMP_SESSION_ID'] = int(rows[0].group(1))
+    accepted.append(rows[0].group())
+    # This deployment workflow has no fresh identified receive owner yet.
+    require(values['APP_DUMP_RECEIVE_STREAM_ID'] == values['APP_DUMP_SESSION_ID'] == 0,
+            'Identified dump deployment needs a separately qualified workflow')
     rows = list(re.finditer(r'\binline\s+constexpr\s+std::int32_t\s+APP_IMU_BODY_AXIS\[3\]\s*=\s*'
                            r'\{\s*(-?[0-3])\s*,\s*(-?[0-3])\s*,\s*(-?[0-3])\s*\}\s*;', text))
     require(len(rows) == 1, 'Unsupported or duplicate mounting literal')
@@ -379,7 +387,7 @@ def load_scope(root, relative, reviewed_head, target, transport, *, now=None, _o
     config = config_literals(owner.code['src/config.h'])
     for name, body in owner.code.items():
         if name.startswith('src/'):
-            require(not re.search(rb'^\s*#\s*(?:define|undef)\s+(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN)\b',
+            require(not re.search(rb'^\s*#\s*(?:define|undef)\s+(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|APP_DUMP_RECEIVE_STREAM_ID|APP_DUMP_SESSION_ID)\b',
                                   body, re.M), 'Source overrides setup declarations')
     qualification = checked_qualification(base, root, request, config)
     checked_authorization(base, root, scope, base.current_time(now))

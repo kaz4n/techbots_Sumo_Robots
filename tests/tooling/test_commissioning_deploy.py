@@ -330,6 +330,21 @@ class AdmissionTests(DeployFixture):
         self.qual['grants'][GRANTS[3]] = copy.deepcopy(self.qual['grants'][GRANTS[0]])
         self.refresh(); self.reject()
 
+    def test_D234_identified_dump_fields_need_separate_deployment_workflow(self):
+        for name, value in ((b'APP_DUMP_RECEIVE_STREAM_ID', b'1'),
+                            (b'APP_DUMP_RECEIVE_STREAM_ID', b'2'),
+                            (b'APP_DUMP_SESSION_ID', b'1'),
+                            (b'APP_DUMP_SESSION_ID', b'18446744073709551615')):
+            for motors in (0, 1):
+                baseline = self.config if motors == 0 else self.operational_config()
+                changed = baseline.replace(name + b' = 0U;', name + b' = ' + value + b'U;')
+                self.assertNotEqual(changed, baseline)
+                self.make('p3_drive', motors, config=changed)
+                with self.subTest(name=name, value=value, motors=motors): self.reject()
+        for name in (b'APP_DUMP_RECEIVE_STREAM_ID', b'APP_DUMP_SESSION_ID'):
+            self.make(config=self.config + b'\n#define ' + name + b' 0\n')
+            self.reject()
+
     def test_inactive_or_string_decoys_cannot_hide_live_protected_grants(self):
         literal = b'inline constexpr std::uint32_t APP_GRANT_OPPONENTS = 0U;'
         live = b'inline constexpr std::uint32_t APP_GRANT_OPPONENTS = (1U);'

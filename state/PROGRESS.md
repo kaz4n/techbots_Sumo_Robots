@@ -1375,3 +1375,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:55:29.495957+04:00 | P7 D194 entry host validation | Source0c3a3dd1/contract437f8cb8, independent19Windows+19LinuxPASS/no skips;150pinsstable.27currentELFderivedranges, exactbootstrap/lifecycle/parserprojection; nativeentryownerunused. Finalreview/cleanHEAD thennewfile-onlyentryquery. Separatereadonlyscratchinventory sees3D190copies; no useproof/cleanup/nativeupload.
+
+
+2026-09-26T08:58:40.051709+04:00 | P7 D194 actual entry collection PASS | Atclean41bea260 check0/execute0;1transport/4filechildren0emptystderr/13remote+localPASS. Actualinitializer05011008->0x08100105;27ranges2686Bcomplete. Result61c7b090/entrye195fdeb,150pinsstable; nativeentryownerCONSUMED. No compiler/upload/reset/MCUread; independentactualinstructionsemanticsreview pending before newrun.
+
+
+2026-09-26T09:04:21.128420+04:00 | P7 D194 actual entry review PASS | Separate reviewd1a09f19 validates146admitted/150frozenpins and27ranges2686B; emptyappgrants, failurepriority,10000epoch/10000000pollbounds, preabortdeclaredfields and terminalpassivity observed in selectedinstructions. No runtime/physicalclaim. Nativeownerconsumed; D195/D196hostpreparation next.

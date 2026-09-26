@@ -394,3 +394,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T08:48:35.553352+04:00 | D194 successful ABI02 evidence | Retain 1825319B nativeowner receipts/rawtransport/compact3704BABI andinvocation tobind actualfileobservations andfutureentry/capture. No ELF/debugdownload.142frozenpinsunchanged; zeroownedABI02 testtempremnants verifiedbothplatforms. Cfree21182382080B. No newcleanup/reclaimedbytes; priorblockedtargetsuntouched.
+
+
+2026-09-26T09:04:21.128420+04:00 | D194 actualentry retention | Retain unique357824B rawresult,9251Bentrysummary,277Bclosure,22218Binputs,1351Binvocation and9198Breview for reproduction/audit. No duplicatefirmware/binaries; no deletions. C: observed21148119040Bfree after usercleanup; native128MiBgate unchanged. Three currentD190uploadcopies2399736B separatelyinventoried; nocleanupyet.

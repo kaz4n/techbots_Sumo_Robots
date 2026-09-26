@@ -61,9 +61,17 @@ Both native_abi_static01 and02 are CONSUMED. No firmware/MCU operation occurred.
 The new file-only entry reader is prepared: inspect_static_entry.py0c3a3dd1,
 contract437f8cb8, independent19Windows+19LinuxPASS/no skips,150pins stable and
 reviewd52c4cb8PASS. Read P7_app_motor_observe_entry_validation.md. New observer
-native_entry_static01 is UNUSED: cleanHEAD/check-only then one execute is next.
-Afterward independently review actual instructions before any new run scope.
-Separate scratch inventory sees3D190copies; upload needs separately bound cleanup.
+native_entry_static01 is CONSUMED: check0/execute0 at41bea260, result61c7b090/
+entrye195fdeb, all13remote+localPASS and27ranges2686Bcomplete. Actual review
+d1a09f19PASS establishes finite limits/pre-abort ordering/terminalpassivity for
+selected instructions, not runtime behavior. Read entry_validation andactualreview.
+D195 remotecontractc2563449/source98b0f539 prepares exactD193capture26reads727152B
+with one30swait before first SRAM and unchanged2sbetween samples. D196cleanup
+contract7258230a binds only3currentD190copies2399736B in/tmp/remoteocd inode869;
+newrecipe1834edd3/rootwrappera089cc3b andexclusiveobserve-root03 owner. Their
+independent hosttests/source reviews are in progress; no staging/cleanup/upload
+has occurred. Next close those tests/reviews, then fresh scopedcleanup and new
+caller/actions preparation/admission before any finiteinhibitedupload/capture.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
 Recheck free space and fresh board/boot identity before admission; retain the
 128MiB native-reader gate. Do not lower the gate or retry any earlier denied

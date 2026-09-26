@@ -818,3 +818,7 @@ HOST-VERIFIED: D194wrapper297eac8b/contract889d6a76 andindependentoracleac571bd4
 
 ## F209 - Longer observation actual file ABI (2026-09-26T08:48:03.916477+04:00)
 FILE-OBSERVED only: D194 ABI02 at efadbe5c returnsSTATIC_ABI_OBSERVED,4children0/emptyerrors/13remote+localclosingPASS. Current D193 ELF2fd70da8/debug33e3b34d definesRunner169736B/alignment8/address0x20013960;20size/alignmentgroups/11windows validated. Actualpollsunsignedint4B/align4/Runneroffset168572/Reportoffset12; alignmentqueried fromobservedtype after original01syntaxrefusal. Failed01e83afc5f retained; acceptedresulta5e67635/ABIdfc34596. No MCU/runtime/RAM/WCET/faultfix/physicalgate. Source: analysis/P7_app_motor_observe_abi02_validation.md and native_abi_static02 receipts.
+
+
+## F210 - Longer observation actual startup instruction evidence (2026-09-26T09:04:21.128420+04:00)
+FILE-OBSERVED: entrycollection61c7b090/e195fdeb at41bea260 returns0/fourfilechildren0/all13remote+localPASS. Actualinitializer05011008 targets0x08100105;27ranges2686B cover startup, observer constructor/setup/poll/stop/freeze and selected factories/stubs. Separate reviewd1a09f19 confirms emptyappgrants, failurebefore10000epoch/10000000poll limits, all preabortdeclaredfields beforeabort and terminalpassivity. Unselectedcallee bodies and actualMCUbehavior/timing/electricalqualification remain outside evidence. Source: analysis/P7_app_motor_observe_entry_validation.md and reviews/P7_app_motor_observe_entry_actual_review.md.

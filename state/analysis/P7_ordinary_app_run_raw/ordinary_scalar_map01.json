@@ -1,0 +1,1526 @@
+{
+  "abi": {
+    "bytes": 274942,
+    "path": "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/abi.json",
+    "sha256": "e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4"
+  },
+  "byte_order": "little",
+  "coherence": "UNPROVEN",
+  "enums": {
+    "app::Fault": {
+      "ABORTED": 6,
+      "CLOCK": 3,
+      "IDENTITY": 4,
+      "NONE": 0,
+      "ORDER": 2,
+      "RECEIPT": 5,
+      "SETUP": 1
+    },
+    "app::Phase": {
+      "ACQUIRING": 2,
+      "DECIDED": 3,
+      "FAULT": 4,
+      "IDLE": 1,
+      "NOT_INITIALIZED": 0
+    },
+    "app::RuntimeFault": {
+      "CLOCK": 2,
+      "NONE": 0,
+      "PORT": 1,
+      "PROJECTION": 5,
+      "SERVICE_LIMIT": 3,
+      "TRANSACTION": 4
+    },
+    "app::RuntimePhase": {
+      "FAULT": 3,
+      "NOT_STARTED": 0,
+      "RUNNING": 1,
+      "STOPPED": 2,
+      "STOP_OBSERVING": 4
+    },
+    "core::State": {
+      "ATTACK": 6,
+      "BOOT": 0,
+      "COUNTDOWN": 2,
+      "DEFEND_TURN": 7,
+      "DRIVE_TEST": 11,
+      "EDGE_ESCAPE": 8,
+      "IDLE": 1,
+      "OPENER": 3,
+      "REFLANK": 9,
+      "SEARCH": 4,
+      "STOPPED": 10,
+      "TRACK": 5
+    },
+    "edge::EscapeFault": {
+      "INVALID_CONTEXT": 4,
+      "NONE": 0,
+      "PERMISSION_LOST": 3,
+      "REPLAN_LIMIT": 2,
+      "WHITE_PATTERN": 1
+    },
+    "motors::Fault": {
+      "COMMAND": 4,
+      "IO": 3,
+      "NONE": 0,
+      "NOT_INITIALIZED": 1,
+      "PORT": 2,
+      "STOPPED": 6,
+      "TOKEN": 5
+    }
+  },
+  "limits": "Only listed scalar bytes are decoded. Padding, unselected members, pointer tables and three attempted_word neighbors remain opaque; raw whole windows retained. No atomic or terminal publication.",
+  "objects": {
+    "motor_port": {
+      "address": 537117512,
+      "alignment": 4,
+      "bytes": 40,
+      "section": 5,
+      "symbol": "_ZN12_GLOBAL__N_110motor_portE",
+      "type": "motors::UnoQPort"
+    },
+    "runtime": {
+      "address": 536951136,
+      "alignment": 8,
+      "bytes": 166376,
+      "section": 5,
+      "symbol": "_ZN12_GLOBAL__N_17runtimeE",
+      "type": "app::Runtime"
+    }
+  },
+  "opaque_bytes": {
+    "attempted_word": [
+      0,
+      1,
+      3
+    ]
+  },
+  "ptype_sha256": {
+    "app::Runtime": "be78a5e1e0d3475b28a4f0eedd2e5c17dae3d83cc9be0081d22ef05067627a6d",
+    "app::RuntimeReport": "352d547a323cf09a63430bbe78ddfdac1a1c51ad7d5c9956f233a994772e1178",
+    "app::SetupGrants": "0947247f62e1e49120fa0a16b1519cf4e000a1adac69472984b722ecac206ae3",
+    "app::Transaction": "35b8e566df5a68ce1b2269ca089f8a7d9e8b28d6a775e463beca848fd9eb8d8c",
+    "app::TransactionReport": "1e19efea2ae9e1ed6f81fd1f9cbcfc4e0fe068913bf64718a594ca5f688ae99c",
+    "bool": "c614de4be64947773031244343b989a0f71a168b6efccb9517cb0100c56fb19c",
+    "core::Outputs": "3b9b5a901ff79fbe0498faf3f9eedfbdd8c8d850c2658fc1f4bf5eec0e77b573",
+    "fsm::PreviousTick": "a90e7d8af1d420782247e0ca909b463e6d346f8f28d4e19d408fcad4fa4d3d45",
+    "fsm::RobotResult": "1cc0d1ebde9c0d44b3f39d3b47eb62bef8f609c3963ff1a194bb691b1de51523",
+    "motors::HaltResult": "482b8e31e5bee64781c6b02f2a7861cb35a1685baccaa3b24dfeafecc168aff6",
+    "motors::MotorGate": "eb16192337ea1ee9943cfba8bf141c631880e225a783cec6be94df06bbf860d4",
+    "motors::Result": "a8f218269728db2857a1f16c4d2eb90a1e1a1d1fe6e7093db1320b754606b2eb",
+    "motors::UnoQPort": "858f13095d09249c4c371ff0cba2bc922485818b62d4837a3fbd8a361ba6a42b"
+  },
+  "raw_abi": {
+    "bytes": 581671,
+    "path": "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/result.json",
+    "sha256": "6a17c12cb24396bf9a58a883ea295ec51feff2abe68d826983f363b3bcbb6d3b"
+  },
+  "scalar_count": 107,
+  "scalar_widths": {
+    "bool": 1,
+    "f32": 4,
+    "i8": 1,
+    "u16": 2,
+    "u32": 4,
+    "u64": 8,
+    "u8": 1
+  },
+  "schema": "ordinary-app-scalar-map-v1",
+  "source_only": {
+    "expected_grant_bytes": "000000000000000000000000000000000000000000",
+    "robot_fault_bits": {
+      "APPLICATION_CONTRACT": 16,
+      "BUTTON_CONTRACT": 512,
+      "GOVERNOR_CONTRACT": 8,
+      "HEADING_CONTRACT": 64,
+      "INVALID_CONTEXT": 1,
+      "LINE_CONTRACT": 256,
+      "SCRIPT_RESULT": 4,
+      "SCRIPT_START": 2,
+      "STALE_SENSORS": 32,
+      "TOKEN_EXHAUSTED": 128
+    },
+    "robot_fault_known_mask": 1023,
+    "source_pins": [
+      {
+        "bytes": 41126,
+        "path": "src/core/fsm.h",
+        "sha256": "878e4524d6ceceec2a40b86158b11f8a5c18bd03afe35ee5507241dd89562485"
+      },
+      {
+        "bytes": 22873,
+        "path": "src/config.h",
+        "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+      },
+      {
+        "bytes": 1943,
+        "path": "src/app/configured_setup.h",
+        "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+      }
+    ]
+  },
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "windows": [
+    {
+      "address": 537115800,
+      "bytes": 600,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": "app::RuntimePhase",
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |       1 */    app::RuntimePhase phase;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "phase",
+          "offset": 0,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": "app::RuntimeFault",
+          "evidence": {
+            "line": 3,
+            "text": "/*      1      |       1 */    app::RuntimeFault fault;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "fault",
+          "offset": 1,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 4,
+            "text": "/*      2      |       1 */    bool fresh;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "fresh",
+          "offset": 2,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 5,
+            "text": "/*      3      |       1 */    bool initialization_complete;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "initialization_complete",
+          "offset": 3,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 6,
+            "text": "/*      4      |       1 */    bool raw_lines;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "raw_lines",
+          "offset": 4,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 10,
+            "text": "/*      8      |       4 */    uint32_t next_release_us;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "next_release_us",
+          "offset": 8,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     12      |       4 */    uint32_t missed_releases;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "missed_releases",
+          "offset": 12,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 12,
+            "text": "/*     16      |       4 */    uint32_t epochs;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "epochs",
+          "offset": 16,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 13,
+            "text": "/*     20      |       4 */    uint32_t service_passes;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "service_passes",
+          "offset": 20,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 14,
+            "text": "/*     24      |       4 */    uint32_t maximum_execution_us;",
+            "type": "app::RuntimeReport"
+          },
+          "name": "maximum_execution_us",
+          "offset": 24,
+          "scalar": "u32"
+        }
+      ],
+      "member": "report_",
+      "name": "report",
+      "object": "runtime",
+      "object_offset": 164664,
+      "type": "app::RuntimeReport"
+    },
+    {
+      "address": 537113264,
+      "bytes": 504,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": "app::Phase",
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |       1 */    app::Phase phase;",
+            "type": "app::TransactionReport"
+          },
+          "name": "phase",
+          "offset": 0,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": "app::Fault",
+          "evidence": {
+            "line": 3,
+            "text": "/*      1      |       1 */    app::Fault fault;",
+            "type": "app::TransactionReport"
+          },
+          "name": "fault",
+          "offset": 1,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 4,
+            "text": "/*      2      |       1 */    bool decision_made;",
+            "type": "app::TransactionReport"
+          },
+          "name": "decision_made",
+          "offset": 2,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 5,
+            "text": "/*      3      |       1 */    bool finished;",
+            "type": "app::TransactionReport"
+          },
+          "name": "finished",
+          "offset": 3,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 6,
+            "text": "/*      4      |       1 */    bool timing_valid;",
+            "type": "app::TransactionReport"
+          },
+          "name": "timing_valid",
+          "offset": 4,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*      8      |       4 */    uint32_t started_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "started_us",
+          "offset": 8,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 9,
+            "text": "/*     12      |       4 */    uint32_t decision_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "decision_us",
+          "offset": 12,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 10,
+            "text": "/*     16      |       4 */    uint32_t completed_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "completed_us",
+          "offset": 16,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     20      |       4 */    uint32_t execution_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "execution_us",
+          "offset": 20,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 8,
+          "enum": null,
+          "evidence": {
+            "line": 20,
+            "text": "/*     24      |       8 */        uint64_t token;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.token",
+          "offset": 24,
+          "scalar": "u64"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 21,
+            "text": "/*     32      |       1 */        bool fresh;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.fresh",
+          "offset": 32,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 24,
+            "text": "/*     36      |       4 */            float duty_l;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.outputs.duty_l",
+          "offset": 36,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 25,
+            "text": "/*     40      |       4 */            float duty_r;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.outputs.duty_r",
+          "offset": 40,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 26,
+            "text": "/*     44      |       1 */            bool motors_enabled;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.outputs.motors_enabled",
+          "offset": 44,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": "core::State",
+          "evidence": {
+            "line": 27,
+            "text": "/*     45      |       1 */            core::State ui_state;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.outputs.ui_state",
+          "offset": 45,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 2,
+          "enum": null,
+          "evidence": {
+            "line": 93,
+            "text": "/*    112      |       2 */        uint16_t contract_faults;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.contract_faults",
+          "offset": 112,
+          "scalar": "u16"
+        },
+        {
+          "bytes": 1,
+          "enum": "edge::EscapeFault",
+          "evidence": {
+            "line": 94,
+            "text": "/*    114      |       1 */        edge::EscapeFault escape_fault;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.escape_fault",
+          "offset": 114,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 155,
+            "text": "/*    420      |       1 */        bool match_start_eligible;",
+            "type": "app::TransactionReport"
+          },
+          "name": "robot.match_start_eligible",
+          "offset": 420,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 162,
+            "text": "/*    424      |       1 */            bool applied_valid;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.applied_valid",
+          "offset": 424,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 8,
+          "enum": null,
+          "evidence": {
+            "line": 164,
+            "text": "/*    432      |       8 */            uint64_t token;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.token",
+          "offset": 432,
+          "scalar": "u64"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 165,
+            "text": "/*    440      |       4 */            uint32_t applied_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.applied_us",
+          "offset": 440,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 166,
+            "text": "/*    444      |       1 */            bool motors_enabled;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.motors_enabled",
+          "offset": 444,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 168,
+            "text": "/*    448      |       4 */            float duty_l;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.duty_l",
+          "offset": 448,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 169,
+            "text": "/*    452      |       4 */            float duty_r;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.duty_r",
+          "offset": 452,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 170,
+            "text": "/*    456      |       1 */            bool duration_valid;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.duration_valid",
+          "offset": 456,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 172,
+            "text": "/*    460      |       4 */            uint32_t completed_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.completed_us",
+          "offset": 460,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 173,
+            "text": "/*    464      |       4 */            uint32_t execution_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.feedback.execution_us",
+          "offset": 464,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": "motors::Fault",
+          "evidence": {
+            "line": 178,
+            "text": "/*    472      |       1 */        motors::Fault fault;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.fault",
+          "offset": 472,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 179,
+            "text": "/*    473      |       1 */        bool consumed;",
+            "type": "app::TransactionReport"
+          },
+          "name": "applied.consumed",
+          "offset": 473,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 185,
+            "text": "/*    480      |       1 */        bool fresh;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.fresh",
+          "offset": 480,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 186,
+            "text": "/*    481      |       1 */        bool attempted;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.attempted",
+          "offset": 481,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 187,
+            "text": "/*    482      |       1 */        bool inhibition_confirmed;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.inhibition_confirmed",
+          "offset": 482,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 188,
+            "text": "/*    483      |       1 */        bool timing_valid;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.timing_valid",
+          "offset": 483,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 189,
+            "text": "/*    484      |       4 */        uint32_t started_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.started_us",
+          "offset": 484,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 190,
+            "text": "/*    488      |       4 */        uint32_t completed_us;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.completed_us",
+          "offset": 488,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": "motors::Fault",
+          "evidence": {
+            "line": 191,
+            "text": "/*    492      |       1 */        motors::Fault fault;",
+            "type": "app::TransactionReport"
+          },
+          "name": "halt.fault",
+          "offset": 492,
+          "scalar": "u8"
+        }
+      ],
+      "member": "transaction_.report_",
+      "name": "transaction",
+      "object": "runtime",
+      "object_offset": 162128,
+      "type": "app::TransactionReport"
+    },
+    {
+      "address": 537113768,
+      "bytes": 48,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |       1 */    bool applied_valid;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "applied_valid",
+          "offset": 0,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 8,
+          "enum": null,
+          "evidence": {
+            "line": 4,
+            "text": "/*      8      |       8 */    uint64_t token;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "token",
+          "offset": 8,
+          "scalar": "u64"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 5,
+            "text": "/*     16      |       4 */    uint32_t applied_us;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "applied_us",
+          "offset": 16,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 6,
+            "text": "/*     20      |       1 */    bool motors_enabled;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "motors_enabled",
+          "offset": 20,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*     24      |       4 */    float duty_l;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "duty_l",
+          "offset": 24,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 9,
+            "text": "/*     28      |       4 */    float duty_r;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "duty_r",
+          "offset": 28,
+          "scalar": "f32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 10,
+            "text": "/*     32      |       1 */    bool duration_valid;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "duration_valid",
+          "offset": 32,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 12,
+            "text": "/*     36      |       4 */    uint32_t completed_us;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "completed_us",
+          "offset": 36,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 13,
+            "text": "/*     40      |       4 */    uint32_t execution_us;",
+            "type": "fsm::PreviousTick"
+          },
+          "name": "execution_us",
+          "offset": 40,
+          "scalar": "u32"
+        }
+      ],
+      "member": "transaction_.previous_",
+      "name": "previous",
+      "object": "runtime",
+      "object_offset": 162632,
+      "type": "fsm::PreviousTick"
+    },
+    {
+      "address": 536951336,
+      "bytes": 88,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": "motors::Fault",
+          "evidence": {
+            "line": 14,
+            "text": "/*     44      |       1 */    motors::Fault fault_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "fault_",
+          "offset": 44,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 15,
+            "text": "/*     45      |       1 */    bool initialized_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "initialized_",
+          "offset": 45,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 16,
+            "text": "/*     46      |       1 */    bool began_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "began_",
+          "offset": 46,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 17,
+            "text": "/*     47      |       1 */    bool armed_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "armed_",
+          "offset": 47,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 18,
+            "text": "/*     48      |       1 */    bool hold_complete_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "hold_complete_",
+          "offset": 48,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 20,
+            "text": "/*     52      |       4 */    uint32_t release_us_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "release_us_",
+          "offset": 52,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 8,
+          "enum": null,
+          "evidence": {
+            "line": 21,
+            "text": "/*     56      |       8 */    uint64_t last_token_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "last_token_",
+          "offset": 56,
+          "scalar": "u64"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 22,
+            "text": "/*     64      |       1 */    bool halted_;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halted_",
+          "offset": 64,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 25,
+            "text": "/*     68      |       1 */        bool fresh;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.fresh",
+          "offset": 68,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 26,
+            "text": "/*     69      |       1 */        bool attempted;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.attempted",
+          "offset": 69,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 27,
+            "text": "/*     70      |       1 */        bool inhibition_confirmed;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.inhibition_confirmed",
+          "offset": 70,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 28,
+            "text": "/*     71      |       1 */        bool timing_valid;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.timing_valid",
+          "offset": 71,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 29,
+            "text": "/*     72      |       4 */        uint32_t started_us;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.started_us",
+          "offset": 72,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 30,
+            "text": "/*     76      |       4 */        uint32_t completed_us;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.completed_us",
+          "offset": 76,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": "motors::Fault",
+          "evidence": {
+            "line": 31,
+            "text": "/*     80      |       1 */        motors::Fault fault;",
+            "type": "motors::MotorGate"
+          },
+          "name": "halt_result_.fault",
+          "offset": 80,
+          "scalar": "u8"
+        }
+      ],
+      "member": "transaction_.gate_",
+      "name": "gate",
+      "object": "runtime",
+      "object_offset": 200,
+      "type": "motors::MotorGate"
+    },
+    {
+      "address": 537115776,
+      "bytes": 21,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |       1 */    bool opponents;",
+            "type": "app::SetupGrants"
+          },
+          "name": "opponents",
+          "offset": 0,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 3,
+            "text": "/*      1      |       1 */    bool adc_pair;",
+            "type": "app::SetupGrants"
+          },
+          "name": "adc_pair",
+          "offset": 1,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 4,
+            "text": "/*      2      |       1 */    bool qtr_exclusive_pads;",
+            "type": "app::SetupGrants"
+          },
+          "name": "qtr_exclusive_pads",
+          "offset": 2,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 5,
+            "text": "/*      3      |       1 */    bool imu_enabled;",
+            "type": "app::SetupGrants"
+          },
+          "name": "imu_enabled",
+          "offset": 3,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 6,
+            "text": "/*      4      |       1 */    bool imu_power_confirmed;",
+            "type": "app::SetupGrants"
+          },
+          "name": "imu_power_confirmed",
+          "offset": 4,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*      5      |       3 */        int8_t body_axis[3];",
+            "type": "app::SetupGrants"
+          },
+          "name": "mounting.body_axis[0]",
+          "offset": 5,
+          "scalar": "i8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*      5      |       3 */        int8_t body_axis[3];",
+            "type": "app::SetupGrants"
+          },
+          "name": "mounting.body_axis[1]",
+          "offset": 6,
+          "scalar": "i8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*      5      |       3 */        int8_t body_axis[3];",
+            "type": "app::SetupGrants"
+          },
+          "name": "mounting.body_axis[2]",
+          "offset": 7,
+          "scalar": "i8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 9,
+            "text": "/*      8      |       1 */        bool confirmed;",
+            "type": "app::SetupGrants"
+          },
+          "name": "mounting.confirmed",
+          "offset": 8,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 13,
+            "text": "/*      9      |       1 */    bool default_line_thresholds_confirmed;",
+            "type": "app::SetupGrants"
+          },
+          "name": "default_line_thresholds_confirmed",
+          "offset": 9,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 14,
+            "text": "/*     10      |       1 */    bool matrix_enabled;",
+            "type": "app::SetupGrants"
+          },
+          "name": "matrix_enabled",
+          "offset": 10,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 16,
+            "text": "/*     11      |       1 */        bool normal_startup;",
+            "type": "app::SetupGrants"
+          },
+          "name": "matrix.normal_startup",
+          "offset": 11,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 17,
+            "text": "/*     12      |       1 */        bool exclusive_boot_owner;",
+            "type": "app::SetupGrants"
+          },
+          "name": "matrix.exclusive_boot_owner",
+          "offset": 12,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 21,
+            "text": "/*     13      |       1 */    bool dump_enabled;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump_enabled",
+          "offset": 13,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 23,
+            "text": "/*     14      |       1 */        bool setup_phase;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump.setup_phase",
+          "offset": 14,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 24,
+            "text": "/*     15      |       1 */        bool exclusive_uart;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump.exclusive_uart",
+          "offset": 15,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 25,
+            "text": "/*     16      |       1 */        bool ready_pin_owned;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump.ready_pin_owned",
+          "offset": 16,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 26,
+            "text": "/*     17      |       1 */        bool framing_clean;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump.framing_clean",
+          "offset": 17,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 30,
+            "text": "/*     18      |       1 */    recorder::dump::Origin dump_origin;",
+            "type": "app::SetupGrants"
+          },
+          "name": "dump_origin",
+          "offset": 18,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 31,
+            "text": "/*     19      |       1 */    bool local_service_reset;",
+            "type": "app::SetupGrants"
+          },
+          "name": "local_service_reset",
+          "offset": 19,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 32,
+            "text": "/*     20      |       1 */    bool calibration_output_enabled;",
+            "type": "app::SetupGrants"
+          },
+          "name": "calibration_output_enabled",
+          "offset": 20,
+          "scalar": "bool"
+        }
+      ],
+      "member": "grants_",
+      "name": "grants",
+      "object": "runtime",
+      "object_offset": 164640,
+      "type": "app::SetupGrants"
+    },
+    {
+      "address": 537117352,
+      "bytes": 4,
+      "fields": [
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 2478,
+            "text": "/* 166218      |       1 */    bool attempted_;",
+            "type": "app::Runtime"
+          },
+          "name": "attempted_",
+          "offset": 2,
+          "scalar": "bool"
+        }
+      ],
+      "member": "attempted_",
+      "name": "attempted_word",
+      "object": "runtime",
+      "object_offset": 166216,
+      "type": "attempted_word"
+    },
+    {
+      "address": 537117512,
+      "bytes": 40,
+      "fields": [
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |      16 */    uint32_t pwm_indices_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pwm_indices_[0]",
+          "offset": 0,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |      16 */    uint32_t pwm_indices_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pwm_indices_[1]",
+          "offset": 4,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |      16 */    uint32_t pwm_indices_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pwm_indices_[2]",
+          "offset": 8,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 2,
+            "text": "/*      0      |      16 */    uint32_t pwm_indices_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pwm_indices_[3]",
+          "offset": 12,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 3,
+            "text": "/*     16      |       1 */    bool enable_configured_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "enable_configured_",
+          "offset": 16,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 4,
+            "text": "/*     17      |       1 */    bool enable_low_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "enable_low_",
+          "offset": 17,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 5,
+            "text": "/*     18      |       1 */    bool settled_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "settled_",
+          "offset": 18,
+          "scalar": "bool"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 6,
+            "text": "/*     19      |       1 */    uint8_t configured_mask_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "configured_mask_",
+          "offset": 19,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 7,
+            "text": "/*     20      |       1 */    uint8_t written_mask_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "written_mask_",
+          "offset": 20,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 8,
+            "text": "/*     21      |       1 */    uint8_t initialized_timers_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "initialized_timers_",
+          "offset": 21,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 1,
+          "enum": null,
+          "evidence": {
+            "line": 9,
+            "text": "/*     22      |       1 */    uint8_t active_channels_;",
+            "type": "motors::UnoQPort"
+          },
+          "name": "active_channels_",
+          "offset": 22,
+          "scalar": "u8"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     24      |      16 */    uint32_t pulses_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pulses_[0]",
+          "offset": 24,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     24      |      16 */    uint32_t pulses_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pulses_[1]",
+          "offset": 28,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     24      |      16 */    uint32_t pulses_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pulses_[2]",
+          "offset": 32,
+          "scalar": "u32"
+        },
+        {
+          "bytes": 4,
+          "enum": null,
+          "evidence": {
+            "line": 11,
+            "text": "/*     24      |      16 */    uint32_t pulses_[4];",
+            "type": "motors::UnoQPort"
+          },
+          "name": "pulses_[3]",
+          "offset": 36,
+          "scalar": "u32"
+        }
+      ],
+      "member": "motor_port",
+      "name": "motor_port",
+      "object": "motor_port",
+      "object_offset": 0,
+      "type": "motors::UnoQPort"
+    }
+  ]
+}

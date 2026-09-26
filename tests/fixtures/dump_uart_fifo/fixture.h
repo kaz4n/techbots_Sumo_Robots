@@ -2,6 +2,7 @@
 // Time, injected faults and emitted bytes belong to the fixture, never native private state.
 // Fresh subprocesses isolate actual lifetime ownership for normal and sanitizer cases.
 #pragma once
+#include "config.h"
 #include "hal/dump_uart_unoq.h"
 #include "app/dump_port.h"
 #include "uart_stm32.h"
@@ -13,6 +14,8 @@
 #include <vector>
 
 namespace fifo_test {
+static_assert(config::DUMP_UART_STEP_BYTES==6U||config::DUMP_UART_STEP_BYTES==8U,
+              "D235 current-six or explicitly staged historical-eight profile only");
 using namespace recorder::dump;
 struct Trace {char kind;std::uint32_t value;};
 struct Hardware {

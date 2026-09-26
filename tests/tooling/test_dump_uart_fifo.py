@@ -1,6 +1,7 @@
 """Additive D117 public-contract native FIFO, sketch and capacity tests.
 
-Existing D090/D101/D116 assertions remain unchanged; all execution is isolated.
+D235 retains eight-store assertions in an explicit historical staged profile.
+The default profile tests the current six-store configuration; all execution is isolated.
 The rational serial model and capacity bound are host assumptions, never measurements.
 """
 import hashlib
@@ -70,9 +71,16 @@ def pure(stage):
             ('motors.cpp','recorder_frames.cpp','recorder.cpp','recorder_csv.cpp','recorder_dump.cpp')]]
 
 
-def copy_inputs(stage):
+def copy_inputs(stage, step_bytes=6):
     for name in ('src','tests','bench/recorder','host/third_party'):
         shutil.copytree(ROOT/name,stage/name,ignore=shutil.ignore_patterns('__pycache__'))
+    config=stage/'src/config.h';data=config.read_bytes()
+    current=b'DUMP_UART_STEP_BYTES = 6U;'
+    if step_bytes not in (6,8) or data.count(current)!=1:
+        raise AssertionError('Expected exact D235 current-six input and explicit 6/8 profile')
+    if step_bytes==8:config.write_bytes(data.replace(current,b'DUMP_UART_STEP_BYTES = 8U;'))
+    receipt('config_profile',{'step_bytes':step_bytes,'historical':step_bytes==8,
+        'config_sha256':hashlib.sha256(config.read_bytes()).hexdigest()})
     paths=list((stage/'src').rglob('*'))+list((stage/'bench/recorder').rglob('*'))
     paths+=list((stage/'tests/fixtures/dump_uart_fifo').rglob('*'))
     receipt('opaque_source_copy',{str(p.relative_to(stage)):hashlib.sha256(p.read_bytes()).hexdigest()
@@ -81,10 +89,11 @@ def copy_inputs(stage):
 
 @unittest.skipUnless(os.name=='posix','Native mapped-register tests require Linux')
 class DumpUartFifoTests(unittest.TestCase):
+    STEP_BYTES=6
     @classmethod
     def setUpClass(cls):
         cls.temp=tempfile.TemporaryDirectory(prefix='d117-native-',dir='/dev/shm')
-        cls.addClassCleanup(cls.temp.cleanup);cls.stage=Path(cls.temp.name);copy_inputs(cls.stage)
+        cls.addClassCleanup(cls.temp.cleanup);cls.stage=Path(cls.temp.name);copy_inputs(cls.stage,cls.STEP_BYTES)
         cls.binaries=[];fixture=cls.stage/'tests/fixtures/dump_uart_fifo'
         sources=[fixture/'hardware.cc',fixture/'cases.cc',fixture/'streams.cc',
                  cls.stage/'src/hal/dump_uart_unoq.cpp',cls.stage/'src/app/dump_port_unoq.cpp',*pure(cls.stage)]
@@ -125,8 +134,8 @@ class DumpUartFifoTests(unittest.TestCase):
                    +[('budget',cost) for cost in (0,1,40,79,80,81)]
                    +[('identity',kind) for kind in range(5)])
 
-    def test_live_loss_before_first_mid_and_after_eighth_store(self):
-        self.cases([('live',kind,after) for kind in range(15) for after in (0,1,8)])
+    def test_live_loss_before_first_mid_and_after_final_store(self):
+        self.cases([('live',kind,after) for kind in range(15) for after in (0,1,self.STEP_BYTES)])
 
     def test_cancellation_keeps_shifted_prefix_and_never_repairs_foreign_state(self):
         self.cases([('cancel',kind) for kind in (0,1,2)])

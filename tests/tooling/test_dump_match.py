@@ -433,7 +433,7 @@ class DumpCaptureTests(DumpBase):
                     "UI_BENCH_SCENE_MS": 2000, "QTR_CAL_SAMPLES": 16,
                     "QTR_CAL_CAPTURE_MS": 1000, "DUMP_PAYLOAD_BYTES": 64,
                     "DUMP_STALL_MS": 2000, "DUMP_TOTAL_MS": 300000,
-                    "DUMP_UART_STEP_BYTES": 8, "DUMP_UART_STEP_US": 80,
+                    "DUMP_UART_STEP_BYTES": 6, "DUMP_UART_STEP_US": 80,
                     "DUMP_UART_PACKET_MS": 100}
         floats = {"UI_BATTERY_EMPTY_V": Decimal("9.5"), "UI_BATTERY_FULL_V": Decimal("12.6")}
         output = io.StringIO()

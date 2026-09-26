@@ -25,7 +25,10 @@ unsigned sendStream(UnoQDumpPort& owner,const std::string& text) {
         for(auto offset=start;offset<=end;) {
             const auto size=std::min<std::size_t>(64,end-offset+1);const auto data=text.substr(offset,size);
             const auto framed=packet(data);expected.insert(expected.end(),framed.begin(),framed.end());
-            expected_calls+=static_cast<unsigned>((size+15+7)/8+1);WriteResult result;
+            if constexpr(config::DUMP_UART_STEP_BYTES==6U)
+                expected_calls+=static_cast<unsigned>((size+15+5)/6+1);
+            else expected_calls+=static_cast<unsigned>((size+15+7)/8+1);
+            WriteResult result;
             for(unsigned i=0;i<20;++i) {
                 moveTime(hw.now+1000);result=send(owner,data);++calls;
                 if(result.status!=WriteStatus::PENDING)break;
@@ -84,7 +87,10 @@ std::string capacityWire() {
 void capacity(const std::string& output) {
     const auto bytes=capacityWire();VERIFY(bytes.size()<=1156084);
     UnoQDumpPort owner(Buffering::FIFO8);if(!start(owner))return;
-    const auto calls=sendStream(owner,bytes);VERIFY(calls<=217659);VERIFY(hw.emitted.size()<=1505629);
+    const auto calls=sendStream(owner,bytes);
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U)VERIFY(calls<=288575);
+    else VERIFY(calls<=217659);
+    VERIFY(hw.emitted.size()<=1505629);
     writeFile(output+".wire",bytes.data(),bytes.size());writeFile(output+".mp",hw.emitted.data(),hw.emitted.size());
     std::printf("RAW_STRESS payload=%zu wire=%zu calls=%u frames=5001 events=4096\n",
                 bytes.size(),hw.emitted.size(),calls);

@@ -28,6 +28,7 @@ WriteResult send(UnoQDumpPort& owner,const std::string& data) {
     const auto clocks=hw.clocks;hw.call_started=static_cast<std::uint32_t>(hw.now);hw.enforce_budget=true;
     const auto result=p.write(p.context,data.data(),data.size());hw.enforce_budget=false;
     VERIFY(hw.submitted.size()-before<=8);VERIFY(hw.mask==mask);VERIFY(hw.clocks-clocks<=64);
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U)VERIFY(hw.submitted.size()-before<=6);
     VERIFY(hw.overflow==0);VERIFY(hw.rdr_reads==0);VERIFY(hw.forbidden_writes==0);
     if(result.status!=WriteStatus::PROGRESS)VERIFY(result.count==0);
     return result;
@@ -142,12 +143,15 @@ void model(unsigned size,bool wrap) {
     do {moveTime(hw.now+1000);result=send(owner,data);++calls;}while(result.status==WriteStatus::PENDING&&calls<20);
     VERIFY(result.status==WriteStatus::PROGRESS&&result.count==size);
     VERIFY(hw.submitted==packet(data));VERIFY(hw.emitted==packet(data));VERIFY(!hw.shifting&&hw.count==0);
-    VERIFY(calls==(size+15+7)/8+1);VERIFY(hw.max_queue<=8);VERIFY(hw.overflow==0);
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U)VERIFY(calls==(size+15+5)/6+1);
+    else VERIFY(calls==(size+15+7)/8+1);
+    VERIFY(hw.max_queue<=8);VERIFY(hw.overflow==0);
 }
 void fullFifo() {
     UnoQDumpPort owner(Buffering::FIFO8);if(!start(owner))return;
     hw.frozen_serial=true;std::string data(64,'x');VERIFY(send(owner,data).status==WriteStatus::PENDING);
-    VERIFY(hw.submitted.size()==8&&hw.count==7&&hw.shifting);
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U)VERIFY(hw.submitted.size()==6&&hw.count==5&&hw.shifting);
+    else VERIFY(hw.submitted.size()==8&&hw.count==7&&hw.shifting);
     VERIFY(send(owner,data).status==WriteStatus::PENDING);VERIFY(hw.submitted.size()==9&&hw.count==8);
     const auto before=hw.submitted.size();VERIFY(send(owner,data).status==WriteStatus::PENDING);
     VERIFY(hw.submitted.size()==before);VERIFY(!(LPUART1->ISR.value&USART_ISR_TXE));
@@ -159,8 +163,15 @@ void tcOnly() {
     UnoQDumpPort owner(Buffering::FIFO8);if(!start(owner))return;
     const std::string data="x";VERIFY(send(owner,data).status==WriteStatus::PENDING);
     moveTime(hw.now+1000);VERIFY(send(owner,data).status==WriteStatus::PENDING);
-    VERIFY(hw.submitted.size()==16);VERIFY(hw.emitted.size()==8);VERIFY(!hw.count?hw.shifting:true);
-    moveTime(hw.now+694);VERIFY(send(owner,data).status==WriteStatus::PENDING);
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U) {
+        VERIFY(hw.submitted.size()==12);VERIFY(hw.emitted.size()==6);
+        moveTime(hw.now+1000);VERIFY(send(owner,data).status==WriteStatus::PENDING);
+        VERIFY(hw.submitted.size()==16);VERIFY(hw.emitted.size()==12);
+        moveTime(hw.now+347);VERIFY(send(owner,data).status==WriteStatus::PENDING);
+    } else {
+        VERIFY(hw.submitted.size()==16);VERIFY(hw.emitted.size()==8);VERIFY(!hw.count?hw.shifting:true);
+        moveTime(hw.now+694);VERIFY(send(owner,data).status==WriteStatus::PENDING);
+    }
     VERIFY(hw.emitted.size()==15);VERIFY(hw.count==0&&hw.shifting);
     moveTime(hw.now+1);const auto result=send(owner,data);
     VERIFY(result.status==WriteStatus::PROGRESS&&result.count==1);VERIFY(hw.emitted==packet(data));
@@ -233,7 +244,9 @@ void transferFailure(unsigned kind) {
     VERIFY(first.reason==reasons[kind]&&first.site==sites[kind]);
     const std::string begin="SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1\n";
     VERIFY(first.payload_size==begin.size()&&first.packet_size==begin.size()+15);
-    VERIFY(first.packet_offset==(kind==1||kind==2?1U:kind==5?8U:0U));
+    if constexpr(config::DUMP_UART_STEP_BYTES==6U)
+        VERIFY(first.packet_offset==(kind==1||kind==2?1U:kind==5?6U:0U));
+    else VERIFY(first.packet_offset==(kind==1||kind==2?1U:kind==5?8U:0U));
     VERIFY(first.ownership_evaluated);
     VERIFY(first.cleanup_ownership==(kind==2?NativeStatus::OWNERSHIP:NativeStatus::OK));
     VERIFY(first.cleanup==(kind==2?CleanupDisposition::SKIPPED_OWNERSHIP:

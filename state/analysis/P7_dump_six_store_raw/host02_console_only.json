@@ -1,0 +1,40 @@
+{
+  "status": "CONSOLE_PASS_RAW_UNAVAILABLE",
+  "output_owner": "/dev/shm/d235-host02",
+  "groups": [
+    {
+      "name": "config",
+      "methods": 2,
+      "success": true,
+      "seconds": 0.45552692000001116
+    },
+    {
+      "name": "native_current_six",
+      "methods": 12,
+      "success": true,
+      "seconds": 9.267609645000007
+    },
+    {
+      "name": "fifo_current_six",
+      "methods": 11,
+      "success": true,
+      "seconds": 52.702111710999986
+    },
+    {
+      "name": "capacity_model",
+      "methods": 1,
+      "success": true,
+      "seconds": 0.3273172520000003
+    },
+    {
+      "name": "fifo_historical_eight",
+      "methods": 4,
+      "success": true,
+      "seconds": 34.774572546
+    }
+  ],
+  "basis": "Exact group result values observed in exec/write_stdin tool output; no raw receipt/archive recovered. This receipt does not replace the missing raw data. Final acceptance uses host03.",
+  "compaction_failure": "FileNotFoundError resolving /dev/shm/d235-host02 in the subsequent WSL invocation; cause not established.",
+  "compaction_script_sha256": "142e74802519ec754da9ae48324c1849120c26754606a0202af00926098513d2",
+  "prior_owner": "host01 was archived, every member hash verified, and its exact loose output tree removed before this failure."
+}

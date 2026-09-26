@@ -1,0 +1,502 @@
+{
+  "created_utc": "2026-09-26T08:21:58.905835+00:00",
+  "execution_boundary": {
+    "actual_manifests_created": 0,
+    "compiler_invocations": 0,
+    "native_owners_created": 0,
+    "new_executable_files_created": 0,
+    "subject_executions": 0,
+    "subject_imports": 0,
+    "transport_invocations": 0
+  },
+  "input_pins": {
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "state/analysis/P7_motor_const_compile_contract.md": {
+      "bytes": 11305,
+      "sha256": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174"
+    },
+    "state/analysis/P7_motor_expected_metadata_contract.md": {
+      "bytes": 6222,
+      "sha256": "2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846"
+    },
+    "state/analysis/P7_motor_settle_compile_contract.md": {
+      "bytes": 14344,
+      "sha256": "c0b352810c41c8b3744acdd1c15bc4b21ecb76bc15d76d4fedea4fdde37dc756"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inputs_static.json": {
+      "bytes": 13432,
+      "sha256": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+    },
+    "state/reviews/P7_motor_expected_metadata_review.md": {
+      "bytes": 12702,
+      "sha256": "f7b8a116464ac0590aa93dc19a66db0d4f4cebe4eed717a5a4f67780c75021ae"
+    },
+    "tests/tooling/test_motor_settle_compile.py": {
+      "bytes": 11340,
+      "sha256": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+    },
+    "tests/tooling/test_motor_settle_compile_remote.py": {
+      "bytes": 3412,
+      "sha256": "b2da457db6da3d01412dd300d495f075a8631294c75627f66b91dc1ee9fbd2e7"
+    },
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "tools/compile_motor_settle_probe.py": {
+      "bytes": 7570,
+      "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+    }
+  },
+  "launcher": {
+    "destination": "tools/compile_motor_const.py",
+    "ordered_substitutions": [
+      {
+        "after": {
+          "bytes": 7570,
+          "sha256": "fda95ca7683f17b0c4fa5fb4a68b6df1a7a0535a558523980755f29fb0799762"
+        },
+        "before": {
+          "bytes": 7570,
+          "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+        },
+        "count": 1,
+        "new_utf8": "D203",
+        "old_utf8": "D198"
+      },
+      {
+        "after": {
+          "bytes": 7563,
+          "sha256": "3225659a3c0bf2120df46626bb329306b0e9d323160849ef46326206f0b64cff"
+        },
+        "before": {
+          "bytes": 7570,
+          "sha256": "fda95ca7683f17b0c4fa5fb4a68b6df1a7a0535a558523980755f29fb0799762"
+        },
+        "count": 1,
+        "new_utf8": "tools/compile_motor_const.py",
+        "old_utf8": "tools/compile_motor_settle_probe.py"
+      },
+      {
+        "after": {
+          "bytes": 7562,
+          "sha256": "67cf87c57aef378c355b593070195eb0b8f850d8d405e9c69fab91c91dea26bc"
+        },
+        "before": {
+          "bytes": 7563,
+          "sha256": "3225659a3c0bf2120df46626bb329306b0e9d323160849ef46326206f0b64cff"
+        },
+        "count": 1,
+        "new_utf8": "P7_motor_const_compile_contract.md",
+        "old_utf8": "P7_motor_settle_compile_contract.md"
+      },
+      {
+        "after": {
+          "bytes": 7561,
+          "sha256": "2fd58ec47de88e170a913073dd13ac7f585bbf4a1a882d67605c40b679a2a4c7"
+        },
+        "before": {
+          "bytes": 7562,
+          "sha256": "67cf87c57aef378c355b593070195eb0b8f850d8d405e9c69fab91c91dea26bc"
+        },
+        "count": 1,
+        "new_utf8": "P7_motor_const_compile_raw",
+        "old_utf8": "P7_motor_settle_compile_raw"
+      },
+      {
+        "after": {
+          "bytes": 7558,
+          "sha256": "d48ab1e8637955a6be6e8340409aaad595760a4110cc5f5444097e3cc0287e0a"
+        },
+        "before": {
+          "bytes": 7561,
+          "sha256": "2fd58ec47de88e170a913073dd13ac7f585bbf4a1a882d67605c40b679a2a4c7"
+        },
+        "count": 3,
+        "new_utf8": "app-motor-const-static",
+        "old_utf8": "app-motor-settle-static"
+      },
+      {
+        "after": {
+          "bytes": 7557,
+          "sha256": "4b9b6a5b816333b6a02a6ef2c1662396fdfa557e9283c2da7252f60274e6b9aa"
+        },
+        "before": {
+          "bytes": 7558,
+          "sha256": "d48ab1e8637955a6be6e8340409aaad595760a4110cc5f5444097e3cc0287e0a"
+        },
+        "count": 1,
+        "new_utf8": "_sumox_d203_const_compile",
+        "old_utf8": "_sumox_d198_settle_compile"
+      },
+      {
+        "after": {
+          "bytes": 7557,
+          "sha256": "209a8b4bccb46d38044062f579e51fb2424b2691cd81e5c8c1b4f2047c256066"
+        },
+        "before": {
+          "bytes": 7557,
+          "sha256": "4b9b6a5b816333b6a02a6ef2c1662396fdfa557e9283c2da7252f60274e6b9aa"
+        },
+        "count": 1,
+        "new_utf8": "29874",
+        "old_utf8": "29889"
+      },
+      {
+        "after": {
+          "bytes": 7557,
+          "sha256": "dfb50c001870c1d1c607f95bec692c04f72608e7933e278837aa8ac62dc2b55e"
+        },
+        "before": {
+          "bytes": 7557,
+          "sha256": "209a8b4bccb46d38044062f579e51fb2424b2691cd81e5c8c1b4f2047c256066"
+        },
+        "count": 1,
+        "new_utf8": "bda40e969dc48d4194f1c391c013cf0853e1fb39dee780a94f4754412d59f41a",
+        "old_utf8": "9a9d8df4130369eb4a31a348b76ddd7c2b3ca63c1e448250cc7d60dfc1d3158c"
+      },
+      {
+        "after": {
+          "bytes": 7557,
+          "sha256": "b9ab574513484d72fcb8ba23e144e771256f72830365d2dad0319efe37227443"
+        },
+        "before": {
+          "bytes": 7557,
+          "sha256": "dfb50c001870c1d1c607f95bec692c04f72608e7933e278837aa8ac62dc2b55e"
+        },
+        "count": 1,
+        "new_utf8": "6893",
+        "old_utf8": "6895"
+      },
+      {
+        "after": {
+          "bytes": 7557,
+          "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+        },
+        "before": {
+          "bytes": 7557,
+          "sha256": "b9ab574513484d72fcb8ba23e144e771256f72830365d2dad0319efe37227443"
+        },
+        "count": 1,
+        "new_utf8": "914d4d11057c8982154fbcd80fbea485977cf4952fad045625ca88271052040a",
+        "old_utf8": "dc359de37aab994e5dfbbadda1997235213da4e50c7f19f44141df18f2df7160"
+      }
+    ],
+    "result": {
+      "bytes": 7557,
+      "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+    }
+  },
+  "limitations": [
+    "This is proposed static derivation, not source/host review closure or native admission.",
+    "Current board, free space and boot identities must be observed afresh.",
+    "Target artifacts, division removal, ABI, entry behavior, runtime improvement, WCET and physical acceptance are not established."
+  ],
+  "method": "Pinned files read as bytes; stdlib AST literal evaluation of constant replacement tuples only; exact counted sequential byte replacements; git show reads predecessor bytes as data. No subject import, compile(), exec(), test, compiler or transport.",
+  "private_projections": {
+    "adapter": {
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 8264,
+            "sha256": "c5e8e1c10df17f6746e4b15043f2ed2940f84806950ebabf66702be0d4bcd18d"
+          },
+          "before": {
+            "bytes": 8262,
+            "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+          },
+          "count": 1,
+          "new_utf8": "'app_motor_observe.ino'",
+          "old_utf8": "'app_motor_fault.ino'"
+        },
+        {
+          "after": {
+            "bytes": 8266,
+            "sha256": "e3d23d5c6b2bd2d088f954a2dd2b574188edca8ca95d65a4432e54de759d169d"
+          },
+          "before": {
+            "bytes": 8264,
+            "sha256": "c5e8e1c10df17f6746e4b15043f2ed2940f84806950ebabf66702be0d4bcd18d"
+          },
+          "count": 1,
+          "new_utf8": "STATIC_APP_MOTOR_OBSERVE_LAYOUT_PACKAGE_PASS",
+          "old_utf8": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS"
+        }
+      ],
+      "original": "tools/app_motor_fault_static_policy.py",
+      "result": {
+        "bytes": 8266,
+        "sha256": "e3d23d5c6b2bd2d088f954a2dd2b574188edca8ca95d65a4432e54de759d169d"
+      },
+      "unchanged_from_D198": true
+    },
+    "caller": {
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 29798,
+            "sha256": "14b43300ab35c7f3d33b6d4c1e21296732dde2a028be5f93e870733f10522efd"
+          },
+          "before": {
+            "bytes": 29802,
+            "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+          },
+          "count": 1,
+          "new_utf8": "CALLER = 'tools/compile_motor_const.py'",
+          "old_utf8": "CALLER = 'tools/compile_app_motor_fault.py'"
+        },
+        {
+          "after": {
+            "bytes": 29794,
+            "sha256": "a492d8bb48dd5fd2d791f760a75b5c95eaa61ab3e3ab77ab6b23cce83ec036f2"
+          },
+          "before": {
+            "bytes": 29798,
+            "sha256": "14b43300ab35c7f3d33b6d4c1e21296732dde2a028be5f93e870733f10522efd"
+          },
+          "count": 1,
+          "new_utf8": "P7_motor_const_compile_contract.md",
+          "old_utf8": "P7_app_motor_fault_compile_contract.md"
+        },
+        {
+          "after": {
+            "bytes": 29790,
+            "sha256": "c298a1ab96ecc560c2cbd01fda612a4fbd6bb0784acb54f79e421c7726ae9e01"
+          },
+          "before": {
+            "bytes": 29794,
+            "sha256": "a492d8bb48dd5fd2d791f760a75b5c95eaa61ab3e3ab77ab6b23cce83ec036f2"
+          },
+          "count": 1,
+          "new_utf8": "P7_motor_const_compile_raw",
+          "old_utf8": "P7_app_motor_fault_compile_raw"
+        },
+        {
+          "after": {
+            "bytes": 29790,
+            "sha256": "819dfd522dd05550a2231ba828d2f59eac4f996b88f70396b229de34deda284d"
+          },
+          "before": {
+            "bytes": 29790,
+            "sha256": "c298a1ab96ecc560c2cbd01fda612a4fbd6bb0784acb54f79e421c7726ae9e01"
+          },
+          "count": 6,
+          "new_utf8": "app-motor-const-static",
+          "old_utf8": "app-motor-fault-static"
+        },
+        {
+          "after": {
+            "bytes": 29792,
+            "sha256": "81de48e1526e26f2b7ccb30e26ba477510d844a51920f739f7f5fee5d1efe69a"
+          },
+          "before": {
+            "bytes": 29790,
+            "sha256": "819dfd522dd05550a2231ba828d2f59eac4f996b88f70396b229de34deda284d"
+          },
+          "count": 1,
+          "new_utf8": "'app_motor_observe.ino'",
+          "old_utf8": "'app_motor_fault.ino'"
+        },
+        {
+          "after": {
+            "bytes": 29800,
+            "sha256": "927cd0f4846a61d0aeb1d83a627d08ba6afe3d7664876efe36d97b441f00c11f"
+          },
+          "before": {
+            "bytes": 29792,
+            "sha256": "81de48e1526e26f2b7ccb30e26ba477510d844a51920f739f7f5fee5d1efe69a"
+          },
+          "count": 4,
+          "new_utf8": "bench/app_motor_observe",
+          "old_utf8": "bench/app_motor_fault"
+        },
+        {
+          "after": {
+            "bytes": 29804,
+            "sha256": "dfe89c7b62fbf640d50f02056b6cfc9e466d864958267d3268703679e3dd16a6"
+          },
+          "before": {
+            "bytes": 29800,
+            "sha256": "927cd0f4846a61d0aeb1d83a627d08ba6afe3d7664876efe36d97b441f00c11f"
+          },
+          "count": 2,
+          "new_utf8": "'app_motor_observe'",
+          "old_utf8": "'app_motor_fault'"
+        },
+        {
+          "after": {
+            "bytes": 29806,
+            "sha256": "0d35c390ab05000979f811031caae6cc5d554243ccfe93d6e7a20116b0ffde1f"
+          },
+          "before": {
+            "bytes": 29804,
+            "sha256": "dfe89c7b62fbf640d50f02056b6cfc9e466d864958267d3268703679e3dd16a6"
+          },
+          "count": 1,
+          "new_utf8": "'/app_motor_observe'",
+          "old_utf8": "'/app_motor_fault'"
+        },
+        {
+          "after": {
+            "bytes": 29808,
+            "sha256": "5ef6597d6a38eb72a76b2032ea75f6d2e14e35ca44fb56302653174c3da25cbb"
+          },
+          "before": {
+            "bytes": 29806,
+            "sha256": "0d35c390ab05000979f811031caae6cc5d554243ccfe93d6e7a20116b0ffde1f"
+          },
+          "count": 1,
+          "new_utf8": "STATIC_APP_MOTOR_OBSERVE_LAYOUT_PACKAGE_PASS",
+          "old_utf8": "STATIC_APP_MOTOR_FAULT_LAYOUT_PACKAGE_PASS"
+        },
+        {
+          "after": {
+            "bytes": 29842,
+            "sha256": "9532bc03151b08ac62bbd2ef5d1dd9d0c661bc1b3fccaa00e02965fa494a4e76"
+          },
+          "before": {
+            "bytes": 29808,
+            "sha256": "5ef6597d6a38eb72a76b2032ea75f6d2e14e35ca44fb56302653174c3da25cbb"
+          },
+          "count": 2,
+          "new_utf8": "project_adapter(self.code[ADAPTER])",
+          "old_utf8": "self.code[ADAPTER]"
+        },
+        {
+          "after": {
+            "bytes": 29874,
+            "sha256": "bda40e969dc48d4194f1c391c013cf0853e1fb39dee780a94f4754412d59f41a"
+          },
+          "before": {
+            "bytes": 29842,
+            "sha256": "9532bc03151b08ac62bbd2ef5d1dd9d0c661bc1b3fccaa00e02965fa494a4e76"
+          },
+          "count": 2,
+          "new_utf8": "project_remote(self.code[REMOTE_HELPER])",
+          "old_utf8": "self.code[REMOTE_HELPER]"
+        }
+      ],
+      "original": "tools/compile_app_motor_fault.py",
+      "result": {
+        "bytes": 29874,
+        "sha256": "bda40e969dc48d4194f1c391c013cf0853e1fb39dee780a94f4754412d59f41a"
+      }
+    },
+    "remote": {
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 6891,
+            "sha256": "1a7d7a256d294363f6d3b81b4b7fcbca9d3c7f774e80487227771908ed8558d6"
+          },
+          "before": {
+            "bytes": 6891,
+            "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+          },
+          "count": 1,
+          "new_utf8": "app-motor-const-static01",
+          "old_utf8": "app-motor-fault-static01"
+        },
+        {
+          "after": {
+            "bytes": 6893,
+            "sha256": "3cebac7b8989cd8c7d1f42d63e0686d93f86511d0b8e03a64adfdde9dd680372"
+          },
+          "before": {
+            "bytes": 6891,
+            "sha256": "1a7d7a256d294363f6d3b81b4b7fcbca9d3c7f774e80487227771908ed8558d6"
+          },
+          "count": 1,
+          "new_utf8": "'app_motor_observe.ino'",
+          "old_utf8": "'app_motor_fault.ino'"
+        },
+        {
+          "after": {
+            "bytes": 6893,
+            "sha256": "5eda9291fa2ecd1a9b2fe7d0e165e0750355147f709b63cbd28ffeb8c20fa0e4"
+          },
+          "before": {
+            "bytes": 6893,
+            "sha256": "3cebac7b8989cd8c7d1f42d63e0686d93f86511d0b8e03a64adfdde9dd680372"
+          },
+          "count": 1,
+          "new_utf8": "app-motor-const-static-artifacts-v1",
+          "old_utf8": "app-motor-fault-static-artifacts-v1"
+        },
+        {
+          "after": {
+            "bytes": 6893,
+            "sha256": "914d4d11057c8982154fbcd80fbea485977cf4952fad045625ca88271052040a"
+          },
+          "before": {
+            "bytes": 6893,
+            "sha256": "5eda9291fa2ecd1a9b2fe7d0e165e0750355147f709b63cbd28ffeb8c20fa0e4"
+          },
+          "count": 1,
+          "new_utf8": "e3d23d5c6b2bd2d088f954a2dd2b574188edca8ca95d65a4432e54de759d169d",
+          "old_utf8": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+        }
+      ],
+      "original": "tools/app_motor_fault_compile_remote.py",
+      "result": {
+        "bytes": 6893,
+        "sha256": "914d4d11057c8982154fbcd80fbea485977cf4952fad045625ca88271052040a"
+      }
+    }
+  },
+  "schema": "d203-static-derivation-v1",
+  "scope": {
+    "adapter_status": "STATIC_APP_MOTOR_OBSERVE_LAYOUT_PACKAGE_PASS",
+    "attempt": "app-motor-const-static01",
+    "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "module": "_sumox_d203_const_compile",
+    "raw": "state/analysis/P7_motor_const_compile_raw",
+    "startup": "default"
+  },
+  "source_mapping": {
+    "algorithm": "For each sorted mapped destination, SHA256 update UTF-8 destination then NUL then original file bytes. No separators after content.",
+    "changed_source": {
+      "current": {
+        "bytes": 19906,
+        "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+      },
+      "path": "src/hal/motor_port_unoq.cpp",
+      "predecessor": {
+        "bytes": 19185,
+        "sha256": "f1ee755a7bddec38e86545f4c5e5457b3ed5e5f1bdd7f5cf368cc77f91664f5e"
+      }
+    },
+    "current_digest": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+    "current_inventory_closing_exact": true,
+    "inventory_bytes": 782068,
+    "inventory_files": 110,
+    "inventory_names_equal_D198": true,
+    "inventory_roots": [
+      "src",
+      "bench/app_motor_observe",
+      "bench/motor_fault/src"
+    ],
+    "mapped_bytes": 781200,
+    "mapped_files": 108,
+    "mapping_pairs_sha256": "01b36e4a3a1088b0615312d13eed13f5b336f3387bc52d47b195957c46f5ee41",
+    "must_revalidate_at_manifest_and_admission": true,
+    "not_an_actual_manifest": true,
+    "predecessor_git_object": "ff35c83e6d21d299dac14eb6fc5570d173a7772d:src/hal/motor_port_unoq.cpp",
+    "predecessor_reconstruction_digest": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da",
+    "rule_source": "tools/compile_app_motor_fault.py::CompileDiagnostic.source_mapping, unchanged except selected bench path/project metadata",
+    "unchanged_file_pins_matching_D198": 109
+  },
+  "status": "PROPOSED_DATA_ONLY"
+}

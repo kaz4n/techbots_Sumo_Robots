@@ -1,8 +1,7 @@
 {
-  "schema": "d212-independent-native-freeze-v1",
-  "status": "FINAL02",
-  "created_utc": "2026-09-26T14:14:19.247789+00:00",
-  "inputs": {
+  "schema": "d212-native-coordinator-freeze-v1",
+  "at": "2026-09-26T18:22:32.335534+04:00",
+  "files": {
     "bench/app_motor_observe/app_motor_observe.ino": {
       "bytes": 845,
       "sha256": "1df77ff537ef354bcb6bae9141ad117881216df125581f0d4ade3e286a6f007b"
@@ -1330,474 +1329,47 @@
     "tools/validate_csv_bundle.py": {
       "bytes": 19324,
       "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
-    }
-  },
-  "input_count": 332,
-  "fixture_derivation": {
-    "path": "state/analysis/P7_ordinary_app_run_raw/native_fixture_derivation01.json",
-    "bytes": 190296,
-    "sha256": "37f912c0397f594a7d1f3c76bb10e228c7b03daad52363cb7980f13bb2449a1b"
-  },
-  "contract": {
-    "path": "state/analysis/P7_ordinary_app_run_contract.md",
-    "bytes": 25120,
-    "sha256": "828b334235877131580618908cc164381a988f297c4e22235eb72e34fe200e75"
-  },
-  "derivation": {
-    "path": "state/analysis/P7_ordinary_app_run_raw/run_derivation01.json",
-    "bytes": 119497,
-    "sha256": "9a8ef9caa96f0e30a8ad741319d5ea59668b8e6066d0c96fb59defd35f896d66"
-  },
-  "preparation_review": {
-    "path": "state/reviews/P7_ordinary_app_run_preparation_review.md",
-    "bytes": 12602,
-    "sha256": "b5c6f6124145cdefc9046cdb00c59c00505e62a23f601b7839ab020f48a271b8"
-  },
-  "groups": {
-    "remote": {
-      "oracle": {
-        "path": "tests/tooling/test_ordinary_app_remote.py",
-        "bytes": 9671,
-        "sha256": "c08f6f5bebee88f983e581f9c3495fee87becee243b9d8826dce43c7eb4b063b"
-      },
-      "retained_core_methods": [
-        "Contract.test_import_has_no_native_action_or_dependency_execution",
-        "Contract.test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation",
-        "Contract.test_every_dependency_hash_is_checked_before_any_exec",
-        "Contract.test_dependency_shape_and_byte_types_fail_before_exec",
-        "Contract.test_profile_exact_native_paths_source_static_command_and_absences",
-        "Contract.test_profile_rejects_every_other_run_and_nonexact_string_type",
-        "Contract.test_both_binding_schemas_accept_only_fixed_identities_without_mutation",
-        "Contract.test_binding_shape_identity_and_all_native_paths_rejected",
-        "Contract.test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound",
-        "Contract.test_python_B_and_inherited_shadow_directory_constraints",
-        "Contract.test_read_plan_exact_static_26_reads_727088_bytes",
-        "Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins",
-        "Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven",
-        "Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command",
-        "Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes",
-        "Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps",
-        "Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image",
-        "Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately",
-        "Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample",
-        "Lifecycle.test_child_failure_and_malformed_result_do_not_retry",
-        "Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure",
-        "Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read",
-        "Lifecycle.test_upload_overall_deadline_failure_is_retained",
-        "Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence",
-        "Lifecycle.test_one_mib_stream_cap_is_inherited",
-        "Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap"
-      ],
-      "retained_provider_methods": [
-        "WaitContract.test_baseline_and_only_authorized_function_changes",
-        "WaitContract.test_initial_wait_fields_and_success_preserve_capture_origin",
-        "WaitContract.test_equal_or_insufficient_budget_refuses_before_record_or_sleep",
-        "WaitContract.test_just_over_thirty_seconds_remaining_is_admitted",
-        "WaitContract.test_short_sleep_retains_observed_after",
-        "WaitContract.test_throwing_sleeper_retains_before_and_original_exception",
-        "WaitContract.test_invalid_or_backward_clock_before_record_cannot_sleep",
-        "WaitContract.test_invalid_or_backward_after_clock_keeps_partial_wait",
-        "WaitContract.test_final_budget_oversleep_does_not_reset_origin",
-        "WaitContract.test_gather_exact_wait_positions_flash_brackets_and_complete",
-        "WaitContract.test_gather_wait_failure_stops_after_seven_reads",
-        "WaitContract.test_complete_requires_all_original_evidence_and_valid_wait",
-        "WaitContract.test_final_close_exception_leaves_first_wait_error_in_written_result",
-        "PublicWaitLifecycle.test_public_collect_retains_wait_and_separate_sample_gap",
-        "PublicWaitLifecycle.test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence",
-        "PublicWaitLifecycle.test_first_wait_error_survives_failing_closing_pins_identity_and_clock"
-      ],
-      "ordinary_methods": [
-        "OrdinaryRemote.test_exact_seventeen_recipe_steps_preserve_all_other_bytes",
-        "OrdinaryRemote.test_seven_windows_twenty_eight_reads_and_all_flash_boundaries",
-        "OrdinaryRemote.test_ordinary_artifact_paths_absences_and_raw_package_separation",
-        "OrdinaryRemote.test_D207_source_owners_and_diagnostic_images_are_refused",
-        "OrdinaryRemote.test_initial_and_sample_waits_keep_original_six_hundred_second_budget"
-      ],
-      "retained_method_count": 42,
-      "ordinary_method_count": 5,
-      "total": 47,
-      "assertion_calls": {
-        "retained_core_test_methods": 120,
-        "retained_provider_test_methods": 72,
-        "ordinary_test_methods": 27
-      },
-      "metadata_only_provider_projection": {
-        "bytes": 18897,
-        "sha256": "a9617e9599b6316c5a41702cfd448f32432782c38a6642ca54173e714f8947c3"
-      },
-      "metadata_only_core_projection": {
-        "bytes": 38498,
-        "sha256": "67526274c9bc326793b54dca29d564b0f89c5696f30716aa79dce5c008a3235d"
-      }
     },
-    "actions": {
-      "oracle": {
-        "path": "tests/tooling/test_ordinary_app_actions.py",
-        "bytes": 7125,
-        "sha256": "518cf63cbdfbe3a559722625c6c11586659c70bf631563f3c1c060e2ddd2bc97"
-      },
-      "retained_core_methods": [
-        "ActionsContract.test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit",
-        "ActionsContract.test_build_rejects_wrong_roles_bytes_identities_and_staging_pins",
-        "ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution",
-        "ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again",
-        "ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch",
-        "ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report",
-        "ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails",
-        "ActionsContract.test_reply_requires_exact_envelope_origin_identity_and_clean_errors",
-        "ActionsContract.test_upload_reply_rejects_partial_ambiguous_or_expired_process",
-        "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
-        "ActionsContract.test_success_sequence_is_exact_and_passes_retained_upload_predecessor",
-        "ActionsContract.test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors",
-        "ActionsContract.test_finish_failure_retains_original_sequence_error_without_retry"
-      ],
-      "retained_provider_methods": [
-        "WaitValidation.test_fixed_inputs_and_retained_method_inventory",
-        "WaitValidation.test_valid_wait_receipt_and_inclusive_boundaries",
-        "WaitValidation.test_wait_requires_exact_present_object_keys",
-        "WaitValidation.test_pre_wait_requested_seconds_is_exact_integer_30",
-        "WaitValidation.test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric",
-        "WaitValidation.test_short_or_backward_pre_wait_is_not_success",
-        "WaitValidation.test_pre_wait_order_inside_capture_and_before_sample_pause",
-        "WaitValidation.test_sample_pause_and_finished_bounds_remain_independent",
-        "WaitValidation.test_wait_does_not_admit_terminal_or_extra_analysis_claims",
-        "WaitValidation.test_valid_wait_cannot_promote_failed_or_unattributed_outer_result",
-        "WaitValidation.test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once"
-      ],
-      "ordinary_methods": [
-        "OrdinaryActions.test_exact_eleven_recipe_steps_and_fixed_adapter_identity",
-        "OrdinaryActions.test_plan_framing_and_actual_full_windows_argv_bounds",
-        "OrdinaryActions.test_each_stale_diagnostic_window_and_malformed_receipt_refuses_without_mutation",
-        "OrdinaryActions.test_D207_source_consumed_owner_and_unattributed_receipts_are_refused",
-        "OrdinaryActions.test_private_projection_installed_pins_and_scope_roles"
-      ],
-      "retained_method_count": 24,
-      "ordinary_method_count": 5,
-      "total": 29,
-      "assertion_calls": {
-        "retained_core_test_methods": 62,
-        "retained_provider_test_methods": 13,
-        "ordinary_test_methods": 26
-      },
-      "metadata_only_provider_projection": {
-        "bytes": 12204,
-        "sha256": "db69c1f13e794cd14b2dd5bf3dea785b08c78412337d85a5bc9d305a38bcdfc6"
-      },
-      "metadata_only_core_projection": {
-        "bytes": 26290,
-        "sha256": "1f0bd2a7d285b66f0bf731668f77636f39fded8f2e310b4e017c1ba5097ee3db"
-      }
+    "state/analysis/P7_ordinary_app_run_raw/native_independent_freeze01.json": {
+      "bytes": 85709,
+      "sha256": "2c8dc31a3114847ae0729b916a49b3c87b16348dce5750162b7794d4d0e83792"
     },
-    "run": {
-      "oracle": {
-        "path": "tests/tooling/test_ordinary_app_run.py",
-        "bytes": 9244,
-        "sha256": "99b02ed0fc347dcc41263d8fbbecff6635e2f80c57fc6f6257351e2d31ab7575"
-      },
-      "retained_core_methods": [
-        "CallerContract.test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes",
-        "CallerContract.test_actual_source_inventory_matches_the_original_manifest_without_mutation",
-        "CallerContract.test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims",
-        "CallerContract.test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed",
-        "CallerContract.test_scope_shape_source_caller_and_identity_are_exact",
-        "CallerContract.test_preparation_manifest_and_source_drift_are_rejected",
-        "CallerContract.test_linked_scope_and_source_pin_fail_closed_without_source_copies",
-        "CallerContract.test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist",
-        "CallerContract.test_success_sequence_has_exactly_13_transports_and_unproven_collection",
-        "CallerContract.test_staging_uncertainty_consumes_owner_closes_and_never_uploads",
-        "CallerContract.test_staging_transport_cannot_bypass_intent_or_verified_claim",
-        "CallerContract.test_invalid_staging_identity_prevents_push_and_attempts_closing_checks",
-        "CallerContract.test_capability_staged_hash_or_source_names_drift_prevents_upload",
-        "CallerContract.test_prerequisites_verify_source_projection_and_attempt_all_three",
-        "CallerContract.test_upload_failure_or_outward_error_never_dispatches_capture",
-        "CallerContract.test_intent_and_actual_predecessor_hash_are_required_and_consumed",
-        "CallerContract.test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport",
-        "CallerContract.test_local_drift_after_intent_refuses_dispatch_and_preserves_owner",
-        "CallerContract.test_primary_transport_error_and_closing_errors_are_all_durable",
-        "CallerContract.test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail"
-      ],
-      "retained_provider_methods": [
-        "ObserverEvidence.test_projected_d193_source_inventory_and_mapping_are_exact",
-        "ObserverEvidence.test_successful_abi02_and_entry_evidence_accepts_without_native_work",
-        "ObserverEvidence.test_wrong_abi_status_error_and_failed_predecessor_are_rejected",
-        "ObserverEvidence.test_old_manifest_refused_before_projection_and_any_transport",
-        "ObserverEvidence.test_fixed_new_scope_owners_and_cli_signature_preserve_old_owners"
-      ],
-      "ordinary_methods": [
-        "OrdinaryCaller.test_exact_nineteen_steps_and_private_caller_projection",
-        "OrdinaryCaller.test_real_125_file_ordinary_mapping_helper_digest_and_refusal_seams",
-        "OrdinaryCaller.test_stale_129_file_D207_manifest_is_rejected_before_mapping",
-        "OrdinaryCaller.test_D207_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission",
-        "OrdinaryCaller.test_exact_scope_provenance_bindings_absences_and_current_owner"
-      ],
-      "retained_method_count": 25,
-      "ordinary_method_count": 5,
-      "total": 30,
-      "assertion_calls": {
-        "retained_core_test_methods": 90,
-        "retained_provider_test_methods": 28,
-        "ordinary_test_methods": 41
-      },
-      "metadata_only_provider_projection": {
-        "bytes": 9526,
-        "sha256": "d4da39820b172667f03469acec1e5d3f9de431683d38f7587f85efd46704c22b"
-      },
-      "metadata_only_core_projection": {
-        "bytes": 28741,
-        "sha256": "63ffc32c1668b636bdfba9a9bc1811c65fe2abae09cafe5e64374d064d17ba62"
-      }
-    }
-  },
-  "prospective_subjects_contract_data_only": {
-    "actions.py": {
+    "state/analysis/P7_ordinary_app_run_raw/run.py": {
+      "bytes": 24859,
+      "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/actions.py": {
       "bytes": 12496,
       "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
     },
-    "remote.py": {
+    "state/analysis/P7_ordinary_app_run_raw/remote.py": {
       "bytes": 11269,
       "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
     },
-    "run.py": {
-      "bytes": 24859,
-      "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
-    }
-  },
-  "expected_private_runtime_projections": {
-    "caller": {
-      "bytes": 22977,
-      "sha256": "56b7e654537694ffb52b4557f21b369a4ad942cb507a876882bfa587c7899dd3"
+    "state/analysis/P7_ordinary_app_run_raw/native_implementation01.json": {
+      "bytes": 26489,
+      "sha256": "a898e1121e59d2006483cbb6ac6928b5480028b5785a89e4dcf83656bcc57b20"
     },
-    "actions": {
-      "bytes": 19129,
-      "sha256": "a26d7f7480a13c39d3071de779076ea61feb65253838f37effb9062b550e3202"
-    }
-  },
-  "totals": {
-    "methods": 106,
-    "retained_ancestral_methods": 91,
-    "ordinary_methods": 15,
-    "linux_pass_expected": 106,
-    "linux_skip_expected": 0,
-    "windows_pass_expected": 62,
-    "windows_explicit_Linux_only_skips": 44
-  },
-  "execution": {
-    "serial": true,
-    "owner": "Root only after separate source readiness",
-    "timeout_seconds_per_suite": 600,
-    "python_flags": [
-      "-I",
-      "-B"
-    ],
-    "linux_temp": "TMPDIR=/dev/shm",
-    "windows_temp": "Dedicated uniquely owned TEMP/TMP/TMPDIR before child startup, outside shared Temp",
-    "no_custom_oracle_environment": true,
-    "no_author_test_or_subject_imports_performed": true,
-    "native_calls": 0
-  },
-  "platform_plan": {
-    "linux": {
-      "remote": {
-        "pass": 47,
-        "skip": 0
-      },
-      "actions": {
-        "pass": 29,
-        "skip": 0
-      },
-      "run": {
-        "pass": 30,
-        "skip": 0
-      }
+    "state/analysis/P7_ordinary_app_run_raw/host_driver01.py": {
+      "bytes": 3688,
+      "sha256": "30017a43d236fc20fdb969bedfd326fb58625aed541d5a1218a52e9d82c703bc"
     },
-    "windows": {
-      "remote": {
-        "pass": 29,
-        "skip": 18
-      },
-      "actions": {
-        "pass": 24,
-        "skip": 5
-      },
-      "run": {
-        "pass": 9,
-        "skip": 21
-      }
-    }
-  },
-  "explicit_windows_skip_inventory": {
-    "actions": {
-      "count": 5,
-      "lines": [
-        "test_bootstrap_rejects_bad_framing_before_root_or_module_execution (__main__.ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution) ... skipped 'Linux controlled descriptor fixtures'",
-        "test_bootstrap_success_checks_staged_adapter_and_capture_parser_again (__main__.ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again) ... skipped 'Linux controlled descriptor fixtures'",
-        "test_changed_staged_adapter_and_installed_parser_never_dispatch (__main__.ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch) ... skipped 'Linux controlled descriptor fixtures'",
-        "test_closure_drift_cannot_be_overridden_by_successful_inner_report (__main__.ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report) ... skipped 'Linux controlled descriptor fixtures'",
-        "test_outward_close_error_preserves_unattributed_durable_report_and_fails (__main__.ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails) ... skipped 'Linux controlled descriptor fixtures'"
-      ],
-      "receipt": {
-        "bytes": 5091,
-        "path": "state/analysis/P7_motor_const_run_raw/first_actions_windows01/stderr",
-        "sha256": "39dfbcbd9daee25c4e866de6ec0604fdd4c04258df0aa7eb67f10c2235ce9689"
-      }
+    "state/analysis/P7_ordinary_app_run_raw/host_driver01_derivation.json": {
+      "bytes": 1692,
+      "sha256": "0429c96efd962a2507189c976a1cdc6156e65781659987f6c759c57bcb45f1e5"
     },
-    "remote": {
-      "count": 18,
-      "lines": [
-        "test_admission_rejects_changed_artifacts_symlinks_identity_and_processes (__main__.Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes) ... skipped 'Linux descriptor contract'",
-        "test_after_flash_mismatch_stops_at_first_complete_bad_image (__main__.Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image) ... skipped 'Linux descriptor contract'",
-        "test_before_flash_mismatch_never_reads_sram_or_sleeps (__main__.Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps) ... skipped 'Linux descriptor contract'",
-        "test_both_lifecycles_reject_binding_and_preexisting_owner_before_command (__main__.Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command) ... skipped 'Linux descriptor contract'",
-        "test_capture_all_reads_retained_flash_brackets_and_coherence_unproven (__main__.Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven) ... skipped 'Linux descriptor contract'",
-        "test_capture_deadline_caps_next_child_and_no_third_read (__main__.Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read) ... skipped 'Linux descriptor contract'",
-        "test_capture_replaced_owner_stops_and_keeps_original_directory_evidence (__main__.Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence) ... skipped 'Linux descriptor contract'",
-        "test_child_failure_and_malformed_result_do_not_retry (__main__.Lifecycle.test_child_failure_and_malformed_result_do_not_retry) ... skipped 'Linux descriptor contract'",
-        "test_default_executors_preserve_environment_limits_timeout_and_kill_reap (__main__.Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap) ... skipped 'Linux descriptor contract'",
-        "test_final_pins_identity_and_original_error_all_survive_failure (__main__.Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure) ... skipped 'Linux descriptor contract'",
-        "test_missing_short_extra_and_symlink_reads_stop_immediately (__main__.Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately) ... skipped 'Linux descriptor contract'",
-        "test_one_mib_stream_cap_is_inherited (__main__.Lifecycle.test_one_mib_stream_cap_is_inherited) ... skipped 'Linux descriptor contract'",
-        "test_short_sample_gap_and_expired_gap_suppress_second_sample (__main__.Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample) ... skipped 'Linux descriptor contract'",
-        "test_upload_overall_deadline_failure_is_retained (__main__.Lifecycle.test_upload_overall_deadline_failure_is_retained) ... skipped 'Linux descriptor contract'",
-        "test_upload_success_exact_one_shot_and_all_closing_pins (__main__.Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins) ... skipped 'Linux descriptor contract'",
-        "test_first_wait_error_survives_failing_closing_pins_identity_and_clock (__main__.PublicWaitLifecycle.test_first_wait_error_survives_failing_closing_pins_identity_and_clock) ... skipped 'Linux descriptor contract'",
-        "test_public_collect_retains_wait_and_separate_sample_gap (__main__.PublicWaitLifecycle.test_public_collect_retains_wait_and_separate_sample_gap) ... skipped 'Linux descriptor contract'",
-        "test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence (__main__.PublicWaitLifecycle.test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence) ... skipped 'Linux descriptor contract'"
-      ],
-      "receipt": {
-        "bytes": 7802,
-        "path": "state/analysis/P7_motor_const_run_raw/first_remote_windows01/stderr",
-        "sha256": "1403175fdf1178fbb179b3a467ea8c63d1d1b7cda920da1d395f6cd73ed80339"
-      }
-    },
-    "run": {
-      "count": 21,
-      "lines": [
-        "test_actual_source_inventory_matches_the_original_manifest_without_mutation (__main__.CallerContract.test_actual_source_inventory_matches_the_original_manifest_without_mutation) ... skipped 'Owned /dev/shm fixture required'",
-        "test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes (__main__.CallerContract.test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes) ... skipped 'Owned /dev/shm fixture required'",
-        "test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport (__main__.CallerContract.test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport) ... skipped 'Owned /dev/shm fixture required'",
-        "test_capability_staged_hash_or_source_names_drift_prevents_upload (__main__.CallerContract.test_capability_staged_hash_or_source_names_drift_prevents_upload) ... skipped 'Owned /dev/shm fixture required'",
-        "test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist (__main__.CallerContract.test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist) ... skipped 'Owned /dev/shm fixture required'",
-        "test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail (__main__.CallerContract.test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail) ... skipped 'Owned /dev/shm fixture required'",
-        "test_intent_and_actual_predecessor_hash_are_required_and_consumed (__main__.CallerContract.test_intent_and_actual_predecessor_hash_are_required_and_consumed) ... skipped 'Owned /dev/shm fixture required'",
-        "test_invalid_staging_identity_prevents_push_and_attempts_closing_checks (__main__.CallerContract.test_invalid_staging_identity_prevents_push_and_attempts_closing_checks) ... skipped 'Owned /dev/shm fixture required'",
-        "test_linked_scope_and_source_pin_fail_closed_without_source_copies (__main__.CallerContract.test_linked_scope_and_source_pin_fail_closed_without_source_copies) ... skipped 'Owned /dev/shm fixture required'",
-        "test_local_drift_after_intent_refuses_dispatch_and_preserves_owner (__main__.CallerContract.test_local_drift_after_intent_refuses_dispatch_and_preserves_owner) ... skipped 'Owned /dev/shm fixture required'",
-        "test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims (__main__.CallerContract.test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims) ... skipped 'Owned /dev/shm fixture required'",
-        "test_preparation_manifest_and_source_drift_are_rejected (__main__.CallerContract.test_preparation_manifest_and_source_drift_are_rejected) ... skipped 'Owned /dev/shm fixture required'",
-        "test_prerequisites_verify_source_projection_and_attempt_all_three (__main__.CallerContract.test_prerequisites_verify_source_projection_and_attempt_all_three) ... skipped 'Owned /dev/shm fixture required'",
-        "test_primary_transport_error_and_closing_errors_are_all_durable (__main__.CallerContract.test_primary_transport_error_and_closing_errors_are_all_durable) ... skipped 'Owned /dev/shm fixture required'",
-        "test_scope_shape_source_caller_and_identity_are_exact (__main__.CallerContract.test_scope_shape_source_caller_and_identity_are_exact) ... skipped 'Owned /dev/shm fixture required'",
-        "test_staging_transport_cannot_bypass_intent_or_verified_claim (__main__.CallerContract.test_staging_transport_cannot_bypass_intent_or_verified_claim) ... skipped 'Owned /dev/shm fixture required'",
-        "test_staging_uncertainty_consumes_owner_closes_and_never_uploads (__main__.CallerContract.test_staging_uncertainty_consumes_owner_closes_and_never_uploads) ... skipped 'Owned /dev/shm fixture required'",
-        "test_success_sequence_has_exactly_13_transports_and_unproven_collection (__main__.CallerContract.test_success_sequence_has_exactly_13_transports_and_unproven_collection) ... skipped 'Owned /dev/shm fixture required'",
-        "test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed (__main__.CallerContract.test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed) ... skipped 'Owned /dev/shm fixture required'",
-        "test_upload_failure_or_outward_error_never_dispatches_capture (__main__.CallerContract.test_upload_failure_or_outward_error_never_dispatches_capture) ... skipped 'Owned /dev/shm fixture required'",
-        "test_D207_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission (__main__.OrdinaryCaller.test_D207_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission) ... skipped 'Owned /dev/shm admission fixture required'"
-      ],
-      "receipt": {
-        "bytes": 6037,
-        "path": "state/analysis/P7_motor_const_run_raw/first_run_windows01/stderr",
-        "sha256": "30e456ee1afabb29b9d39b5f09fad742b94a9a352a853cd68ad94752799a0488"
-      }
-    }
-  },
-  "source_independence": {
-    "new_subject_reads": 0,
-    "new_subject_hashes": 0,
-    "new_subject_imports": 0,
-    "test_invocations": 0,
-    "device_calls": 0,
-    "data_only": "Historical AST/literals and exact byte projections; no projected module evaluated."
-  },
-  "static_semantic_audit": [
-    "The 91 inherited test methods and every assertion call survive: remote26+16, actions13+11, caller20+5.",
-    "The inherited caller source-drift stimulus now targets src/app/app.ino rather than an excluded diagnostic bench file; its guard assertion remains.",
-    "The ordinary reference projection selects the actual app and hashes sorted(mapped,key=Path); the real accepted mapper and independent app_source_hash are exercised in host tests, with reserved/nonordinary/collision/count/4MiB/override/missing-app negatives.",
-    "All seven stale-window stimuli differ from current ordinary tuples; D207/D201 sources, owners and image sizes/hashes are explicitly noncurrent.",
-    "Full Windows argv measurement uses shlex.join(actual command argv), subprocess.list2cmdline, UTF-16LE units and terminating NUL; both upload and capture must be <=30000.",
-    "No fixture success stub replaces source_mapping, source admission, lifecycle guards, or first-failure behavior.",
-    "Historical current-core tables are augmented by exact counted ordinary metadata steps. Provider literal tables are injected only from this frozen data; old pinned source remains unchanged.",
-    "The private no-wait baseline remains its historical no-wait body, preserving the authorized wait-addition assertions."
-  ],
-  "construction_refusals": [
-    {
-      "phase": "in-memory authoring orchestration",
-      "error": "JavaScript TypeError: c.index is not a function",
-      "effect": "Before tool dispatch or file writes; corrected to indexOf. No test/subject execution."
-    },
-    {
-      "phase": "read-only historical freeze metadata survey",
-      "error": "KeyError: 'files'",
-      "effect": "The historical native freeze uses inputs; corrected data lookup only. No file edits or test/subject execution."
-    }
-  ],
-  "final_pin_bindings": {
-    "remote_fixture_pin": {
-      "bytes": 190296,
-      "sha256": "37f912c0397f594a7d1f3c76bb10e228c7b03daad52363cb7980f13bb2449a1b"
-    },
-    "actions_remote_sha256": "c08f6f5bebee88f983e581f9c3495fee87becee243b9d8826dce43c7eb4b063b",
-    "caller_actions_sha256": "518cf63cbdfbe3a559722625c6c11586659c70bf631563f3c1c060e2ddd2bc97"
-  },
-  "limits": [
-    "No host result claimed before root execution.",
-    "New native subject files and decoder were never read, hashed, imported or executed by author.",
-    "106 native tests do not claim decoder correctness or actual board/MCU admission.",
-    "No upload, capture, authentication, new firmware, motors or physical gate evidence."
-  ],
-  "preexecution_correction02": {
-    "status": "FINAL02_SINGLE_FIXTURE_CORRECTION_BEFORE_HOST_EXECUTION",
-    "preserved_commit": "57ff804f",
-    "finding": {
-      "path": "state/analysis/P7_ordinary_app_run_raw/preexecution_fixture_finding01.json",
+    "state/analysis/P7_ordinary_app_run_raw/preexecution_fixture_finding01.json": {
       "bytes": 1237,
       "sha256": "ad1eadedeb230cc33683b3db21f51bc0dbd47b2d9e6c51f025529fdcbd735e75"
-    },
-    "original_files": {
-      "tests/tooling/test_ordinary_app_remote.py": {
-        "bytes": 9671,
-        "sha256": "427489e5efed6a28e10cf16f2c23d69544d95735edf57910e641163f26f8557b"
-      },
-      "tests/tooling/test_ordinary_app_actions.py": {
-        "bytes": 7125,
-        "sha256": "56612a9e0d8e31c5d339faae292a603ec0eb2d3803b91b3752167b7a98789520"
-      },
-      "tests/tooling/test_ordinary_app_run.py": {
-        "bytes": 9244,
-        "sha256": "9dd85599763fd913470572a0510f912a47b0d4a1e345e1c77173b9979f9eb582"
-      },
-      "state/analysis/P7_ordinary_app_run_raw/native_fixture_derivation01.json": {
-        "bytes": 187325,
-        "sha256": "970aab47cbe75ce4a054c8f25fc157a8507a8c1d217d05767cfd287edd78f5ce"
-      },
-      "state/analysis/P7_ordinary_app_run_raw/native_independent_freeze01.json": {
-        "bytes": 83210,
-        "sha256": "f58ed613b14302c4adb141012a89e0fa23d9cc01eb8760d9424c6f79b54835f3"
-      }
-    },
-    "step": {
-      "old": "lambda r: r['reads'][19].update(sha256='0' * 64)",
-      "new": "lambda r: r['reads'][21].update(sha256='0' * 64)",
-      "count": 1,
-      "before": {
-        "bytes": 26290,
-        "sha256": "ff5cf5afed38c19cd0db6be371e7c6fe61bc0f41b136b72f31267ec85adffd0d"
-      },
-      "after": {
-        "bytes": 26290,
-        "sha256": "1f0bd2a7d285b66f0bf731668f77636f39fded8f2e310b4e017c1ba5097ee3db"
-      }
-    },
-    "method": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
-    "before_method": {
-      "bytes": 1880,
-      "sha256": "6e312fda808016364283701b2af4087ab04c3fd68c7ad3a90a9b7be1143b24b9"
-    },
-    "after_method": {
-      "bytes": 1880,
-      "sha256": "d99d430b5b10dae9f2aae2efdb4e48e9fea2032f55a59788538d2b6d04603d43"
-    },
-    "unchanged": "106 methods, every assertion, all other stimuli, native source expectations, contract and scalar map. No native subject read/hash/import or test execution.",
-    "inspection_boundary": "The reviewer separately inspected the frozen decoder under root release; no new native subject was inspected during original native oracle construction or this correction."
-  }
+    }
+  },
+  "file_count": 340,
+  "independent_freeze": {
+    "bytes": 85709,
+    "sha256": "2c8dc31a3114847ae0729b916a49b3c87b16348dce5750162b7794d4d0e83792"
+  },
+  "readiness": "Independent cross-review const_cleanup_review accepted exact remote/actions source and FINAL02 fixture correction. Caller source readiness by fresh_review remains required before its suite. Root implementation sealed before neworacle reading; independent author remained subjectblind through freeze.",
+  "planned_runs": "Each native pair Linux then Windows, remote then actions then caller, serial600s. Caller pair waits separate readiness. No suite has executed.",
+  "first_fixture_version_preserved": "57ff804f",
+  "free_bytes": 5429178368
 }

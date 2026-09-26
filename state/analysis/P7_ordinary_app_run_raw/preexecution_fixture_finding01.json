@@ -1,0 +1,18 @@
+{
+  "schema": "d212-preexecution-fixture-finding-v1",
+  "at": "2026-09-26T18:18:55.399747+04:00",
+  "preserved_commit": "57ff804f",
+  "reviewer": "const_cleanup_review",
+  "scope": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
+  "finding": "The inherited actions-core negative mutates read19, which is now second.attempted_word. This triggers a snapshot mismatch rather than the original after-sketch hash comparison.",
+  "authorized_correction": {
+    "old": "lambda r: r['reads'][19].update(sha256='0' * 64)",
+    "new": "lambda r: r['reads'][21].update(sha256='0' * 64)",
+    "count": 1,
+    "meaning": "Restore the first after-sketch chunk negative, preserving all snapshot rows, methods, assertions and failure intent."
+  },
+  "consequential_changes": "Only exact projected core/method pins, fixture identity and dependent support/self/freezes. No subject, contract, map or behavior change.",
+  "subject_or_test_execution": false,
+  "native_execution": false,
+  "reviewer_bookkeeping_refusal": "One read-only method-hash extraction used AST segments instead of normative whole-line/decorator spans; corrected extraction reproduced all inherited assertion sites without file changes."
+}

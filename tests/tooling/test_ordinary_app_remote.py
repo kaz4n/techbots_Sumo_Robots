@@ -13,7 +13,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 RAW = 'state/analysis/P7_ordinary_app_run_raw/'
 FIXTURE = RAW + 'native_fixture_derivation01.json'
-FIXTURE_PIN = {'bytes': 187325, 'sha256': '970aab47cbe75ce4a054c8f25fc157a8507a8c1d217d05767cfd287edd78f5ce'}
+FIXTURE_PIN = {'bytes': 190296, 'sha256': '37f912c0397f594a7d1f3c76bb10e228c7b03daad52363cb7980f13bb2449a1b'}
 _PROVIDER = None
 
 

@@ -1,6 +1,6 @@
 {
   "schema": "d212-independent-native-fixtures-v1",
-  "status": "FINAL_INDEPENDENT_NATIVE_FIXTURE_AFTER_ADOPTION_BEFORE_SUBJECT_INSPECTION",
+  "status": "FINAL02_INDEPENDENT_NATIVE_FIXTURE_SINGLE_ADJUDICATED_CORRECTION",
   "contract": {
     "path": "state/analysis/P7_ordinary_app_run_contract.md",
     "bytes": 25120,
@@ -1518,11 +1518,24 @@
             "bytes": 26290,
             "sha256": "ff5cf5afed38c19cd0db6be371e7c6fe61bc0f41b136b72f31267ec85adffd0d"
           }
+        },
+        {
+          "old": "lambda r: r['reads'][19].update(sha256='0' * 64)",
+          "new": "lambda r: r['reads'][21].update(sha256='0' * 64)",
+          "count": 1,
+          "before": {
+            "bytes": 26290,
+            "sha256": "ff5cf5afed38c19cd0db6be371e7c6fe61bc0f41b136b72f31267ec85adffd0d"
+          },
+          "after": {
+            "bytes": 26290,
+            "sha256": "1f0bd2a7d285b66f0bf731668f77636f39fded8f2e310b4e017c1ba5097ee3db"
+          }
         }
       ],
       "expected": {
         "bytes": 26290,
-        "sha256": "ff5cf5afed38c19cd0db6be371e7c6fe61bc0f41b136b72f31267ec85adffd0d"
+        "sha256": "1f0bd2a7d285b66f0bf731668f77636f39fded8f2e310b4e017c1ba5097ee3db"
       }
     },
     "run": {
@@ -2639,7 +2652,7 @@
           },
           "after": {
             "bytes": 1880,
-            "sha256": "6e312fda808016364283701b2af4087ab04c3fd68c7ad3a90a9b7be1143b24b9"
+            "sha256": "d99d430b5b10dae9f2aae2efdb4e48e9fea2032f55a59788538d2b6d04603d43"
           },
           "assertions": 2
         },
@@ -4692,5 +4705,60 @@
       }
     }
   },
-  "formal_adoption": "Root message adopted exact FINAL02 contract/derivation/map after FINAL PASS preparation review; root sealed three native implementations before reading new native oracles."
+  "formal_adoption": "Root message adopted exact FINAL02 contract/derivation/map after FINAL PASS preparation review; root sealed three native implementations before reading new native oracles.",
+  "preexecution_correction02": {
+    "status": "FINAL02_SINGLE_FIXTURE_CORRECTION_BEFORE_HOST_EXECUTION",
+    "preserved_commit": "57ff804f",
+    "finding": {
+      "path": "state/analysis/P7_ordinary_app_run_raw/preexecution_fixture_finding01.json",
+      "bytes": 1237,
+      "sha256": "ad1eadedeb230cc33683b3db21f51bc0dbd47b2d9e6c51f025529fdcbd735e75"
+    },
+    "original_files": {
+      "tests/tooling/test_ordinary_app_remote.py": {
+        "bytes": 9671,
+        "sha256": "427489e5efed6a28e10cf16f2c23d69544d95735edf57910e641163f26f8557b"
+      },
+      "tests/tooling/test_ordinary_app_actions.py": {
+        "bytes": 7125,
+        "sha256": "56612a9e0d8e31c5d339faae292a603ec0eb2d3803b91b3752167b7a98789520"
+      },
+      "tests/tooling/test_ordinary_app_run.py": {
+        "bytes": 9244,
+        "sha256": "9dd85599763fd913470572a0510f912a47b0d4a1e345e1c77173b9979f9eb582"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/native_fixture_derivation01.json": {
+        "bytes": 187325,
+        "sha256": "970aab47cbe75ce4a054c8f25fc157a8507a8c1d217d05767cfd287edd78f5ce"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/native_independent_freeze01.json": {
+        "bytes": 83210,
+        "sha256": "f58ed613b14302c4adb141012a89e0fa23d9cc01eb8760d9424c6f79b54835f3"
+      }
+    },
+    "step": {
+      "old": "lambda r: r['reads'][19].update(sha256='0' * 64)",
+      "new": "lambda r: r['reads'][21].update(sha256='0' * 64)",
+      "count": 1,
+      "before": {
+        "bytes": 26290,
+        "sha256": "ff5cf5afed38c19cd0db6be371e7c6fe61bc0f41b136b72f31267ec85adffd0d"
+      },
+      "after": {
+        "bytes": 26290,
+        "sha256": "1f0bd2a7d285b66f0bf731668f77636f39fded8f2e310b4e017c1ba5097ee3db"
+      }
+    },
+    "method": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
+    "before_method": {
+      "bytes": 1880,
+      "sha256": "6e312fda808016364283701b2af4087ab04c3fd68c7ad3a90a9b7be1143b24b9"
+    },
+    "after_method": {
+      "bytes": 1880,
+      "sha256": "d99d430b5b10dae9f2aae2efdb4e48e9fea2032f55a59788538d2b6d04603d43"
+    },
+    "unchanged": "106 methods, every assertion, all other stimuli, native source expectations, contract and scalar map. No native subject read/hash/import or test execution.",
+    "inspection_boundary": "The reviewer separately inspected the frozen decoder under root release; no new native subject was inspected during original native oracle construction or this correction."
+  }
 }

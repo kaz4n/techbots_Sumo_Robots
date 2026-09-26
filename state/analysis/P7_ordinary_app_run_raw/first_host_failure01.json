@@ -1,0 +1,37 @@
+{
+  "schema": "d212-first-host-failure-v1",
+  "at": "2026-09-26T18:23:56.225060+04:00",
+  "suite": "first_remote_linux01",
+  "outcomes": {
+    "pass": 45,
+    "fail": 1,
+    "error": 1,
+    "skip": 0
+  },
+  "result": {
+    "bytes": 870,
+    "sha256": "f444f08a8474d4ce12d48349f31febaf7bdca259c075c83b68f2a41d0180bb0f"
+  },
+  "stderr": {
+    "bytes": 9039,
+    "sha256": "ca4685c33f2634544530156a02228db1e5000bace7565608a95e77583ced1e0b"
+  },
+  "freeze": {
+    "bytes": 57476,
+    "sha256": "01b4087f3d7caaf738deb6c3647a8f00636673414f0ddbff8f9f7fbcff296b79"
+  },
+  "unchanged_pins": 340,
+  "failures": [
+    {
+      "case": "OrdinaryRemote.test_exact_seventeen_recipe_steps_preserve_all_other_bytes",
+      "error": "KeyError before: fixture project expects intermediate fields absent from normative recipe rows."
+    },
+    {
+      "case": "OrdinaryRemote.test_ordinary_artifact_paths_absences_and_raw_package_separation",
+      "error": "Binding equality assertion differs; independent source versus fixture adjudication pending."
+    }
+  ],
+  "remaining_suites_not_run": true,
+  "native_execution": false,
+  "source_change": false
+}

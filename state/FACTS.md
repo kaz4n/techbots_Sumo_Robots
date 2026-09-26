@@ -922,3 +922,7 @@ HOST-VERIFIED: final reader44449B/f816a523, projected12965B/7fb42d51 and indepen
 
 ## F235 - Ordinary application file layouts and symbols (2026-09-26T16:48:18.143956+04:00)
 FILE-OBSERVED: D209 at clean326931f4 completes one file-only transport,4children,13remote andlocalPASS; actualreview585be669 reconciles full17529B transportedprogram and162distinct current/native-commit pins (159host/10scope/133runtime sets). Complete2234symbols and92markers/79numeric answers establish13 raw layouts,sixwindows and47 source enums. Runtime0x20013960/166376B/align8 ends at motor_port0x2003c348/40B/align4; both initializedBSS section5. Result6a17c12c/ABIe224750e/rootclosurec8501453. No ordinaryupload/runtime/MCUread, coherence, liveRAM/timing/physical/gate claim. Source: analysis/P7_ordinary_app_abi_actual_validation.md.
+
+
+## F236 - Ordinary entry reader host evidence (2026-09-26T17:29:46.250615+04:00)
+HOST-VERIFIED: final reader18546B/5bcb6e12 and independent oracle13323B/6dcac3cc pass all27 methods on each platform, no skips/retries. Review10497B/ca0104db and closure14410B/7ca9dd4e independently reconcile54 outcomes,171 unchanged inputs and empty scoped temporary inventories. No actual entry instructions or ordinary runtime observation yet. Source: analysis/P7_ordinary_app_entry_validation.md.

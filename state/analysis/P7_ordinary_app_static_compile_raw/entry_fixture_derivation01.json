@@ -1,0 +1,2224 @@
+{
+  "assertion_counts": {
+    "tests/tooling/test_app_motor_observe_entry.py": {
+      "test_all_six_inputs_are_verified_before_private_execution": 2,
+      "test_both_projectors_produce_exact_contract_bytes_without_io": 2,
+      "test_consumed_owner_refusal_and_primary_failure_survives_closure_errors": 8,
+      "test_disassembly_headers_end_markers_instruction_format_gaps_overlap_and_coverage": 2,
+      "test_exact_four_file_queries_and_all_twenty_seven_ranges": 4,
+      "test_execute_retains_raw_entry_summary_labels_and_local_closure": 8,
+      "test_full_synthetic_entry_summary_decimal_hex_and_opcode_widths_preserves_raw": 9,
+      "test_initializer_section_span_dump_and_little_endian_pointer_are_required": 2,
+      "test_invalid_cli_or_missing_B_refuses_before_input_loading": 2,
+      "test_main_delegates_once_and_preserves_result_or_primary_exception": 5,
+      "test_markers_require_exact_unique_order_and_final_marker": 1,
+      "test_missing_duplicate_constructor_aliases_and_initialization_bound_tuples_refuse": 3,
+      "test_original_first_composition_and_no_historical_entry_load_or_main": 3,
+      "test_passive_import_and_exact_bootstrap_source": 2,
+      "test_private_direct_entry_functions_pins_and_fresh_owner": 15,
+      "test_projectors_reject_types_lengths_hashes_counts_and_newlines": 1,
+      "test_real_prepare_composes_only_entry_commands_without_claiming": 13,
+      "test_scope_stream_and_parser_failures_retain_raw_and_attempt_local_closure": 5,
+      "test_symbol_address_size_type_binding_section_and_Thumb_failures": 4
+    },
+    "tests/tooling/test_motor_const_entry.py": {
+      "test_all_thirteen_remote_closures_are_required_with_raw_preservation": 11,
+      "test_consumed_d199_owner_and_scope_cannot_be_reused": 12,
+      "test_current_inputs_refuse_exact_stale_d199_bytes_before_private_execution": 3,
+      "test_current_source_manifest_artifacts_refuse_stale_d199_evidence": 9,
+      "test_every_projection_occurrence_count_refuses_drift": 2,
+      "test_exact_wrapper_reader_parser_recipes_and_unchanged_function_bodies": 15
+    },
+    "tests/tooling/test_motor_settle_entry.py": {
+      "test_direct_entry_summary_does_not_call_abi_summary_or_require_abi_tags": 7
+    }
+  },
+  "authoring_refusals": [
+    {
+      "actual_count": 6,
+      "contexts": [
+        {
+          "line": 64,
+          "occurrences": 1,
+          "text": "               \"Hex dump of section '.init_array':\\n 0x08116238 05011008 ....\\n\")"
+        },
+        {
+          "line": 214,
+          "occurrences": 1,
+          "text": "            self.assertEqual(answer['initialization'], dict(address=0x08116238, bytes_hex='05011008',"
+        },
+        {
+          "line": 261,
+          "occurrences": 2,
+          "text": "                        original.replace('0x08116238 05011008', '0x0811623c 05011008'),"
+        },
+        {
+          "line": 262,
+          "occurrences": 2,
+          "text": "                        original.replace('05011008', '08100105'), original.replace('05011008', '04011008'),"
+        }
+      ],
+      "disposition": "Inspected all six occurrences; valid packet, expected initialization, two address-negative operands, reversed-byte negative and wrong-pointer negative retain their obligations.",
+      "effect": "Refused before output write; no test or subject execution",
+      "expected_count": 5,
+      "literal": "05011008",
+      "stage": "counted data-only base-class projection"
+    },
+    {
+      "disposition": "Historical SEMANTIC_STEPS contains label/old/new triples; adopted whole-span count is one.",
+      "effect": "Refused before output write; no test or subject execution",
+      "error": "ValueError: not enough values to unpack (expected 4, got 3)",
+      "stage": "data-only accepted ABI SEMANTIC_STEPS shape"
+    }
+  ],
+  "barrier": "New D210 subject was not read, hashed, imported, executed, or tested. Root metadata only; predecessor and adopted recipe used as inert data.",
+  "base_class_fixture_steps": [
+    {
+      "after": {
+        "bytes": 24505,
+        "sha256": "7cfae16e4ae615830d1f43ee97bd0c3efa387ddd7a3e809b0b46dd583db65c19"
+      },
+      "before": {
+        "bytes": 24508,
+        "sha256": "9cd9d04bad713495dabab3249f8ef005c0d09627bbd6cf4dbce414a83566117c"
+      },
+      "count": 1,
+      "new": "('global_initializer', 'candidate_period', 'map_channel')",
+      "old": "('global_initializer', 'candidate_rate', 'candidate_period')"
+    },
+    {
+      "after": {
+        "bytes": 24739,
+        "sha256": "1d370dd59afd53065318080d4f954466b6313f4ce7019cf0901d93770e50ee5c"
+      },
+      "before": {
+        "bytes": 24505,
+        "sha256": "7cfae16e4ae615830d1f43ee97bd0c3efa387ddd7a3e809b0b46dd583db65c19"
+      },
+      "count": 1,
+      "new": "('init_variant', 'main', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor')",
+      "old": "('init_variant', 'main')"
+    },
+    {
+      "after": {
+        "bytes": 24739,
+        "sha256": "6f8258f3ddb3a1ff188b49fa10fcb611df0a07f7fe7b6e60a5a46deec4259836"
+      },
+      "before": {
+        "bytes": 24739,
+        "sha256": "1d370dd59afd53065318080d4f954466b6313f4ce7019cf0901d93770e50ee5c"
+      },
+      "count": 2,
+      "new": "D210_STATIC_FILE_ONLY_ENTRY",
+      "old": "D194_STATIC_FILE_ONLY_ENTRY"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "29766c018cb5cc9d91eb4da666406924317afd03d514f07930c9036ddf29b629"
+      },
+      "before": {
+        "bytes": 24739,
+        "sha256": "6f8258f3ddb3a1ff188b49fa10fcb611df0a07f7fe7b6e60a5a46deec4259836"
+      },
+      "count": 1,
+      "new": "D209_STATIC_FILE_ONLY_ABI",
+      "old": "D194_STATIC_FILE_ONLY_ABI02"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "d8e65ef6511bfd7677dc7bc01bfc9383222dc000c1ac68e82b505de11cab320f"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "29766c018cb5cc9d91eb4da666406924317afd03d514f07930c9036ddf29b629"
+      },
+      "count": 6,
+      "new": "081158f0",
+      "old": "08116238"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "b5968d5bf86131d23142e8ed2d3d6cb6379b6ecb50c214b4d7a702e24c59a3e0"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "d8e65ef6511bfd7677dc7bc01bfc9383222dc000c1ac68e82b505de11cab320f"
+      },
+      "count": 4,
+      "new": "081158f4",
+      "old": "0811623c"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "6a45b2759817a194da7bbd1b6988e6902b8790f213f32d811fbb3ffbdb07d8b3"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "b5968d5bf86131d23142e8ed2d3d6cb6379b6ecb50c214b4d7a702e24c59a3e0"
+      },
+      "count": 1,
+      "new": "0x158e0",
+      "old": "0x16228"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "9ee8534c4cc7dcaf8e3b5c5a84a6ccb48e4f108b0ebd7d36a2952673875cf25a"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "6a45b2759817a194da7bbd1b6988e6902b8790f213f32d811fbb3ffbdb07d8b3"
+      },
+      "count": 6,
+      "new": "01011008",
+      "old": "05011008"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "1d74c8be50207b1c37db202b7d01b7ed30aaa5c95924509d243b75f63cf0cac3"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "9ee8534c4cc7dcaf8e3b5c5a84a6ccb48e4f108b0ebd7d36a2952673875cf25a"
+      },
+      "count": 2,
+      "new": "08100101",
+      "old": "08100105"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "03b380f2a2fd4bd0b8e4e81c42566f0a6611560c6d190d94359cc03201542c40"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "1d74c8be50207b1c37db202b7d01b7ed30aaa5c95924509d243b75f63cf0cac3"
+      },
+      "count": 1,
+      "new": "self.assertEqual(len(self.ranges), 64)",
+      "old": "self.assertEqual(len(self.ranges), 27)"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "894711d5bc6bb04c8d18eaa819dce7a28aff4030e0f5c85abf6897f4679a40ce"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "03b380f2a2fd4bd0b8e4e81c42566f0a6611560c6d190d94359cc03201542c40"
+      },
+      "count": 1,
+      "new": "self.assertEqual(len(answer['disassembly']), 64)",
+      "old": "self.assertEqual(len(answer['disassembly']), 27)"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "39111dd2787e74777927dc70c8923fdb5f60fc7f0ab1acbceb4b154d9ed3106d"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "894711d5bc6bb04c8d18eaa819dce7a28aff4030e0f5c85abf6897f4679a40ce"
+      },
+      "count": 1,
+      "new": "self.assertEqual(len(writes[2][1]['disassembly']), 64)",
+      "old": "self.assertEqual(len(writes[2][1]['disassembly']), 27)"
+    },
+    {
+      "after": {
+        "bytes": 24737,
+        "sha256": "a7c9c480e5c762a526119fce35aa43608a49e828066c8c7c8ab4563bb9d25adf"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "39111dd2787e74777927dc70c8923fdb5f60fc7f0ab1acbceb4b154d9ed3106d"
+      },
+      "count": 1,
+      "new": "SUMOX_ENTRY_64\\n",
+      "old": "SUMOX_ENTRY_27\\n"
+    },
+    {
+      "after": {
+        "bytes": 25025,
+        "sha256": "7068c68d77fc1be3ecbd9b954bf4562c632b6cd9ea417faf1256fe90af64ae04"
+      },
+      "before": {
+        "bytes": 24737,
+        "sha256": "a7c9c480e5c762a526119fce35aa43608a49e828066c8c7c8ab4563bb9d25adf"
+      },
+      "count": 1,
+      "new": "('runtime_constructor', 'transaction_constructor', 'gate_constructor', 'input_owner_constructor', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor')",
+      "old": "('runner_constructor', 'trace_constructor')"
+    },
+    {
+      "after": {
+        "bytes": 25026,
+        "sha256": "61a3b0ad4baafa3765c28452ce21111370183fb31029b628e305b0869068e585"
+      },
+      "before": {
+        "bytes": 25025,
+        "sha256": "7068c68d77fc1be3ecbd9b954bf4562c632b6cd9ea417faf1256fe90af64ae04"
+      },
+      "count": 1,
+      "new": "self.assertEqual(len(aliases), 26)",
+      "old": "self.assertEqual(len(aliases), 4)"
+    },
+    {
+      "after": {
+        "bytes": 24998,
+        "sha256": "fa6386dbb1567c3fd6cc07d23d0c1f2314fdc72161fb2797c6aefcdc4871cc19"
+      },
+      "before": {
+        "bytes": 25026,
+        "sha256": "61a3b0ad4baafa3765c28452ce21111370183fb31029b628e305b0869068e585"
+      },
+      "count": 2,
+      "new": "/build/app.ino",
+      "old": "/build/app_motor_observe.ino"
+    },
+    {
+      "after": {
+        "bytes": 24990,
+        "sha256": "20090683a4dcc7e56f28fe93d9f4985ec9cb4542cf5a83e5ce3490e879edee8f"
+      },
+      "before": {
+        "bytes": 24998,
+        "sha256": "fa6386dbb1567c3fd6cc07d23d0c1f2314fdc72161fb2797c6aefcdc4871cc19"
+      },
+      "count": 1,
+      "new": "PREFIX=PREFIX",
+      "old": "PREFIX='/fixed/tool-'"
+    },
+    {
+      "after": {
+        "bytes": 24993,
+        "sha256": "ae6543b177820944097234249611b76f907bcd32af50f0ac4e0b90c81227893c"
+      },
+      "before": {
+        "bytes": 24990,
+        "sha256": "20090683a4dcc7e56f28fe93d9f4985ec9cb4542cf5a83e5ce3490e879edee8f"
+      },
+      "count": 1,
+      "new": "or guarded_gdb(path, expressions)",
+      "old": "or ['gdb', path, *expressions]"
+    },
+    {
+      "after": {
+        "bytes": 24987,
+        "sha256": "d85c18f97a7acf8a10d4a71ac3497af0d9903be135fa5828af635e8848204bb2"
+      },
+      "before": {
+        "bytes": 24993,
+        "sha256": "ae6543b177820944097234249611b76f907bcd32af50f0ac4e0b90c81227893c"
+      },
+      "count": 2,
+      "new": "PREFIX + 'readelf'",
+      "old": "'/fixed/tool-readelf'"
+    },
+    {
+      "after": {
+        "bytes": 24984,
+        "sha256": "afdafcef1156ecc52fb23692fd642824aaa22428bee9518909e391a2d31e2e34"
+      },
+      "before": {
+        "bytes": 24987,
+        "sha256": "d85c18f97a7acf8a10d4a71ac3497af0d9903be135fa5828af635e8848204bb2"
+      },
+      "count": 1,
+      "new": "PREFIX + 'gdb'",
+      "old": "'/fixed/tool-gdb'"
+    },
+    {
+      "after": {
+        "bytes": 24838,
+        "sha256": "ed6f0fc1ab18e83aad7a689539a296fee947b8a9339ebf9b529ee4ad575ef0cf"
+      },
+      "before": {
+        "bytes": 24984,
+        "sha256": "afdafcef1156ecc52fb23692fd642824aaa22428bee9518909e391a2d31e2e34"
+      },
+      "count": 1,
+      "new": "records = [self.support.record(argv, value) for argv, value in\n                   zip(expected_commands(self.ranges), ('fixture\\n', 'fixture\\n', elf, debug))]",
+      "old": "records = [self.support.record(['readelf', '--version'], 'fixture\\n'),\n                   self.support.record(['gdb', '--version'], 'fixture\\n'),\n                   self.support.record(['readelf', '-hSWs', '-x', '.init_array'], elf),\n                   self.support.record(['gdb', 'disassemble'], debug)]"
+    }
+  ],
+  "base_methods": [
+    "test_passive_import_and_exact_bootstrap_source",
+    "test_both_projectors_produce_exact_contract_bytes_without_io",
+    "test_projectors_reject_types_lengths_hashes_counts_and_newlines",
+    "test_invalid_cli_or_missing_B_refuses_before_input_loading",
+    "test_main_delegates_once_and_preserves_result_or_primary_exception",
+    "test_all_six_inputs_are_verified_before_private_execution",
+    "test_original_first_composition_and_no_historical_entry_load_or_main",
+    "test_private_direct_entry_functions_pins_and_fresh_owner",
+    "test_exact_four_file_queries_and_all_twenty_seven_ranges",
+    "test_full_synthetic_entry_summary_decimal_hex_and_opcode_widths_preserves_raw",
+    "test_symbol_address_size_type_binding_section_and_Thumb_failures",
+    "test_missing_duplicate_constructor_aliases_and_initialization_bound_tuples_refuse",
+    "test_initializer_section_span_dump_and_little_endian_pointer_are_required",
+    "test_markers_require_exact_unique_order_and_final_marker",
+    "test_disassembly_headers_end_markers_instruction_format_gaps_overlap_and_coverage",
+    "test_real_prepare_composes_only_entry_commands_without_claiming",
+    "test_execute_retains_raw_entry_summary_labels_and_local_closure",
+    "test_scope_stream_and_parser_failures_retain_raw_and_attempt_local_closure",
+    "test_consumed_owner_refusal_and_primary_failure_survives_closure_errors"
+  ],
+  "binding_projection": {
+    "parser": {
+      "changed_functions_metadata_only": [
+        "queries",
+        "symbols",
+        "initializer"
+      ],
+      "input": {
+        "bytes": 10317,
+        "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+      },
+      "projected": {
+        "bytes": 14259,
+        "sha256": "a71d5c172b65952ab010441bfd894f2552e08bf2a66c19adf0eed29c381a6e05"
+      },
+      "steps": [
+        {
+          "after": {
+            "bytes": 10302,
+            "sha256": "b99ae312f3e4e6c7bf8a6c45d49fd3ef532a6b348ebfd1c947529443645f03af"
+          },
+          "before": {
+            "bytes": 10317,
+            "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+          },
+          "count": 1,
+          "new": "/home/arduino/sumox26_codex_build/ordinary-app-static01/build/app.ino",
+          "old": "/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino"
+        },
+        {
+          "after": {
+            "bytes": 14041,
+            "sha256": "df5579b04dbbc63f6fc8170a7b8afcd1c740f993f456438cae274cfd932c8b2b"
+          },
+          "before": {
+            "bytes": 10302,
+            "sha256": "b99ae312f3e4e6c7bf8a6c45d49fd3ef532a6b348ebfd1c947529443645f03af"
+          },
+          "count": 1,
+          "new": "RANGES = (\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\n    ('setup', 0x081000c8, 0x081000f0, ('setup',)),\n    ('loop', 0x081000f0, 0x08100100, ('loop',)),\n    ('global_initializer', 0x08100100, 0x08100294, ('_GLOBAL__sub_I_setup',)),\n    ('app_dump_port', 0x081002a4, 0x081002cc, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\n    ('sources_port', 0x081003dc, 0x08100458, ('_ZN3app13NativeSources4portEv',)),\n    ('sources_adc_port', 0x08100458, 0x0810046c, ('_ZN3app13NativeSources7adcPortEv',)),\n    ('dump_port', 0x0810c248, 0x0810c25c, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\n    ('motor_port', 0x08110934, 0x081109b8, ('_ZN6motors8UnoQPort4portEv',)),\n    ('power_reader_port', 0x08112cd0, 0x08112cf4, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\n    ('loop_hook', 0x081106e4, 0x081106e6, ('_Z10__loopHookv',)),\n    ('memcpy', 0x08115644, 0x0811564c, ('memcpy',)),\n    ('memset', 0x0811564c, 0x08115654, ('memset',)),\n    ('init_variant', 0x0811571c, 0x0811571e, ('initVariant',)),\n    ('main', 0x08115720, 0x0811574c, ('main',)),\n    ('start_static_threads', 0x0811574c, 0x081157b8, ('_Z20start_static_threadsv',)),\n    ('runtime_constructor', 0x08100510, 0x08100a26, ('_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE', '_ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE')),\n    ('transaction_constructor', 0x081030f8, 0x081032a8, ('_ZN3app11TransactionC1ERKN6motors4PortE', '_ZN3app11TransactionC2ERKN6motors4PortE')),\n    ('gate_constructor', 0x08111084, 0x081110c0, ('_ZN6motors9MotorGateC1ERKNS_4PortE', '_ZN6motors9MotorGateC2ERKNS_4PortE')),\n    ('input_owner_constructor', 0x081126ec, 0x0811273e, ('_ZN5power10InputOwnerC1ERKNS_9InputPortE', '_ZN5power10InputOwnerC2ERKNS_9InputPortE')),\n    ('robot_constructor', 0x08102b58, 0x081030f8, ('_ZN3fsm5RobotC1Ev', '_ZN3fsm5RobotC2Ev')),\n    ('fusion_observation_constructor', 0x08102a20, 0x08102a44, ('_ZN10opp_fusion17FusionObservationC1Ev', '_ZN10opp_fusion17FusionObservationC2Ev')),\n    ('flank_constructor', 0x08102a44, 0x08102a94, ('_ZN7openers5FlankC1Ev', '_ZN7openers5FlankC2Ev')),\n    ('turn_constructor', 0x081029d8, 0x08102a06, ('_ZN6motion4TurnC1Ev', '_ZN6motion4TurnC2Ev')),\n    ('straight_constructor', 0x08102a06, 0x08102a20, ('_ZN6motion8StraightC1Ev', '_ZN6motion8StraightC2Ev')),\n    ('line_thresholds_constructor', 0x0810046c, 0x08100484, ('_ZN8line_qtr10ThresholdsC1Ev', '_ZN8line_qtr10ThresholdsC2Ev')),\n    ('qtr_report_constructor', 0x08100484, 0x081004bc, ('_ZN7qtr_cal6ReportC1Ev', '_ZN7qtr_cal6ReportC2Ev')),\n    ('line_snapshot_constructor', 0x081004bc, 0x0810050c, ('_ZN8line_qtr8SnapshotC1Ev', '_ZN8line_qtr8SnapshotC2Ev')),\n    ('robot_result_constructor', 0x08102a94, 0x08102b54, ('_ZN3fsm11RobotResultC1Ev', '_ZN3fsm11RobotResultC2Ev')),\n    ('runtime_begin', 0x08100f9c, 0x08101050, ('_ZN3app7Runtime5beginERKNS_11SetupGrantsE',)),\n    ('runtime_valid_ports', 0x08100a28, 0x08100aa8, ('_ZNK3app7Runtime10validPortsEv',)),\n    ('runtime_initialize_sources', 0x08100da4, 0x08100ef4, ('_ZN3app7Runtime17initializeSourcesEv',)),\n    ('runtime_initialize_dump', 0x08101acc, 0x08101b08, ('_ZN3app7Runtime14initializeDumpEv',)),\n    ('transaction_initialize', 0x081032a8, 0x081032e4, ('_ZN3app11Transaction10initializeEv',)),\n    ('gate_begin', 0x081111b8, 0x08111240, ('_ZN6motors9MotorGate5beginEv',)),\n    ('runtime_step', 0x0810144c, 0x08101588, ('_ZN3app7Runtime4stepEv',)),\n    ('transaction_open', 0x0810338c, 0x08103418, ('_ZN3app11Transaction4openEv',)),\n    ('transaction_decide_from', 0x0810358c, 0x08103600, ('_ZN3app11Transaction10decideFromERKNS_14DecisionSourceE',)),\n    ('transaction_apply_decision', 0x0810346c, 0x0810358c, ('_ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj',)),\n    ('gate_apply', 0x08111448, 0x08111540, ('_ZN6motors9MotorGate5applyEjRKN3fsm11RobotResultE',)),\n    ('gate_transact', 0x081113e0, 0x08111448, ('_ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE',)),\n    ('runtime_complete_epoch', 0x0810136c, 0x0810144c, ('_ZN3app7Runtime13completeEpochEv',)),\n    ('transaction_complete', 0x08103600, 0x081036c8, ('_ZN3app11Transaction8completeEbj',)),\n    ('transaction_finish_after', 0x081036c8, 0x081036d4, ('_ZN3app11Transaction11finishAfterEj',)),\n    ('runtime_fail', 0x08100cf0, 0x08100d74, ('_ZN3app7Runtime4failENS_12RuntimeFaultE',)),\n    ('runtime_cancel_sources', 0x08100c70, 0x08100cf0, ('_ZN3app7Runtime13cancelSourcesEv',)),\n    ('transaction_fail', 0x08103318, 0x0810338c, ('_ZN3app11Transaction4failENS_5FaultE',)),\n    ('transaction_abort', 0x081036d4, 0x081036e0, ('_ZN3app11Transaction5abortEv',)),\n    ('gate_halt', 0x08111540, 0x081115e0, ('_ZN6motors9MotorGate4haltEv',)),\n    ('gate_inhibit', 0x0811111a, 0x081111b8, ('_ZN6motors9MotorGate7inhibitEv',)),\n    ('gate_zero_pwm', 0x081110f8, 0x0811111a, ('_ZN6motors9MotorGate7zeroPwmEv',)),\n    ('configure_enable_low', 0x08110a64, 0x08110b98, ('_ZN6motors8UnoQPort18configureEnableLowEPv',)),\n    ('configure_pwm', 0x08110db0, 0x08110e9c, ('_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE',)),\n    ('write_enable', 0x08110b98, 0x08110bfc, ('_ZN6motors8UnoQPort11writeEnableEPvb',)),\n    ('write_pwm', 0x08110e9c, 0x08110f80, ('_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj',)),\n    ('motor_settle', 0x08110fc4, 0x08111084, ('_ZN6motors8UnoQPort6settleEPv',)),\n    ('motor_clock', 0x08110794, 0x0811079c, ('_ZN6motors8UnoQPort7clockUsEPv',)),\n    ('candidate_period', 0x08110758, 0x0811076c, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\n    ('map_channel', 0x0811082c, 0x08110934, ('_ZN6motors12_GLOBAL__N_110mapChannelEjRj',)),\n    ('enable_owned', 0x081109b8, 0x08110a64, ('_ZNK6motors8UnoQPort11enableOwnedEv',)),\n    ('enable_low', 0x08110bfc, 0x08110c30, ('_ZNK6motors8UnoQPort9enableLowEv',)),\n    ('timer_valid', 0x08110c30, 0x08110db0, ('_ZNK6motors8UnoQPort10timerValidEj',)),\n    ('bank_valid', 0x08110f80, 0x08110fc4, ('_ZNK6motors8UnoQPort9bankValidEv',)),\n    ('gate_valid_port', 0x081110c0, 0x081110f8, ('_ZNK6motors9MotorGate9validPortEv',)),\n)",
+          "old": "RANGES = (\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\n    ('setup', 0x081000c8, 0x081000e8, ('setup',)),\n    ('loop', 0x081000e8, 0x08100104, ('loop',)),\n    ('global_initializer', 0x08100104, 0x08100298, ('_GLOBAL__sub_I_setup',)),\n    ('app_dump_port', 0x081002a8, 0x081002d0, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\n    ('sources_port', 0x081003e0, 0x0810045c, ('_ZN3app13NativeSources4portEv',)),\n    ('sources_adc_port', 0x0810045c, 0x08100470, ('_ZN3app13NativeSources7adcPortEv',)),\n    ('runner_constructor', 0x08103984, 0x08103b58, tuple('_ZN15app_motor_fault6RunnerC' + str(n) +\n        'ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE' for n in (1, 2))),\n    ('runner_application_valid', 0x08103b58, 0x08103bb0, ('_ZNK15app_motor_fault6Runner16applicationValidEv',)),\n    ('runner_stop_reason', 0x08103bb0, 0x08103c08, ('_ZNK15app_motor_fault6Runner10stopReasonEv',)),\n    ('runner_freeze', 0x08103c08, 0x08103c94, ('_ZN15app_motor_fault6Runner6freezeENS_6ReasonE',)),\n    ('runner_begin', 0x08103c94, 0x08103d24, ('_ZN15app_motor_fault6Runner5beginERKN11motor_fault6GrantsE',)),\n    ('runner_poll', 0x08103d24, 0x08103d78, ('_ZN15app_motor_fault6Runner4pollEv',)),\n    ('dump_port', 0x0810c760, 0x0810c774, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\n    ('loop_hook', 0x08110bfc, 0x08110bfe, ('_Z10__loopHookv',)),\n    ('candidate_rate', 0x08110c70, 0x08110cd8, ('_ZN6motors12_GLOBAL__N_113candidateRateEj',)),\n    ('candidate_period', 0x08110cd8, 0x08110d10, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\n    ('motor_port', 0x08110ed8, 0x08110f64, ('_ZN6motors8UnoQPort4portEv',)),\n    ('power_reader_port', 0x0811326c, 0x08113290, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\n    ('trace_constructor', 0x08115bec, 0x08115c7c,\n        tuple('_ZN11motor_fault5TraceC' + str(n) + 'ERKN6motors4PortE' for n in (1, 2))),\n    ('trace_port', 0x08115c7c, 0x08115cfc, ('_ZN11motor_fault5Trace4portEv',)),\n    ('memcpy', 0x08115f6c, 0x08115f74, ('memcpy',)),\n    ('memset', 0x08115f74, 0x08115f7c, ('memset',)),\n    ('unsigned_divide', 0x0811602c, 0x08116036, ('__aeabi_uldivmod',)),\n    ('init_variant', 0x08116044, 0x08116046, ('initVariant',)),\n    ('main', 0x08116048, 0x08116074, ('main',)),\n    ('start_static_threads', 0x08116074, 0x081160e0, ('_Z20start_static_threadsv',)),\n)"
+        },
+        {
+          "after": {
+            "bytes": 14028,
+            "sha256": "bbee6111994697fdddd3135a7ab170b46bd629b6c8da186273ad586553f0a984"
+          },
+          "before": {
+            "bytes": 14041,
+            "sha256": "df5579b04dbbc63f6fc8170a7b8afcd1c740f993f456438cae274cfd932c8b2b"
+          },
+          "count": 1,
+          "new": "BOUNDS = {\n    '__init_array_start': 0x081158f0,\n    '__init_array_end': 0x081158f4,\n    '__preinit_array_start': 0x081158f0,\n    '__preinit_array_end': 0x081158f0,\n    '__static_thread_data_list_start': 0x081158f0,\n    '__static_thread_data_list_end': 0x081158f0,\n}",
+          "old": "BOUNDS = {name: (0x0811621c if name == '__init_array_end' else 0x08116218)\n          for name in ('__init_array_start', '__init_array_end', '__preinit_array_start',\n                       '__preinit_array_end', '__static_thread_data_list_start', '__static_thread_data_list_end')}"
+        },
+        {
+          "after": {
+            "bytes": 14025,
+            "sha256": "5f2a6ae4b79e3ce18e234e628a3a8d9836ab3c3d65caee1a65d8e43eec7193d4"
+          },
+          "before": {
+            "bytes": 14028,
+            "sha256": "bbee6111994697fdddd3135a7ab170b46bd629b6c8da186273ad586553f0a984"
+          },
+          "count": 1,
+          "new": "label in ('global_initializer', 'candidate_period', 'map_channel')",
+          "old": "label in ('global_initializer', 'candidate_rate', 'candidate_period')"
+        },
+        {
+          "after": {
+            "bytes": 14259,
+            "sha256": "e7776dec19b4e4f84bce7bfff60dbde84abfa2caaf054394c8c4172a2e3e5379"
+          },
+          "before": {
+            "bytes": 14025,
+            "sha256": "5f2a6ae4b79e3ce18e234e628a3a8d9836ab3c3d65caee1a65d8e43eec7193d4"
+          },
+          "count": 1,
+          "new": "label in ('init_variant', 'main', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor')",
+          "old": "label in ('init_variant', 'main')"
+        },
+        {
+          "after": {
+            "bytes": 14259,
+            "sha256": "67e62307080040c7eedc71e7244636a3540a1ebde3a3b256b23c13a20169f7f6"
+          },
+          "before": {
+            "bytes": 14259,
+            "sha256": "e7776dec19b4e4f84bce7bfff60dbde84abfa2caaf054394c8c4172a2e3e5379"
+          },
+          "count": 1,
+          "new": "sections[0]['address'] == 0x081158f0",
+          "old": "sections[0]['address'] == 0x08116218"
+        },
+        {
+          "after": {
+            "bytes": 14259,
+            "sha256": "56909c7391f368d07805d8738c27c8717603ef3880fb305ba6a6a839c3e7d6e2"
+          },
+          "before": {
+            "bytes": 14259,
+            "sha256": "67e62307080040c7eedc71e7244636a3540a1ebde3a3b256b23c13a20169f7f6"
+          },
+          "count": 1,
+          "new": "int(lines[0][0], 16) == 0x081158f0",
+          "old": "int(lines[0][0], 16) == 0x08116218"
+        },
+        {
+          "after": {
+            "bytes": 14259,
+            "sha256": "620618ee97c096222d7b5c1d4b1d6ed6fa2b52c97ae426306943198ac5527c4e"
+          },
+          "before": {
+            "bytes": 14259,
+            "sha256": "56909c7391f368d07805d8738c27c8717603ef3880fb305ba6a6a839c3e7d6e2"
+          },
+          "count": 1,
+          "new": "return dict(address=0x081158f0, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)",
+          "old": "return dict(address=0x08116218, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)"
+        },
+        {
+          "after": {
+            "bytes": 14259,
+            "sha256": "a71d5c172b65952ab010441bfd894f2552e08bf2a66c19adf0eed29c381a6e05"
+          },
+          "before": {
+            "bytes": 14259,
+            "sha256": "620618ee97c096222d7b5c1d4b1d6ed6fa2b52c97ae426306943198ac5527c4e"
+          },
+          "count": 1,
+          "new": "pointer == 0x08100101",
+          "old": "pointer == 0x08100105"
+        }
+      ],
+      "unchanged_functions": {
+        "disassembly": {
+          "bytes": 1895,
+          "sha256": "f6c1016d0dd4d89cb46ee325cb1acc544d1bf02ed96d71b8921e352e0cf78108"
+        },
+        "load": {
+          "bytes": 981,
+          "sha256": "250f338072a006baf00c1de2199854eb5b4878b7b4fc9a125cb8a2af7ee5aeaf"
+        },
+        "main": {
+          "bytes": 37,
+          "sha256": "f4692ff7fb32ba0701b9aa945df86be60893960a6ad4db60c75f84bf744064bb"
+        },
+        "require": {
+          "bytes": 88,
+          "sha256": "570ace48effbcffbb325b4bdc4424b575500114187d28c59c86b8870081e9f76"
+        },
+        "sha": {
+          "bytes": 56,
+          "sha256": "166ad903d6d1b4f98706f40c535e6a84f4a6268f81640d32bb1d0f02c6857de1"
+        },
+        "summarize": {
+          "bytes": 451,
+          "sha256": "af6115335bbcfa5751cb40ce7e30391eacabdada1297479be79fa641ef64a644"
+        },
+        "symbol_rows": {
+          "bytes": 412,
+          "sha256": "89c1e08f619239c72f86829e704775264b2e32908dc10087138790c78430e9c4"
+        }
+      }
+    },
+    "reader": {
+      "input": {
+        "bytes": 12965,
+        "sha256": "7fb42d51a3f42f99c7e7890b4f4c1dc90360c2d84c09d3bbde7ccea4d1138aea"
+      },
+      "projected": {
+        "bytes": 12987,
+        "sha256": "331f10914c77f1ece7255262db0d2f0c6472d31f86e680e6ec23c39c4b682b45"
+      },
+      "steps": [
+        {
+          "after": {
+            "bytes": 12967,
+            "sha256": "743282d9aeed78a5393e835f31d42b2bd67e329648b064df4b1aa53a2f2abbde"
+          },
+          "before": {
+            "bytes": 12965,
+            "sha256": "7fb42d51a3f42f99c7e7890b4f4c1dc90360c2d84c09d3bbde7ccea4d1138aea"
+          },
+          "count": 1,
+          "new": "'/inspect_static_entry.py'",
+          "old": "'/inspect_static_abi.py'"
+        },
+        {
+          "after": {
+            "bytes": 12969,
+            "sha256": "393ca3ac18aff11d7723b6b5d6a651d496818fcc4e3edab544ac43da1ce5ee25"
+          },
+          "before": {
+            "bytes": 12967,
+            "sha256": "743282d9aeed78a5393e835f31d42b2bd67e329648b064df4b1aa53a2f2abbde"
+          },
+          "count": 1,
+          "new": "'native_entry_static01'",
+          "old": "'native_abi_static01'"
+        },
+        {
+          "after": {
+            "bytes": 12971,
+            "sha256": "464738f7e42cfb0e9e49a2865788f72cbfce54e7af968f9b5ebfd236d90a4727"
+          },
+          "before": {
+            "bytes": 12969,
+            "sha256": "393ca3ac18aff11d7723b6b5d6a651d496818fcc4e3edab544ac43da1ce5ee25"
+          },
+          "count": 1,
+          "new": "ordinary-app-entry-static01",
+          "old": "ordinary-app-abi-static01"
+        },
+        {
+          "after": {
+            "bytes": 12975,
+            "sha256": "dc41c6760a69d7921ba0f3e6ecd875bb30b4d0068758ec0de0c7d3870c5db7d4"
+          },
+          "before": {
+            "bytes": 12971,
+            "sha256": "464738f7e42cfb0e9e49a2865788f72cbfce54e7af968f9b5ebfd236d90a4727"
+          },
+          "count": 2,
+          "new": "D210_STATIC_FILE_ONLY_ENTRY",
+          "old": "D209_STATIC_FILE_ONLY_ABI"
+        },
+        {
+          "after": {
+            "bytes": 12977,
+            "sha256": "c69ac237e3f9b7dff2f947e3f1b1d7b8f755bea50ec3387e4fd68131bb7dcc91"
+          },
+          "before": {
+            "bytes": 12975,
+            "sha256": "dc41c6760a69d7921ba0f3e6ecd875bb30b4d0068758ec0de0c7d3870c5db7d4"
+          },
+          "count": 1,
+          "new": "STATIC_ENTRY_CHECKED",
+          "old": "STATIC_ABI_CHECKED"
+        },
+        {
+          "after": {
+            "bytes": 12979,
+            "sha256": "1b0ca7ae8acf5415d92f66873f60743581cabd1ecf6b40403fa664ca2f0171f6"
+          },
+          "before": {
+            "bytes": 12977,
+            "sha256": "c69ac237e3f9b7dff2f947e3f1b1d7b8f755bea50ec3387e4fd68131bb7dcc91"
+          },
+          "count": 1,
+          "new": "STATIC_ENTRY_OBSERVED",
+          "old": "STATIC_ABI_OBSERVED"
+        },
+        {
+          "after": {
+            "bytes": 12981,
+            "sha256": "8779f7bd805059789bac51c3be2a3758b62b2c435a1f9b3787c1d5639607b10b"
+          },
+          "before": {
+            "bytes": 12979,
+            "sha256": "1b0ca7ae8acf5415d92f66873f60743581cabd1ecf6b40403fa664ca2f0171f6"
+          },
+          "count": 1,
+          "new": "'file-entry'",
+          "old": "'file-abi'"
+        },
+        {
+          "after": {
+            "bytes": 12983,
+            "sha256": "fc26eb9db134025676cece024eec87524076b90da83ddde7dae3e32cc4858fb1"
+          },
+          "before": {
+            "bytes": 12981,
+            "sha256": "8779f7bd805059789bac51c3be2a3758b62b2c435a1f9b3787c1d5639607b10b"
+          },
+          "count": 1,
+          "new": "'entry.json'",
+          "old": "'abi.json'"
+        },
+        {
+          "after": {
+            "bytes": 12987,
+            "sha256": "331f10914c77f1ece7255262db0d2f0c6472d31f86e680e6ec23c39c4b682b45"
+          },
+          "before": {
+            "bytes": 12983,
+            "sha256": "fc26eb9db134025676cece024eec87524076b90da83ddde7dae3e32cc4858fb1"
+          },
+          "count": 2,
+          "new": "StaticEntry",
+          "old": "StaticAbi"
+        }
+      ]
+    }
+  },
+  "commands": [
+    "python -I -B tests/tooling/test_ordinary_app_entry.py"
+  ],
+  "current_methods": [
+    "test_exact_wrapper_reader_parser_recipes_and_unchanged_function_bodies",
+    "test_every_projection_occurrence_count_refuses_drift",
+    "test_current_inputs_refuse_exact_stale_d199_bytes_before_private_execution",
+    "test_current_source_manifest_artifacts_refuse_stale_d199_evidence",
+    "test_consumed_d199_owner_and_scope_cannot_be_reused",
+    "test_all_thirteen_remote_closures_are_required_with_raw_preservation"
+  ],
+  "direct_method": "test_direct_entry_summary_does_not_call_abi_summary_or_require_abi_tags",
+  "elf_identity": {
+    "bytes": 153800,
+    "sha256": "24dc0cdd68e9f395f979246a90d5a994a6b5244864a286559dbbb0731ea36181"
+  },
+  "excluded": {
+    "test_added_functions_require_exact_unique_binding_thumb_size_type_and_section": "SETTLE/probe-specific binding and added diagnostic range fixture; ordinary all-group binding/alias/marker cases preserve relevant generic rejection obligations.",
+    "test_binding_matches_accepted_symbols_and_separate_report_without_invented_contents": "SETTLE/probe-specific binding and added diagnostic range fixture; ordinary all-group binding/alias/marker cases preserve relevant generic rejection obligations.",
+    "test_complete_symbol_census_helper_absence_and_all_current_ranges": "D205 diagnostic32-group/helper-absence expectations are replaced with independently authored current64-group/77-alias ordinary binding and complete-census checks.",
+    "test_each_added_range_requires_its_markers_and_complete_disassembly": "SETTLE/probe-specific binding and added diagnostic range fixture; ordinary all-group binding/alias/marker cases preserve relevant generic rejection obligations."
+  },
+  "fixture_selection": {
+    "base19": true,
+    "current6": true,
+    "direct1": true,
+    "explicit_named_instantiation": true,
+    "new1": true,
+    "top_level_TestCase_classes": 0
+  },
+  "fixtures": {
+    "base": {
+      "original": {
+        "bytes": 29705,
+        "sha256": "b7db0b43ae5e487cd6475e0b6dd6272d33a8316bcfba64a07f6c2a3e2c0415d8"
+      },
+      "path": "tests/tooling/test_app_motor_observe_entry.py",
+      "projected": {
+        "bytes": 30035,
+        "sha256": "521db5c14e212f77000a2fe0797b7805ed8af3a60e19db99b204e7f6397a468b"
+      },
+      "steps": [
+        {
+          "after": {
+            "bytes": 30035,
+            "sha256": "521db5c14e212f77000a2fe0797b7805ed8af3a60e19db99b204e7f6397a468b"
+          },
+          "before": {
+            "bytes": 29705,
+            "sha256": "b7db0b43ae5e487cd6475e0b6dd6272d33a8316bcfba64a07f6c2a3e2c0415d8"
+          },
+          "count": 1,
+          "new": "class EntryContract(unittest.TestCase):\n    @classmethod\n    def setUpClass(cls):\n        if not sys.dont_write_bytecode: raise RuntimeError('Entry oracle requires Python -B')\n        cls.raw = (ROOT / WRAPPER).read_bytes()\n        cls.inputs = {name: (ROOT / name).read_bytes() for name in PINS}\n        for name, raw in cls.inputs.items():\n            if (len(raw), digest(raw)) != PINS[name]: raise AssertionError('Fixed input changed: ' + name)\n        cls.contract = (ROOT / CONTRACT).read_bytes()\n        if digest(cls.contract) != CONTRACT_SHA: raise AssertionError('Entry contract changed')\n        raw = (ROOT / ORACLE02).read_bytes()\n        if digest(raw) != ORACLE02_SHA: raise AssertionError('Historical ABI02 oracle changed')\n        cls.abi02_helpers = module(raw, ROOT / ORACLE02, '_entry_checked_abi02_helpers')\n        old_oracle = (ROOT / cls.abi02_helpers.ORACLE).read_bytes()\n        if digest(old_oracle) != cls.abi02_helpers.ORACLE_SHA: raise AssertionError('Historical ABI oracle changed')\n        cls.support = module(old_oracle, ROOT / cls.abi02_helpers.ORACLE, '_entry_checked_abi_helpers')\n        original_reader = (ROOT / cls.support.ORIGINAL).read_bytes()\n        if digest(original_reader) != cls.support.PINS[cls.support.ORIGINAL][1]: raise AssertionError('Old reader changed')\n        cls.projected02 = cls.abi02_helpers.expected_projection(cls.support.expected_projection(original_reader))\n        old = module(cls.inputs[PARSER], ROOT / PARSER, '_entry_historical_public_parser')\n        addresses = {int(before, 16): int(after, 16) for before, after, _ in ADDRESS_ROWS}\n        cls.ranges = tuple((label, addresses.get(start, start), addresses.get(end, end),\n            tuple(name.replace('15app_motor_fault', '17app_motor_observe') for name in aliases))\n            for label, start, end, aliases in old.RANGES)\n        cls.bounds = {name: addresses[address] for name, address in old.BOUNDS.items()}\n\n    def setUp(self):\n        self.subject = module(self.raw, ROOT / WRAPPER, '_entry_independent_subject')\n        for owner, names in ((subprocess, ('run', 'Popen', 'call', 'check_call', 'check_output')),\n                             (socket, ('socket', 'create_connection'))):\n            for name in names:\n                patch = mock.patch.object(owner, name, side_effect=AssertionError('External effect: ' + name))\n                patch.start(); self.addCleanup(patch.stop)\n\n    def reject(self, call):\n        with self.assertRaises(REJECT): call()\n\n    def scratch(self):\n        temp = tempfile.TemporaryDirectory(prefix='sumox-entry-', dir='/dev/shm' if sys.platform == 'linux' else None)\n        self.addCleanup(temp.cleanup)\n        return Path(temp.name).resolve()\n\n    def loaded(self):\n        return self.subject.load_reader(root=ROOT)\n\n    def packet(self, hexadecimal=False, wide='f000 f800'):\n        rows, blocks = {}, []\n        for label, start, end, aliases in self.ranges:\n            binding = 'LOCAL' if label in ('global_initializer', 'candidate_period', 'map_channel') else (\n                'WEAK' if label in ('init_variant', 'main', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor') else 'GLOBAL')\n            size = hex(end - start) if hexadecimal else str(end - start)\n            for name in aliases: rows[name] = f' 1: {start | 1:08x} {size} FUNC {binding} DEFAULT 1 {name}\\n'\n            lines = [f'Dump of assembler code from 0x{start:08x} to 0x{end:08x}:\\n']\n            cursor = start\n            if end - start >= 4:\n                lines.append(f'0x{cursor:08x} <fixture+0>: {wide} fixture-wide\\n'); cursor += 4\n            while cursor < end:\n                lines.append(f'0x{cursor:08x} <fixture>: bf00 nop\\n'); cursor += 2\n            lines.append('End of assembler dump.\\n'); blocks.append(''.join(lines))\n        for name, address in self.bounds.items():\n            binding = 'GLOBAL' if name.startswith('__static_thread') else 'LOCAL'\n            rows[name] = f' 2: {address:08x} 0 NOTYPE {binding} DEFAULT 2 {name}\\n'\n        elf = (' Type: EXEC (Executable file)\\n' + ''.join(rows.values()) +\n               \"Hex dump of section '.init_array':\\n 0x081158f0 01011008 ....\\n\")\n        debug = ''.join(f'SUMOX_ENTRY_{index:02d}\\n' + block for index, block in enumerate(blocks)) + 'SUMOX_ENTRY_END\\n'\n        records = [self.support.record(argv, value) for argv, value in\n                   zip(expected_commands(self.ranges), ('fixture\\n', 'fixture\\n', elf, debug))]\n        result = dict(scope='D210_STATIC_FILE_ONLY_ENTRY', status='OBSERVED', first_error=None,\n                      commands=records, final_checks=[dict(path='board_identity', status='PASS')])\n        layout = {'sections': [dict(name='.text', address=0x08100010, size=0x158e0),\n                               dict(name='.init_array', address=0x081158f0, size=4)]}\n        return result, layout, blocks, rows\n\n    def executing_owner(self):\n        reader = self.loaded(); owner = reader.StaticEntry.__new__(reader.StaticEntry)\n        owner.output = self.scratch() / 'exclusive-entry'\n        result, layout, _, _ = self.packet()\n        owner.packet = {'layout': {'validator_report': layout}}\n        owner.commands = [row['argv'] for row in result['commands']]\n        owner.remote_pins = {}; owner.inputs = {'files': {}}; owner.local_pins = {}\n        owner.program = 'controlled program'; owner.bootstrap = 'controlled bootstrap'\n        owner.claimed = False; owner.counter = 0\n        owner.base = reader.loaded(reader.LEGACY, reader.HARD_PINS[reader.LEGACY])\n        owner.prepare = mock.Mock(return_value={'status': 'STATIC_ENTRY_CHECKED'})\n        owner.local = mock.Mock(return_value=None)\n        owner.direct = mock.Mock(return_value=(types.SimpleNamespace(stdout=json.dumps(result), stderr=''), None))\n        writes = []\n        owner.executor = {'write': lambda path, value: writes.append((path.name, copy.deepcopy(value)))}\n        return reader, owner, result, writes\n\n    def test_passive_import_and_exact_bootstrap_source(self):\n        with ExitStack() as stack:\n            for owner, names in ((Path, ('open', 'read_bytes', 'read_text', 'write_bytes', 'write_text', 'mkdir')),\n                                 (builtins, ('open',)), (io, ('open',)), (os, ('open',))):\n                for name in names: stack.enter_context(mock.patch.object(owner, name, side_effect=AssertionError('Import I/O')))\n            value = module(self.raw, ROOT / WRAPPER, '_entry_passive_import')\n        for name in ('project_reader', 'project_parser', 'load_reader', 'main'): self.assertTrue(callable(getattr(value, name)))\n        old, new = function_sources(self.inputs[ABI02]), function_sources(self.raw)\n        for name in ('require', '_stamp', '_plain_chain', '_read_handle', 'pinned'):\n            self.assertEqual(new[name], old[name], name)\n\n    def test_both_projectors_produce_exact_contract_bytes_without_io(self):\n        pairs = (('project_reader', self.projected02, reader_projection(self.projected02)),\n                 ('project_parser', self.inputs[PARSER], parser_projection(self.inputs[PARSER])))\n        self.subject.__dict__['__builtins__']['exec'] = mock.Mock(side_effect=AssertionError('Projector executed'))\n        with mock.patch.object(Path, 'read_bytes', side_effect=AssertionError('Projector read')), \\\n                mock.patch.object(os, 'open', side_effect=AssertionError('Projector opened')):\n            for name, raw, expected in pairs:\n                actual = getattr(self.subject, name)(raw)\n                self.assertIs(type(actual), bytes); self.assertEqual(actual, expected)\n\n    def test_projectors_reject_types_lengths_hashes_counts_and_newlines(self):\n        for name, raw in (('project_reader', self.projected02), ('project_parser', self.inputs[PARSER])):\n            bad = (None, True, raw.decode(), bytearray(raw), memoryview(raw), b'', raw[:-1], raw + b'\\n',\n                   b'x' + raw[1:], raw.replace(b'\\n', b'\\r\\n'), raw + b'\\n# 0x08116218',\n                   raw.replace(b'StaticAbi', b'Changed', 1))\n            for value in bad:\n                if type(value) is bytes and value == raw: continue\n                with self.subTest(projector=name, kind=type(value).__name__):\n                    self.reject(lambda: getattr(self.subject, name)(value))\n\n    def test_invalid_cli_or_missing_B_refuses_before_input_loading(self):\n        bad = (None, True, '', [], ('--execute', '--reviewed-head', HEAD), ['--help'],\n               ['--execute', '--reviewed-head', HEAD.upper()], ['--execute', '--reviewed-head', 1],\n               ['--execute', '--reviewed-head', HEAD + '0'], ['--reviewed-head', HEAD, '--execute'],\n               ['--execute', '--reviewed-head', HEAD, '--owner', 'old'])\n        with mock.patch.object(self.subject, 'load_reader', side_effect=AssertionError('Invalid CLI loaded')):\n            for value in bad: self.reject(lambda: self.subject.main(value))\n            with mock.patch.object(sys, 'dont_write_bytecode', False):\n                self.reject(lambda: self.subject.main(['--check-only', '--reviewed-head', HEAD]))\n\n    def test_main_delegates_once_and_preserves_result_or_primary_exception(self):\n        for action in ('--check-only', '--execute'):\n            args = [action, '--reviewed-head', HEAD]; private = types.SimpleNamespace(main=mock.Mock(return_value=17))\n            with mock.patch.object(self.subject, 'load_reader', return_value=private) as loader:\n                self.assertEqual(self.subject.main(args), 17)\n                loader.assert_called_once_with(root=self.subject.ROOT); private.main.assert_called_once_with(args)\n        error = RuntimeError('delegated original failure'); private.main.side_effect = error\n        with mock.patch.object(self.subject, 'load_reader', return_value=private):\n            with self.assertRaises(RuntimeError) as caught: self.subject.main(args)\n            self.assertIs(caught.exception, error)\n\n    def test_all_six_inputs_are_verified_before_private_execution(self):\n        inputs = {**self.inputs, CONTRACT: self.contract}\n        for failed in inputs:\n            root = self.scratch()\n            for name, raw in inputs.items():\n                path = root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)\n            (root / failed).write_bytes(inputs[failed] + b'\\n')\n            self.subject.__dict__['__builtins__']['exec'] = mock.Mock(side_effect=AssertionError('Unpinned private execution'))\n            self.reject(lambda: self.subject.load_reader(root=root))\n            self.subject.__dict__['__builtins__']['exec'].assert_not_called()\n\n    def test_original_first_composition_and_no_historical_entry_load_or_main(self):\n        events = []; execute = builtins.exec; supplementary = self.subject.project_reader\n        def observed_exec(code, namespace, *args):\n            value = execute(code, namespace, *args)\n            if namespace.get('__file__') == str(ROOT / ABI02):\n                original = namespace['project_reader']\n                def previous(raw): events.append('abi02'); return original(raw)\n                namespace['project_reader'] = previous\n            if namespace.get('__file__') == str(ROOT / PARSER):\n                namespace['load'] = mock.Mock(side_effect=AssertionError('Historical entry load called'))\n                namespace['main'] = mock.Mock(side_effect=AssertionError('Historical entry main called'))\n            return value\n        def current(raw):\n            events.append('entry'); self.assertEqual(raw, self.projected02); return supplementary(raw)\n        self.subject.__dict__['__builtins__']['exec'] = observed_exec\n        with mock.patch.object(self.subject, 'project_reader', current): reader = self.loaded()\n        self.assertEqual(events, ['abi02', 'entry'])\n        result, layout, _, _ = self.packet()\n        self.assertEqual(reader.summarize(result, layout)['status'], 'STATIC_ENTRY_OBSERVED')\n\n    def test_private_direct_entry_functions_pins_and_fresh_owner(self):\n        abi = module(self.inputs[ABI02], ROOT / ABI02, '_entry_prior_abi_fixture').load_reader(root=ROOT)\n        prior = dict(abi.HARD_PINS); registered = dict(sys.modules)\n        reader, other = self.loaded(), self.loaded()\n        self.assertIsNot(reader, other); self.assertNotIn(reader, sys.modules.values())\n        for name, value in registered.items(): self.assertIs(sys.modules[name], value)\n        for name, value in prior.items(): self.assertEqual(reader.HARD_PINS[name], value)\n        for name, (_, value) in PINS.items(): self.assertEqual(reader.HARD_PINS[name], value)\n        self.assertEqual(reader.HARD_PINS[CONTRACT], CONTRACT_SHA); self.assertEqual(abi.HARD_PINS, prior)\n        self.assertIs(reader.queries.__globals__, reader.summarize.__globals__)\n        self.assertIsNot(reader.queries.__globals__, reader.__dict__)\n        self.assertEqual(reader.queries.__globals__['__file__'], str(ROOT / PARSER))\n        owner = reader.StaticEntry(HEAD)\n        self.assertEqual(reader.SELF, WRAPPER); self.assertEqual(reader.OWNER, OWNER)\n        self.assertEqual(owner.output, ROOT / RAW / 'native_entry_static01'); self.assertEqual(owner.remote, SCOPE)\n        self.assertEqual(owner.local_pins[WRAPPER], digest(self.raw))\n\n    def test_exact_four_file_queries_and_all_twenty_seven_ranges(self):\n        reader = self.loaded(); captured = []\n        backend = types.SimpleNamespace(PREFIX=PREFIX,\n            gdb=lambda path, expressions: captured.append((path, expressions)) or guarded_gdb(path, expressions))\n        commands = reader.queries(backend)\n        self.assertEqual(commands[:3], [[PREFIX + 'readelf', '--version'], [PREFIX + 'gdb', '--version'],\n            [PREFIX + 'readelf', '-hSWs', '-x', '.init_array', OWNER + '/build/app.ino.elf']])\n        expected = []\n        for index, (_, start, end, _) in enumerate(self.ranges):\n            expected += [f'echo SUMOX_ENTRY_{index:02d}\\\\n', f'disassemble /r 0x{start:08x},0x{end:08x}']\n        expected += ['echo SUMOX_ENTRY_END\\\\n']\n        self.assertEqual(len(self.ranges), 64); self.assertEqual(len(commands), 4)\n        self.assertEqual(captured, [(OWNER + '/build/app.ino_debug.elf', expected)])\n\n    def test_full_synthetic_entry_summary_decimal_hex_and_opcode_widths_preserves_raw(self):\n        reader = self.loaded()\n        for hexadecimal, wide in ((False, 'f000 f800'), (True, 'f000f800')):\n            result, layout, blocks, _ = self.packet(hexadecimal, wide)\n            before, old_layout = copy.deepcopy(result), copy.deepcopy(layout)\n            answer = reader.summarize(result, layout)\n            self.assertEqual(answer['status'], 'STATIC_ENTRY_OBSERVED')\n            self.assertEqual(answer['initialization'], dict(address=0x081158f0, bytes_hex='01011008',\n                pointer=0x08100101, bounds=self.bounds))\n            self.assertEqual(len(answer['disassembly']), 64)\n            for row, bounds, block in zip(answer['disassembly'], self.ranges, blocks):\n                label, start, end, aliases = bounds\n                self.assertEqual(row, dict(name=label, start=start, end=end, symbols=aliases,\n                    instruction_rows=(end-start)//2 - int(end-start >= 4), validated_bytes=end-start,\n                    raw_block_sha256=digest(block.encode())))\n            self.assertIn('semantic review pending', answer['limitation'])\n            self.assertNotIn('polls_alignment_type', answer); self.assertNotIn('readelf_size_projection', answer)\n            self.assertEqual(result, before); self.assertEqual(layout, old_layout)\n\n    def test_symbol_address_size_type_binding_section_and_Thumb_failures(self):\n        reader = self.loaded(); result, layout, _, rows = self.packet(); original = self.support.stream_text(result, 2)\n        row = rows['entry_point']\n        bad_rows = [row.replace('08100011', '08100010'), row.replace(' 184 FUNC', ' 186 FUNC'),\n                    row.replace('FUNC', 'NOTYPE'), row.replace('GLOBAL', 'LOCAL'), row.replace('DEFAULT 1', 'DEFAULT 2')]\n        for bad in bad_rows:\n            self.assertNotEqual(row, bad)\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace(row, bad))\n            self.reject(lambda: reader.summarize(value, layout))\n        value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace('EXEC (Executable file)', 'DYN (Shared object file)'))\n        self.reject(lambda: reader.summarize(value, layout))\n        short = copy.deepcopy(layout); short['sections'][0]['size'] = 1\n        self.reject(lambda: reader.summarize(result, short))\n\n    def test_missing_duplicate_constructor_aliases_and_initialization_bound_tuples_refuse(self):\n        reader = self.loaded(); result, layout, _, rows = self.packet(); original = self.support.stream_text(result, 2)\n        aliases = [name for label, _, _, names in self.ranges if label in ('runtime_constructor', 'transaction_constructor', 'gate_constructor', 'input_owner_constructor', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor') for name in names]\n        self.assertEqual(len(aliases), 26)\n        for name in ('setup', *aliases, *self.bounds):\n            for changed in (original.replace(rows[name], ''), original + rows[name]):\n                value = copy.deepcopy(result); self.support.replace_text(value, 2, changed)\n                self.reject(lambda: reader.summarize(value, layout))\n        name = '__init_array_start'\n        for bad in (rows[name].replace('LOCAL', 'GLOBAL'), rows[name].replace('081158f0', '081158f4')):\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace(rows[name], bad))\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_initializer_section_span_dump_and_little_endian_pointer_are_required(self):\n        reader = self.loaded(); result, layout, _, _ = self.packet(); original = self.support.stream_text(result, 2)\n        for sections in ([layout['sections'][0]], layout['sections'] + [layout['sections'][1]],\n                         [layout['sections'][0], dict(name='.init_array', address=0x081158f0, size=8)],\n                         [layout['sections'][0], dict(name='.init_array', address=0x081158f4, size=4)]):\n            self.reject(lambda: reader.summarize(result, {'sections': sections}))\n        marker = \"Hex dump of section '.init_array':\"\n        for changed in (original.replace(marker, 'missing dump'), original + marker,\n                        original.replace('0x081158f0 01011008', '0x081158f4 01011008'),\n                        original.replace('01011008', '08100101'), original.replace('01011008', '04011008'),\n                        original + ' 0x081158f4 00000000 ....\\n'):\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, changed)\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_markers_require_exact_unique_order_and_final_marker(self):\n        reader = self.loaded(); result, layout, _, _ = self.packet(); original = self.support.stream_text(result, 3)\n        for changed in (original.replace('SUMOX_ENTRY_00\\n', ''), original + 'SUMOX_ENTRY_00\\n',\n                        original.replace('SUMOX_ENTRY_00', 'SUMOX_ENTRY_01', 1),\n                        original.replace('SUMOX_ENTRY_END\\n', ''), original + 'SUMOX_ENTRY_64\\n',\n                        original.replace('SUMOX_ENTRY_00', 'SWAP').replace('SUMOX_ENTRY_01', 'SUMOX_ENTRY_00').replace('SWAP', 'SUMOX_ENTRY_01')):\n            value = copy.deepcopy(result); self.support.replace_text(value, 3, changed)\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_disassembly_headers_end_markers_instruction_format_gaps_overlap_and_coverage(self):\n        reader = self.loaded(); result, layout, blocks, _ = self.packet(); original = self.support.stream_text(result, 3)\n        block = blocks[0]; lines = block.splitlines(keepends=True)\n        bad = [block.replace('0x081000c8:', '0x081000ca:'), block + lines[0],\n               block.replace('End of assembler dump.\\n', ''), block + 'End of assembler dump.\\n',\n               block.replace('f000 f800 fixture-wide', 'f00 fixture-wide'),\n               block.replace('f000 f800 fixture-wide', 'zzzz fixture-wide'),\n               block.replace('0x08100010 <fixture+0>', '0x08100012 <fixture+0>'),\n               ''.join(lines[:2] + lines[3:]), ''.join(lines[:2] + [lines[1]] + lines[2:]),\n               ''.join(lines[:-2] + lines[-1:])]\n        for changed_block in bad:\n            self.assertNotEqual(changed_block, block)\n            value = copy.deepcopy(result); self.support.replace_text(value, 3, original.replace(block, changed_block, 1))\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_real_prepare_composes_only_entry_commands_without_claiming(self):\n        reader = self.loaded(); owner = reader.StaticEntry(HEAD)\n        owner.compiler.CompileDiagnostic.admission(owner)\n        owner.local = mock.Mock(return_value=None); owner.output = self.scratch() / 'exclusive-entry'\n        with mock.patch.object(reader.shutil, 'disk_usage', return_value=types.SimpleNamespace(free=268435456)):\n            value = owner.prepare()\n        self.assertEqual(value['status'], 'STATIC_ENTRY_CHECKED'); self.assertEqual(value['file_commands'], 4)\n        self.assertLessEqual(value['command_units'], 30000); self.assertEqual(len(owner.remote_pins), 12)\n        self.assertEqual(owner.build_path, OWNER + '/build'); self.assertEqual(owner.remote, SCOPE)\n        self.assertIn('D210_STATIC_FILE_ONLY_ENTRY', owner.program)\n        self.assertIn('-nx', owner.commands[3]); self.assertIn('-nh', owner.commands[3])\n        self.assertIn('set auto-load no', owner.commands[3]); self.assertIn('set may-call-functions off', owner.commands[3])\n        self.assertFalse(owner.output.exists()); self.assertFalse(owner.claimed)\n\n    def test_execute_retains_raw_entry_summary_labels_and_local_closure(self):\n        _, owner, result, writes = self.executing_owner(); before = copy.deepcopy(result)\n        closure = owner.execute()\n        self.assertEqual([name for name, _ in writes], ['inputs.json', 'result.json', 'entry.json', 'local_result.json'])\n        self.assertEqual(writes[1][1], before); self.assertEqual(result, before)\n        self.assertEqual(writes[2][1]['status'], 'STATIC_ENTRY_OBSERVED'); self.assertEqual(len(writes[2][1]['disassembly']), 64)\n        self.assertEqual(closure['status'], 'STATIC_ENTRY_OBSERVED')\n        owner.direct.assert_called_once_with(owner.bootstrap, 'file-entry', 400); owner.local.assert_called_once_with()\n\n    def test_scope_stream_and_parser_failures_retain_raw_and_attempt_local_closure(self):\n        for reason in ('scope', 'stderr', 'parser'):\n            _, owner, result, writes = self.executing_owner()\n            if reason == 'scope': result['scope'] = 'D209_STATIC_FILE_ONLY_ABI'\n            elif reason == 'stderr': result['commands'][3].update(stderr_bytes=1, stderr_base64='eA==')\n            else: self.support.replace_text(result, 3, self.support.stream_text(result, 3).replace('SUMOX_ENTRY_END\\n', ''))\n            owner.direct.return_value = (types.SimpleNamespace(stdout=json.dumps(result), stderr=''), None)\n            self.reject(owner.execute)\n            self.assertEqual(writes[1][1], result); self.assertNotIn('entry.json', [name for name, _ in writes])\n            self.assertEqual(writes[-1][1]['status'], 'FAILED'); owner.local.assert_called_once_with()\n\n    def test_consumed_owner_refusal_and_primary_failure_survives_closure_errors(self):\n        _, owner, _, writes = self.executing_owner(); owner.output.mkdir()\n        self.reject(owner.execute); owner.direct.assert_not_called(); self.assertFalse(writes)\n        _, owner, _, writes = self.executing_owner(); primary = RuntimeError('child failure'); close = OSError('write failure')\n        owner.direct.side_effect = primary; owner.local.side_effect = ValueError('local failure')\n        def write(path, value):\n            writes.append((path.name, copy.deepcopy(value)))\n            if path.name == 'local_result.json': raise close\n        owner.executor['write'] = write\n        with self.assertRaises(RuntimeError) as caught: owner.execute()\n        self.assertIs(caught.exception, primary); self.assertIs(primary.__cause__, close)\n        self.assertEqual(primary.local_closure['first_error']['message'], str(primary))\n        self.assertEqual(primary.local_closure['final_checks'][0]['status'], 'FAILED')",
+          "old": "class EntryContract(unittest.TestCase):\n    @classmethod\n    def setUpClass(cls):\n        if not sys.dont_write_bytecode: raise RuntimeError('Entry oracle requires Python -B')\n        cls.raw = (ROOT / WRAPPER).read_bytes()\n        cls.inputs = {name: (ROOT / name).read_bytes() for name in PINS}\n        for name, raw in cls.inputs.items():\n            if (len(raw), digest(raw)) != PINS[name]: raise AssertionError('Fixed input changed: ' + name)\n        cls.contract = (ROOT / CONTRACT).read_bytes()\n        if digest(cls.contract) != CONTRACT_SHA: raise AssertionError('Entry contract changed')\n        raw = (ROOT / ORACLE02).read_bytes()\n        if digest(raw) != ORACLE02_SHA: raise AssertionError('Historical ABI02 oracle changed')\n        cls.abi02_helpers = module(raw, ROOT / ORACLE02, '_entry_checked_abi02_helpers')\n        old_oracle = (ROOT / cls.abi02_helpers.ORACLE).read_bytes()\n        if digest(old_oracle) != cls.abi02_helpers.ORACLE_SHA: raise AssertionError('Historical ABI oracle changed')\n        cls.support = module(old_oracle, ROOT / cls.abi02_helpers.ORACLE, '_entry_checked_abi_helpers')\n        original_reader = (ROOT / cls.support.ORIGINAL).read_bytes()\n        if digest(original_reader) != cls.support.PINS[cls.support.ORIGINAL][1]: raise AssertionError('Old reader changed')\n        cls.projected02 = cls.abi02_helpers.expected_projection(cls.support.expected_projection(original_reader))\n        old = module(cls.inputs[PARSER], ROOT / PARSER, '_entry_historical_public_parser')\n        addresses = {int(before, 16): int(after, 16) for before, after, _ in ADDRESS_ROWS}\n        cls.ranges = tuple((label, addresses.get(start, start), addresses.get(end, end),\n            tuple(name.replace('15app_motor_fault', '17app_motor_observe') for name in aliases))\n            for label, start, end, aliases in old.RANGES)\n        cls.bounds = {name: addresses[address] for name, address in old.BOUNDS.items()}\n\n    def setUp(self):\n        self.subject = module(self.raw, ROOT / WRAPPER, '_entry_independent_subject')\n        for owner, names in ((subprocess, ('run', 'Popen', 'call', 'check_call', 'check_output')),\n                             (socket, ('socket', 'create_connection'))):\n            for name in names:\n                patch = mock.patch.object(owner, name, side_effect=AssertionError('External effect: ' + name))\n                patch.start(); self.addCleanup(patch.stop)\n\n    def reject(self, call):\n        with self.assertRaises(REJECT): call()\n\n    def scratch(self):\n        temp = tempfile.TemporaryDirectory(prefix='sumox-entry-', dir='/dev/shm' if sys.platform == 'linux' else None)\n        self.addCleanup(temp.cleanup)\n        return Path(temp.name).resolve()\n\n    def loaded(self):\n        return self.subject.load_reader(root=ROOT)\n\n    def packet(self, hexadecimal=False, wide='f000 f800'):\n        rows, blocks = {}, []\n        for label, start, end, aliases in self.ranges:\n            binding = 'LOCAL' if label in ('global_initializer', 'candidate_rate', 'candidate_period') else (\n                'WEAK' if label in ('init_variant', 'main') else 'GLOBAL')\n            size = hex(end - start) if hexadecimal else str(end - start)\n            for name in aliases: rows[name] = f' 1: {start | 1:08x} {size} FUNC {binding} DEFAULT 1 {name}\\n'\n            lines = [f'Dump of assembler code from 0x{start:08x} to 0x{end:08x}:\\n']\n            cursor = start\n            if end - start >= 4:\n                lines.append(f'0x{cursor:08x} <fixture+0>: {wide} fixture-wide\\n'); cursor += 4\n            while cursor < end:\n                lines.append(f'0x{cursor:08x} <fixture>: bf00 nop\\n'); cursor += 2\n            lines.append('End of assembler dump.\\n'); blocks.append(''.join(lines))\n        for name, address in self.bounds.items():\n            binding = 'GLOBAL' if name.startswith('__static_thread') else 'LOCAL'\n            rows[name] = f' 2: {address:08x} 0 NOTYPE {binding} DEFAULT 2 {name}\\n'\n        elf = (' Type: EXEC (Executable file)\\n' + ''.join(rows.values()) +\n               \"Hex dump of section '.init_array':\\n 0x08116238 05011008 ....\\n\")\n        debug = ''.join(f'SUMOX_ENTRY_{index:02d}\\n' + block for index, block in enumerate(blocks)) + 'SUMOX_ENTRY_END\\n'\n        records = [self.support.record(['readelf', '--version'], 'fixture\\n'),\n                   self.support.record(['gdb', '--version'], 'fixture\\n'),\n                   self.support.record(['readelf', '-hSWs', '-x', '.init_array'], elf),\n                   self.support.record(['gdb', 'disassemble'], debug)]\n        result = dict(scope='D194_STATIC_FILE_ONLY_ENTRY', status='OBSERVED', first_error=None,\n                      commands=records, final_checks=[dict(path='board_identity', status='PASS')])\n        layout = {'sections': [dict(name='.text', address=0x08100010, size=0x16228),\n                               dict(name='.init_array', address=0x08116238, size=4)]}\n        return result, layout, blocks, rows\n\n    def executing_owner(self):\n        reader = self.loaded(); owner = reader.StaticEntry.__new__(reader.StaticEntry)\n        owner.output = self.scratch() / 'exclusive-entry'\n        result, layout, _, _ = self.packet()\n        owner.packet = {'layout': {'validator_report': layout}}\n        owner.commands = [row['argv'] for row in result['commands']]\n        owner.remote_pins = {}; owner.inputs = {'files': {}}; owner.local_pins = {}\n        owner.program = 'controlled program'; owner.bootstrap = 'controlled bootstrap'\n        owner.claimed = False; owner.counter = 0\n        owner.base = reader.loaded(reader.LEGACY, reader.HARD_PINS[reader.LEGACY])\n        owner.prepare = mock.Mock(return_value={'status': 'STATIC_ENTRY_CHECKED'})\n        owner.local = mock.Mock(return_value=None)\n        owner.direct = mock.Mock(return_value=(types.SimpleNamespace(stdout=json.dumps(result), stderr=''), None))\n        writes = []\n        owner.executor = {'write': lambda path, value: writes.append((path.name, copy.deepcopy(value)))}\n        return reader, owner, result, writes\n\n    def test_passive_import_and_exact_bootstrap_source(self):\n        with ExitStack() as stack:\n            for owner, names in ((Path, ('open', 'read_bytes', 'read_text', 'write_bytes', 'write_text', 'mkdir')),\n                                 (builtins, ('open',)), (io, ('open',)), (os, ('open',))):\n                for name in names: stack.enter_context(mock.patch.object(owner, name, side_effect=AssertionError('Import I/O')))\n            value = module(self.raw, ROOT / WRAPPER, '_entry_passive_import')\n        for name in ('project_reader', 'project_parser', 'load_reader', 'main'): self.assertTrue(callable(getattr(value, name)))\n        old, new = function_sources(self.inputs[ABI02]), function_sources(self.raw)\n        for name in ('require', '_stamp', '_plain_chain', '_read_handle', 'pinned'):\n            self.assertEqual(new[name], old[name], name)\n\n    def test_both_projectors_produce_exact_contract_bytes_without_io(self):\n        pairs = (('project_reader', self.projected02, reader_projection(self.projected02)),\n                 ('project_parser', self.inputs[PARSER], parser_projection(self.inputs[PARSER])))\n        self.subject.__dict__['__builtins__']['exec'] = mock.Mock(side_effect=AssertionError('Projector executed'))\n        with mock.patch.object(Path, 'read_bytes', side_effect=AssertionError('Projector read')), \\\n                mock.patch.object(os, 'open', side_effect=AssertionError('Projector opened')):\n            for name, raw, expected in pairs:\n                actual = getattr(self.subject, name)(raw)\n                self.assertIs(type(actual), bytes); self.assertEqual(actual, expected)\n\n    def test_projectors_reject_types_lengths_hashes_counts_and_newlines(self):\n        for name, raw in (('project_reader', self.projected02), ('project_parser', self.inputs[PARSER])):\n            bad = (None, True, raw.decode(), bytearray(raw), memoryview(raw), b'', raw[:-1], raw + b'\\n',\n                   b'x' + raw[1:], raw.replace(b'\\n', b'\\r\\n'), raw + b'\\n# 0x08116218',\n                   raw.replace(b'StaticAbi', b'Changed', 1))\n            for value in bad:\n                if type(value) is bytes and value == raw: continue\n                with self.subTest(projector=name, kind=type(value).__name__):\n                    self.reject(lambda: getattr(self.subject, name)(value))\n\n    def test_invalid_cli_or_missing_B_refuses_before_input_loading(self):\n        bad = (None, True, '', [], ('--execute', '--reviewed-head', HEAD), ['--help'],\n               ['--execute', '--reviewed-head', HEAD.upper()], ['--execute', '--reviewed-head', 1],\n               ['--execute', '--reviewed-head', HEAD + '0'], ['--reviewed-head', HEAD, '--execute'],\n               ['--execute', '--reviewed-head', HEAD, '--owner', 'old'])\n        with mock.patch.object(self.subject, 'load_reader', side_effect=AssertionError('Invalid CLI loaded')):\n            for value in bad: self.reject(lambda: self.subject.main(value))\n            with mock.patch.object(sys, 'dont_write_bytecode', False):\n                self.reject(lambda: self.subject.main(['--check-only', '--reviewed-head', HEAD]))\n\n    def test_main_delegates_once_and_preserves_result_or_primary_exception(self):\n        for action in ('--check-only', '--execute'):\n            args = [action, '--reviewed-head', HEAD]; private = types.SimpleNamespace(main=mock.Mock(return_value=17))\n            with mock.patch.object(self.subject, 'load_reader', return_value=private) as loader:\n                self.assertEqual(self.subject.main(args), 17)\n                loader.assert_called_once_with(root=self.subject.ROOT); private.main.assert_called_once_with(args)\n        error = RuntimeError('delegated original failure'); private.main.side_effect = error\n        with mock.patch.object(self.subject, 'load_reader', return_value=private):\n            with self.assertRaises(RuntimeError) as caught: self.subject.main(args)\n            self.assertIs(caught.exception, error)\n\n    def test_all_six_inputs_are_verified_before_private_execution(self):\n        inputs = {**self.inputs, CONTRACT: self.contract}\n        for failed in inputs:\n            root = self.scratch()\n            for name, raw in inputs.items():\n                path = root / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(raw)\n            (root / failed).write_bytes(inputs[failed] + b'\\n')\n            self.subject.__dict__['__builtins__']['exec'] = mock.Mock(side_effect=AssertionError('Unpinned private execution'))\n            self.reject(lambda: self.subject.load_reader(root=root))\n            self.subject.__dict__['__builtins__']['exec'].assert_not_called()\n\n    def test_original_first_composition_and_no_historical_entry_load_or_main(self):\n        events = []; execute = builtins.exec; supplementary = self.subject.project_reader\n        def observed_exec(code, namespace, *args):\n            value = execute(code, namespace, *args)\n            if namespace.get('__file__') == str(ROOT / ABI02):\n                original = namespace['project_reader']\n                def previous(raw): events.append('abi02'); return original(raw)\n                namespace['project_reader'] = previous\n            if namespace.get('__file__') == str(ROOT / PARSER):\n                namespace['load'] = mock.Mock(side_effect=AssertionError('Historical entry load called'))\n                namespace['main'] = mock.Mock(side_effect=AssertionError('Historical entry main called'))\n            return value\n        def current(raw):\n            events.append('entry'); self.assertEqual(raw, self.projected02); return supplementary(raw)\n        self.subject.__dict__['__builtins__']['exec'] = observed_exec\n        with mock.patch.object(self.subject, 'project_reader', current): reader = self.loaded()\n        self.assertEqual(events, ['abi02', 'entry'])\n        result, layout, _, _ = self.packet()\n        self.assertEqual(reader.summarize(result, layout)['status'], 'STATIC_ENTRY_OBSERVED')\n\n    def test_private_direct_entry_functions_pins_and_fresh_owner(self):\n        abi = module(self.inputs[ABI02], ROOT / ABI02, '_entry_prior_abi_fixture').load_reader(root=ROOT)\n        prior = dict(abi.HARD_PINS); registered = dict(sys.modules)\n        reader, other = self.loaded(), self.loaded()\n        self.assertIsNot(reader, other); self.assertNotIn(reader, sys.modules.values())\n        for name, value in registered.items(): self.assertIs(sys.modules[name], value)\n        for name, value in prior.items(): self.assertEqual(reader.HARD_PINS[name], value)\n        for name, (_, value) in PINS.items(): self.assertEqual(reader.HARD_PINS[name], value)\n        self.assertEqual(reader.HARD_PINS[CONTRACT], CONTRACT_SHA); self.assertEqual(abi.HARD_PINS, prior)\n        self.assertIs(reader.queries.__globals__, reader.summarize.__globals__)\n        self.assertIsNot(reader.queries.__globals__, reader.__dict__)\n        self.assertEqual(reader.queries.__globals__['__file__'], str(ROOT / PARSER))\n        owner = reader.StaticEntry(HEAD)\n        self.assertEqual(reader.SELF, WRAPPER); self.assertEqual(reader.OWNER, OWNER)\n        self.assertEqual(owner.output, ROOT / RAW / 'native_entry_static01'); self.assertEqual(owner.remote, SCOPE)\n        self.assertEqual(owner.local_pins[WRAPPER], digest(self.raw))\n\n    def test_exact_four_file_queries_and_all_twenty_seven_ranges(self):\n        reader = self.loaded(); captured = []\n        backend = types.SimpleNamespace(PREFIX='/fixed/tool-',\n            gdb=lambda path, expressions: captured.append((path, expressions)) or ['gdb', path, *expressions])\n        commands = reader.queries(backend)\n        self.assertEqual(commands[:3], [['/fixed/tool-readelf', '--version'], ['/fixed/tool-gdb', '--version'],\n            ['/fixed/tool-readelf', '-hSWs', '-x', '.init_array', OWNER + '/build/app_motor_observe.ino.elf']])\n        expected = []\n        for index, (_, start, end, _) in enumerate(self.ranges):\n            expected += [f'echo SUMOX_ENTRY_{index:02d}\\\\n', f'disassemble /r 0x{start:08x},0x{end:08x}']\n        expected += ['echo SUMOX_ENTRY_END\\\\n']\n        self.assertEqual(len(self.ranges), 27); self.assertEqual(len(commands), 4)\n        self.assertEqual(captured, [(OWNER + '/build/app_motor_observe.ino_debug.elf', expected)])\n\n    def test_full_synthetic_entry_summary_decimal_hex_and_opcode_widths_preserves_raw(self):\n        reader = self.loaded()\n        for hexadecimal, wide in ((False, 'f000 f800'), (True, 'f000f800')):\n            result, layout, blocks, _ = self.packet(hexadecimal, wide)\n            before, old_layout = copy.deepcopy(result), copy.deepcopy(layout)\n            answer = reader.summarize(result, layout)\n            self.assertEqual(answer['status'], 'STATIC_ENTRY_OBSERVED')\n            self.assertEqual(answer['initialization'], dict(address=0x08116238, bytes_hex='05011008',\n                pointer=0x08100105, bounds=self.bounds))\n            self.assertEqual(len(answer['disassembly']), 27)\n            for row, bounds, block in zip(answer['disassembly'], self.ranges, blocks):\n                label, start, end, aliases = bounds\n                self.assertEqual(row, dict(name=label, start=start, end=end, symbols=aliases,\n                    instruction_rows=(end-start)//2 - int(end-start >= 4), validated_bytes=end-start,\n                    raw_block_sha256=digest(block.encode())))\n            self.assertIn('semantic review pending', answer['limitation'])\n            self.assertNotIn('polls_alignment_type', answer); self.assertNotIn('readelf_size_projection', answer)\n            self.assertEqual(result, before); self.assertEqual(layout, old_layout)\n\n    def test_symbol_address_size_type_binding_section_and_Thumb_failures(self):\n        reader = self.loaded(); result, layout, _, rows = self.packet(); original = self.support.stream_text(result, 2)\n        row = rows['entry_point']\n        bad_rows = [row.replace('08100011', '08100010'), row.replace(' 184 FUNC', ' 186 FUNC'),\n                    row.replace('FUNC', 'NOTYPE'), row.replace('GLOBAL', 'LOCAL'), row.replace('DEFAULT 1', 'DEFAULT 2')]\n        for bad in bad_rows:\n            self.assertNotEqual(row, bad)\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace(row, bad))\n            self.reject(lambda: reader.summarize(value, layout))\n        value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace('EXEC (Executable file)', 'DYN (Shared object file)'))\n        self.reject(lambda: reader.summarize(value, layout))\n        short = copy.deepcopy(layout); short['sections'][0]['size'] = 1\n        self.reject(lambda: reader.summarize(result, short))\n\n    def test_missing_duplicate_constructor_aliases_and_initialization_bound_tuples_refuse(self):\n        reader = self.loaded(); result, layout, _, rows = self.packet(); original = self.support.stream_text(result, 2)\n        aliases = [name for label, _, _, names in self.ranges if label in ('runner_constructor', 'trace_constructor') for name in names]\n        self.assertEqual(len(aliases), 4)\n        for name in ('setup', *aliases, *self.bounds):\n            for changed in (original.replace(rows[name], ''), original + rows[name]):\n                value = copy.deepcopy(result); self.support.replace_text(value, 2, changed)\n                self.reject(lambda: reader.summarize(value, layout))\n        name = '__init_array_start'\n        for bad in (rows[name].replace('LOCAL', 'GLOBAL'), rows[name].replace('08116238', '0811623c')):\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, original.replace(rows[name], bad))\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_initializer_section_span_dump_and_little_endian_pointer_are_required(self):\n        reader = self.loaded(); result, layout, _, _ = self.packet(); original = self.support.stream_text(result, 2)\n        for sections in ([layout['sections'][0]], layout['sections'] + [layout['sections'][1]],\n                         [layout['sections'][0], dict(name='.init_array', address=0x08116238, size=8)],\n                         [layout['sections'][0], dict(name='.init_array', address=0x0811623c, size=4)]):\n            self.reject(lambda: reader.summarize(result, {'sections': sections}))\n        marker = \"Hex dump of section '.init_array':\"\n        for changed in (original.replace(marker, 'missing dump'), original + marker,\n                        original.replace('0x08116238 05011008', '0x0811623c 05011008'),\n                        original.replace('05011008', '08100105'), original.replace('05011008', '04011008'),\n                        original + ' 0x0811623c 00000000 ....\\n'):\n            value = copy.deepcopy(result); self.support.replace_text(value, 2, changed)\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_markers_require_exact_unique_order_and_final_marker(self):\n        reader = self.loaded(); result, layout, _, _ = self.packet(); original = self.support.stream_text(result, 3)\n        for changed in (original.replace('SUMOX_ENTRY_00\\n', ''), original + 'SUMOX_ENTRY_00\\n',\n                        original.replace('SUMOX_ENTRY_00', 'SUMOX_ENTRY_01', 1),\n                        original.replace('SUMOX_ENTRY_END\\n', ''), original + 'SUMOX_ENTRY_27\\n',\n                        original.replace('SUMOX_ENTRY_00', 'SWAP').replace('SUMOX_ENTRY_01', 'SUMOX_ENTRY_00').replace('SWAP', 'SUMOX_ENTRY_01')):\n            value = copy.deepcopy(result); self.support.replace_text(value, 3, changed)\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_disassembly_headers_end_markers_instruction_format_gaps_overlap_and_coverage(self):\n        reader = self.loaded(); result, layout, blocks, _ = self.packet(); original = self.support.stream_text(result, 3)\n        block = blocks[0]; lines = block.splitlines(keepends=True)\n        bad = [block.replace('0x081000c8:', '0x081000ca:'), block + lines[0],\n               block.replace('End of assembler dump.\\n', ''), block + 'End of assembler dump.\\n',\n               block.replace('f000 f800 fixture-wide', 'f00 fixture-wide'),\n               block.replace('f000 f800 fixture-wide', 'zzzz fixture-wide'),\n               block.replace('0x08100010 <fixture+0>', '0x08100012 <fixture+0>'),\n               ''.join(lines[:2] + lines[3:]), ''.join(lines[:2] + [lines[1]] + lines[2:]),\n               ''.join(lines[:-2] + lines[-1:])]\n        for changed_block in bad:\n            self.assertNotEqual(changed_block, block)\n            value = copy.deepcopy(result); self.support.replace_text(value, 3, original.replace(block, changed_block, 1))\n            self.reject(lambda: reader.summarize(value, layout))\n\n    def test_real_prepare_composes_only_entry_commands_without_claiming(self):\n        reader = self.loaded(); owner = reader.StaticEntry(HEAD)\n        owner.compiler.CompileDiagnostic.admission(owner)\n        owner.local = mock.Mock(return_value=None); owner.output = self.scratch() / 'exclusive-entry'\n        with mock.patch.object(reader.shutil, 'disk_usage', return_value=types.SimpleNamespace(free=268435456)):\n            value = owner.prepare()\n        self.assertEqual(value['status'], 'STATIC_ENTRY_CHECKED'); self.assertEqual(value['file_commands'], 4)\n        self.assertLessEqual(value['command_units'], 30000); self.assertEqual(len(owner.remote_pins), 12)\n        self.assertEqual(owner.build_path, OWNER + '/build'); self.assertEqual(owner.remote, SCOPE)\n        self.assertIn('D194_STATIC_FILE_ONLY_ENTRY', owner.program)\n        self.assertIn('-nx', owner.commands[3]); self.assertIn('-nh', owner.commands[3])\n        self.assertIn('set auto-load no', owner.commands[3]); self.assertIn('set may-call-functions off', owner.commands[3])\n        self.assertFalse(owner.output.exists()); self.assertFalse(owner.claimed)\n\n    def test_execute_retains_raw_entry_summary_labels_and_local_closure(self):\n        _, owner, result, writes = self.executing_owner(); before = copy.deepcopy(result)\n        closure = owner.execute()\n        self.assertEqual([name for name, _ in writes], ['inputs.json', 'result.json', 'entry.json', 'local_result.json'])\n        self.assertEqual(writes[1][1], before); self.assertEqual(result, before)\n        self.assertEqual(writes[2][1]['status'], 'STATIC_ENTRY_OBSERVED'); self.assertEqual(len(writes[2][1]['disassembly']), 27)\n        self.assertEqual(closure['status'], 'STATIC_ENTRY_OBSERVED')\n        owner.direct.assert_called_once_with(owner.bootstrap, 'file-entry', 400); owner.local.assert_called_once_with()\n\n    def test_scope_stream_and_parser_failures_retain_raw_and_attempt_local_closure(self):\n        for reason in ('scope', 'stderr', 'parser'):\n            _, owner, result, writes = self.executing_owner()\n            if reason == 'scope': result['scope'] = 'D194_STATIC_FILE_ONLY_ABI02'\n            elif reason == 'stderr': result['commands'][3].update(stderr_bytes=1, stderr_base64='eA==')\n            else: self.support.replace_text(result, 3, self.support.stream_text(result, 3).replace('SUMOX_ENTRY_END\\n', ''))\n            owner.direct.return_value = (types.SimpleNamespace(stdout=json.dumps(result), stderr=''), None)\n            self.reject(owner.execute)\n            self.assertEqual(writes[1][1], result); self.assertNotIn('entry.json', [name for name, _ in writes])\n            self.assertEqual(writes[-1][1]['status'], 'FAILED'); owner.local.assert_called_once_with()\n\n    def test_consumed_owner_refusal_and_primary_failure_survives_closure_errors(self):\n        _, owner, _, writes = self.executing_owner(); owner.output.mkdir()\n        self.reject(owner.execute); owner.direct.assert_not_called(); self.assertFalse(writes)\n        _, owner, _, writes = self.executing_owner(); primary = RuntimeError('child failure'); close = OSError('write failure')\n        owner.direct.side_effect = primary; owner.local.side_effect = ValueError('local failure')\n        def write(path, value):\n            writes.append((path.name, copy.deepcopy(value)))\n            if path.name == 'local_result.json': raise close\n        owner.executor['write'] = write\n        with self.assertRaises(RuntimeError) as caught: owner.execute()\n        self.assertIs(caught.exception, primary); self.assertIs(primary.__cause__, close)\n        self.assertEqual(primary.local_closure['first_error']['message'], str(primary))\n        self.assertEqual(primary.local_closure['final_checks'][0]['status'], 'FAILED')"
+        }
+      ]
+    },
+    "current": {
+      "original": {
+        "bytes": 16089,
+        "sha256": "daf208faa96fd326676b34515bb23628333507121bdfd5b196474ddbc7c191ed"
+      },
+      "path": "tests/tooling/test_motor_const_entry.py",
+      "projected": {
+        "bytes": 16114,
+        "sha256": "eba152b786e32356efa4f9b8b3c2ad072d7cba5e27f3475c867cc236a595980e"
+      },
+      "steps": [
+        {
+          "after": {
+            "bytes": 16097,
+            "sha256": "b7be232714ed6649be173502848bd709b4b373deedca5f8d4a90a313955a714e"
+          },
+          "before": {
+            "bytes": 16089,
+            "sha256": "daf208faa96fd326676b34515bb23628333507121bdfd5b196474ddbc7c191ed"
+          },
+          "count": 1,
+          "new": "RAW = 'state/analysis/P7_ordinary_app_static_compile_raw'",
+          "old": "RAW = 'state/analysis/P7_motor_const_compile_raw'"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "0d2b4ab102a96409d9b38b4758732bf4b4424af8da35c071fb51de05d1c76f18"
+          },
+          "before": {
+            "bytes": 16097,
+            "sha256": "b7be232714ed6649be173502848bd709b4b373deedca5f8d4a90a313955a714e"
+          },
+          "count": 1,
+          "new": "recipe = spec['wrapper_recipe']",
+          "old": "recipe = json.loads(checked(spec['recipe']['path'], spec['recipe']))"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "a069fb3528fff56ba51dcd5448de33640919982eb542a893e73a37545113d8a8"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "0d2b4ab102a96409d9b38b4758732bf4b4424af8da35c071fb51de05d1c76f18"
+          },
+          "count": 1,
+          "new": "len(recipe['ordered_wrapper_substitutions']), 13",
+          "old": "len(recipe['ordered_wrapper_substitutions']), 12"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "7bf7f90cda2bab8d89a84144fcb459244e8d651b2f851cb5b425e9abc0bb24c2"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "a069fb3528fff56ba51dcd5448de33640919982eb542a893e73a37545113d8a8"
+          },
+          "count": 1,
+          "new": "[row['count'] for row in recipe['ordered_wrapper_substitutions']], [1] * 13",
+          "old": "[row['count'] for row in recipe['ordered_wrapper_substitutions']], [1] * 12"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "0788a5ff45be700823f60ca0e3d3440660b0ce55e460490b4a17bee9b6209594"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "7bf7f90cda2bab8d89a84144fcb459244e8d651b2f851cb5b425e9abc0bb24c2"
+          },
+          "count": 1,
+          "new": ".replace(b'_sumox_d205_entry_abi', b'_sumox_d210_entry_abi')",
+          "old": ".replace(b'_sumox_d199_entry_abi', b'_sumox_d205_entry_abi')"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "09d5e2a157aa59a9c14d244f78ec6794038e109799064516994fe0ec4bde1b69"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "0788a5ff45be700823f60ca0e3d3440660b0ce55e460490b4a17bee9b6209594"
+          },
+          "count": 1,
+          "new": ".replace(b'_sumox_d205_entry_parser', b'_sumox_d210_entry_parser')",
+          "old": ".replace(b'_sumox_d199_entry_parser', b'_sumox_d205_entry_parser')"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "99f54a6bea6d4ec6702ff79ba86d1b6bb319c831ce756e0cca17f069b5b2c873"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "09d5e2a157aa59a9c14d244f78ec6794038e109799064516994fe0ec4bde1b69"
+          },
+          "count": 1,
+          "new": "9 if kind == 'reader' else 9",
+          "old": "9 if kind == 'reader' else 7"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "b2d2834fddc747396f4a940ab5f83dc3c705c3ad34cd923497fbb4b695917c3d"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "99f54a6bea6d4ec6702ff79ba86d1b6bb319c831ce756e0cca17f069b5b2c873"
+          },
+          "count": 1,
+          "new": "[row['count'] for row in rows], [1] * 9",
+          "old": "[row['count'] for row in rows], [1] * 7"
+        },
+        {
+          "after": {
+            "bytes": 16060,
+            "sha256": "093078ccd96184eeb99cb6ebbcb03d8d3c549ec4b915e863c3e64302ee896cd1"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "b2d2834fddc747396f4a940ab5f83dc3c705c3ad34cd923497fbb4b695917c3d"
+          },
+          "count": 1,
+          "new": "b'pointer == 0x08100101'",
+          "old": "b'pointer == 0x08100105'"
+        },
+        {
+          "after": {
+            "bytes": 16057,
+            "sha256": "753b8637029784557655ada86d5def32a8605195bd1017bd36fb1ea8f9cd4c84"
+          },
+          "before": {
+            "bytes": 16060,
+            "sha256": "093078ccd96184eeb99cb6ebbcb03d8d3c549ec4b915e863c3e64302ee896cd1"
+          },
+          "count": 1,
+          "new": "'ordinary-app-static-artifacts-v1'",
+          "old": "'app-motor-const-static-artifacts-v1'"
+        },
+        {
+          "after": {
+            "bytes": 16054,
+            "sha256": "c7d78d5ceb37ff72fd295ca1b4e53e55ea847c4dbaff29f69846144c4a305a4f"
+          },
+          "before": {
+            "bytes": 16057,
+            "sha256": "753b8637029784557655ada86d5def32a8605195bd1017bd36fb1ea8f9cd4c84"
+          },
+          "count": 1,
+          "new": "'/home/arduino/sumox26_codex_build/ordinary-app-entry-static01'",
+          "old": "'/home/arduino/sumox26_codex_build/app-motor-const-entry-static01'"
+        },
+        {
+          "after": {
+            "bytes": 16114,
+            "sha256": "eba152b786e32356efa4f9b8b3c2ad072d7cba5e27f3475c867cc236a595980e"
+          },
+          "before": {
+            "bytes": 16054,
+            "sha256": "c7d78d5ceb37ff72fd295ca1b4e53e55ea847c4dbaff29f69846144c4a305a4f"
+          },
+          "count": 1,
+          "new": "('D199_STATIC_FILE_ONLY_ENTRY', 'D204_STATIC_FILE_ONLY_ABI', 'D194_STATIC_FILE_ONLY_ENTRY', 'D205_STATIC_FILE_ONLY_ENTRY', 'D209_STATIC_FILE_ONLY_ABI')",
+          "old": "('D199_STATIC_FILE_ONLY_ENTRY', 'D204_STATIC_FILE_ONLY_ABI', 'D194_STATIC_FILE_ONLY_ENTRY')"
+        }
+      ]
+    },
+    "direct": {
+      "original": {
+        "bytes": 13633,
+        "sha256": "4e6e1caed73b3612d63319e6b15e827cce941e0e365f755083774ed9396f49f6"
+      },
+      "path": "tests/tooling/test_motor_settle_entry.py",
+      "projected": {
+        "bytes": 13633,
+        "sha256": "c07835f0fa1e83264c940d470531ecf4eff063bbd80b68c36db20233bf7a133d"
+      },
+      "steps": [
+        {
+          "after": {
+            "bytes": 13633,
+            "sha256": "c07835f0fa1e83264c940d470531ecf4eff063bbd80b68c36db20233bf7a133d"
+          },
+          "before": {
+            "bytes": 13633,
+            "sha256": "4e6e1caed73b3612d63319e6b15e827cce941e0e365f755083774ed9396f49f6"
+          },
+          "count": 1,
+          "new": "def test_direct_entry_summary_does_not_call_abi_summary_or_require_abi_tags(self):\n        execute = builtins.exec; inherited_summaries = []\n        def observed_exec(code, namespace, *args):\n            value = execute(code, namespace, *args)\n            if namespace.get('__file__') == str(ROOT / ABI):\n                original = namespace['load_reader']\n                def loaded(*args, **kwargs):\n                    reader = original(*args, **kwargs)\n                    forbidden = mock.Mock(side_effect=AssertionError('Inherited ABI summary called'))\n                    reader.summarize = forbidden; inherited_summaries.append(forbidden)\n                    return reader\n                namespace['load_reader'] = loaded\n            return value\n        self.subject.__dict__['__builtins__']['exec'] = observed_exec\n        reader = self.loaded(); self.assertEqual(len(inherited_summaries), 1)\n        result, layout, _, _ = self.packet(); before = copy.deepcopy(result)\n        for tag in ('SUMOX_SIZE', 'SUMOX_ALIGN', 'SUMOX_FIELD_OFFSET', 'SUMOX_REASON', 'polls'):\n            self.assertNotIn(tag, self.support.stream_text(result, 3))\n        answer = reader.summarize(result, layout)\n        inherited_summaries[0].assert_not_called()\n        self.assertEqual(answer['status'], 'STATIC_ENTRY_OBSERVED')\n        self.assertEqual(len(answer['disassembly']), 64)\n        for key in ('settle_probe', 'polls_alignment_type', 'readelf_size_projection'):\n            self.assertNotIn(key, answer)\n        self.assertEqual(result, before)",
+          "old": "def test_direct_entry_summary_does_not_call_abi_summary_or_require_abi_tags(self):\n        execute = builtins.exec; inherited_summaries = []\n        def observed_exec(code, namespace, *args):\n            value = execute(code, namespace, *args)\n            if namespace.get('__file__') == str(ROOT / ABI):\n                original = namespace['load_reader']\n                def loaded(*args, **kwargs):\n                    reader = original(*args, **kwargs)\n                    forbidden = mock.Mock(side_effect=AssertionError('Inherited ABI summary called'))\n                    reader.summarize = forbidden; inherited_summaries.append(forbidden)\n                    return reader\n                namespace['load_reader'] = loaded\n            return value\n        self.subject.__dict__['__builtins__']['exec'] = observed_exec\n        reader = self.loaded(); self.assertEqual(len(inherited_summaries), 1)\n        result, layout, _, _ = self.packet(); before = copy.deepcopy(result)\n        for tag in ('SUMOX_SIZE', 'SUMOX_ALIGN', 'SUMOX_FIELD_OFFSET', 'SUMOX_REASON', 'polls'):\n            self.assertNotIn(tag, self.support.stream_text(result, 3))\n        answer = reader.summarize(result, layout)\n        inherited_summaries[0].assert_not_called()\n        self.assertEqual(answer['status'], 'STATIC_ENTRY_OBSERVED')\n        self.assertEqual(len(answer['disassembly']), 29)\n        for key in ('settle_probe', 'polls_alignment_type', 'readelf_size_projection'):\n            self.assertNotIn(key, answer)\n        self.assertEqual(result, before)"
+        }
+      ]
+    }
+  },
+  "geometry": {
+    "alias_negative_cases": 539,
+    "aliases": 77,
+    "constructor_aliases": 26,
+    "constructors": 13,
+    "expressions": 129,
+    "groups": 64,
+    "marker_coverage_negative_cases": 192,
+    "per_alias_mutations": 7,
+    "per_group_marker_coverage_cases": 3,
+    "selected_bytes": 10420
+  },
+  "host_owners": [
+    "entry_first_linux01",
+    "entry_first_windows01"
+  ],
+  "implementation_metadata": {
+    "bytes": 13109,
+    "path": "state/analysis/P7_ordinary_app_static_compile_raw/entry_implementation01.json",
+    "sha256": "3f3e9fe85127992e031ba146e9be6de30aa6244cf7800c92a58cc4133a4d81e3"
+  },
+  "inherited_assertion_call_total": 150,
+  "initializer_negative_literals": [
+    {
+      "current": "0x081158f0 01011008",
+      "purpose": "wrong dump address",
+      "replacement": "0x081158f4 01011008"
+    },
+    {
+      "current": "01011008",
+      "purpose": "reversed byte order",
+      "replacement": "08100101"
+    },
+    {
+      "current": "01011008",
+      "purpose": "wrong pointer",
+      "replacement": "04011008"
+    }
+  ],
+  "inputs": {
+    "src/app/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/app/app.ino": {
+      "bytes": 868,
+      "sha256": "538755487e58609d8e7d2bb69b8466cb9bd1ffcfe360149bca4d4ff246302d57"
+    },
+    "src/app/calibration_output.h": {
+      "bytes": 880,
+      "sha256": "ed7e085f8504895d375938ebac45f264e8da4c84d56fb4b6805095185464533a"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 1943,
+      "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+    },
+    "src/app/dump_port.h": {
+      "bytes": 676,
+      "sha256": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+    },
+    "src/app/dump_port_unoq.cpp": {
+      "bytes": 755,
+      "sha256": "162ff2bc33e1c1e79def845ef89c491e6628e234b59d7d5ae60826d8c8ee8335"
+    },
+    "src/app/native_sources_unoq.cpp": {
+      "bytes": 2430,
+      "sha256": "291e88a6ae007a18a5e94d105e722c15b2bdc7dbce81062f2ab5f218d9576047"
+    },
+    "src/app/native_sources_unoq.h": {
+      "bytes": 1689,
+      "sha256": "11cd88cc1ae4f94b4b0f3ccafbf68bc9087b7098cbb008ec5daeca4298c381b5"
+    },
+    "src/app/runtime.cpp": {
+      "bytes": 14005,
+      "sha256": "5c10dda3eb1b2f071c7da7b8965520c8b99447d51e1f8590579e4dbc2bc75015"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9819,
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03"
+    },
+    "src/app/runtime_calibration.cpp": {
+      "bytes": 9248,
+      "sha256": "18bf09803ad4140ac16ffe57646953d81020c16cadcaccb8539b31f48c60c3e6"
+    },
+    "src/app/runtime_dump.cpp": {
+      "bytes": 2735,
+      "sha256": "aedd9c81b39e524cbdda00dc0d4be7614001935b6d6001d3071c7a47b913d4df"
+    },
+    "src/app/runtime_inputs.cpp": {
+      "bytes": 10716,
+      "sha256": "fc1d095ab96f97fa4f81e3609bdd3108c39ed4b6b17639b4843e6d6f4e5cc4dc"
+    },
+    "src/app/runtime_service.cpp": {
+      "bytes": 8467,
+      "sha256": "3ba957b06df00767c20afdf6f73923af77d767691876ac245ea49c80e118dc7e"
+    },
+    "src/app/transaction.cpp": {
+      "bytes": 5739,
+      "sha256": "ada8080d67d76750a1bc41fc522bbe17076d66a3f887d735c8530f7414993f63"
+    },
+    "src/app/transaction.h": {
+      "bytes": 3710,
+      "sha256": "a3c3f12eb49e517f116560b1efed1376110da0e424f6a1714098fcc3c8a84b19"
+    },
+    "src/app/transaction_service.cpp": {
+      "bytes": 2127,
+      "sha256": "978bf71921ae3cc0806461ce3e17c48f195a9f0cff310cafb8faa8b104e7b271"
+    },
+    "src/config.h": {
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    "src/core/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/core/countdown.cpp": {
+      "bytes": 19273,
+      "sha256": "4875714d84e2a1caff22c006dbf4e9d2cc389db9e9686346581181d1c0ede5e6"
+    },
+    "src/core/countdown.h": {
+      "bytes": 17321,
+      "sha256": "283a8bbeda0e1f6b5f2c171c4d3a0e00fd2d3a0e532886c787d0ce55dca866f7"
+    },
+    "src/core/edge.cpp": {
+      "bytes": 18797,
+      "sha256": "ffd8d1d2fd5900c540aba011a8f79a43fb7be8b200e13769035a25766b45ede6"
+    },
+    "src/core/edge.h": {
+      "bytes": 13823,
+      "sha256": "b29b3982e27138be1fae361fde0b22e7ff58cf84e80d4cd4f3738a68c4796271"
+    },
+    "src/core/fsm.cpp": {
+      "bytes": 26474,
+      "sha256": "cad394ff8ee7f9072a8596a566092e2f3b9fadfda5966170e3d126ea18c71bb0"
+    },
+    "src/core/fsm.h": {
+      "bytes": 41126,
+      "sha256": "878e4524d6ceceec2a40b86158b11f8a5c18bd03afe35ee5507241dd89562485"
+    },
+    "src/core/fsm_buttons.cpp": {
+      "bytes": 4396,
+      "sha256": "82ba1038c75e172012d59921051aadf98e9928f5b1acb27dbb4e91eef3dbfbdd"
+    },
+    "src/core/fsm_drive_test.cpp": {
+      "bytes": 1139,
+      "sha256": "d1e7c0ce587637e8a4ad95818d1ebfca356797e860112a2ed4bb734b13849421"
+    },
+    "src/core/fsm_imu.cpp": {
+      "bytes": 5234,
+      "sha256": "5e873f5825e97976bc64c1d2fdd85eb44bc51697176bfec737677aa4e367d1e7"
+    },
+    "src/core/fsm_line.cpp": {
+      "bytes": 4746,
+      "sha256": "5ade80a598b501aa1ef7b2b3226916aefbc8e54ba7396d47b1ece5c7e48dd372"
+    },
+    "src/core/fsm_opener_timing.cpp": {
+      "bytes": 5359,
+      "sha256": "eda6945e6bc5535bab9174872642ae266b3e22baaee9895b47c05fd5d40d7d72"
+    },
+    "src/core/fsm_qtr_cal.cpp": {
+      "bytes": 6632,
+      "sha256": "bc1ce76fc3021c2a1f8434322c8a37324ecf86cadc9f0f9e4373a43b0dcceb00"
+    },
+    "src/core/fsm_robot.cpp": {
+      "bytes": 49551,
+      "sha256": "2efd83e51ecdd6d213a5e97cd6e23cf9e7084d50fd4cf49fc8b202967827dfd8"
+    },
+    "src/core/fsm_stand.cpp": {
+      "bytes": 2774,
+      "sha256": "c766dbe959a68c17f8c17085f0b8a00bcad518c6e99dfefcbf580c4a8c969550"
+    },
+    "src/core/fsm_stop_trial.cpp": {
+      "bytes": 5630,
+      "sha256": "78410d6775ea1e114c2083f1b5238e6c8c03ea7b1ab75b3cbeee5ef94e62ebac"
+    },
+    "src/core/fsm_timing.cpp": {
+      "bytes": 6937,
+      "sha256": "e372d59115373f563f0599117676f1d7d05e8169c30799d8c5e99d903fb2c0b7"
+    },
+    "src/core/fsm_turn_trial.cpp": {
+      "bytes": 4359,
+      "sha256": "4d4af54e72097626be8870153559a138530021945d7e5d3cd3c1e4e40be748e3"
+    },
+    "src/core/governor.cpp": {
+      "bytes": 4052,
+      "sha256": "1047daacf8acdf62854aa543f5c6020d7755216ca8df2456ef963b81bd2aa7b8"
+    },
+    "src/core/governor.h": {
+      "bytes": 2023,
+      "sha256": "13c2f5b334aeaf799445ffbffb8c3632f06606999a282e44396cfce16d05e042"
+    },
+    "src/core/logframe.cpp": {
+      "bytes": 13820,
+      "sha256": "2c23e3b504f452a0316f9b8db594f8a54fbe6fd8af68c9a54535239387753ff3"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/motion.cpp": {
+      "bytes": 9185,
+      "sha256": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656"
+    },
+    "src/core/motion.h": {
+      "bytes": 6982,
+      "sha256": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78"
+    },
+    "src/core/openers.cpp": {
+      "bytes": 13552,
+      "sha256": "fafaabe0373e97dd72becca0eabf1a7948dcfe8a20656016201c3d4dad871d80"
+    },
+    "src/core/openers.h": {
+      "bytes": 10478,
+      "sha256": "3982ac808a831bbf1ee17b2e5307129bd615e8d96de17488835e048679a743f4"
+    },
+    "src/core/opp_fusion.cpp": {
+      "bytes": 16361,
+      "sha256": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85"
+    },
+    "src/core/opp_fusion.h": {
+      "bytes": 12108,
+      "sha256": "66b31cd0b85aaee4a52a6574fc596a4117bbc0ffcca8180936b29ab467cc454b"
+    },
+    "src/core/stall.cpp": {
+      "bytes": 4456,
+      "sha256": "46e0f67eb3d3b820150d156eb2a1cae2e074e44c56f98d6ab4b739c837229436"
+    },
+    "src/core/stall.h": {
+      "bytes": 3700,
+      "sha256": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3"
+    },
+    "src/core/stand_sequence.cpp": {
+      "bytes": 3762,
+      "sha256": "7c76616dc8adef0560fe88fc7b9ec198f60dc191f9162220dbc929ca8471b476"
+    },
+    "src/core/stand_sequence.h": {
+      "bytes": 1602,
+      "sha256": "8e4d3e8f631529555d3adb8031de8ea33f3a221c6326c9a09f13fd6b87f6f843"
+    },
+    "src/core/stop_trial.h": {
+      "bytes": 1026,
+      "sha256": "11e400c333cec032d321a28d72bdfaf1a7362dea4343a6b76f2b67f8198c6d0c"
+    },
+    "src/core/turn_trial.cpp": {
+      "bytes": 4149,
+      "sha256": "cc88727fa5a19117ceb88ad3c4b068ea4df815a8570f7d5c7b80c23ae4d3d62f"
+    },
+    "src/core/turn_trial.h": {
+      "bytes": 1892,
+      "sha256": "74f6a41c750e72f7b5ad355d8700da39054de702928fac52d5893f6cc72009c0"
+    },
+    "src/core/types.h": {
+      "bytes": 4094,
+      "sha256": "8fec6d334fcb1c631c48ed0a076100d2925fee812706af721bb8a208c8c5b8eb"
+    },
+    "src/hal/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "bytes": 17505,
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 2227,
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e"
+    },
+    "src/hal/imu.cpp": {
+      "bytes": 10419,
+      "sha256": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37"
+    },
+    "src/hal/imu.h": {
+      "bytes": 2743,
+      "sha256": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750"
+    },
+    "src/hal/imu_acquisition.cpp": {
+      "bytes": 7164,
+      "sha256": "0f5aef4921c961cc85bc0c335792740972c9a02bb04c2d9624ea4c22a10c6f0e"
+    },
+    "src/hal/imu_acquisition.h": {
+      "bytes": 3658,
+      "sha256": "2528f6ff678550f2655ae6c42b1e133792385cdcec99a875712a2690b8b440df"
+    },
+    "src/hal/imu_acquisition_async.cpp": {
+      "bytes": 6907,
+      "sha256": "1bcdf95293eec7ec13c2b014726274bd97d7d53de1b7222361e38b01b83b59e9"
+    },
+    "src/hal/imu_adapter.cpp": {
+      "bytes": 4549,
+      "sha256": "4e82f5659c6b4ceda6b76292b0b374efeb66d30b9739ee1fa14519101d7dd340"
+    },
+    "src/hal/imu_adapter.h": {
+      "bytes": 654,
+      "sha256": "27ef58be36c239bee56c7f205cbf1a3043c7a472a90f78b5c06245385d4314d6"
+    },
+    "src/hal/imu_bus_async_unoq.cpp": {
+      "bytes": 8839,
+      "sha256": "097c5ae9a2f99f8155652ef78e4c7d254fbd3ea2b826faade9af8bd5faba5e29"
+    },
+    "src/hal/imu_bus_unoq.cpp": {
+      "bytes": 25366,
+      "sha256": "48ab37f899805c8ed99003ca8bc36bd74b3138969c0c430fcd4db832653f468e"
+    },
+    "src/hal/imu_bus_unoq.h": {
+      "bytes": 6677,
+      "sha256": "bb00c91780ef35e4de7d9118039fec558218b0a63f5e9e141e23c2573b512ffe"
+    },
+    "src/hal/imu_heading.cpp": {
+      "bytes": 8863,
+      "sha256": "e314f57b78980993f782cf85aa48f0cd6ffadf1cb1ae99fb801c7981f1736411"
+    },
+    "src/hal/imu_heading.h": {
+      "bytes": 3175,
+      "sha256": "178f0c24a8b2b2c637a5fd6c860169906792f1d71acca662a8ec14448763848d"
+    },
+    "src/hal/line_qtr.cpp": {
+      "bytes": 18927,
+      "sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a"
+    },
+    "src/hal/line_qtr.h": {
+      "bytes": 3751,
+      "sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24"
+    },
+    "src/hal/line_qtr_adapter.cpp": {
+      "bytes": 9600,
+      "sha256": "f6257c422b97d8ac5bd63768401d55750eaaa8d3faf83982e516b0e7de3c02d0"
+    },
+    "src/hal/line_qtr_adapter.h": {
+      "bytes": 1638,
+      "sha256": "2374055556fe4f3e2ddf1ec7273e11135256cbaa553d2e88b67c9647067dff54"
+    },
+    "src/hal/loop_hook.cpp": {
+      "bytes": 259,
+      "sha256": "bc481ea9f4567a4c8f8dde741134c94ac4f70b42257a39807a80c7ed93ba6839"
+    },
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "src/hal/motor_port_unoq.h": {
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "src/hal/motors.cpp": {
+      "bytes": 9997,
+      "sha256": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+    },
+    "src/hal/motors.h": {
+      "bytes": 2428,
+      "sha256": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149"
+    },
+    "src/hal/native_pins.cpp": {
+      "bytes": 629,
+      "sha256": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+    },
+    "src/hal/native_pins.h": {
+      "bytes": 456,
+      "sha256": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c"
+    },
+    "src/hal/opp_sensors.cpp": {
+      "bytes": 3316,
+      "sha256": "c68f13bf8d3aa41e52f94d7a1af2e8e47216df2e9ec0e5c15d45605d8f033509"
+    },
+    "src/hal/opp_sensors.h": {
+      "bytes": 935,
+      "sha256": "445fb48b903b32fdc885bae41cd1d5e923aac12195363379881a2f7cee0ca97b"
+    },
+    "src/hal/power.cpp": {
+      "bytes": 23632,
+      "sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599"
+    },
+    "src/hal/power.h": {
+      "bytes": 3142,
+      "sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d"
+    },
+    "src/hal/power_inputs.cpp": {
+      "bytes": 9306,
+      "sha256": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c"
+    },
+    "src/hal/power_inputs.h": {
+      "bytes": 3521,
+      "sha256": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864"
+    },
+    "src/hal/power_inputs_unoq.cpp": {
+      "bytes": 862,
+      "sha256": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173"
+    },
+    "src/hal/qtr_cal.cpp": {
+      "bytes": 9618,
+      "sha256": "b23a7e7665eb89a18eea8fb98334e5794b611a35dbc0de7542dbdd095905ca60"
+    },
+    "src/hal/qtr_cal.h": {
+      "bytes": 2925,
+      "sha256": "d8af2a7ad89974642b2afd84904cae740f981d822184ef3351b832157ca5e03e"
+    },
+    "src/hal/qtr_cal_format.cpp": {
+      "bytes": 2010,
+      "sha256": "90da4efc9377cbf4f814421ee97bfdcd1f0cbf426dc05856c8bd3ec04d8cb6b7"
+    },
+    "src/hal/recorder.cpp": {
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder_csv.cpp": {
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_dump.cpp": {
+      "bytes": 15093,
+      "sha256": "222193fd96c9dfa1c15437785879fb154c8e9a9ee6ff20291824ce72f338f058"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3034,
+      "sha256": "9d6f56ad1472ca4f66cb6e4ea7ad217baa89b39270bd8a4ebf1467314a663c17"
+    },
+    "src/hal/recorder_frames.cpp": {
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/ui.cpp": {
+      "bytes": 3413,
+      "sha256": "cfda5ea3077b28325425e45bee0dc54fb95803ab826ee4e098348a359ed4a3e8"
+    },
+    "src/hal/ui.h": {
+      "bytes": 889,
+      "sha256": "fc0231e65be092c8b26d73fc16b0c13d220347c30e5959d00aed13acb811a326"
+    },
+    "src/hal/ui_display.cpp": {
+      "bytes": 12037,
+      "sha256": "496b5f289e5199f8aad6d01313befbd5d12401b65e3c3977397ac605c884991d"
+    },
+    "src/hal/ui_display.h": {
+      "bytes": 2314,
+      "sha256": "5619adc7a0228fca3b15cb2ef2007d71eea4e620a41616de5e4a7f0c25004e02"
+    },
+    "src/hal/ui_matrix_unoq.cpp": {
+      "bytes": 3206,
+      "sha256": "c42cd52a399d4177d9e28b7595349babf0ee8e9069328be2d272a2538b8af412"
+    },
+    "src/hal/ui_matrix_unoq.h": {
+      "bytes": 1344,
+      "sha256": "4df1c4f5404c0c19b032d62f7e1a24777da3ce328030afbab7a7d41d824d5024"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py": {
+      "bytes": 16600,
+      "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py": {
+      "bytes": 10317,
+      "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+    },
+    "state/analysis/P7_current_app_compile_raw/compile_current_app.py": {
+      "bytes": 29311,
+      "sha256": "aed3fbf4db5c962761affd5a3e2e52b1002feaaefe4e44f9f34df6ec78ba5ede"
+    },
+    "state/analysis/P7_motor_const_compile_raw/entry_binding01.json": {
+      "bytes": 44374,
+      "sha256": "7417ff7055e30238e8a3231db3287ffb3520ec8929ce3437afbd0dff1c2d60ae"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py": {
+      "bytes": 16087,
+      "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_entry.py": {
+      "bytes": 14941,
+      "sha256": "a71eb62496ddedcc4d295579cea383635f309c8394dfd6c9ee32913a7418d835"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "sha256": "6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "3cd224b237fc1b18586d7b2fb22c2a47833a801fea06b96b338027102db5d55d"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/result.json": {
+      "bytes": 904847,
+      "sha256": "bbdecb404a42237fafaf0bf4b2e38690b62ee45119cdfabd9b2f7dde17a6b9b0"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_entry_contract.md": {
+      "bytes": 22163,
+      "sha256": "6663d1ea7309c809d8f727fc5bf68291128e54c83ca64b7d1ce53b9ff1cea9d9"
+    },
+    "state/analysis/P7_motor_fault_raw/compile_motor_fault.py": {
+      "bytes": 22843,
+      "sha256": "84efd00611b3a6a8129655005930ff58e555221f6bd8d88a23c7fa1c4381ac0d"
+    },
+    "state/analysis/P7_motor_fault_raw/inspect_active_abi.py": {
+      "bytes": 10183,
+      "sha256": "50c074024105e5920ab1557557abfd45c1bcd4280224e2360935a40caf46869a"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/entry_binding01.json": {
+      "bytes": 20870,
+      "sha256": "6234676242fdd7e61136fd2a1f66fabb0242b10ee597ef2bf6555a9444ecfd2b"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inputs_static.json": {
+      "bytes": 13432,
+      "sha256": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inspect_static_abi.py": {
+      "bytes": 16106,
+      "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "sha256": "069ed01bee9fba11159a4d93d156b8ada35ea5c11414b77870d80b6182d59941"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "eb68ef2e125445ad94fc5c0dc251c2a411d55120ab1299e205a1674b572576f9"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/result.json": {
+      "bytes": 905572,
+      "sha256": "230ef847f74e84d032a87336f74a4817d4cd8317a0ea5abc72c54fdd0d03eb6e"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/result.json": {
+      "bytes": 1608,
+      "sha256": "9b7f0c445cc84ad6d526445bf8e93ea189f718f0c883da8a1bf5cf077e741af5"
+    },
+    "state/analysis/P7_motor_settle_entry_contract.md": {
+      "bytes": 19485,
+      "sha256": "af8ce726bf49b79fecc07548bd78a808d788894ea9e9e1b59daa69eae8a54e7d"
+    },
+    "state/analysis/P7_ordinary_app_abi_contract.md": {
+      "bytes": 20543,
+      "sha256": "541710f0e84b732b65890b451e43d8bc5ab34977367749b383ab3ae75ee48b2f"
+    },
+    "state/analysis/P7_ordinary_app_entry_contract.md": {
+      "bytes": 31029,
+      "sha256": "d28204206a0adb06cb19e38f5cd48bc70edeec14260ab015b21b1a65eb55f637"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_contract.md": {
+      "bytes": 21756,
+      "sha256": "06cd96f1c84fb50368050344853e4f5dfe0540a2d9a95b43def853b402b87f5d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_derivation01.json": {
+      "bytes": 54047,
+      "sha256": "249a420990149eb8b73268d7a2582ab93f56909268075d058de3491754d5b675"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_host_driver01.py": {
+      "bytes": 3497,
+      "sha256": "1e50cb8eb3ec618b4d8040e546bcd28a87bce7754fdf2cc103d789a229a8123a"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json": {
+      "bytes": 106946,
+      "sha256": "36cafffcfebc647b5019b438705fa42a8be94edfb5d8b67deac2508878c6ae89"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_host_driver01.py": {
+      "bytes": 3503,
+      "sha256": "26e575d017ce72034be0591fd61068b5d371a3ba1ae6fb210afd912a6006885a"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_implementation01.json": {
+      "bytes": 13109,
+      "sha256": "3f3e9fe85127992e031ba146e9be6de30aa6244cf7800c92a58cc4133a4d81e3"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 44449,
+      "sha256": "f816a52366d7031f860d5cdd93e0715905df4b675a24e89d8dbb1d2b63eda97d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 274942,
+      "sha256": "e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "9c78721cfaa7330cc523619c31ad207832ffe6f9ca3abcc9e93bec7743212cf0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/result.json": {
+      "bytes": 581671,
+      "sha256": "6a17c12cb24396bf9a58a883ea295ec51feff2abe68d826983f363b3bcbb6d3b"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/result.json": {
+      "bytes": 1565,
+      "sha256": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": {
+      "bytes": 18322,
+      "sha256": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": {
+      "bytes": 3718,
+      "sha256": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": {
+      "bytes": 4836,
+      "sha256": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": {
+      "bytes": 17809,
+      "sha256": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_startup_raw/cli_builtin_files_inventory.json": {
+      "bytes": 17400,
+      "sha256": "a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb"
+    },
+    "state/analysis/P7_static_startup_raw/cli_initialization_inventory.json": {
+      "bytes": 19987,
+      "sha256": "aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62"
+    },
+    "state/reviews/P7_motor_const_abi_actual_review.md": {
+      "bytes": 10178,
+      "sha256": "4cd28fe8ce3b689319da5ddb42739c664fd0e4bcdc2552b521ee23b8b3331411"
+    },
+    "state/reviews/P7_motor_settle_abi_actual_review.md": {
+      "bytes": 7312,
+      "sha256": "a7c3993ab5e0d008b4464bf93f89b5877447992fa8e3197d8c869812e11f874f"
+    },
+    "state/reviews/P7_ordinary_app_abi_actual_review.md": {
+      "bytes": 9627,
+      "sha256": "585be669385e1ca85ddd188d3eeda5fdf11cfc3392eea614370d9bfabbcc4b6a"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_actual_review.md": {
+      "bytes": 14982,
+      "sha256": "8cd383e47ab78db74141c0100aedb134afaeac60195555c8eac3b529e1de9865"
+    },
+    "tests/tooling/test_app_motor_observe_abi.py": {
+      "bytes": 46134,
+      "sha256": "b43b384aafc77499b4752af7633e2a94c98e67e955554f75490f5dc30e45bcbe"
+    },
+    "tests/tooling/test_app_motor_observe_entry.py": {
+      "bytes": 29705,
+      "sha256": "b7db0b43ae5e487cd6475e0b6dd6272d33a8316bcfba64a07f6c2a3e2c0415d8"
+    },
+    "tests/tooling/test_motor_const_entry.py": {
+      "bytes": 16089,
+      "sha256": "daf208faa96fd326676b34515bb23628333507121bdfd5b196474ddbc7c191ed"
+    },
+    "tests/tooling/test_motor_settle_entry.py": {
+      "bytes": 13633,
+      "sha256": "4e6e1caed73b3612d63319e6b15e827cce941e0e365f755083774ed9396f49f6"
+    },
+    "tools/app_build_commands.json": {
+      "bytes": 17617,
+      "sha256": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d"
+    },
+    "tools/app_build_pins.json": {
+      "bytes": 2100,
+      "sha256": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b"
+    },
+    "tools/app_build_policy.py": {
+      "bytes": 14956,
+      "sha256": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8"
+    },
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/board_tool.py": {
+      "bytes": 37039,
+      "sha256": "0ba071553971374339fce2809780f32685567f4e7b46544557df75dddc25f255"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "tools/compile_ordinary_app_static.py": {
+      "bytes": 26136,
+      "sha256": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89"
+    },
+    "tools/match_deploy.py": {
+      "bytes": 26266,
+      "sha256": "3acacad6e95aff1012e9d0d1f8ef60905c026ebe865569fdb71384abd607d2a9"
+    }
+  },
+  "new_assertion_call_sites": {
+    "check_all_groups": 4,
+    "check_census": 11,
+    "check_stale_ordinary_and_const": 5,
+    "test_ordinary_complete_symbol_binding_all_groups_aliases_constructor_classes_and_initialized_objects": 4
+  },
+  "new_assertion_call_total": 24,
+  "new_methods": [
+    "test_ordinary_complete_symbol_binding_all_groups_aliases_constructor_classes_and_initialized_objects"
+  ],
+  "old_source_sha256": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da",
+  "oracle_specific_environment_required": false,
+  "ordinary_abi_projection_steps": [
+    {
+      "after": {
+        "bytes": 16604,
+        "sha256": "fd66fb1fbfce45ce4deb1737ce73271f4a0c5fedf7d12c900babbf65425d56f9"
+      },
+      "before": {
+        "bytes": 16600,
+        "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+      },
+      "count": 1,
+      "new": "state/analysis/P7_ordinary_app_static_compile_raw",
+      "old": "state/analysis/P7_app_motor_fault_compile_raw"
+    },
+    {
+      "after": {
+        "bytes": 16608,
+        "sha256": "ef2026fc989b280af67144c2e746ac36e17bdd5aec202b682e2e3d26ca8a096a"
+      },
+      "before": {
+        "bytes": 16604,
+        "sha256": "fd66fb1fbfce45ce4deb1737ce73271f4a0c5fedf7d12c900babbf65425d56f9"
+      },
+      "count": 1,
+      "new": "tools/compile_ordinary_app_static.py",
+      "old": "tools/compile_app_motor_fault.py"
+    },
+    {
+      "after": {
+        "bytes": 16605,
+        "sha256": "3c019c52d978c02d934001aa6bbe7d4070a60c12b01484fb8611288c790b1c39"
+      },
+      "before": {
+        "bytes": 16608,
+        "sha256": "ef2026fc989b280af67144c2e746ac36e17bdd5aec202b682e2e3d26ca8a096a"
+      },
+      "count": 1,
+      "new": "ordinary-app-static01",
+      "old": "app-motor-fault-static01"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "5fb94d244e98edd0754c30c9c7bd46f302d914990f404ea51c4127beeb1756e5"
+      },
+      "before": {
+        "bytes": 16605,
+        "sha256": "3c019c52d978c02d934001aa6bbe7d4070a60c12b01484fb8611288c790b1c39"
+      },
+      "count": 1,
+      "new": "ordinary-app-abi-static01",
+      "old": "app-motor-fault-abi-static01"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "809fb1bfaeec32c48bf708e7e8976394e731f167d535a1a130ba3868200c9b70"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "5fb94d244e98edd0754c30c9c7bd46f302d914990f404ea51c4127beeb1756e5"
+      },
+      "count": 2,
+      "new": "D209_STATIC_FILE_ONLY_ABI",
+      "old": "D188_STATIC_FILE_ONLY_ABI"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "179ccaf9e6b7ed7243727a8b0beffa00c8f4b9f7b41b1880deefb745e6651316"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "809fb1bfaeec32c48bf708e7e8976394e731f167d535a1a130ba3868200c9b70"
+      },
+      "count": 1,
+      "new": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+      "old": "21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "e118d0c38b7b05f4b45a2defa73345f2b1f2aa6743b60bfe83e0d4697835b711"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "179ccaf9e6b7ed7243727a8b0beffa00c8f4b9f7b41b1880deefb745e6651316"
+      },
+      "count": 1,
+      "new": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89",
+      "old": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "78a61cfc2ad826ce6e607c214714cf3d8e15374fd18d19723e0742057f4f5781"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "e118d0c38b7b05f4b45a2defa73345f2b1f2aa6743b60bfe83e0d4697835b711"
+      },
+      "count": 1,
+      "new": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7",
+      "old": "d4eae97c1c47a1ce0fa24c9d7e3ae44857a565cd7b85b9c17be45143654d3eb5"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "2588564864d44cf9276f1293187edf0014e81fceaac4032837a6573dba75859c"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "78a61cfc2ad826ce6e607c214714cf3d8e15374fd18d19723e0742057f4f5781"
+      },
+      "count": 1,
+      "new": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0",
+      "old": "f8928bd0b9a59f47c1bc02c627523af8f250535ffcd269e37e5a80414cc0ce82"
+    },
+    {
+      "after": {
+        "bytes": 16602,
+        "sha256": "195abede2decc26e5181e7b44475537141ca7d2f3aa874ea44caf7d06b970d12"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "2588564864d44cf9276f1293187edf0014e81fceaac4032837a6573dba75859c"
+      },
+      "count": 1,
+      "new": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0",
+      "old": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    },
+    {
+      "after": {
+        "bytes": 16625,
+        "sha256": "e8d8b147f76f5dc007f11dc2f10e8cd798fe4b5358df2a2d720253f48faf3ce3"
+      },
+      "before": {
+        "bytes": 16602,
+        "sha256": "195abede2decc26e5181e7b44475537141ca7d2f3aa874ea44caf7d06b970d12"
+      },
+      "count": 1,
+      "new": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE]).load_caller(root=ROOT)",
+      "old": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE])"
+    },
+    {
+      "after": {
+        "bytes": 16613,
+        "sha256": "c6d2fad323649a0cc2d394925750df72d0040409abe020ae9c92faa2c81d0217"
+      },
+      "before": {
+        "bytes": 16625,
+        "sha256": "e8d8b147f76f5dc007f11dc2f10e8cd798fe4b5358df2a2d720253f48faf3ce3"
+      },
+      "count": 1,
+      "new": "/build/app.ino",
+      "old": "/build/app_motor_fault.ino"
+    },
+    {
+      "after": {
+        "bytes": 16412,
+        "sha256": "b5dddfb7070d8b378fd87272864d8d91b8472083022d244392dd5759f0a09d3a"
+      },
+      "before": {
+        "bytes": 16613,
+        "sha256": "c6d2fad323649a0cc2d394925750df72d0040409abe020ae9c92faa2c81d0217"
+      },
+      "count": 1,
+      "new": "TYPES = ('app::Runtime', 'app::RuntimeReport', 'app::Transaction', 'app::TransactionReport', 'motors::MotorGate', 'motors::UnoQPort', 'motors::Result', 'motors::HaltResult', 'fsm::RobotResult', 'fsm::PreviousTick', 'core::Outputs', 'app::SetupGrants')\n",
+      "old": "TYPES = ('app_motor_fault::Runner', 'app_motor_fault::Report', 'app_motor_fault::Snapshot',\n         'motor_fault::Trace', 'motor_fault::TraceReport', 'motor_fault::Call',\n         'app::Runtime', 'app::RuntimeReport', 'app::Transaction', 'app::TransactionReport',\n         'fsm::RobotResult', 'fsm::PreviousTick', 'motors::MotorGate', 'motors::Result',\n         'motors::HaltResult', 'core::Outputs', 'countdown::LifecycleResult', 'countdown::Result')\n"
+    },
+    {
+      "after": {
+        "bytes": 16110,
+        "sha256": "dc1cd88a015685d11764c9290041626d9174cf9a83d60501679d1421762a181f"
+      },
+      "before": {
+        "bytes": 16412,
+        "sha256": "b5dddfb7070d8b378fd87272864d8d91b8472083022d244392dd5759f0a09d3a"
+      },
+      "count": 1,
+      "new": "WINDOWS = {'report_': 'app::RuntimeReport', 'transaction_.report_': 'app::TransactionReport', 'transaction_.previous_': 'fsm::PreviousTick', 'transaction_.gate_': 'motors::MotorGate', 'grants_': 'app::SetupGrants', 'attempted_': 'bool'}\n",
+      "old": "WINDOWS = {\n    'trace_.report_': 'motor_fault::TraceReport',\n    'report_': 'app_motor_fault::Report',\n    'report_.before_abort.runtime': 'app::RuntimeReport',\n    'report_.before_abort.transaction': 'app::TransactionReport',\n    'report_.before_abort.previous': 'fsm::PreviousTick',\n    'runtime_.report_': 'app::RuntimeReport',\n    'runtime_.transaction_.report_': 'app::TransactionReport',\n    'runtime_.transaction_.previous_': 'fsm::PreviousTick',\n    'runtime_.transaction_.gate_': 'motors::MotorGate',\n    'attempted_': 'bool',\n}\n"
+    },
+    {
+      "after": {
+        "bytes": 15334,
+        "sha256": "467e61dc9f670bbf3a988a4cbe340866cf24de7fb942ce3350a188329a35c66a"
+      },
+      "before": {
+        "bytes": 16110,
+        "sha256": "dc1cd88a015685d11764c9290041626d9174cf9a83d60501679d1421762a181f"
+      },
+      "count": 1,
+      "new": "def queries(reader):\n    return _ordinary_queries(reader)\n",
+      "old": "def queries(reader):\n    expressions = ['set max-value-size 1048576']\n    for name in (*TYPES, 'bool'):\n        for label, expression in (('SIZE', 'sizeof'), ('ALIGN', 'alignof')):\n            expressions += ['echo SUMOX_' + label + ' ' + name + '\\\\n',\n                            'p/d ' + expression + '(' + name + ')']\n        expressions += ['echo SUMOX_LAYOUT ' + name + '\\\\n', 'ptype /o ' + name]\n    for member in WINDOWS:\n        expressions += ['echo SUMOX_OFFSET ' + member + '\\\\n',\n                        'p/d (unsigned long)&((app_motor_fault::Runner*)0)->' + member]\n    build = OWNER + '/build/app.ino'\n    return [[reader.PREFIX + 'readelf', '--version'], [reader.PREFIX + 'gdb', '--version'],\n            [reader.PREFIX + 'readelf', '-hSWs', build + '.elf'],\n            reader.gdb(build + '_debug.elf', expressions)]\n"
+    },
+    {
+      "after": {
+        "bytes": 12965,
+        "sha256": "7fb42d51a3f42f99c7e7890b4f4c1dc90360c2d84c09d3bbde7ccea4d1138aea"
+      },
+      "before": {
+        "bytes": 15334,
+        "sha256": "467e61dc9f670bbf3a988a4cbe340866cf24de7fb942ce3350a188329a35c66a"
+      },
+      "count": 1,
+      "new": "def summarize(result, layout):\n    return _ordinary_summary(result, layout, checked_command=checked_command)\n",
+      "old": "def summarize(result, layout):\n    texts = [base64.b64decode(row['stdout_base64'], validate=True).decode('utf-8')\n             for row in result['commands']]\n    elf, debug = texts[2:]\n    require(re.search(r'^\\s*Type:\\s+EXEC \\(Executable file\\)\\s*$', elf, re.MULTILINE),\n            'Expected static ET_EXEC image')\n    sizes, aligns = {}, {}\n    for name in (*TYPES, 'bool'):\n        sizes[name], aligns[name] = number(debug, 'SIZE', name), number(debug, 'ALIGN', name)\n        require(0 < sizes[name] <= 1048576 and 0 < aligns[name] <= 16 and\n                aligns[name] & (aligns[name] - 1) == 0, 'Invalid ABI size/alignment')\n        require(debug.count('SUMOX_LAYOUT ' + name + '\\n') == 1, 'Missing layout marker')\n    symbol = '_ZN12_GLOBAL__N_110diagnosticE'\n    pattern = r'^\\s*\\d+:\\s+([0-9a-fA-F]+)\\s+(\\d+)\\s+OBJECT\\s+LOCAL\\s+DEFAULT\\s+(\\d+)\\s+' + symbol + r'\\s*$'\n    symbols = re.findall(pattern, elf, re.MULTILINE)\n    require(len(symbols) == 1, 'Expected exactly one static diagnostic OBJECT')\n    address, length, section = int(symbols[0][0], 16), int(symbols[0][1]), int(symbols[0][2])\n    bss = next(item for item in layout['sections'] if item['name'] == '.bss')\n    pattern = r'^\\s*\\[\\s*' + str(section) + r'\\]\\s+\\.bss\\s+NOBITS\\s+([0-9a-fA-F]+)\\s+[0-9a-fA-F]+\\s+([0-9a-fA-F]+)\\s+\\S+\\s+WA\\s+'\n    sections = re.findall(pattern, elf, re.MULTILINE)\n    require(len(sections) == 1 and tuple(int(x, 16) for x in sections[0]) ==\n            (bss['address'], bss['size']), 'Diagnostic section differs from checked layout')\n    require(length == sizes['app_motor_fault::Runner'] and address % aligns['app_motor_fault::Runner'] == 0 and\n            layout['bss_zero']['start'] <= address < address + length <= layout['bss_zero']['end'],\n            'Diagnostic object not wholly inside initialized BSS')\n    windows = {}\n    for member, name in WINDOWS.items():\n        offset = number(debug, 'OFFSET', member)\n        require(offset + sizes[name] <= length and (address + offset) % aligns[name] == 0,\n                'Capture window leaves diagnostic object or violates alignment')\n        windows[member] = dict(type=name, offset=offset, address=address + offset, bytes=sizes[name])\n    return dict(status='STATIC_ABI_OBSERVED', symbol=symbol, address=address, bytes=length,\n                section=section, sizes=sizes, alignments=aligns, windows=windows,\n                limitation='File layout only; no MCU contents, runtime acceptance, RAM or WCET measurement')\n"
+    }
+  ],
+  "originals": {
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py": {
+      "bytes": 10317,
+      "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json": {
+      "bytes": 106946,
+      "sha256": "36cafffcfebc647b5019b438705fa42a8be94edfb5d8b67deac2508878c6ae89"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 44449,
+      "sha256": "f816a52366d7031f860d5cdd93e0715905df4b675a24e89d8dbb1d2b63eda97d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 274942,
+      "sha256": "e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "9c78721cfaa7330cc523619c31ad207832ffe6f9ca3abcc9e93bec7743212cf0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/result.json": {
+      "bytes": 581671,
+      "sha256": "6a17c12cb24396bf9a58a883ea295ec51feff2abe68d826983f363b3bcbb6d3b"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/reviews/P7_ordinary_app_abi_actual_review.md": {
+      "bytes": 9627,
+      "sha256": "585be669385e1ca85ddd188d3eeda5fdf11cfc3392eea614370d9bfabbcc4b6a"
+    }
+  },
+  "outer_timeout_seconds": 360,
+  "platforms": {
+    "linux": {
+      "methods": 27,
+      "skips": 0
+    },
+    "windows": {
+      "methods": 27,
+      "skips": 0
+    }
+  },
+  "prospective_subject": {
+    "bytes": 18546,
+    "sha256": "5bcb6e12424237cb2701d271e2704281dedca76688d786eac1076daf8f9b3e0b"
+  },
+  "reader_base": "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py",
+  "remote_scope": "/home/arduino/sumox26_codex_build/ordinary-app-entry-static01",
+  "schema": "d210-independent-entry-fixture-v1",
+  "scope_limits": [
+    "Synthetic opcode packets test framing and bounds; they do not establish target instruction semantics.",
+    "No target calls, native compiler, subject execution or test execution by oracle author.",
+    "No independent assertion requires firmware termination, coherence or physical motor inhibition."
+  ],
+  "scratch": {
+    "cleanup": "unittest addCleanup(temp.cleanup) for each uniquely created TemporaryDirectory",
+    "linux_root": "/dev/shm",
+    "no_author_created_scratch": true,
+    "prefix": "sumox-entry-",
+    "windows_root": "Dedicated TEMP/TMP/TMPDIR set by parent before process startup"
+  },
+  "selected_methods": [
+    "test_passive_import_and_exact_bootstrap_source",
+    "test_both_projectors_produce_exact_contract_bytes_without_io",
+    "test_projectors_reject_types_lengths_hashes_counts_and_newlines",
+    "test_invalid_cli_or_missing_B_refuses_before_input_loading",
+    "test_main_delegates_once_and_preserves_result_or_primary_exception",
+    "test_all_six_inputs_are_verified_before_private_execution",
+    "test_original_first_composition_and_no_historical_entry_load_or_main",
+    "test_private_direct_entry_functions_pins_and_fresh_owner",
+    "test_exact_four_file_queries_and_all_twenty_seven_ranges",
+    "test_full_synthetic_entry_summary_decimal_hex_and_opcode_widths_preserves_raw",
+    "test_symbol_address_size_type_binding_section_and_Thumb_failures",
+    "test_missing_duplicate_constructor_aliases_and_initialization_bound_tuples_refuse",
+    "test_initializer_section_span_dump_and_little_endian_pointer_are_required",
+    "test_markers_require_exact_unique_order_and_final_marker",
+    "test_disassembly_headers_end_markers_instruction_format_gaps_overlap_and_coverage",
+    "test_real_prepare_composes_only_entry_commands_without_claiming",
+    "test_execute_retains_raw_entry_summary_labels_and_local_closure",
+    "test_scope_stream_and_parser_failures_retain_raw_and_attempt_local_closure",
+    "test_consumed_owner_refusal_and_primary_failure_survives_closure_errors",
+    "test_direct_entry_summary_does_not_call_abi_summary_or_require_abi_tags",
+    "test_exact_wrapper_reader_parser_recipes_and_unchanged_function_bodies",
+    "test_every_projection_occurrence_count_refuses_drift",
+    "test_current_inputs_refuse_exact_stale_d199_bytes_before_private_execution",
+    "test_current_source_manifest_artifacts_refuse_stale_d199_evidence",
+    "test_consumed_d199_owner_and_scope_cannot_be_reused",
+    "test_all_thirteen_remote_closures_are_required_with_raw_preservation",
+    "test_ordinary_complete_symbol_binding_all_groups_aliases_constructor_classes_and_initialized_objects"
+  ],
+  "serial": true,
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "stale_d205_inputs": {
+    "state/analysis/P7_ordinary_app_entry_contract.md": {
+      "bytes": 22163,
+      "path": "state/analysis/P7_motor_const_entry_contract.md",
+      "sha256": "6663d1ea7309c809d8f727fc5bf68291128e54c83ca64b7d1ce53b9ff1cea9d9"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json": {
+      "bytes": 44374,
+      "path": "state/analysis/P7_motor_const_compile_raw/entry_binding01.json",
+      "sha256": "7417ff7055e30238e8a3231db3287ffb3520ec8929ce3437afbd0dff1c2d60ae"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 16087,
+      "path": "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py",
+      "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "path": "state/analysis/P7_motor_const_compile_raw/native_abi_static01/abi.json",
+      "sha256": "6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "path": "state/analysis/P7_motor_const_compile_raw/native_abi_static01/local_result.json",
+      "sha256": "3cd224b237fc1b18586d7b2fb22c2a47833a801fea06b96b338027102db5d55d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/result.json": {
+      "bytes": 904847,
+      "path": "state/analysis/P7_motor_const_compile_raw/native_abi_static01/result.json",
+      "sha256": "bbdecb404a42237fafaf0bf4b2e38690b62ee45119cdfabd9b2f7dde17a6b9b0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "path": "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json",
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/reviews/P7_ordinary_app_abi_actual_review.md": {
+      "bytes": 10178,
+      "path": "state/reviews/P7_motor_const_abi_actual_review.md",
+      "sha256": "4cd28fe8ce3b689319da5ddb42739c664fd0e4bcdc2552b521ee23b8b3331411"
+    }
+  },
+  "stale_inputs": {
+    "state/analysis/P7_ordinary_app_entry_contract.md": {
+      "bytes": 19485,
+      "path": "state/analysis/P7_motor_settle_entry_contract.md",
+      "sha256": "af8ce726bf49b79fecc07548bd78a808d788894ea9e9e1b59daa69eae8a54e7d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json": {
+      "bytes": 20870,
+      "path": "state/analysis/P7_motor_settle_compile_raw/entry_binding01.json",
+      "sha256": "6234676242fdd7e61136fd2a1f66fabb0242b10ee597ef2bf6555a9444ecfd2b"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 16106,
+      "path": "state/analysis/P7_motor_settle_compile_raw/inspect_static_abi.py",
+      "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/abi.json",
+      "sha256": "069ed01bee9fba11159a4d93d156b8ada35ea5c11414b77870d80b6182d59941"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/local_result.json",
+      "sha256": "eb68ef2e125445ad94fc5c0dc251c2a411d55120ab1299e205a1674b572576f9"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01/result.json": {
+      "bytes": 905572,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/result.json",
+      "sha256": "230ef847f74e84d032a87336f74a4817d4cd8317a0ea5abc72c54fdd0d03eb6e"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json",
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/reviews/P7_ordinary_app_abi_actual_review.md": {
+      "bytes": 7312,
+      "path": "state/reviews/P7_motor_settle_abi_actual_review.md",
+      "sha256": "a7c3993ab5e0d008b4464bf93f89b5877447992fa8e3197d8c869812e11f874f"
+    }
+  },
+  "stale_manifest": {
+    "bytes": 13432,
+    "path": "state/analysis/P7_motor_settle_compile_raw/inputs_static.json",
+    "sha256": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+  },
+  "stale_outcome": {
+    "bytes": 1608,
+    "path": "state/analysis/P7_motor_settle_compile_raw/native_static01/result.json",
+    "sha256": "9b7f0c445cc84ad6d526445bf8e93ea189f718f0c883da8a1bf5cf077e741af5"
+  },
+  "status": "FINAL_INDEPENDENT_ORACLE_FROZEN_BEFORE_SUBJECT_INSPECTION",
+  "support": {
+    "bytes": 46134,
+    "path": "tests/tooling/test_app_motor_observe_abi.py",
+    "sha256": "b43b384aafc77499b4752af7633e2a94c98e67e955554f75490f5dc30e45bcbe"
+  },
+  "transitive_inputs_note": "125 current source/compile manifest pins plus exact predecessor/parser/accepted ABI/legacy loader inputs, frozen historical oracles and explicit stale fixtures; unused diagnostic test dependencies are excluded.",
+  "wrapper_recipe": {
+    "ordered_wrapper_substitutions": [
+      {
+        "after": {
+          "bytes": 14951,
+          "sha256": "8d4579c5e6b89daa9e7f3e2b3d2213a746797ff872f8338b5c44243a3a2020c9"
+        },
+        "before": {
+          "bytes": 14941,
+          "sha256": "a71eb62496ddedcc4d295579cea383635f309c8394dfd6c9ee32913a7418d835"
+        },
+        "count": 1,
+        "new": "# Observes fixed ordinary-app entry and inhibited motor instructions from checked files.\n# Preserves ordinary ABI evidence and the reviewed single-attempt file-only lifecycle.\n# Independent entry fixtures verify metadata projections, parsing, guards and closure.\n",
+        "old": "# Observes fixed SETTLE and entry instructions through the reviewed file-only reader.\n# Preserves accepted ABI evidence and reuses the historical entry parser privately.\n# Independent entry fixtures check projections, parsing, pins and attempt closure.\n"
+      },
+      {
+        "after": {
+          "bytes": 14959,
+          "sha256": "a1c555580697eef3566fb2925cd134564e0eacf926dd3919f28741f4b1b0ae42"
+        },
+        "before": {
+          "bytes": 14951,
+          "sha256": "8d4579c5e6b89daa9e7f3e2b3d2213a746797ff872f8338b5c44243a3a2020c9"
+        },
+        "count": 1,
+        "new": "P7_ordinary_app_static_compile_raw/",
+        "old": "P7_motor_const_compile_raw/"
+      },
+      {
+        "after": {
+          "bytes": 14960,
+          "sha256": "dd8584e5b28c63cdd663428427fb7bc7effa6358c9f379eaaebb108dc3dff466"
+        },
+        "before": {
+          "bytes": 14959,
+          "sha256": "a1c555580697eef3566fb2925cd134564e0eacf926dd3919f28741f4b1b0ae42"
+        },
+        "count": 1,
+        "new": "P7_ordinary_app_abi_actual_review.md",
+        "old": "P7_motor_const_abi_actual_review.md"
+      },
+      {
+        "after": {
+          "bytes": 14961,
+          "sha256": "f55ae6ee293c158e9cd40da3088d9816eae09289dfd971042fb1b958477b3d6a"
+        },
+        "before": {
+          "bytes": 14960,
+          "sha256": "dd8584e5b28c63cdd663428427fb7bc7effa6358c9f379eaaebb108dc3dff466"
+        },
+        "count": 1,
+        "new": "P7_ordinary_app_entry_contract.md",
+        "old": "P7_motor_const_entry_contract.md"
+      },
+      {
+        "after": {
+          "bytes": 14961,
+          "sha256": "1612f5239fde1b05e05d5006d7f4cf8dd7656e72beb064f0602a78577e343c50"
+        },
+        "before": {
+          "bytes": 14961,
+          "sha256": "f55ae6ee293c158e9cd40da3088d9816eae09289dfd971042fb1b958477b3d6a"
+        },
+        "count": 1,
+        "new": "d28204206a0adb06cb19e38f5cd48bc70edeec14260ab015b21b1a65eb55f637",
+        "old": "6663d1ea7309c809d8f727fc5bf68291128e54c83ca64b7d1ce53b9ff1cea9d9"
+      },
+      {
+        "after": {
+          "bytes": 14963,
+          "sha256": "ab2f6ec8df5cd68f5cca0e3a5a21d05a04af26ae24776e677916813c661c07aa"
+        },
+        "before": {
+          "bytes": 14961,
+          "sha256": "1612f5239fde1b05e05d5006d7f4cf8dd7656e72beb064f0602a78577e343c50"
+        },
+        "count": 1,
+        "new": "ORIGINALS = {\n    ABI: (44449, 'f816a52366d7031f860d5cdd93e0715905df4b675a24e89d8dbb1d2b63eda97d'),\n    ABI_CLOSURE: (275, '9c78721cfaa7330cc523619c31ad207832ffe6f9ca3abcc9e93bec7743212cf0'),\n    ABI_LAYOUT: (274942, 'e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4'),\n    ABI_RESULT: (581671, '6a17c12cb24396bf9a58a883ea295ec51feff2abe68d826983f363b3bcbb6d3b'),\n    ABI_REVIEW: (9627, '585be669385e1ca85ddd188d3eeda5fdf11cfc3392eea614370d9bfabbcc4b6a'),\n    ARTIFACTS: (9281, '275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0'),\n    PARSER: (10317, 'cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34'),\n    BINDING: (106946, '36cafffcfebc647b5019b438705fa42a8be94edfb5d8b67deac2508878c6ae89'),\n}",
+        "old": "ORIGINALS = {\n    ABI: (16087, 'f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c'),\n    PARSER: (10317, 'cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34'),\n    ABI_RESULT: (904847, 'bbdecb404a42237fafaf0bf4b2e38690b62ee45119cdfabd9b2f7dde17a6b9b0'),\n    ABI_LAYOUT: (5410, '6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97'),\n    ABI_CLOSURE: (275, '3cd224b237fc1b18586d7b2fb22c2a47833a801fea06b96b338027102db5d55d'),\n    ABI_REVIEW: (10178, '4cd28fe8ce3b689319da5ddb42739c664fd0e4bcdc2552b521ee23b8b3331411'),\n    ARTIFACTS: (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'),\n    BINDING: (44374, '7417ff7055e30238e8a3231db3287ffb3520ec8929ce3437afbd0dff1c2d60ae'),\n}"
+      },
+      {
+        "after": {
+          "bytes": 14963,
+          "sha256": "f397d0bdd76ef207a1c010a240c312c1a500471f34afeb3c46d59ca0884afe4f"
+        },
+        "before": {
+          "bytes": 14963,
+          "sha256": "ab2f6ec8df5cd68f5cca0e3a5a21d05a04af26ae24776e677916813c661c07aa"
+        },
+        "count": 1,
+        "new": "READER_INPUT = (12965, '7fb42d51a3f42f99c7e7890b4f4c1dc90360c2d84c09d3bbde7ccea4d1138aea')",
+        "old": "READER_INPUT = (17051, '938c1de2cc35f4c57f63c411ba1ca5e732bd4f0f86788e65034c6c91b5f848e6')"
+      },
+      {
+        "after": {
+          "bytes": 14963,
+          "sha256": "735773515a9a68ea8fac869bd15f105e286e60496089a94cc9c2d61d6e07836b"
+        },
+        "before": {
+          "bytes": 14963,
+          "sha256": "f397d0bdd76ef207a1c010a240c312c1a500471f34afeb3c46d59ca0884afe4f"
+        },
+        "count": 1,
+        "new": "READER_PROJECTED = (12987, '331f10914c77f1ece7255262db0d2f0c6472d31f86e680e6ec23c39c4b682b45')",
+        "old": "READER_PROJECTED = (17075, '580abb32b2597ceed62dadb6ea28ac028d3ffb66e5e5fa2d0c42a7400ad1b9f3')"
+      },
+      {
+        "after": {
+          "bytes": 14963,
+          "sha256": "d80bc0af06186871111229a5698c7271be976a0dd090b0ec6351bd9a07b4d497"
+        },
+        "before": {
+          "bytes": 14963,
+          "sha256": "735773515a9a68ea8fac869bd15f105e286e60496089a94cc9c2d61d6e07836b"
+        },
+        "count": 1,
+        "new": "PARSER_PROJECTED = (14259, 'a71d5c172b65952ab010441bfd894f2552e08bf2a66c19adf0eed29c381a6e05')",
+        "old": "PARSER_PROJECTED = (10866, 'c4c4f9e26b35da497e6a092de361b1727759ea1a16c7026b9242037c0544c90b')"
+      },
+      {
+        "after": {
+          "bytes": 14957,
+          "sha256": "59b0a9dd4050d80f24e6414c8d480849184f7674d6433ad2e588ec6ede49c124"
+        },
+        "before": {
+          "bytes": 14963,
+          "sha256": "d80bc0af06186871111229a5698c7271be976a0dd090b0ec6351bd9a07b4d497"
+        },
+        "count": 1,
+        "new": "READER_REPLACEMENTS = (\n    (b\"'/inspect_static_abi.py'\", b\"'/inspect_static_entry.py'\", 1),\n    (b\"'native_abi_static01'\", b\"'native_entry_static01'\", 1),\n    (b'ordinary-app-abi-static01', b'ordinary-app-entry-static01', 1),\n    (b'D209_STATIC_FILE_ONLY_ABI', b'D210_STATIC_FILE_ONLY_ENTRY', 2),\n    (b'STATIC_ABI_CHECKED', b'STATIC_ENTRY_CHECKED', 1),\n    (b'STATIC_ABI_OBSERVED', b'STATIC_ENTRY_OBSERVED', 1),\n    (b\"'file-abi'\", b\"'file-entry'\", 1),\n    (b\"'abi.json'\", b\"'entry.json'\", 1),\n    (b'StaticAbi', b'StaticEntry', 2),\n)",
+        "old": "READER_REPLACEMENTS = (\n    (b\"'/inspect_static_abi.py'\", b\"'/inspect_static_entry.py'\", 1),\n    (b\"'native_abi_static01'\", b\"'native_entry_static01'\", 1),\n    (b'app-motor-const-abi-static01', b'app-motor-const-entry-static01', 1),\n    (b'D204_STATIC_FILE_ONLY_ABI', b'D205_STATIC_FILE_ONLY_ENTRY', 2),\n    (b'STATIC_ABI_CHECKED', b'STATIC_ENTRY_CHECKED', 1),\n    (b'STATIC_ABI_OBSERVED', b'STATIC_ENTRY_OBSERVED', 2),\n    (b\"'file-abi'\", b\"'file-entry'\", 1),\n    (b\"'abi.json'\", b\"'entry.json'\", 1),\n    (b'StaticAbi', b'StaticEntry', 2),\n)"
+      },
+      {
+        "after": {
+          "bytes": 18546,
+          "sha256": "bd32178fc2abdbb6d806018d93f5562c8d03fe544a2f15927a7882c82d55bdaf"
+        },
+        "before": {
+          "bytes": 14957,
+          "sha256": "59b0a9dd4050d80f24e6414c8d480849184f7674d6433ad2e588ec6ede49c124"
+        },
+        "count": 1,
+        "new": "PARSER_REPLACEMENTS = (\n    (b'/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino', b'/home/arduino/sumox26_codex_build/ordinary-app-static01/build/app.ino', 1),\n    (b\"RANGES = (\\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\\n    ('setup', 0x081000c8, 0x081000e8, ('setup',)),\\n    ('loop', 0x081000e8, 0x08100104, ('loop',)),\\n    ('global_initializer', 0x08100104, 0x08100298, ('_GLOBAL__sub_I_setup',)),\\n    ('app_dump_port', 0x081002a8, 0x081002d0, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\\n    ('sources_port', 0x081003e0, 0x0810045c, ('_ZN3app13NativeSources4portEv',)),\\n    ('sources_adc_port', 0x0810045c, 0x08100470, ('_ZN3app13NativeSources7adcPortEv',)),\\n    ('runner_constructor', 0x08103984, 0x08103b58, tuple('_ZN15app_motor_fault6RunnerC' + str(n) +\\n        'ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE' for n in (1, 2))),\\n    ('runner_application_valid', 0x08103b58, 0x08103bb0, ('_ZNK15app_motor_fault6Runner16applicationValidEv',)),\\n    ('runner_stop_reason', 0x08103bb0, 0x08103c08, ('_ZNK15app_motor_fault6Runner10stopReasonEv',)),\\n    ('runner_freeze', 0x08103c08, 0x08103c94, ('_ZN15app_motor_fault6Runner6freezeENS_6ReasonE',)),\\n    ('runner_begin', 0x08103c94, 0x08103d24, ('_ZN15app_motor_fault6Runner5beginERKN11motor_fault6GrantsE',)),\\n    ('runner_poll', 0x08103d24, 0x08103d78, ('_ZN15app_motor_fault6Runner4pollEv',)),\\n    ('dump_port', 0x0810c760, 0x0810c774, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\\n    ('loop_hook', 0x08110bfc, 0x08110bfe, ('_Z10__loopHookv',)),\\n    ('candidate_rate', 0x08110c70, 0x08110cd8, ('_ZN6motors12_GLOBAL__N_113candidateRateEj',)),\\n    ('candidate_period', 0x08110cd8, 0x08110d10, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\\n    ('motor_port', 0x08110ed8, 0x08110f64, ('_ZN6motors8UnoQPort4portEv',)),\\n    ('power_reader_port', 0x0811326c, 0x08113290, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\\n    ('trace_constructor', 0x08115bec, 0x08115c7c,\\n        tuple('_ZN11motor_fault5TraceC' + str(n) + 'ERKN6motors4PortE' for n in (1, 2))),\\n    ('trace_port', 0x08115c7c, 0x08115cfc, ('_ZN11motor_fault5Trace4portEv',)),\\n    ('memcpy', 0x08115f6c, 0x08115f74, ('memcpy',)),\\n    ('memset', 0x08115f74, 0x08115f7c, ('memset',)),\\n    ('unsigned_divide', 0x0811602c, 0x08116036, ('__aeabi_uldivmod',)),\\n    ('init_variant', 0x08116044, 0x08116046, ('initVariant',)),\\n    ('main', 0x08116048, 0x08116074, ('main',)),\\n    ('start_static_threads', 0x08116074, 0x081160e0, ('_Z20start_static_threadsv',)),\\n)\", b\"RANGES = (\\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\\n    ('setup', 0x081000c8, 0x081000f0, ('setup',)),\\n    ('loop', 0x081000f0, 0x08100100, ('loop',)),\\n    ('global_initializer', 0x08100100, 0x08100294, ('_GLOBAL__sub_I_setup',)),\\n    ('app_dump_port', 0x081002a4, 0x081002cc, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\\n    ('sources_port', 0x081003dc, 0x08100458, ('_ZN3app13NativeSources4portEv',)),\\n    ('sources_adc_port', 0x08100458, 0x0810046c, ('_ZN3app13NativeSources7adcPortEv',)),\\n    ('dump_port', 0x0810c248, 0x0810c25c, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\\n    ('motor_port', 0x08110934, 0x081109b8, ('_ZN6motors8UnoQPort4portEv',)),\\n    ('power_reader_port', 0x08112cd0, 0x08112cf4, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\\n    ('loop_hook', 0x081106e4, 0x081106e6, ('_Z10__loopHookv',)),\\n    ('memcpy', 0x08115644, 0x0811564c, ('memcpy',)),\\n    ('memset', 0x0811564c, 0x08115654, ('memset',)),\\n    ('init_variant', 0x0811571c, 0x0811571e, ('initVariant',)),\\n    ('main', 0x08115720, 0x0811574c, ('main',)),\\n    ('start_static_threads', 0x0811574c, 0x081157b8, ('_Z20start_static_threadsv',)),\\n    ('runtime_constructor', 0x08100510, 0x08100a26, ('_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE', '_ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE')),\\n    ('transaction_constructor', 0x081030f8, 0x081032a8, ('_ZN3app11TransactionC1ERKN6motors4PortE', '_ZN3app11TransactionC2ERKN6motors4PortE')),\\n    ('gate_constructor', 0x08111084, 0x081110c0, ('_ZN6motors9MotorGateC1ERKNS_4PortE', '_ZN6motors9MotorGateC2ERKNS_4PortE')),\\n    ('input_owner_constructor', 0x081126ec, 0x0811273e, ('_ZN5power10InputOwnerC1ERKNS_9InputPortE', '_ZN5power10InputOwnerC2ERKNS_9InputPortE')),\\n    ('robot_constructor', 0x08102b58, 0x081030f8, ('_ZN3fsm5RobotC1Ev', '_ZN3fsm5RobotC2Ev')),\\n    ('fusion_observation_constructor', 0x08102a20, 0x08102a44, ('_ZN10opp_fusion17FusionObservationC1Ev', '_ZN10opp_fusion17FusionObservationC2Ev')),\\n    ('flank_constructor', 0x08102a44, 0x08102a94, ('_ZN7openers5FlankC1Ev', '_ZN7openers5FlankC2Ev')),\\n    ('turn_constructor', 0x081029d8, 0x08102a06, ('_ZN6motion4TurnC1Ev', '_ZN6motion4TurnC2Ev')),\\n    ('straight_constructor', 0x08102a06, 0x08102a20, ('_ZN6motion8StraightC1Ev', '_ZN6motion8StraightC2Ev')),\\n    ('line_thresholds_constructor', 0x0810046c, 0x08100484, ('_ZN8line_qtr10ThresholdsC1Ev', '_ZN8line_qtr10ThresholdsC2Ev')),\\n    ('qtr_report_constructor', 0x08100484, 0x081004bc, ('_ZN7qtr_cal6ReportC1Ev', '_ZN7qtr_cal6ReportC2Ev')),\\n    ('line_snapshot_constructor', 0x081004bc, 0x0810050c, ('_ZN8line_qtr8SnapshotC1Ev', '_ZN8line_qtr8SnapshotC2Ev')),\\n    ('robot_result_constructor', 0x08102a94, 0x08102b54, ('_ZN3fsm11RobotResultC1Ev', '_ZN3fsm11RobotResultC2Ev')),\\n    ('runtime_begin', 0x08100f9c, 0x08101050, ('_ZN3app7Runtime5beginERKNS_11SetupGrantsE',)),\\n    ('runtime_valid_ports', 0x08100a28, 0x08100aa8, ('_ZNK3app7Runtime10validPortsEv',)),\\n    ('runtime_initialize_sources', 0x08100da4, 0x08100ef4, ('_ZN3app7Runtime17initializeSourcesEv',)),\\n    ('runtime_initialize_dump', 0x08101acc, 0x08101b08, ('_ZN3app7Runtime14initializeDumpEv',)),\\n    ('transaction_initialize', 0x081032a8, 0x081032e4, ('_ZN3app11Transaction10initializeEv',)),\\n    ('gate_begin', 0x081111b8, 0x08111240, ('_ZN6motors9MotorGate5beginEv',)),\\n    ('runtime_step', 0x0810144c, 0x08101588, ('_ZN3app7Runtime4stepEv',)),\\n    ('transaction_open', 0x0810338c, 0x08103418, ('_ZN3app11Transaction4openEv',)),\\n    ('transaction_decide_from', 0x0810358c, 0x08103600, ('_ZN3app11Transaction10decideFromERKNS_14DecisionSourceE',)),\\n    ('transaction_apply_decision', 0x0810346c, 0x0810358c, ('_ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj',)),\\n    ('gate_apply', 0x08111448, 0x08111540, ('_ZN6motors9MotorGate5applyEjRKN3fsm11RobotResultE',)),\\n    ('gate_transact', 0x081113e0, 0x08111448, ('_ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE',)),\\n    ('runtime_complete_epoch', 0x0810136c, 0x0810144c, ('_ZN3app7Runtime13completeEpochEv',)),\\n    ('transaction_complete', 0x08103600, 0x081036c8, ('_ZN3app11Transaction8completeEbj',)),\\n    ('transaction_finish_after', 0x081036c8, 0x081036d4, ('_ZN3app11Transaction11finishAfterEj',)),\\n    ('runtime_fail', 0x08100cf0, 0x08100d74, ('_ZN3app7Runtime4failENS_12RuntimeFaultE',)),\\n    ('runtime_cancel_sources', 0x08100c70, 0x08100cf0, ('_ZN3app7Runtime13cancelSourcesEv',)),\\n    ('transaction_fail', 0x08103318, 0x0810338c, ('_ZN3app11Transaction4failENS_5FaultE',)),\\n    ('transaction_abort', 0x081036d4, 0x081036e0, ('_ZN3app11Transaction5abortEv',)),\\n    ('gate_halt', 0x08111540, 0x081115e0, ('_ZN6motors9MotorGate4haltEv',)),\\n    ('gate_inhibit', 0x0811111a, 0x081111b8, ('_ZN6motors9MotorGate7inhibitEv',)),\\n    ('gate_zero_pwm', 0x081110f8, 0x0811111a, ('_ZN6motors9MotorGate7zeroPwmEv',)),\\n    ('configure_enable_low', 0x08110a64, 0x08110b98, ('_ZN6motors8UnoQPort18configureEnableLowEPv',)),\\n    ('configure_pwm', 0x08110db0, 0x08110e9c, ('_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE',)),\\n    ('write_enable', 0x08110b98, 0x08110bfc, ('_ZN6motors8UnoQPort11writeEnableEPvb',)),\\n    ('write_pwm', 0x08110e9c, 0x08110f80, ('_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj',)),\\n    ('motor_settle', 0x08110fc4, 0x08111084, ('_ZN6motors8UnoQPort6settleEPv',)),\\n    ('motor_clock', 0x08110794, 0x0811079c, ('_ZN6motors8UnoQPort7clockUsEPv',)),\\n    ('candidate_period', 0x08110758, 0x0811076c, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\\n    ('map_channel', 0x0811082c, 0x08110934, ('_ZN6motors12_GLOBAL__N_110mapChannelEjRj',)),\\n    ('enable_owned', 0x081109b8, 0x08110a64, ('_ZNK6motors8UnoQPort11enableOwnedEv',)),\\n    ('enable_low', 0x08110bfc, 0x08110c30, ('_ZNK6motors8UnoQPort9enableLowEv',)),\\n    ('timer_valid', 0x08110c30, 0x08110db0, ('_ZNK6motors8UnoQPort10timerValidEj',)),\\n    ('bank_valid', 0x08110f80, 0x08110fc4, ('_ZNK6motors8UnoQPort9bankValidEv',)),\\n    ('gate_valid_port', 0x081110c0, 0x081110f8, ('_ZNK6motors9MotorGate9validPortEv',)),\\n)\", 1),\n    (b\"BOUNDS = {name: (0x0811621c if name == '__init_array_end' else 0x08116218)\\n          for name in ('__init_array_start', '__init_array_end', '__preinit_array_start',\\n                       '__preinit_array_end', '__static_thread_data_list_start', '__static_thread_data_list_end')}\", b\"BOUNDS = {\\n    '__init_array_start': 0x081158f0,\\n    '__init_array_end': 0x081158f4,\\n    '__preinit_array_start': 0x081158f0,\\n    '__preinit_array_end': 0x081158f0,\\n    '__static_thread_data_list_start': 0x081158f0,\\n    '__static_thread_data_list_end': 0x081158f0,\\n}\", 1),\n    (b\"label in ('global_initializer', 'candidate_rate', 'candidate_period')\", b\"label in ('global_initializer', 'candidate_period', 'map_channel')\", 1),\n    (b\"label in ('init_variant', 'main')\", b\"label in ('init_variant', 'main', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor')\", 1),\n    (b\"sections[0]['address'] == 0x08116218\", b\"sections[0]['address'] == 0x081158f0\", 1),\n    (b'int(lines[0][0], 16) == 0x08116218', b'int(lines[0][0], 16) == 0x081158f0', 1),\n    (b'return dict(address=0x08116218, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)', b'return dict(address=0x081158f0, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)', 1),\n    (b'pointer == 0x08100105', b'pointer == 0x08100101', 1),\n)",
+        "old": "PARSER_REPLACEMENTS = (\n    (b'/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino', b'/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino', 1),\n    (b\"RANGES = (\\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\\n    ('setup', 0x081000c8, 0x081000e8, ('setup',)),\\n    ('loop', 0x081000e8, 0x08100104, ('loop',)),\\n    ('global_initializer', 0x08100104, 0x08100298, ('_GLOBAL__sub_I_setup',)),\\n    ('app_dump_port', 0x081002a8, 0x081002d0, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\\n    ('sources_port', 0x081003e0, 0x0810045c, ('_ZN3app13NativeSources4portEv',)),\\n    ('sources_adc_port', 0x0810045c, 0x08100470, ('_ZN3app13NativeSources7adcPortEv',)),\\n    ('runner_constructor', 0x08103984, 0x08103b58, tuple('_ZN15app_motor_fault6RunnerC' + str(n) +\\n        'ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE' for n in (1, 2))),\\n    ('runner_application_valid', 0x08103b58, 0x08103bb0, ('_ZNK15app_motor_fault6Runner16applicationValidEv',)),\\n    ('runner_stop_reason', 0x08103bb0, 0x08103c08, ('_ZNK15app_motor_fault6Runner10stopReasonEv',)),\\n    ('runner_freeze', 0x08103c08, 0x08103c94, ('_ZN15app_motor_fault6Runner6freezeENS_6ReasonE',)),\\n    ('runner_begin', 0x08103c94, 0x08103d24, ('_ZN15app_motor_fault6Runner5beginERKN11motor_fault6GrantsE',)),\\n    ('runner_poll', 0x08103d24, 0x08103d78, ('_ZN15app_motor_fault6Runner4pollEv',)),\\n    ('dump_port', 0x0810c760, 0x0810c774, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\\n    ('loop_hook', 0x08110bfc, 0x08110bfe, ('_Z10__loopHookv',)),\\n    ('candidate_rate', 0x08110c70, 0x08110cd8, ('_ZN6motors12_GLOBAL__N_113candidateRateEj',)),\\n    ('candidate_period', 0x08110cd8, 0x08110d10, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\\n    ('motor_port', 0x08110ed8, 0x08110f64, ('_ZN6motors8UnoQPort4portEv',)),\\n    ('power_reader_port', 0x0811326c, 0x08113290, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\\n    ('trace_constructor', 0x08115bec, 0x08115c7c,\\n        tuple('_ZN11motor_fault5TraceC' + str(n) + 'ERKN6motors4PortE' for n in (1, 2))),\\n    ('trace_port', 0x08115c7c, 0x08115cfc, ('_ZN11motor_fault5Trace4portEv',)),\\n    ('memcpy', 0x08115f6c, 0x08115f74, ('memcpy',)),\\n    ('memset', 0x08115f74, 0x08115f7c, ('memset',)),\\n    ('unsigned_divide', 0x0811602c, 0x08116036, ('__aeabi_uldivmod',)),\\n    ('init_variant', 0x08116044, 0x08116046, ('initVariant',)),\\n    ('main', 0x08116048, 0x08116074, ('main',)),\\n    ('start_static_threads', 0x08116074, 0x081160e0, ('_Z20start_static_threadsv',)),\\n)\", b\"RANGES = (\\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\\n    ('setup', 0x081000c8, 0x081000e8, ('setup',)),\\n    ('loop', 0x081000e8, 0x08100104, ('loop',)),\\n    ('global_initializer', 0x08100104, 0x08100298, ('_GLOBAL__sub_I_setup',)),\\n    ('app_dump_port', 0x081002a8, 0x081002d0, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\\n    ('sources_port', 0x081003e0, 0x0810045c, ('_ZN3app13NativeSources4portEv',)),\\n    ('sources_adc_port', 0x0810045c, 0x08100470, ('_ZN3app13NativeSources7adcPortEv',)),\\n    ('runner_constructor', 0x08103984, 0x08103b5c, ('_ZN17app_motor_observe6RunnerC1ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE', '_ZN17app_motor_observe6RunnerC2ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE')),\\n    ('runner_application_valid', 0x08103b5c, 0x08103bb4, ('_ZNK17app_motor_observe6Runner16applicationValidEv',)),\\n    ('runner_stop_reason', 0x08103bb4, 0x08103c20, ('_ZNK17app_motor_observe6Runner10stopReasonEv',)),\\n    ('runner_freeze', 0x08103c20, 0x08103cac, ('_ZN17app_motor_observe6Runner6freezeENS_6ReasonE',)),\\n    ('runner_begin', 0x08103cac, 0x08103d3c, ('_ZN17app_motor_observe6Runner5beginERKN11motor_fault6GrantsE',)),\\n    ('runner_poll', 0x08103d3c, 0x08103d98, ('_ZN17app_motor_observe6Runner4pollEv',)),\\n    ('dump_port', 0x0810c780, 0x0810c794, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\\n    ('loop_hook', 0x08110c1c, 0x08110c1e, ('_Z10__loopHookv',)),\\n    ('candidate_period', 0x08110c90, 0x08110ca4, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\\n    ('motor_port', 0x08110ea8, 0x08110f2c, ('_ZN6motors8UnoQPort4portEv',)),\\n    ('power_reader_port', 0x081132a8, 0x081132cc, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\\n    ('trace_constructor', 0x08115c2c, 0x08115cbc, ('_ZN11motor_fault5TraceC1ERKN6motors4PortE', '_ZN11motor_fault5TraceC2ERKN6motors4PortE')),\\n    ('trace_port', 0x08115cbc, 0x08115d3c, ('_ZN11motor_fault5Trace4portEv',)),\\n    ('memcpy', 0x08115fac, 0x08115fb4, ('memcpy',)),\\n    ('memset', 0x08115fb4, 0x08115fbc, ('memset',)),\\n    ('unsigned_divide', 0x0811606c, 0x08116076, ('__aeabi_uldivmod',)),\\n    ('init_variant', 0x08116084, 0x08116086, ('initVariant',)),\\n    ('main', 0x08116088, 0x081160b4, ('main',)),\\n    ('start_static_threads', 0x081160b4, 0x08116120, ('_Z20start_static_threadsv',)),\\n    ('publish_settle', 0x08110cd4, 0x08110d10, ('_ZN6motors12_GLOBAL__N_113publishSettleENS_17SettleProbeReasonEjjhh',)),\\n    ('motor_settle', 0x08111538, 0x0811165c, ('_ZN6motors8UnoQPort6settleEPv',)),\\n    ('timer_valid', 0x081111a4, 0x08111324, ('_ZNK6motors8UnoQPort10timerValidEj',)),\\n    ('bank_valid', 0x081114f4, 0x08111538, ('_ZNK6motors8UnoQPort9bankValidEv',)),\\n    ('write_pwm', 0x08111410, 0x081114f4, ('_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj',)),\\n    ('map_channel', 0x08110da0, 0x08110ea8, ('_ZN6motors12_GLOBAL__N_110mapChannelEjRj',)),\\n)\", 1),\n    (b\"BOUNDS = {name: (0x0811621c if name == '__init_array_end' else 0x08116218)\\n          for name in ('__init_array_start', '__init_array_end', '__preinit_array_start',\\n                       '__preinit_array_end', '__static_thread_data_list_start', '__static_thread_data_list_end')}\", b\"BOUNDS = {\\n    '__init_array_start': 0x08116258,\\n    '__init_array_end': 0x0811625c,\\n    '__preinit_array_start': 0x08116258,\\n    '__preinit_array_end': 0x08116258,\\n    '__static_thread_data_list_start': 0x08116258,\\n    '__static_thread_data_list_end': 0x08116258,\\n}\", 1),\n    (b\"('global_initializer', 'candidate_rate', 'candidate_period')\", b\"('global_initializer', 'candidate_period', 'publish_settle', 'map_channel')\", 1),\n    (b\"sections[0]['address'] == 0x08116218\", b\"sections[0]['address'] == 0x08116258\", 1),\n    (b'int(lines[0][0], 16) == 0x08116218', b'int(lines[0][0], 16) == 0x08116258', 1),\n    (b'return dict(address=0x08116218, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)', b'return dict(address=0x08116258, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)', 1),\n)"
+      },
+      {
+        "after": {
+          "bytes": 18546,
+          "sha256": "c5ae748dd8f269c4269f824ac357c062da07fce6de905ed5772ba148c1183761"
+        },
+        "before": {
+          "bytes": 18546,
+          "sha256": "bd32178fc2abdbb6d806018d93f5562c8d03fe544a2f15927a7882c82d55bdaf"
+        },
+        "count": 1,
+        "new": "_sumox_d210_entry_abi",
+        "old": "_sumox_d205_entry_abi"
+      },
+      {
+        "after": {
+          "bytes": 18546,
+          "sha256": "5bcb6e12424237cb2701d271e2704281dedca76688d786eac1076daf8f9b3e0b"
+        },
+        "before": {
+          "bytes": 18546,
+          "sha256": "c5ae748dd8f269c4269f824ac357c062da07fce6de905ed5772ba148c1183761"
+        },
+        "count": 1,
+        "new": "_sumox_d210_entry_parser",
+        "old": "_sumox_d205_entry_parser"
+      }
+    ],
+    "predecessor": {
+      "bytes": 14941,
+      "path": "state/analysis/P7_motor_const_compile_raw/inspect_static_entry.py",
+      "sha256": "a71eb62496ddedcc4d295579cea383635f309c8394dfd6c9ee32913a7418d835"
+    }
+  }
+}

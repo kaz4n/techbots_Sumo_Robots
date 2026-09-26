@@ -484,3 +484,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T17:07:42.614366+04:00 | D210 preparation | Retain106946B normative binding,13109B implementation receipt,1255B finding and source/driver for reproduction/review. Preserve original unadopted contract/binding via commitd74c6471 rather than duplicate scratch snapshots. No subject, host suite or native code executed; no runtime fixture or native owner created. No disposal batch or reclaimed-byte claim.
+
+
+2026-09-26T17:25:14.121824+04:00 | D210 first host closure | Retain first Linux/Windows receipts and raw streams plus14410Bclosure and833BreadonlyLinuxinventory. Both scoped temporary roots are empty; no manual deletion, test retry or reclaimed-space claim. C:5933735936B free. Original proposal commit and authoring refusals retained for review.

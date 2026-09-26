@@ -21,7 +21,7 @@ Host driver3503B/26e575d0 is D209 driver3497B/1e50cb8e after exactly three
 metadata steps: D209 to D210 once, d209 to d210 once, abi to entry three times.
 The final step updates only the freeze name, receiptowner prefix and test name.
 360s bounds, exclusive owners, serial platform order and pre-start temporary
-roots remain exact. No driver or host suite has run.
+roots remain exact. At implementation sealing, no driver or host suite had run.
 
 Independent oracle author fresh_review owns test_ordinary_app_entry.py and its
 fixture/freeze metadata, without inspecting or hashing the new subject before
@@ -36,3 +36,35 @@ D207 remains the last verified flash. No compile/upload/reset/MCU read, ordinary
 runtime, coherent snapshot, live RAM/WCET, physical acceptance, motor permission
 or phase gate follows. Broader callees remain source/host evidence; there is no
 closed-call-graph claim.
+
+Independent oracle is FINAL:13323B/6dcac3cc, fixture172635B/40f3d0a6,
+freeze34611B/154428bb. It explicitly selects27methods, retains150 inherited
+assertion/rejection call sites plus24 new sites, and declares no platform skips.
+Geometry includes539alias and192marker/coverage negatives. Two data-only
+authoring refusals are preserved: initializer occurrence count (six verified
+contexts with meaningful invalid mutations) and historical semantic tuple shape.
+No test or subject had executed when these were corrected.
+
+Coordinator freeze31186B/e22394ea binds171 unchanged inputs. Both scoped
+reviewers explicitly approved first execution after checking final source and
+fixtures. The first Linux and Windows host processes have both completed.
+No native action has occurred.
+
+## First host results, final review pending
+
+Linux27PASS/no skips, inner38.000s/outer49.833s; Windows27PASS/no skips,
+inner15.267s/outer15.724s. Both first runs return0, with no timeout or retry.
+Stderr hashesc9ad467b/6b426fa2 and both empty stdout streams are retained.
+Root closure14410B/7ca9dd4e verifies all54ordered outcomes, eight stream/receipt
+pins and all171coordinator inputs unchanged. Actual Windows temporary contents
+and read-only UID1000 Linux /dev/shm sumox-entry- inventory are empty; the latter
+receipt is833B/d1a4ac1b. C: free space was5933735936B. No native call occurred.
+Final source/host review remains open; no passing suite needs to run again.
+
+
+## Final source/host acceptance (2026-09-26T17:29:46.250615+04:00)
+Independent review10497B/ca0104db is FINAL PASS, superseding the pending-review language above. All54 outcomes,171pins and empty scoped fixtures reconcile. Fifteen-input native scope is prepared; separate admission and clean HEAD/check-only remain required. No passing host suite will be repeated.
+
+
+## Native admission (2026-09-26T17:32:54.259489+04:00)
+Separate immutable review6561B/3a1aa879 is FINAL PASS for scope4398B/87e79080. Root verified171coordinator and15scope input roles,174unique exact working/index blobs, and preserved PROGRESS history. All writers must stop before final clean commit/check-only and remain stopped through the single native closure. No actual instructions have yet been observed.

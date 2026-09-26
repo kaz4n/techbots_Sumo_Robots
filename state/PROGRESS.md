@@ -1481,3 +1481,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T17:05:24.481073+04:00 | P7 | D210 ordinary entry contract adopted | reviewfe154519 PASS;64groups77aliases10420B; bounded source-attribution fix preserved; implementation/oracle next | pending commit
 
 2026-09-26T17:07:42.614366+04:00 | P7 | D210 entry implementation sealed | subject18546B/5bcb6e12, reader331f1091/parsera71d5c17, receipt3f3e9fe8; data-only construction; independent oracle pending | pending commit
+
+
+2026-09-26T17:29:46.250615+04:00 | P7 | D210 source/host acceptance | FINAL ca0104db PASS; Linux27/Windows27/no skips,171pins and empty fixtures; fixed native scope prepared, admission next | pending commit
+
+
+2026-09-26T17:32:54.259489+04:00 | P7 | D210 native admission | FINAL 3a1aa879 PASS;15scope/171hostpins,174 exact index blobs; clean commit and check-only precede one file-only entry attempt | pending commit

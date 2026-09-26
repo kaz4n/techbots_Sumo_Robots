@@ -1,0 +1,25 @@
+{
+  "schema": "d210-linux-fixture-closure-v1",
+  "at": "2026-09-26T17:23:36.595866+04:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-I",
+    "-B",
+    "-c",
+    "import os,json; root='/dev/shm'; prefix='sumox-entry-'; uid=os.getuid(); rows=[{'name':e.name,'uid':e.stat(follow_symlinks=False).st_uid} for e in os.scandir(root) if e.name.startswith(prefix)]; print(json.dumps({'uid':uid,'root':root,'prefix':prefix,'remnants':rows}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"uid\": 1000, \"root\": \"/dev/shm\", \"prefix\": \"sumox-entry-\", \"remnants\": []}\n",
+  "stderr": "",
+  "inventory": {
+    "uid": 1000,
+    "root": "/dev/shm",
+    "prefix": "sumox-entry-",
+    "remnants": []
+  },
+  "operations": "Read-only inventory after completed first Linux suite; no deletion, test or board call"
+}

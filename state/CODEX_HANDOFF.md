@@ -1,6 +1,11 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
-## Active D210: entry reader sealed; independent oracle pending
+## Active D210: native admission accepted; clean commit and execution next
+
+Independent source/host review10497B/ca0104db is FINAL PASS. Fifteen-input
+entry_native_scope01.json is prepared; separate admission, clean committed HEAD
+and successful check-only precede one file-only entry observation. No native
+entry owner exists. Earlier pending-review language below is superseded.
 
 D210 contract31029B/d2820420 and binding106946B/36cafffc are adopted under D051,
 preparationreview10307B/fe154519 FINAL PASS. Original unadopted draft is preserved
@@ -13,14 +18,18 @@ Root created only the new entrysubject18546B/5bcb6e12 and receipt13109B/3f3e9fe8
 reader12987B/331f1091/parser14259B/a71d5c17 use9countedmetadata steps each.
 Hostdriver3503B/26e575d0 uses3metadata substitutions,360s limit and distinct
 entry_first_linux01 / entry_first_windows01 owners with isolated temp roots.
-All work to date is data/AST construction; no subject or tests executed.
+Implementation was sealed before execution; the first host runs now pass.
 
-fresh_review owns the independent oracle/fixture/freeze and may inspect only
-the metadata receipt before its FINAL. Root has read/hashed no neworacle.
-const_cleanup_review waits for oracleFINAL before any newsubject inspection;
-then source/fixture review, coordinatorfreeze, firstserial hostruns, source/host
-closure and freshfixed native scope/admission precede cleanHEAD/check-only and
-one file-only instruction observation. No native entry owner exists yet.
+Independent oracle FINAL13323B/6dcac3cc, fixture172635B/40f3d0a6 and
+freeze34611B/154428bb retain27methods/150inherited+24newassertsites/no skips.
+Two data-only authoring refusals are preserved without assertion loss.
+Coordinatorfreeze31186B/e22394ea binds171 exact files. Both reviewers explicitly
+approved source/fixtures for first serial execution; const_cleanup_review owns
+source/host review pending actual outcomes. FirstLinux27PASS and Windows27PASS/no skips/no retries are complete. Root
+closing14410B/7ca9dd4e checks54ordered outcomes,8files,171pins and empty scoped
+Windows/Linuxfixtures (Linuxreceipt833B/d1a4ac1b). No process/session remains.
+Obtain FINALsource/host review, then preparefixed native scope/admission. No native
+entry owner exists.
 
 Current details: analysis/P7_ordinary_app_entry_validation.md. Source planning
 for a later passive ordinary runtime observation is unadopted at

@@ -50,3 +50,15 @@ bytes, and independently review the actual outcome. Before that operation,
 D195 remains the last flashed image. No motor-run permission or human gate
 has been supplied; capture equality cannot establish coherent publication,
 physical origin by itself, production WCET or robot acceptance.
+
+## Actual inhibited collection
+
+At clean reviewed HEAD `ff35c83e6d21d299dac14eb6fc5570d173a7772d`, check-only and execute returned 0. One upload, one capture and all 13 transports completed; no first error, postcheck error or closing error was recorded. Upload took 12.850 seconds; capture took 251.206 seconds, with 26 reads / 727432 bytes, the required 30-second and 2-second waits, and all four full flash comparisons true. The native owner is consumed.
+
+A subsequent file-only retrieval verified 14 saved files totaling 17954 bytes, including closing rereads. Packet SHA `e32415b2ec6ea05f3056a68c116f71a2e502f9f815cfb7675d0a57c6b505860a`; decoded SHA `4d8383c3ceb7b0b02211e4933a1141e88d2bc65a336d3ffccd707d2040e6267e`. The fixed decoder returned 0 / DECODED with no format error; all six pairs agree, with coherence still UNPROVEN.
+
+The saved SETTLE lifetime first failure is FINAL_DEADLINE (7), elapsed154us, poll_index5, fresh_mask7, valid7. Current is SUCCESS (1), elapsed132us, poll_index4, fresh_mask7, valid7. Both presence flags are1 and reserved fields are0; source-predicate annotations are CONSISTENT with no issues. The retained failure is not erased by the later success.
+
+Observer is FROZEN / SETUP_FAILED, begin_ok=false, zero polling passes and zero epochs. Its 17-call complete trace records SETUP/SETTLE false at index10 (159us outer span), then EN-low/four zero-duty writes and SETUP/SETTLE true at index16 (137us outer span). This is initialization cleanup, not a HALT success. Gate remains uninitialized with IO fault; runtime has TRANSACTION fault. Both stored halt receipts have attempted=false and inhibition_confirmed=false. Runtime maximum_execution_us=0 is not a measured WCET: no control epoch ran.
+
+This new observation localizes a saved rejection to the final154us-versus150us predicate; it does not identify why that duration occurred, establish coherent publication or physical timing/output qualification, or explain D195's separate application921 failure automatically. No limit, pin, grant or firmware behavior was changed in this run. Independent actual review `690a4164` passed for evidence integrity and observed setup failure; no material integrity issue remains.

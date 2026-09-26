@@ -378,3 +378,6 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 
 
 2026-09-26T09:35:15.664942+04:00 | D195 inhibited diagnostic, no tuning | FirstnativeSETTLEfalse atapplication921; completedinstrumentedtransaction/max859us exceeds800ustarget for thissample, notproductionWCET. Outerfailure154us andlaterHALT153us do notmeasureinternaldeadline; successfulSETUPalso154us. Finalhaltinhibitionunconfirmed. No config/pin/limit change orphysicalacceptance. Source3a08ddeb/fullflashbracketsPASS; analysis/P7_app_motor_observe_actual_validation.md.
+
+
+2026-09-26T11:47:14.501322+04:00 | D201 inhibited diagnostic, no tuning | Internal first FINAL_DEADLINE154us/poll5/allthreefresh versus unchanged150us bound; initial SETUP callbackfalse159us outer, cleanupSETTLEsuccess132us internal/137us outer. Zero control epochs; maximum_execution_us0 is not a measured WCET. No pin/config/grant/limit change. Source117cc0e7/fullflashbracketsPASS, actualreview690a4164.

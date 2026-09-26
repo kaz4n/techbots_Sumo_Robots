@@ -1423,3 +1423,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T11:33:04.379067+04:00 | P7 D201 host preparation verified | Exact native derivatives pass 99 Linux methods and 56 Windows methods with 43 explicit Linux-only skips covered on Linux. First decoder failures preserved b69cc011; three implementation fixes and one portable fixture correction in 82a24b14 pass 67 Linux/67 Windows methods, no skips, all16 revised pins stable. Read-only admission02 passed current board/boot,19files/exact D200 result/4absences. Fixed scope reviewed; final decoder review and clean-HEAD check-only precede one inhibited upload/capture. D195 remains flashed; no physical gate or motor authorization.
+
+
+2026-09-26T11:47:14.501322+04:00 | P7 D201 actual diagnostic complete | Cleanff35c83e check0/execute0,13transports26reads727432B/fullflashbracketsPASS; nativefb529423/retrievale32415b2/decoded4d8383c3. Actualreview690a4164 verifies2034scalars/14savedfiles/6equalpairs; coherenceUNPROVEN. SETUP_FAILED beforeepochs, firstFINAL_DEADLINE154us/poll5/fresh7 thensetupcleanupSUCCESS132us/poll4. Owner consumed; no HALT success or physical gate. Proceed only with separately recorded compile-time immutable metadata optimization;150us/4096/livechecks unchanged.

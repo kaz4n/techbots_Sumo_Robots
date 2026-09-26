@@ -430,3 +430,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T11:06:57.253762+04:00 | D199 entry native evidence | Retain8ownerfiles798606logicalB pluscompactinvocation/validation/15336Bactualreview tobindemittedinstructions andnextcapture. GDBraw118292B retained; noELF/debugdownload/newbytecode/deletion. CurrentCfree20626288640B. All204hostpinsstable; ownerconsumed andpriorpolicy-deniedpaths untouched.
+
+
+2026-09-26T11:47:14.501322+04:00 | D201 evidence retention | Keep58nativeownerfiles629306B and file-onlyretrieval/decoded evidence129075B plus compact invocation,host,review/source records. Retained raw SRAM and first decoder failures are necessary provenance; no duplicate ELF/debug download. No deletion or reclaimed-byte claim. D201 upload may have created new scratch; any next cleanup needs fresh exact binding and use checks. All older denied paths remain untouched.

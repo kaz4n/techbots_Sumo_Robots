@@ -1,0 +1,58 @@
+{
+  "schema": "d204-fixed-file-only-abi-scope-v1",
+  "prepared": "2026-09-26T13:21:02.987920+04:00",
+  "action": "one check-only then one execute at clean reviewed HEAD, no auto-retry",
+  "source_sha256": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "serial": "2629958581",
+  "local_owner": "state/analysis/P7_motor_const_compile_raw/native_abi_static01",
+  "remote_scope": "/home/arduino/sumox26_codex_build/app-motor-const-abi-static01",
+  "build_owner": "/home/arduino/sumox26_codex_build/app-motor-const-static01",
+  "file_children": 4,
+  "gdb_expressions": 223,
+  "subjects": 23,
+  "runner_windows": 11,
+  "child_timeout_seconds": 60,
+  "reap_seconds": 5,
+  "transport_timeout_seconds": 400,
+  "stream_limit_bytes": 1048576,
+  "reply_limit_bytes": 8388608,
+  "windows_command_units_limit": 30000,
+  "local_free_minimum_bytes": 134217728,
+  "limits": "File observation only; no compile, upload, reset, MCU read, privilege, motor or gate. Entry ranges follow actual ABI.",
+  "inputs": {
+    "state/analysis/P7_motor_const_abi_contract.md": {
+      "bytes": 15192,
+      "sha256": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py": {
+      "bytes": 16087,
+      "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/result.json": {
+      "bytes": 1605,
+      "sha256": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_compile_raw/abi_host_closing01.json": {
+      "bytes": 2260,
+      "sha256": "bb30f2d654c07301a83b695d0254a40b31db0cb3f2f5dea4b023dbef9f99f258"
+    },
+    "state/reviews/P7_motor_const_abi_review.md": {
+      "bytes": 16839,
+      "sha256": "ae662c11ca21d5ebcbb2d0865d35ce8eb068a498e6107e18692d6273209120b4"
+    },
+    "state/reviews/P7_motor_const_compile_actual_review.md": {
+      "bytes": 10135,
+      "sha256": "9c3e8cfe07ae33cac8d4a91f74127c33d3929e299bd5da339934943d784f21df"
+    }
+  },
+  "admission_boundary": "No separate board observer. Check-only local only. Execute includes current identity, absent remote scope and12file hashes/stamps before four children, then13closing checks and independent local closure. No retries."
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "d204-host-closing-v1",
+  "at": "2026-09-26T13:19:47.309847+04:00",
+  "freeze": {
+    "bytes": 38881,
+    "sha256": "904993249225187dfe6220051131f7fc9bd8f6701f5f7e5d1e8564f81626a89c"
+  },
+  "frozen_files": 238,
+  "changed_inputs": [],
+  "counts": {
+    "linux": {
+      "pass": 71,
+      "skip": []
+    },
+    "windows": {
+      "pass": 69,
+      "skip": [
+        [
+          "test_real_file_and_parent_symlink_refuse",
+          "skipped 'Windows symlink creation unavailable: WinError 1314'"
+        ],
+        [
+          "test_regular_to_fifo_swap_is_nonblocking_and_never_read",
+          "skipped 'Linux FIFO descriptor race fixture'"
+        ]
+      ]
+    }
+  },
+  "same_method_order": true,
+  "linux_fixture_inventory": [],
+  "windows_fixture_inventory": [],
+  "private_windows_temporary_inventory": [],
+  "c_free_bytes": 8882872320,
+  "results": {
+    "abi_first_linux01/intent.json": {
+      "bytes": 519,
+      "sha256": "f6423732c55a156576f7dbe8a922c70b964537d0bbbc42efa26710ec06fc5628"
+    },
+    "abi_first_linux01/result.json": {
+      "bytes": 843,
+      "sha256": "1cb69c8e5879b750b69cd13500a28c79b6a57414a4de668a4bc69231081daedb"
+    },
+    "abi_first_linux01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "abi_first_linux01/stderr": {
+      "bytes": 13155,
+      "sha256": "d1a366bcde29cc15b67a4803ca2502548c23063dafd2f07e7d6e3004019e3afc"
+    },
+    "abi_first_windows01/intent.json": {
+      "bytes": 576,
+      "sha256": "2e33ed65eeaa3454b8f5b658991a3e2dee09b28e084cd71bedbf1be6be65d559"
+    },
+    "abi_first_windows01/result.json": {
+      "bytes": 898,
+      "sha256": "ce4380138dc66863cce6c582b3ed2bf3ac5a357f646e0f20477645fa5ae0e150"
+    },
+    "abi_first_windows01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "abi_first_windows01/stderr": {
+      "bytes": 13343,
+      "sha256": "3dba30501c46899d52a3c79db63edd4eaa5122c6f94f080332a969824ada0982"
+    }
+  },
+  "limitations": "Host fixtures only. Two inherited Windows skips (real symlink privilege and FIFO) pass on Linux. No target observations, compiler or transport except read-only WSL fixture inventory."
+}

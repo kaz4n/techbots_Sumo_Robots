@@ -1435,3 +1435,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T13:03:49.635815+04:00 | P7 D203 actual compile PASS | Cleandbeec127 check0/execute0,1query1serialcompiler238transports/all8closingPASS; result323a4d3c/artifactsfc5eb9e2/localcf3e16fb/actualreview9c3e8cfe.196host/129manifest/10scope/108stagehashes stable. Rawbinary152Bsmaller,structuralRAMunchanged; no timingclaim. Attemptconsumed; freshABI/entryproposal next. No upload;D201remainsflashed.
+
+
+2026-09-26T13:20:27.252674+04:00 | P7 D204 first host checks PASS | Exactreaderf360a52d/independentoracleea268af8:71LinuxPASS,69WindowsPASS2coveredskips;238pins/streams/order/fixtures closedbb30f2d6. No retry or target operation; separate review/fixedscope/cleanHEAD precede single file-only ABI observation.

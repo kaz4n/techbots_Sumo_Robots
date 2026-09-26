@@ -94,18 +94,27 @@ preserved22c0750c/causeunknown. Trace96cde093 is non-reproduction only;
 unchangedisolatedfullsuite5d63e13a passed without source/guard/assertion edits.
 Freshadmissiondc082eac/manifest1b847d96/scopec08195d7 precede actualcompile.
 
-Agent const_abi_spec owns ONLY proposed D204
-analysis/P7_motor_const_abi_contract.md and raw/abi_derivation01.json.
-It is preparing a data-only counted metadata successor to D199 file-only
-ABIreader. No new reader exists and no D204 adoption/execution yet.
-After proposal FINAL, independent review/adopteddecision precede new reader;
-freeze independent oracle before actual new implementation inspection/execution.
-New planned localowner RAW/native_abi_static01 and absent remotescope
-app-motor-const-abi-static01 must bind actualD203 artifacts. Preserve original
-4filecommands/13closingchecks; complete readelf symbols permit fresh helper
-presence/absence observation. Do not reuse D199 addresses or require candidate
-helpers to remain emitted. A separately bound entry scope follows observed
-symbols, then separately reviewed inhibitedruntime. No motor permission/gate.
+D204 adopted638cd9f2: contract55a9f10d/derivation4835d118 specify19 metadata
+substitutions/26occurrences from D199. Independent oracle FINAL barrier closed;
+root/reviewer verified actualreader16087B/f360a52d against the exact recipe.
+Implementationreceipt5fa25b24, oracle18621B/ea268af8, fixture9327acb3 and
+independent220-pinfreezeec77deb0 are final. Root coordinatorfreeze90499324
+binds238pins. First serial host runs: Linux71PASS, Windows69PASS/2inherited
+skips covered onLinux; no retry. Driver682516a4 used dedicatedWindowsTEMP.
+Closingbb30f2d6 confirms allpins/streams/order and emptyfixture inventories.
+Read analysis/P7_motor_const_abi_validation.md. Final source/hostreview
+ae662c11PASS is immutable. Fixedscope6b7fba9d with8inputs and separate
+admissionreview763b0c82PASS permit cleanHEAD/check-only then one file-only
+ABI observation. Allwritersstopped; no D204nativeoperation has run yet.
+
+Newplanned ABIlocalowner RAW/native_abi_static01 and checkedabsent remotescope
+app-motor-const-abi-static01 bind actualD203 buildowner/staticartifacts.
+Preserve original4filecommands/13closingchecks/localclosure. Complete readelf
+symbols permit fresh helperpresence/absence observation. Newreport/global
+addresses must be observed; never reuse D199 coordinates. Host/source/fixed
+scope review, cleanHEAD/check-only precede one nativefile-onlyABI attempt.
+A separatelybound entry scope follows acceptedactualsymbols, then separately
+reviewed inhibitedruntime. No compile/upload/reset/MCUread or motorpermission.
 
 ## Evidence prerequisites already complete
 
@@ -153,4 +162,4 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host/compiler/device job is active. D203 compile is complete and consumed; D204 proposal is being authored.
+No host/compiler/device job is active. D203 compile is complete and consumed; D204 first host suites and separate source/host/scope reviews pass; commit cleanHEAD, check-only, then single file-only ABI observation next.

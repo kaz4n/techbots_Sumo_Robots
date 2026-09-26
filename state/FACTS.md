@@ -878,3 +878,7 @@ HOST-VERIFIED: exactlauncher957666a8 retains inheritedguards; independent Linux1
 
 ## F224 - Constant metadata diagnostic target compilation (2026-09-26T13:03:49.635815+04:00)
 FILE-OBSERVED: D203 source4bc3a2e6 atcleandbeec127 compilesonce withfixedstatic/default/MATCH0/MOTORS0/probe1. Result323a4d3c/artifactsfc5eb9e2:1query1compiler238transports/all8closingPASS. Actualreview9c3e8cfe independently reconcilesallcommands/payloads/source/28installedpins/artifacts;196host/129manifest/10scope stable. RawELF172600B/390b69c1,debug1838360B/b3520cac,rawBIN95352B/76d2846d,package95368B/f15c7ce1. Text-128/rodata-24 versusD198;208data/170664zeroBSS/90256structuralRAMtail unchanged. No freshreportABI/helperinstruction/liveRAM/runtimebenefit orupload. Source: analysis/P7_motor_const_compile_actual_validation.md.
+
+
+## F225 - Constant metadata ABI reader host checks (2026-09-26T13:21:22.876098+04:00)
+HOST-VERIFIED: exact19-step readerf360a52d/projected938c1de2 and independent71method oracleea268af8 pass firstLinux71/Windows69+2coveredskips. Reviewer ae662c11 independentlyreconciles all238pins, eight savedstreams/receipts, same unique methodorder and fixtureclosurebb30f2d6. No newtargettypes/addresses/helperpresence orruntimebenefit observedyet. Source: analysis/P7_motor_const_abi_validation.md.

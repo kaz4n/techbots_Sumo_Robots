@@ -442,3 +442,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:03:49.635815+04:00 | D203 actual compile evidence | Retain1004compactnative receipt/streamfiles1698674B and108verifiedlocalstagefiles781200B for actualreview and upcoming file-onlyartifact/sourceclosure. Preserve eightcheckedtargetartifact observations andunique newbuild evidence onboard. No hostobject/Pythonbytecode fixture remnants identified; no blanketcleanup or prior-deniedpath retry. Cfree16995299328B atclosingcf3e16fb. No duplicate localELFs copied; sourcecommitdbeec127 plusmanifest1b847d96 reproduce inputs.
+
+
+2026-09-26T13:20:27.252674+04:00 | D204 host evidence retention | Keep eight first-run receipt/stream files plus compact oracle,derivation,freezes and validation. Closingbb30f2d6 confirms all238pins and no matched Linux/Windows/privateTEMP fixtures. No hostobject/ELFdownload/manualcleanup or reclaimed-size claim. Cfree8882872320B. Prior denied targets untouched.

@@ -21,7 +21,7 @@ from contextlib import ExitStack, contextmanager, redirect_stdout
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = 'state/analysis/P7_b4_app_compile_raw'
-ORACLE = RAW + '/oracle01.json'
+ORACLE = RAW + '/oracle02.json'
 SUBJECT = 'tools/compile_b4_app_static.py'
 REMOTE_SUBJECT = 'tools/b4_app_compile_remote.py'
 POLICY = 'tools/b4_app_static_policy.py'
@@ -178,6 +178,7 @@ class SourceEndpoint:
     def __init__(self, case, owner, fallback=None):
         self.case, self.owner, self.fallback = case, owner, fallback
         self.data, self.calls, self.failures = b'', [], {}
+        self.lost_replies = set()
 
     def __call__(self, program, label, timeout=90):
         if label not in ('artifact-source-first', 'artifact-source-second', 'artifact-sources-final'):
@@ -186,8 +187,9 @@ class SourceEndpoint:
         self.calls.append((label, program))
         self.case.events.append(('direct', label, timeout))
         folder = self.case.folder(self.owner, label)
-        if label in self.failures: raise self.failures[label]
-        _, packed = self.owner._artifact_payload()
+        if label in self.failures and label not in self.lost_replies: raise self.failures[label]
+        if label in ('artifact-source-first', 'artifact-source-second'):
+            _, packed = self.owner._artifact_payload()
         if label == 'artifact-source-first':
             self.case.assertEqual(self.data, b'')
             chunk = packed[:16384]
@@ -198,6 +200,7 @@ class SourceEndpoint:
             chunk = packed[16384:]
             self.case.assertIn(base64.b64encode(chunk).decode(), program)
             self.data += chunk
+        if label in self.failures: raise self.failures[label]
         return subprocess.CompletedProcess([], 0, json.dumps(source_record(self.data)).encode(), b''), folder
 
 
@@ -260,7 +263,8 @@ class DescriptorFixture:
         return namespace if decode_only else json.loads(output.getvalue())
 
     def transfer(self, action, token='', previous=None):
-        return self.execute(self.owner.artifact_source_program(action, token=token, previous=previous))
+        program = self.owner.artifact_source_program(action, token=token, previous=previous)
+        return self.execute(program + 'print(json.dumps(record))\n')
 
 
 def ordinary_fixture(base):
@@ -447,11 +451,18 @@ def transfer_cases(base):
                 self.assertIs(owner.artifact_sources_attempted, True)
                 self.reject(owner.prepare_artifact_sources)
             self.assertIsNone(owner.artifact_sources_identity)
+            endpoint = SourceEndpoint(self, owner)
+            with mock.patch.object(owner, '_artifact_payload', side_effect=AssertionError('Partial close packed sources')), \
+                    mock.patch.object(owner, 'direct', endpoint):
+                with self.assertRaisesRegex(ValueError, 'Incomplete artifact source preparation'):
+                    owner.check_artifact_sources()
+            self.assertEqual([row[0] for row in endpoint.calls], ['artifact-sources-final'])
 
-        def failed_transfer(self, label):
+        def failed_transfer(self, label, lost_reply=False):
             owner = self.controlled(self.owner()); endpoint = owner.fixture_source_endpoint
             primary = subprocess.TimeoutExpired(['source-only-fixture'], 90, output=b'partial')
             endpoint.failures[label] = primary
+            if lost_reply: endpoint.lost_replies.add(label)
             with self.assertRaises(subprocess.TimeoutExpired) as caught: owner.run()
             self.assertIs(caught.exception, primary)
             outcome = primary.compile_outcome
@@ -461,6 +472,12 @@ def transfer_cases(base):
             self.assertIs(owner.artifact_sources_attempted, True)
             self.assertIsNone(owner.artifact_sources_identity)
             self.assertEqual(sum(row[0] == label for row in endpoint.calls), 1)
+            writes = [row[0] for row in endpoint.calls
+                      if row[0] in ('artifact-source-first', 'artifact-source-second')]
+            self.assertEqual(writes, ['artifact-source-first'] +
+                             (['artifact-source-second'] if label == 'artifact-source-second' else []))
+            self.assertEqual(sum(row[0] == 'artifact-sources-final' for row in endpoint.calls), 1)
+            self.assertEqual(endpoint.calls[-1][0], 'artifact-sources-final')
             self.assertFalse(any(row[1] == 'artifacts' for row in self.events if row[0] == 'direct'))
             rows = [row for row in outcome['final_checks'] if row['name'] == 'artifact_sources']
             self.assertEqual(len(rows), 1); self.assertEqual(rows[0]['status'], 'FAILED')
@@ -468,12 +485,22 @@ def transfer_cases(base):
             self.assertTrue(any(row[0] == 'policy' for row in self.events))
             before = len(endpoint.calls); self.reject(owner.prepare_artifact_sources)
             self.assertEqual(len(endpoint.calls), before)
+            if lost_reply:
+                _, packed = owner._artifact_payload()
+                expected = packed[:16384] if label == 'artifact-source-first' else packed
+                self.assertEqual(endpoint.data, expected)
 
         def test_first_transfer_timeout_is_not_retried_and_all_closures_run(self):
             self.failed_transfer('artifact-source-first')
 
         def test_second_transfer_timeout_retains_partial_failure_and_all_closures(self):
             self.failed_transfer('artifact-source-second')
+
+        def test_lost_first_reply_is_observed_without_repeating_a_write(self):
+            self.failed_transfer('artifact-source-first', lost_reply=True)
+
+        def test_lost_second_reply_complete_bytes_still_cannot_pass_incomplete_state(self):
+            self.failed_transfer('artifact-source-second', lost_reply=True)
 
         def test_complete_payload_final_read_failure_invalidates_compile(self):
             owner = self.controlled(self.owner()); endpoint = owner.fixture_source_endpoint
@@ -511,13 +538,14 @@ def transfer_cases(base):
             owner.artifact_sources_attempted, owner.artifact_sources_identity = True, full
             programs = [owner.artifact_source_program('first', token=base64.b64encode(packed[:16384]).decode()),
                         owner.artifact_source_program('second', token=base64.b64encode(packed[16384:]).decode(), previous=first),
-                        owner.artifact_source_program('read', previous=full), owner.artifact_program()]
+                        owner.artifact_source_program('read', previous=full), owner.artifact_program(),
+                        owner.artifact_source_program('partial')]
             captured = []
             def process(argv, **kwargs):
                 captured.append(argv); return subprocess.CompletedProcess(argv, 0, b'{}', b'')
             with mock.patch.object(subprocess, 'run', process):
                 for index, program in enumerate(programs): owner.direct(program, 'argv-' + str(index))
-                self.assertEqual(len(captured), 4)
+                self.assertEqual(len(captured), 5)
                 for argv in captured:
                     self.assertEqual(argv[1:3], ['-s', base.BOARD])
                     native = [base.ADB, *argv[1:]]
@@ -604,6 +632,50 @@ def transfer_cases(base):
             self.assertIs(caught.exception, primary)
             self.assertGreaterEqual(len(closed), 2)
             self.assertFalse(fs.handles)
+
+        @unittest.skipUnless(sys.platform == 'linux', 'Real source-payload descriptor fixtures require Linux')
+        def test_partial_observation_is_bounded_readonly_without_packing_or_source_execution(self):
+            owner = self.prepared(); fs = DescriptorFixture(self, owner)
+            pattern = b"raise AssertionError('partial bytes must never execute')\n"
+            for size in (0, 1, 16384, 32768):
+                content = (pattern * (size // len(pattern) + 1))[:size]
+                fs.path.write_bytes(content); fs.path.chmod(0o600)
+                before = fs.path.stat()
+                with self.subTest(bytes=size), \
+                        mock.patch.object(owner, '_artifact_payload', side_effect=AssertionError('Partial observation packed sources')), \
+                        mock.patch.object(os, 'write', side_effect=AssertionError('Partial observation wrote a file')):
+                    result = fs.transfer('partial')
+                self.assertEqual(set(result), {'identity', 'sha256'})
+                self.assertEqual(result['sha256'], sha(content))
+                self.assertEqual(result['identity'][2:7], [0o100600, 1, 1000, 1000, size])
+                self.assertEqual(fs.path.read_bytes(), content)
+                after = fs.path.stat()
+                self.assertEqual((before.st_ino, before.st_size, before.st_mtime_ns, before.st_ctime_ns),
+                                 (after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns))
+                self.assertFalse(fs.handles)
+                fs.path.unlink()
+
+        @unittest.skipUnless(sys.platform == 'linux', 'Real source-payload descriptor fixtures require Linux')
+        def test_partial_observation_refuses_missing_symlink_hardlink_mode_and_oversize(self):
+            owner = self.prepared(); fs = DescriptorFixture(self, owner)
+            target = fs.remote / 'retained-target'; target.write_bytes(b'retained')
+            target.chmod(0o600)
+            for kind in ('missing', 'symlink', 'hardlink', 'mode', 'oversize'):
+                if kind == 'symlink': fs.path.symlink_to(target)
+                elif kind == 'hardlink': os.link(target, fs.path)
+                elif kind != 'missing':
+                    fs.path.write_bytes(b'x' * (32769 if kind == 'oversize' else 1))
+                    fs.path.chmod(0o644 if kind == 'mode' else 0o600)
+                before = fs.path.read_bytes() if kind != 'missing' else None
+                with self.subTest(kind=kind), mock.patch.object(os, 'write',
+                        side_effect=AssertionError('Refused partial observation wrote a file')):
+                    self.reject(lambda: fs.transfer('partial'))
+                if kind == 'missing': self.assertFalse(fs.path.exists())
+                else:
+                    self.assertEqual(fs.path.read_bytes(), before)
+                    fs.path.unlink()
+                self.assertEqual(target.read_bytes(), b'retained')
+                self.assertFalse(fs.handles)
     return SourceTransferContract
 
 

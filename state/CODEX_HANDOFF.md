@@ -1,21 +1,25 @@
-## Current checkpoint - 26 September 2026, 19:19 Dubai
+## Current checkpoint - 2026-09-26T19:40:54.195779+04:00
 
-Latest verified flashed firmware is D212 ordinary app: source9044ebbb,
-static/default/MATCH0/MOTORS0/probe0/all grants absent. Actual review173dd5c2
-accepts the finite passive observation; RUNNING/NONE and zero selected motor
-commands were sampled. Mixed transactions remain coherence UNPROVEN;
-initialization, continuous execution, WCET and physical behavior are unqualified.
-The MCU continues its ordinary loop. The user confirmed BOARD ONLY.
+D212 ordinary inhibited app remains latest verified flashed firmware; user has
+BOARD ONLY. Source9044ebbb, static/default/MATCH0/MOTORS0/probe0/all grants absent.
+D213 B4 snapshot policy is accepted in e7298bc7 with65 PASS on each platform.
 
-D213 is accepted in e7298bc7: B4 snapshot policy, 65 Linux and 65 Windows tests
-passed without skips or retries, independent review67441159. D214 fixed-M0
-B4 compile-only integration is active under D051. Contractaeae54ff and early
-interfaceef7521ac are adopted. ordinary_abi_scope owns the new launcher/remote;
-fresh_review authors independent tests before subject inspection;
-const_cleanup_review is the separate reviewer. Root owns orchestration/evidence.
-No D214 native attempt has run. No motor-capable authorization or human gate.
-Current evidence: analysis/P7_ordinary_app_run_actual_validation.md and
-analysis/P7_b4_app_policy_validation.md. Preserve all consumed historical owners.
+D214 fixed-M0 compile integration is being corrected after first host checks.
+Commit8b669d77 preserves original implementation, independent oracle and first
+Linux result:87 methods,82 PASS,5 failed methods/7failure records;203pins stable.
+The tests correctly found an unanchored directory open in the new payload helper.
+Review also found skipped partial-transfer observation and a masked fixture
+JSON-output omission. ordinary_abi_scope owns bounded launcher corrections and
+interface03/implementation02; fresh_review owns corrected87+gap tests/oracle02/
+independent_freeze02; const_cleanup_review reviews only. No frozen receipt is to
+be overwritten. Root must make coordinator_freeze02 and new host_driver02 with
+exclusive revision02 owners after both new seals. No B4 board attempt has run.
+
+Native/admission driver sources are prepared and source-reviewed; do not execute
+before corrected host/source acceptance, fresh read-only admission, exact scope
+and clean reviewed commit. Root native_driver01 is5099B/029916bf and preserves
+outer streams even after closing errors. All old native owners remain consumed.
+No motor-run authorization, initialized WCET, physical acceptance or human gate.
 
 # Codex handoff - 26 September 2026, Asia/Dubai
 

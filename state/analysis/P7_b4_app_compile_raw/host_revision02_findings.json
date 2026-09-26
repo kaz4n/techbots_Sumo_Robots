@@ -1,0 +1,27 @@
+{
+  "schema": "d214-revision02-host-observation-v1",
+  "created": "2026-09-26T19:52:27.515553+04:00",
+  "linux": {
+    "methods": 91,
+    "passed": 91,
+    "skips": 0,
+    "inner_seconds": 113.029,
+    "outer_seconds": 127.5224734999938,
+    "stderr_sha256": "b4491a1bc25a756052360ea18c653f8b02279107d3d765dabaaee17974f9d513"
+  },
+  "windows": {
+    "methods": 91,
+    "passed": 66,
+    "skips": 22,
+    "errors": 3,
+    "inner_seconds": 139.518,
+    "outer_seconds": 139.84643530007452,
+    "stderr_sha256": "9cbcdbbceab3f1d28a2c0711eaea88f090cc2f8ac5025d5cf9b5460cba660575",
+    "temporary_remnants": []
+  },
+  "frozen_inputs": 213,
+  "changed_inputs": [],
+  "cause": "Three PortableRemoteContract positive cases import checked Linux helper pwd before policy assertions; product/helper unchanged, actual Linux tests pass.",
+  "review": "Independent author and reviewer agree on missing-only Windows per-test pwd import sentinel. All account API/unexpected access must fail, original sys.modules state restored. No product/assertion/method/skip change.",
+  "next": "Preserve revision02 inputs/results, add only fixture sentinel, targeted rerun of all five affected class methods on Linux and Windows. Reuse unchanged passing method evidence with explicit AST/body equality and platform outcome reconciliation; no repeated whole suite without a new concern."
+}

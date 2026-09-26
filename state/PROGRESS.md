@@ -1514,3 +1514,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T19:11:44.235046+04:00 P7: D213 B4 snapshotpolicy implemented/host-tested/reviewed67441159PASS. First65cases eachplatform/all16pinsstable; no nativeoperation. Next fixedM0B4compile-only integration; userBOARD ONLY.
+
+2026-09-26T19:40:54.195779+04:00 | P7/D214 | Preserved first B4 compile-tool Linux evidence:87 methods,82PASS,5failed methods/7failure records;203pins unchanged. Independent review found missing descriptor dir_fd and skipped partial-transfer observation; fixture also needs its production JSON print. Original source/oracle/raw results retained in8b669d77; bounded correction and fresh tests pending. No Windows/native attempt. | 8b669d77
+
+2026-09-26T19:52:27.515553+04:00 | P7/D214 | Corrected product passes91Linux methods; Windows66PASS/22skips/3import errors in portable test fixture.213pinsstable;Windows temporary empty. Independent review accepts code and bounded Windows-only pwd sentinel correction without assertion/method/skip changes; targeted rerun pending. No native action. | pending

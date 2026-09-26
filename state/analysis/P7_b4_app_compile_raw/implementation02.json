@@ -1,0 +1,100 @@
+{
+  "schema": "d214-implementation-v2",
+  "status": "CORRECTION_SEALED_UNTESTED",
+  "preservation_commit": "8b669d77",
+  "predecessor": {
+    "path": "state/analysis/P7_b4_app_compile_raw/implementation01.json",
+    "bytes": 17410,
+    "sha256": "b979ae96421cd6320ed7532f414552715cabfab067625102ef371380decdb7dd"
+  },
+  "authorization": "Root authorized only descriptor-relative ancestry fix and mandatory independent read-only partial closing, after original subjects/oracle/first Linux evidence preservation.",
+  "boundary": "New and revised oracle source remains unread, unhashed and unimported. No tests, product imports, product execution, transport or native actions. Only read-only Git extraction, byte projection, AST parsing, compression and argv data calculation.",
+  "subjects": {
+    "tools/compile_b4_app_static.py": {
+      "bytes": 24356,
+      "sha256": "b21527e2cbdb50304ef18d8edd982a5bb8eec6f633d75043bd4e323b7cc59e80"
+    },
+    "tools/b4_app_compile_remote.py": {
+      "bytes": 7821,
+      "sha256": "7dc788cbfb92688d3b1a2343f673da1bae3fa3ade1df5836ae437c013750b2d3"
+    }
+  },
+  "unchanged_remote": true,
+  "contract": {
+    "path": "state/analysis/P7_b4_app_compile_contract.md",
+    "bytes": 8757,
+    "sha256": "76ba6262b2bbdf8ec65359c98488e66befae664d64d5a125c2de65480dda5c06"
+  },
+  "interfaces": {
+    "state/analysis/P7_b4_app_compile_raw/interface01.json": {
+      "bytes": 7712,
+      "sha256": "ef7521aca8edf1a13316457b5300f59db520eb9a046e7123f5bfdf07d83e0f3e"
+    },
+    "state/analysis/P7_b4_app_compile_raw/interface02.json": {
+      "bytes": 11354,
+      "sha256": "32de5c4909d1d5dab6801831199d30a303c0710cdd8b1c9d82a26bd118684c90"
+    },
+    "state/analysis/P7_b4_app_compile_raw/interface03.json": {
+      "bytes": 12700,
+      "sha256": "9ff2ead7662345f8020aadb61dbdd86e998fc6ca51e6b12a86ba156af2137f7d"
+    },
+    "state/analysis/P7_b4_app_compile_raw/payload_size01.json": {
+      "bytes": 2695,
+      "sha256": "73c32dfeeafae82b6d55ca3b2bde6cd0d40ec03fb47acb7260595b5d2565e2fe"
+    },
+    "state/analysis/P7_b4_app_compile_raw/payload_size02.json": {
+      "bytes": 3122,
+      "sha256": "c8bad9f8fe4b92181620eb479ce6de90e11c6c13b8bd65b71790c890c3b6534c"
+    }
+  },
+  "exact_delta": {
+    "changed_launcher_assignments": [
+      "ARTIFACT_SOURCE_IO",
+      "PROJECTED",
+      "REPLACEMENTS"
+    ],
+    "counted_projection_steps": 16,
+    "changed_step_numbers": [
+      15
+    ],
+    "all_old_spans_and_counts_retained": true,
+    "changed_private_methods": [
+      "artifact_source_program",
+      "check_artifact_sources"
+    ],
+    "all_other_private_methods_exact": true,
+    "all_launcher_function_bodies_exact": true,
+    "artifact_io_changes": [
+      "Add dir_fd=folder to each child directory open.",
+      "Add partial as a read-only action with no previous receipt requirement.",
+      "Observe bounded0..32768 bytes using unchanged mode/owner/link/path-fd/ancestry/close guards.",
+      "Preserve exact first/second/prepared-read paths and no payload execution."
+    ],
+    "partial_no_payload_dependency": "artifact_source_program partial branch builds only fixed empty transfer metadata plus preamble/IO; check_artifact_sources dispatches before unconditional incomplete failure and before its full-payload computation. Inherited local/transport admission can still refuse dispatch."
+  },
+  "private_caller": {
+    "bytes": 35477,
+    "sha256": "06c42406478eb7222364c2cc97a5fcc17154934e8234fda266cf6340c86180e4"
+  },
+  "artifact_io": {
+    "bytes": 4148,
+    "sha256": "fdf3b113ca675b2fa5cccbf6cf05217119f2cfddace0fba40849a8156b43b0b5"
+  },
+  "payload": {
+    "unchanged": true,
+    "compressed_bytes": 28087,
+    "compressed_sha256": "901ff1d8657d74581f19543c87873402eccbc76867004b602f7b8755902d2f68",
+    "chunk_bytes": [
+      16384,
+      11703
+    ],
+    "windows_command_units": {
+      "first": 29352,
+      "second": 23350,
+      "read": 7744,
+      "artifact": 8999,
+      "partial": 7310
+    }
+  },
+  "next_action": "Independent revised oracle FINAL and bounded delta review before any corrected host execution; no native admission follows this receipt."
+}

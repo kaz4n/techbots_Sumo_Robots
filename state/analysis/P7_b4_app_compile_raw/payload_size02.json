@@ -1,0 +1,95 @@
+{
+  "schema": "d214-artifact-source-framing-size-v2",
+  "boundary": "Data-only source serialization, standard compression, AST parsing and argv construction; no source import, new-source execution, tests, subprocess dispatch or device operation.",
+  "initial_inline": {
+    "payload_bytes": 116347,
+    "compressed_bytes": 28087,
+    "windows_utf16_units_including_nul": 41318,
+    "admitted": false
+  },
+  "current_payload": {
+    "bytes": 116347,
+    "sha256": "834853a8e8946fce5a301e3eb4975fab0cbae59fe73da6c2eba551a44bef7549"
+  },
+  "compressed": {
+    "bytes": 28087,
+    "sha256": "901ff1d8657d74581f19543c87873402eccbc76867004b602f7b8755902d2f68"
+  },
+  "chunks": [
+    {
+      "bytes": 16384,
+      "sha256": "4445be193bb2bb5808e87b0adc685e2be9a6d7757a4088106b9c5bd76c3bda68"
+    },
+    {
+      "bytes": 11703,
+      "sha256": "8d96bf688803aba9ec4c7189c3ff171c900e93bc59c0113e4f772a2d65508ae3"
+    }
+  ],
+  "identity_fixture": "Synthetic uint64-width device/inode/mtime/ctime values; not native observations. Real reply scalars are separately bounded uint64.",
+  "first_identity": {
+    "identity": [
+      18446744073709551615,
+      18446744073709551615,
+      33152,
+      1,
+      1000,
+      1000,
+      16384,
+      18446744073709551615,
+      18446744073709551615
+    ],
+    "sha256": "4445be193bb2bb5808e87b0adc685e2be9a6d7757a4088106b9c5bd76c3bda68"
+  },
+  "second_identity": {
+    "identity": [
+      18446744073709551615,
+      18446744073709551615,
+      33152,
+      1,
+      1000,
+      1000,
+      28087,
+      18446744073709551615,
+      18446744073709551615
+    ],
+    "sha256": "901ff1d8657d74581f19543c87873402eccbc76867004b602f7b8755902d2f68"
+  },
+  "commands": {
+    "first": {
+      "program_bytes": 28017,
+      "program_sha256": "42826e4139a6a72d005cf5e6794fab943bb50b81bb6680ccfcaaa6d2f65da086",
+      "windows_utf16_units_including_nul": 29352,
+      "within30000": true
+    },
+    "second": {
+      "program_bytes": 21979,
+      "program_sha256": "0587c6373e8a6b2022a8f6b01be86ab1649c02e3115b3bbee5ab2ae0840ed785",
+      "windows_utf16_units_including_nul": 23350,
+      "within30000": true
+    },
+    "read": {
+      "program_bytes": 6373,
+      "program_sha256": "1d850d8ce37e58d59fc4c005d43f3dce26eb2aeca3d08ccb9a3e579dd01ac269",
+      "windows_utf16_units_including_nul": 7744,
+      "within30000": true
+    },
+    "artifact": {
+      "program_bytes": 7424,
+      "program_sha256": "2db3144b13880f9467d00f53f668489243d954f771c3eee0bcf0edadf7ee50b1",
+      "windows_utf16_units_including_nul": 8999,
+      "within30000": true
+    },
+    "partial": {
+      "program_bytes": 5975,
+      "program_sha256": "5ab443e9e0999142855063f317b2a745e0d46e5a86dad0e7c653a9ad03322efc",
+      "windows_utf16_units_including_nul": 7310,
+      "within30000": true
+    }
+  },
+  "retained_windows_limit": 30000,
+  "predecessor": {
+    "path": "state/analysis/P7_b4_app_compile_raw/payload_size01.json",
+    "bytes": 2695,
+    "sha256": "73c32dfeeafae82b6d55ca3b2bde6cd0d40ec03fb47acb7260595b5d2565e2fe"
+  }
+}

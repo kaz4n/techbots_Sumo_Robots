@@ -1,0 +1,43 @@
+{
+  "schema": "d214-native-scope-role-binding-v1",
+  "created": "2026-09-26T19:46:41.060994+04:00",
+  "status": "PREPARED_NOT_ADMITTED",
+  "interface": {
+    "path": "state/analysis/P7_b4_app_compile_raw/interface03.json",
+    "bytes": 12700,
+    "sha256": "9ff2ead7662345f8020aadb61dbdd86e998fc6ca51e6b12a86ba156af2137f7d"
+  },
+  "authority": "D051 and corrected D214 source/oracle iteration; data-only future scope pointers, not executable behavior.",
+  "reason": "interface03 retained two historical freeze01 pointers. Native scope must bind authoritative corrected freeze02 files; preserve the frozen interface and every role key.",
+  "exact_changes": {
+    "independent_freeze": {
+      "before": "state/analysis/P7_b4_app_compile_raw/independent_freeze01.json",
+      "after": "state/analysis/P7_b4_app_compile_raw/independent_freeze02.json"
+    },
+    "coordinator_freeze": {
+      "before": "state/analysis/P7_b4_app_compile_raw/coordinator_freeze01.json",
+      "after": "state/analysis/P7_b4_app_compile_raw/coordinator_freeze02.json"
+    }
+  },
+  "roles": {
+    "launcher": "tools/compile_b4_app_static.py",
+    "remote_validator": "tools/b4_app_compile_remote.py",
+    "policy": "tools/b4_app_static_policy.py",
+    "contract": "state/analysis/P7_b4_app_compile_contract.md",
+    "policy_contract": "state/analysis/P7_b4_app_policy_contract.md",
+    "interface": "state/analysis/P7_b4_app_compile_raw/interface03.json",
+    "implementation": "state/analysis/P7_b4_app_compile_raw/implementation02.json",
+    "source_host_review": "state/reviews/P7_b4_app_compile_review.md",
+    "independent_freeze": "state/analysis/P7_b4_app_compile_raw/independent_freeze02.json",
+    "coordinator_freeze": "state/analysis/P7_b4_app_compile_raw/coordinator_freeze02.json",
+    "host_closing": "state/analysis/P7_b4_app_compile_raw/host_closing01.json",
+    "manifest": "state/analysis/P7_b4_app_compile_raw/inputs_static.json",
+    "manifest_preparation": "state/analysis/P7_b4_app_compile_raw/manifest_preparation01.json",
+    "admission_preparation": "state/analysis/P7_b4_app_compile_raw/admission_preparation01.json",
+    "admission_actual": "state/analysis/P7_b4_app_compile_raw/admission01.json",
+    "readonly_admission_review": "state/reviews/P7_b4_app_compile_admission_review.md",
+    "payload_size": "state/analysis/P7_b4_app_compile_raw/payload_size02.json"
+  },
+  "role_count": 17,
+  "boundary": "No tool/test/source mutation, board action or native admission. Final independent native review must accept these explicit substitutions."
+}

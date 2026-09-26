@@ -1,0 +1,36 @@
+{
+  "schema": "d214-orchestration-revision-v1",
+  "changes": {
+    "host_driver02.py": {
+      "base": "host_driver01.py",
+      "base_bytes": 3545,
+      "base_sha256": "c174077c7f8c66a6e5e165950c43b9528f7aa1201f930cc46e9db8ddf32629f2",
+      "bytes": 3550,
+      "sha256": "c8d8534db78e18e52f3246d92ef2bed2a3984f327b692f82c07c6fc99ec08afb",
+      "substitutions": [
+        [
+          "coordinator_freeze01.json",
+          "coordinator_freeze02.json"
+        ],
+        [
+          "('first_' + platform + '01')",
+          "('revision02_' + platform + '01')"
+        ]
+      ]
+    },
+    "admission_driver02.py": {
+      "base": "admission_driver01.py",
+      "base_bytes": 6431,
+      "base_sha256": "aca83e3d83edfc2b25ea6336ae4dd782fdf37c5c4e838cd943b5343ed0f2e32e",
+      "bytes": 6431,
+      "sha256": "9995e61ce2731d8044f3b8be46f7b7f8fb4a6572329ab4e0a39608e74f490e6d",
+      "substitutions": [
+        [
+          "coordinator_freeze01.json",
+          "coordinator_freeze02.json"
+        ]
+      ]
+    }
+  },
+  "execution": "None. Preserve first owners and guards; only new freeze/host-owner references."
+}

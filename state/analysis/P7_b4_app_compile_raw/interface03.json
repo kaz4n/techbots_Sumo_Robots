@@ -1,0 +1,257 @@
+{
+  "schema": "d214-compile-interface-v3",
+  "boundary": "Interface data only. No execution or native admission. All old inputs remain immutable.",
+  "launcher": {
+    "path": "tools/compile_b4_app_static.py",
+    "functions": [
+      "load_caller(*, root=ROOT)",
+      "parse_request(argv)",
+      "main(argv)"
+    ],
+    "private_class": "CompileDiagnostic",
+    "cli": "--check-only|--execute --reviewed-head <40lowerhex>"
+  },
+  "remote": {
+    "path": "tools/b4_app_compile_remote.py",
+    "functions": [
+      "inspect_artifacts(build_path, artifacts_path, bundle, *, fs_root=Path(\"/\"))",
+      "load_bundle(bundle)",
+      "installed(helper, root_fd, path, limit, digest)",
+      "artifact_files(helper, root_fd, build_path, artifacts_path, records)",
+      "first_observation(helper, adapter, root_fd, bundle, result)",
+      "final_observation(helper, root_fd, name, result)"
+    ],
+    "load_bundle_result": "Two-item (helper, adapter); adapter is checked unchanged D213 module with required motors_allowed and snapshots keywords. first_observation binds literal integer0 and five admitted snapshots."
+  },
+  "profile": {
+    "project": "app.ino",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "startup": "default",
+    "motors_allowed": 0,
+    "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a"
+  },
+  "attempt": "b4-app-m0-static01",
+  "paths": {
+    "raw": "state/analysis/P7_b4_app_compile_raw",
+    "output": "state/analysis/P7_b4_app_compile_raw/native_static01",
+    "stage": "build/stage/b4-app-m0-static01/app",
+    "remote": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+    "source": "/home/arduino/sumox26_codex_build/<source_sha256>/app"
+  },
+  "manifest_fields": [
+    "schema",
+    "source_sha256",
+    "boot_id",
+    "files"
+  ],
+  "required": [
+    "state/analysis/P7_b4_app_compile_contract.md",
+    "state/analysis/P7_b4_app_policy_contract.md",
+    "state/analysis/P7_current_app_compile_raw/compile_current_app.py",
+    "state/analysis/P7_motor_fault_raw/compile_motor_fault.py",
+    "state/analysis/P7_ordinary_app_static_compile_contract.md",
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py",
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py",
+    "state/analysis/P7_static_link_probe_raw/static_policy.py",
+    "state/analysis/P7_static_link_probe_raw/static_reference.json",
+    "state/analysis/P7_static_link_probe_raw/static_remote.py",
+    "state/analysis/P7_static_startup_raw/capture_remote.py",
+    "state/analysis/P7_static_startup_raw/cli_builtin_files_inventory.json",
+    "state/analysis/P7_static_startup_raw/cli_initialization_inventory.json",
+    "tools/app_build_commands.json",
+    "tools/app_build_pins.json",
+    "tools/app_build_policy.py",
+    "tools/app_motor_fault_compile_remote.py",
+    "tools/app_motor_fault_static_policy.py",
+    "tools/b4_app_compile_remote.py",
+    "tools/b4_app_static_policy.py",
+    "tools/board_tool.py",
+    "tools/compile_app_motor_fault.py",
+    "tools/compile_b4_app_static.py",
+    "tools/compile_ordinary_app_static.py",
+    "tools/match_deploy.py"
+  ],
+  "source_inventory": "Exactly current src-only D208 inventory; no benchmark tree.",
+  "current_counts": {
+    "required": 25,
+    "source": 105,
+    "manifest": 130
+  },
+  "bundle": {
+    "helper": {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "policy": {
+      "path": "tools/b4_app_static_policy.py",
+      "bytes": 4055,
+      "sha256": "aadccdbb0a92338a90a789251f691a42e029c7f73b312b638b85d04c5d2d4ddf"
+    },
+    "adapter": {
+      "path": "tools/app_motor_fault_static_policy.py",
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "common": {
+      "path": "tools/app_build_policy.py",
+      "bytes": 14956,
+      "sha256": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8"
+    },
+    "static_policy": {
+      "path": "state/analysis/P7_static_link_probe_raw/static_policy.py",
+      "bytes": 4836,
+      "sha256": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775"
+    },
+    "reference": {
+      "path": "state/analysis/P7_static_link_probe_raw/static_reference.json",
+      "bytes": 17809,
+      "sha256": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b"
+    },
+    "extension": {
+      "path": "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py",
+      "bytes": 3718,
+      "sha256": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0"
+    },
+    "base": {
+      "path": "state/analysis/P7_static_link_probe_raw/static_artifacts.py",
+      "bytes": 18322,
+      "sha256": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368"
+    }
+  },
+  "bundle_shape": "Exact dict with eight flat exact str keys and exact bytes values; no nested snapshots. All eight bodies checked before execution. Five snapshots passed to D213 by original relative-path keys.",
+  "schemas": {
+    "inputs": "b4-app-m0-static-inputs-v1",
+    "check": "b4-app-m0-static-check-v1",
+    "intent": "b4-app-m0-static-intent-v1",
+    "compile-outcome": "b4-app-m0-static-compile-outcome-v1",
+    "artifacts": "b4-app-m0-static-artifacts-v1",
+    "scope": "b4-app-m0-static-scope-v1"
+  },
+  "scope_roles": {
+    "launcher": "tools/compile_b4_app_static.py",
+    "remote_validator": "tools/b4_app_compile_remote.py",
+    "policy": "tools/b4_app_static_policy.py",
+    "contract": "state/analysis/P7_b4_app_compile_contract.md",
+    "policy_contract": "state/analysis/P7_b4_app_policy_contract.md",
+    "interface": "state/analysis/P7_b4_app_compile_raw/interface03.json",
+    "implementation": "state/analysis/P7_b4_app_compile_raw/implementation02.json",
+    "source_host_review": "state/reviews/P7_b4_app_compile_review.md",
+    "independent_freeze": "state/analysis/P7_b4_app_compile_raw/independent_freeze01.json",
+    "coordinator_freeze": "state/analysis/P7_b4_app_compile_raw/coordinator_freeze01.json",
+    "host_closing": "state/analysis/P7_b4_app_compile_raw/host_closing01.json",
+    "manifest": "state/analysis/P7_b4_app_compile_raw/inputs_static.json",
+    "manifest_preparation": "state/analysis/P7_b4_app_compile_raw/manifest_preparation01.json",
+    "admission_preparation": "state/analysis/P7_b4_app_compile_raw/admission_preparation01.json",
+    "admission_actual": "state/analysis/P7_b4_app_compile_raw/admission01.json",
+    "readonly_admission_review": "state/reviews/P7_b4_app_compile_admission_review.md",
+    "payload_size": "state/analysis/P7_b4_app_compile_raw/payload_size02.json"
+  },
+  "scope_note": "Data-only future native scope. Inherited caller consumes inputs_static.json, not native_scope01.json. Scope role files must exist and be pinned at later independent native admission; this receipt does not claim they exist.",
+  "layout_fields": [
+    "status",
+    "project",
+    "fqbn",
+    "flags",
+    "artifact_aliases",
+    "artifact_sha256",
+    "validator_report",
+    "motors_allowed"
+  ],
+  "layout_status": "STATIC_B4_APP_LAYOUT_PACKAGE_PASS",
+  "layout_mode": "type(motors_allowed) is int and value == 0",
+  "artifact_reply_fields": [
+    "schema",
+    "status",
+    "build_path",
+    "artifacts_path",
+    "files",
+    "loader",
+    "tls_source",
+    "layout",
+    "postchecks",
+    "first_error"
+  ],
+  "first_test": "Independent oracle author supplies exact host command after FINAL; implementation author does not inspect new tests.",
+  "supersedes": "interface01.json and interface02.json retained unchanged; correction after preserved commit8b669d77",
+  "local_policy": "CompileDiagnostic.static_policy returns namespace with validate_preflight(text,*,build_path,data_dir) and validate_compile_result(text,*,build_path,data_dir), each privately bound to literal int0/five admitted snapshots.",
+  "artifact_sources": {
+    "filename": "artifact-sources.zlib",
+    "remote_path": "/home/arduino/sumox26_codex_build/b4-app-m0-static01/artifact-sources.zlib",
+    "local_copy": false,
+    "compression": "Existing compact sorted JSON UTF-8, zlib9; identical raw remote source plus eight flat byte sources. Canonical base64 only per transfer chunk.",
+    "packed_bound": {
+      "greater_than": 16384,
+      "at_most": 32768
+    },
+    "chunks": {
+      "count": 2,
+      "first_bytes": 16384,
+      "second_bytes": "packed_bytes - 16384, positive and at most16384"
+    },
+    "insertion": "After compile result policy and compiler_calls == query_calls ==1, before first observe_artifacts.",
+    "private_methods": [
+      "CompileDiagnostic._artifact_payload(self) -> (raw_json_bytes, compressed_bytes)",
+      "CompileDiagnostic.artifact_source_program(self, action, *, token=\"\", previous=None) -> program_text",
+      "CompileDiagnostic.checked_source_reply(self, text, size, digest) -> checked_record",
+      "CompileDiagnostic.prepare_artifact_sources(self)",
+      "CompileDiagnostic.check_artifact_sources(self)"
+    ],
+    "program_constant": "ARTIFACT_SOURCE_IO",
+    "program_function": "artifact_source_io() -> (compressed_bytes, record); executes only transfer/read filesystem operations, never payload source",
+    "actions": [
+      "first",
+      "second",
+      "read",
+      "partial"
+    ],
+    "direct_labels": {
+      "first": "artifact-source-first",
+      "second": "artifact-source-second",
+      "closing": "artifact-sources-final",
+      "first_artifact": "artifacts",
+      "final_artifact": "artifacts-final"
+    },
+    "record_fields": [
+      "identity",
+      "sha256"
+    ],
+    "identity_representation": "exact list of9 exact nonnegative uint64 integers",
+    "identity_fields": [
+      "device",
+      "inode",
+      "mode",
+      "nlink",
+      "uid",
+      "gid",
+      "bytes",
+      "mtime_ns",
+      "ctime_ns"
+    ],
+    "identity_fixed_fields": {
+      "mode": 33152,
+      "nlink": 1,
+      "uid": 1000,
+      "gid": 1000
+    },
+    "state": {
+      "artifact_sources_attempted": "initially False; set True before preparation local checking/dispatch; second invocation refuses even after failure",
+      "artifact_sources_identity": "initially None; set only after checked second transfer response; equals final full record"
+    },
+    "closing_row": "artifact_sources; exactly once whenever preparation attempted, incomplete preparation always FAILED with earliest error preserved",
+    "descriptors": "Every ancestry component opens with dir_fd=current parent descriptor plus O_DIRECTORY|O_NOFOLLOW. Existing leaf/open/readback/stability/close guards retained.",
+    "windows_utf16_units_including_nul_limit": 30000,
+    "artifact_decoder": "unchanged bounded262144-byte zlib output, EOF/unused_data/unconsumed_tail, raw JSON hash and source hash checks after checked compressed descriptor read",
+    "partial_observation": {
+      "call": "artifact_source_program(\"partial\", token=\"\", previous=None)",
+      "payload_dependency": "None: does not call _artifact_payload, serialize, compress, access source snapshots or require either transfer receipt.",
+      "mode": "Read-only on the same fixed leaf; never write, decode, execute, retry or repair.",
+      "record": "Same identity/sha256 record; observed identity[6] may be0 through32768. Other owner/file/type/link/stability guards remain identical.",
+      "refusals": "Missing, linked, nonregular, wrong owner/mode, oversized or unstable leaf refuses; every acquired descriptor closes with first-error priority.",
+      "closing": "If attempted and final identity is None, dispatch partial under artifact-sources-final. A successful observation is followed unconditionally by Incomplete artifact source preparation failure. Remote/read failure also yields FAILED. Existing first_error and every inherited closing attempt remain.",
+      "guard_boundary": "Inherited local and transport admission remains active; no bypass if those guards refuse dispatch.",
+      "prepared_path": "With final identity, unchanged read action requires exact saved identity and complete size/hash. artifact_program still requires final identity."
+    }
+  }
+}

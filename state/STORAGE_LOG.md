@@ -580,3 +580,6 @@ Removed threeverifiedcurrentuploadcopies2359784B and empty/tmp/remoteocddev34/in
 
 ### 2026-09-27T02:04:16.274566+04:00 - D235 focused host evidence compaction
 Author verified447member failurearchive8856114B compressed494868B and612member successarchive8902346B compressed554652B; exactloosehost01tree released aftermemberhashverification. Host03archivedinsameWSLprocess beforetemporaryownerexit. Completedexecutables/stagedsources released byharness. Host02consolePASS retained with explicitlost/dev/shmraw limitation; not substitutedforsealedhost03. No policyblockedtarget retried.
+
+### 2026-09-27T02:26:46.838224+04:00 - D239 exact D237 upload scratch
+Removed only2359784B threeverifiedcopies from /tmp/remoteocddev34/ino7093 andthenemptydirectory. Originalpackage3b4812a7/installedloader/configretainedunchanged,3protectedscans/6closingPASS, result30b958cb. UniqueD237missing-envelope stream andD238passivestatus remainretainedforreview/reproduction; no credentialstored. Maincopies266D237ownerfiles2514245B and63D238files559451B retainedascanonicalreceipts; isolatedowners remain neededforin-flightreview/sourcepins. No priorpolicyblockedlocalstage retried. Cfreeabout2GBbeforecurrentserialtargetcompile.

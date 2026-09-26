@@ -1,0 +1,67 @@
+{
+  "adb_sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982",
+  "argv_prefix": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T"
+  ],
+  "binding_rule": "Replace each exact identifier once with repr of the checked JSON object; do not execute template. Verify receipt status/identity/stage/source pins/local input closure before binding. Build remote argument with shlex.join and require full Windows command under30000 UTF16 units. Seal finalized intent for independent review before native invocation.",
+  "bindings": {
+    "__STAGE_IDENTITY_FROM_CHECKED_RECEIPT__": "Successful stage receipt /stage_identity (verification) or same checked stage identity (retrieval)"
+  },
+  "complete_reverse_equal": true,
+  "operation": "verify",
+  "prerequisites": [
+    "Independent source/intent review PASS",
+    "Main compile matrix finished; no compiler/upload process active",
+    "This fresh stage/run owner has not been consumed"
+  ],
+  "program": {
+    "bytes": 24209,
+    "sha256": "611873c92f27bad4cc6e17850bf081e3d5e0b313c3af33766153cb520ec0e7c3"
+  },
+  "program_path": "verify_program01.py",
+  "remote_alarm_seconds": 55,
+  "remote_argv_prefix": [
+    "/usr/bin/env",
+    "-i",
+    "HOME=/home/arduino",
+    "USER=arduino",
+    "LOGNAME=arduino",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "-c"
+  ],
+  "schema": "recorder-repeat-cleanup-verify-intent-v1",
+  "source_pins": {
+    "cleanup_remoteocd01.py": {
+      "bytes": 7725,
+      "sha256": "4e185e78336b64d523c9c882f8387ac6414ba1e3db16f646187059a2912e7dac"
+    },
+    "cleanup_root01.py": {
+      "bytes": 9620,
+      "sha256": "a8643389f1d45fe31d6cf5f5170dac7c45509b50e1d9c3d09e21b37ed9de7236"
+    },
+    "static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  },
+  "stage": "/home/arduino/sumox26_codex_build/cleanup-recorder-repeat-root01",
+  "status": "PREPARED_TEMPLATE_REQUIRES_ACTUAL_STAGE_RECEIPT",
+  "stderr_max_bytes": 65536,
+  "stdout_max_bytes": 65536,
+  "template": {
+    "path": "state/analysis/P7_recorder_six_cleanup_raw/cleanup_verify_intent01.json",
+    "pin": {
+      "bytes": 2420,
+      "sha256": "6dd178ab2ac47130c5e4a3ed02a2aeec1575c970bad61c39a1c997d4a6781e83"
+    }
+  },
+  "timeout_seconds": 70
+}

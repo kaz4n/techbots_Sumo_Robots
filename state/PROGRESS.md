@@ -1381,3 +1381,12 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T09:04:21.128420+04:00 | P7 D194 actual entry review PASS | Separate reviewd1a09f19 validates146admitted/150frozenpins and27ranges2686B; emptyappgrants, failurepriority,10000epoch/10000000pollbounds, preabortdeclaredfields and terminalpassivity observed in selectedinstructions. No runtime/physicalclaim. Nativeownerconsumed; D195/D196hostpreparation next.
+
+
+2026-09-26T09:10:19.478014+04:00 | P7 D195/D196 first host validation PASS | Remote42Linux/24Windows+18skips; cleanup47Linux/10Windows+37POSIXskips. Oldassertionspreserved, independentoracles frozen first, no repairs/retries. Separate review/staging/calleradmissionpending; no boardmutation or firmwarechange.
+
+
+2026-09-26T09:14:29.834608+04:00 | P7 D196 actualcleanup PASS | Exactlyone reviewed a089cc3b wrapper invocation transport0; saved321e6e5c removes3D190scratchcopies2399736B andemptydirectory, originalsunchanged/permanentUIDGID1000/noerrors. Freshreadonly19fileadmission passes/sameboot/3nativeownersunused. Actualreviewpending; no flash/reset/MCUread.
+
+
+2026-09-26T09:16:57.341735+04:00 | P7 D195 caller/action firsthostPASS | Independent91LinuxmethodsPASS,48WindowsPASS/43explicitLinux-onlyskips; all59historicalmethods retained, all128manifest/provenance/sourcepins unchanged. No repairs/retries. Callerfinalreview/newscopepending; D196actualreview0131ea59closes exactscratchcleanup.

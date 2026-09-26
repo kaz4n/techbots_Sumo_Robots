@@ -822,3 +822,7 @@ FILE-OBSERVED only: D194 ABI02 at efadbe5c returnsSTATIC_ABI_OBSERVED,4children0
 
 ## F210 - Longer observation actual startup instruction evidence (2026-09-26T09:04:21.128420+04:00)
 FILE-OBSERVED: entrycollection61c7b090/e195fdeb at41bea260 returns0/fourfilechildren0/all13remote+localPASS. Actualinitializer05011008 targets0x08100105;27ranges2686B cover startup, observer constructor/setup/poll/stop/freeze and selected factories/stubs. Separate reviewd1a09f19 confirms emptyappgrants, failurebefore10000epoch/10000000poll limits, all preabortdeclaredfields beforeabort and terminalpassivity. Unselectedcallee bodies and actualMCUbehavior/timing/electricalqualification remain outside evidence. Source: analysis/P7_app_motor_observe_entry_validation.md and reviews/P7_app_motor_observe_entry_actual_review.md.
+
+
+## F211 - Current uploader scratch cleanup (2026-09-26T09:14:29.834608+04:00)
+DEVICE-OBSERVED: D196 recipe1834edd3/wrappera089cc3b completed once; raw321e6e5c plus independentread-onlyadmission verify exact3D190scratchfiles2399736B removed, originalsunchanged, sameboot/fullidentity and permanent UID/GID1000. Fresh19next-run filepins match; scratch and3newowners absent. Three read-onlyprivileged scans report167names/3sameUIDhandle sets each, with originalother-userFD/race limitation. Not firmware/runtime/physical evidence. Source: analysis/P7_app_motor_observe_cleanup_validation.md and observe_run_raw cleanup/admission receipts.

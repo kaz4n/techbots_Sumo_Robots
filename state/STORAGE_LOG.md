@@ -397,3 +397,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T09:04:21.128420+04:00 | D194 actualentry retention | Retain unique357824B rawresult,9251Bentrysummary,277Bclosure,22218Binputs,1351Binvocation and9198Breview for reproduction/audit. No duplicatefirmware/binaries; no deletions. C: observed21148119040Bfree after usercleanup; native128MiBgate unchanged. Three currentD190uploadcopies2399736B separatelyinventoried; nocleanupyet.
+
+
+2026-09-26T09:14:29.834608+04:00 | D196 exactboard scratch cleanup | Removed only /tmp/remoteocd three verified D190uploadcopies2399736logicalB andemptydirectory device34/inode869. Retained installed/build originals, contentrechecked; copied source stage50662B retained for specific executionreview/reproduction. Result6360B321e6e5c, no privilegedmutation/allunlinksUID1000; auth scopeconsumed. No hostcleanup or previouslydeniedtargets touched.

@@ -2526,3 +2526,11 @@ UnderD051 adopt contract843055fb and exactmapf9b4b153 transcribed from acceptedD
 
 
 D-216 acceptance (2026-09-26T20:46:58.333317+04:00): Adopt independent reviewe817e691 FINAL PASS for exact decoder43347b56/mapf9b4b153. First20Linux+20WindowsPASS/no skips/repairs, all26frozeninputs unchanged; closure3fab6436 binds40outcomes/8files. Syntheticrawowners exercise everypublicsemanticboundary against acceptedD215layout; no capturedRAM/hardwareorigin/coherence claim. No nativeoperation or firmwarechange.
+
+
+## D-217 (2026-09-26T20:51:41.782973+04:00) - Fixed B4 file-only entry inspection
+
+Under D051 adopt P7_b4_app_entry_contract.md and binding fb2ab19d. Reuse accepted D210 algorithms and D215 reader guards; only exact current B4 metadata, observed ranges, pins and fresh owners change. Keep 64 groups/77 aliases/129 expressions/four children. Seven B4 strategy interiors remain source/host-only. Root controls focused tests and the separate single file-only native attempt after review and clean HEAD. No upload, MCU access, motor permission or gate follows.
+
+
+D-217 host outcome 2026-09-26T21:01:24.040048+04:00: review8054c937 FINAL PASS accepts unchanged checkerb2158281 and corrected8Linux+8WindowsPASS. Independent fixture identity-format defect repaired without changing any test method; original failure retained. Concrete file-only scope4b0a7303 conditionally admitted at clean committed HEAD with175 prerequisite pins; no native observation claimed yet.

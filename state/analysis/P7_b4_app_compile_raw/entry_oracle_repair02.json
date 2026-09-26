@@ -1,0 +1,53 @@
+{
+  "schema": "d217-entry-oracle-repair-v1",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T20:56:58.6965586+04:00",
+  "author": "b4_next_scope",
+  "reason": "First Linux invocation failed before any test method: the independent project() fixture compared dictionary identities to D217 binding list identities. Accepted D210 fixture identities use dictionaries; D217 lists contain the same exact byte/hash values.",
+  "authorization": "Root authorized this single helper repair after preserving the first Linux failure and receiving the independent reviewer's completed bounded fixture review.",
+  "change": "Normalize only exact {bytes,sha256} dictionaries or two-element [bytes,sha256] lists, with exact nonnegative int byte count and 64-lower-hex hash validation. Keep before identity, occurrence count, and after identity checks.",
+  "unchanged": {
+    "production": true,
+    "contract": true,
+    "binding": true,
+    "original_oracle": true,
+    "test_method_count": 8,
+    "entire_test_class_tail": {
+      "bytes": 19116,
+      "sha256": "153d9bb4d15ba4bb9ebe375a3a043ed7be28aa539341e0664c8d52532eb866c4",
+      "identical": true
+    }
+  },
+  "first_outcome": {
+    "platform": "linux",
+    "test_methods_run": 0,
+    "result": "setUpClass ERROR",
+    "changed_pins": [],
+    "original_windows_not_run": true,
+    "result_receipt": "state/analysis/P7_b4_app_compile_raw/entry_first_linux01/result.json"
+  },
+  "preservation": {
+    "tests/tooling/test_b4_app_entry.py": {
+      "sha256": "a7d401cec037bdac0c70b897bb650791d1c71d2466870790f91b77a057d8c972",
+      "bytes": 25045
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_first_linux01/result.json": {
+      "sha256": "54d35768c4384355828b96dcd70d1109b5eb9ea606ff266ab50bc57b7f5e7d29",
+      "bytes": 841
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_oracle01.json": {
+      "sha256": "0c95b0a8097401afc5426218cf69d16b2107b9befcc150cafbf1b0903dd79331",
+      "bytes": 7332
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_first_linux01/stderr": {
+      "sha256": "806782d54b18bcc9de01e3deebb1d46703c342cd1b8fa1dc3c3c1ede254375ef",
+      "bytes": 952
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_oracle01_test.py": {
+      "sha256": "9c1abaa26551614e9c5ee99c400998ca3f52dbcde0a4c5db6f1e8cbe3dc7ba78",
+      "bytes": 24420
+    }
+  },
+  "commands_executed_by_repair_author": [],
+  "next": "Root binds a new coordinator freeze and runs repaired Linux then Windows under fresh host02 receipt owners. Do not overwrite the first failure or original oracle."
+}

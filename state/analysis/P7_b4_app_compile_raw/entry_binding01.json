@@ -1,0 +1,2338 @@
+{
+  "schema": "d217-b4-entry-binding-v1",
+  "status": "FIXED_DATA_FROM_ACCEPTED_D215",
+  "profile": {
+    "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "motors_allowed": 0,
+    "project": "app.ino",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a"
+  },
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "build_owner": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+  "local_owner": "state/analysis/P7_b4_app_compile_raw/native_entry_static01",
+  "remote_scope": "/home/arduino/sumox26_codex_build/b4-app-m0-entry-static01",
+  "input_pins": [
+    {
+      "path": "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_entry.py",
+      "bytes": 18546,
+      "sha256": "5bcb6e12424237cb2701d271e2704281dedca76688d786eac1076daf8f9b3e0b"
+    },
+    {
+      "path": "state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json",
+      "bytes": 106946,
+      "sha256": "36cafffcfebc647b5019b438705fa42a8be94edfb5d8b67deac2508878c6ae89"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py",
+      "bytes": 32744,
+      "sha256": "4b31dfed3508ebd612abd7de31c5d25e5983c57b802fc55946d3996cf259943d"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/local_result.json",
+      "bytes": 275,
+      "sha256": "7175682488de957b36582fc3b030554ac3cfb8a83ea6ab10ffde6fa2a8534729"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json",
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json",
+      "bytes": 597470,
+      "sha256": "ac0f379ad7da6d02d9cce4f1035405f48fd4f9fcf19de4bb7bcec7f31cf8f69a"
+    },
+    {
+      "path": "state/reviews/P7_b4_app_abi_actual_review.md",
+      "bytes": 5715,
+      "sha256": "c7fe6fe9b0629e65548e69eb7aa66a94cbda3bf9da5f5e13baeaa18be32902b6"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py",
+      "bytes": 10317,
+      "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+    }
+  ],
+  "symbol_inventory": {
+    "rows": 2037,
+    "first_index": 0,
+    "last_index": 2036,
+    "stdout_bytes": 141182,
+    "stdout_sha256": "d0a1d7441c1113d81217aa49239284ce86e44e0329d8ac1b15df34d80e870513",
+    "all_rows_consumed": true
+  },
+  "range_groups": 64,
+  "alias_count": 77,
+  "selected_bytes": 10488,
+  "gdb_expressions": 129,
+  "children": 4,
+  "ranges": [
+    {
+      "label": "entry_point",
+      "start": 135266320,
+      "end": 135266504,
+      "bytes": 184,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 2009,
+          "value": 135266321,
+          "bytes": 184,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "entry_point",
+          "raw_line": "  2009: 08100011   184 FUNC    GLOBAL DEFAULT    1 entry_point"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: entry_point; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "setup",
+      "start": 135266504,
+      "end": 135266544,
+      "bytes": 40,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1854,
+          "value": 135266505,
+          "bytes": 40,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "setup",
+          "raw_line": "  1854: 081000c9    40 FUNC    GLOBAL DEFAULT    1 setup"
+        }
+      ],
+      "source_references": [
+        "src/app/app.ino:setup",
+        "src/app/configured_setup.h:configuredSetupGrants"
+      ]
+    },
+    {
+      "label": "loop",
+      "start": 135266544,
+      "end": 135266560,
+      "bytes": 16,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1463,
+          "value": 135266545,
+          "bytes": 16,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "loop",
+          "raw_line": "  1463: 081000f1    16 FUNC    GLOBAL DEFAULT    1 loop"
+        }
+      ],
+      "source_references": [
+        "src/app/app.ino:loop"
+      ]
+    },
+    {
+      "label": "global_initializer",
+      "start": 135266560,
+      "end": 135266964,
+      "bytes": 404,
+      "binding": "LOCAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 12,
+          "value": 135266561,
+          "bytes": 404,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_GLOBAL__sub_I_setup",
+          "raw_line": "    12: 08100101   404 FUNC    LOCAL  DEFAULT    1 _GLOBAL__sub_I_setup"
+        }
+      ],
+      "source_references": [
+        "src/app/app.ino:anonymous namespace object definitions"
+      ]
+    },
+    {
+      "label": "app_dump_port",
+      "start": 135266980,
+      "end": 135267020,
+      "bytes": 40,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1966,
+          "value": 135266981,
+          "bytes": 40,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+          "raw_line": "  1966: 081002a5    40 FUNC    GLOBAL DEFAULT    1 _ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE"
+        }
+      ],
+      "source_references": [
+        "src/app/dump_port_unoq.cpp:unoQDumpPort"
+      ]
+    },
+    {
+      "label": "sources_port",
+      "start": 135267292,
+      "end": 135267416,
+      "bytes": 124,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1842,
+          "value": 135267293,
+          "bytes": 124,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app13NativeSources4portEv",
+          "raw_line": "  1842: 081003dd   124 FUNC    GLOBAL DEFAULT    1 _ZN3app13NativeSources4portEv"
+        }
+      ],
+      "source_references": [
+        "src/app/native_sources_unoq.cpp:NativeSources::port"
+      ]
+    },
+    {
+      "label": "sources_adc_port",
+      "start": 135267416,
+      "end": 135267436,
+      "bytes": 20,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1654,
+          "value": 135267417,
+          "bytes": 20,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app13NativeSources7adcPortEv",
+          "raw_line": "  1654: 08100459    20 FUNC    GLOBAL DEFAULT    1 _ZN3app13NativeSources7adcPortEv"
+        }
+      ],
+      "source_references": [
+        "src/app/native_sources_unoq.cpp:NativeSources::adcPort"
+      ]
+    },
+    {
+      "label": "dump_port",
+      "start": 135306048,
+      "end": 135306068,
+      "bytes": 20,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1774,
+          "value": 135306049,
+          "bytes": 20,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+          "raw_line": "  1774: 08109b41    20 FUNC    GLOBAL DEFAULT    1 _ZN8recorder4dump12UnoQDumpPort4portEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/dump_uart_unoq.cpp:UnoQDumpPort::port"
+      ]
+    },
+    {
+      "label": "motor_port",
+      "start": 135324204,
+      "end": 135324336,
+      "bytes": 132,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1717,
+          "value": 135324205,
+          "bytes": 132,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort4portEv",
+          "raw_line": "  1717: 0810e22d   132 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort4portEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::port"
+      ]
+    },
+    {
+      "label": "power_reader_port",
+      "start": 135333328,
+      "end": 135333364,
+      "bytes": 36,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1799,
+          "value": 135333329,
+          "bytes": 36,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN5power15readerInputPortERNS_6ReaderE",
+          "raw_line": "  1799: 081105d1    36 FUNC    GLOBAL DEFAULT    1 _ZN5power15readerInputPortERNS_6ReaderE"
+        }
+      ],
+      "source_references": [
+        "src/hal/power_inputs_unoq.cpp:readerInputPort"
+      ]
+    },
+    {
+      "label": "loop_hook",
+      "start": 135323612,
+      "end": 135323614,
+      "bytes": 2,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1856,
+          "value": 135323613,
+          "bytes": 2,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_Z10__loopHookv",
+          "raw_line": "  1856: 0810dfdd     2 FUNC    GLOBAL DEFAULT    1 _Z10__loopHookv"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: _Z10__loopHookv; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "memcpy",
+      "start": 135343940,
+      "end": 135343948,
+      "bytes": 8,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1478,
+          "value": 135343941,
+          "bytes": 8,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "memcpy",
+          "raw_line": "  1478: 08112f45     8 FUNC    GLOBAL DEFAULT    1 memcpy"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: memcpy; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "memset",
+      "start": 135343948,
+      "end": 135343956,
+      "bytes": 8,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1766,
+          "value": 135343949,
+          "bytes": 8,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "memset",
+          "raw_line": "  1766: 08112f4d     8 FUNC    GLOBAL DEFAULT    1 memset"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: memset; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "init_variant",
+      "start": 135344144,
+      "end": 135344146,
+      "bytes": 2,
+      "binding": "WEAK",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1466,
+          "value": 135344145,
+          "bytes": 2,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "initVariant",
+          "raw_line": "  1466: 08113011     2 FUNC    WEAK   DEFAULT    1 initVariant"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: initVariant; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "main",
+      "start": 135344148,
+      "end": 135344192,
+      "bytes": 44,
+      "binding": "WEAK",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1767,
+          "value": 135344149,
+          "bytes": 44,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "main",
+          "raw_line": "  1767: 08113015    44 FUNC    WEAK   DEFAULT    1 main"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: main; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "start_static_threads",
+      "start": 135344192,
+      "end": 135344300,
+      "bytes": 108,
+      "binding": "GLOBAL",
+      "category": "startup_binding",
+      "symbols": [
+        {
+          "index": 1368,
+          "value": 135344193,
+          "bytes": 108,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_Z20start_static_threadsv",
+          "raw_line": "  1368: 08113041   108 FUNC    GLOBAL DEFAULT    1 _Z20start_static_threadsv"
+        }
+      ],
+      "source_references": [
+        "D214 fixed ELF/compiler/core dependency symbol: _Z20start_static_threadsv; no local implementation-body assertion"
+      ]
+    },
+    {
+      "label": "runtime_constructor",
+      "start": 135267600,
+      "end": 135268902,
+      "bytes": 1302,
+      "binding": "GLOBAL",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1488,
+          "value": 135267601,
+          "bytes": 1302,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+          "raw_line": "  1488: 08100511  1302 FUNC    GLOBAL DEFAULT    1 _ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+        },
+        {
+          "index": 1948,
+          "value": 135267601,
+          "bytes": 1302,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+          "raw_line": "  1948: 08100511  1302 FUNC    GLOBAL DEFAULT    1 _ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::Runtime",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "transaction_constructor",
+      "start": 135278052,
+      "end": 135278484,
+      "bytes": 432,
+      "binding": "GLOBAL",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1428,
+          "value": 135278053,
+          "bytes": 432,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11TransactionC1ERKN6motors4PortE",
+          "raw_line": "  1428: 08102de5   432 FUNC    GLOBAL DEFAULT    1 _ZN3app11TransactionC1ERKN6motors4PortE"
+        },
+        {
+          "index": 2006,
+          "value": 135278053,
+          "bytes": 432,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11TransactionC2ERKN6motors4PortE",
+          "raw_line": "  2006: 08102de5   432 FUNC    GLOBAL DEFAULT    1 _ZN3app11TransactionC2ERKN6motors4PortE"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::Transaction",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "gate_constructor",
+      "start": 135326076,
+      "end": 135326136,
+      "bytes": 60,
+      "binding": "GLOBAL",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1994,
+          "value": 135326077,
+          "bytes": 60,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGateC1ERKNS_4PortE",
+          "raw_line": "  1994: 0810e97d    60 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGateC1ERKNS_4PortE"
+        },
+        {
+          "index": 2013,
+          "value": 135326077,
+          "bytes": 60,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGateC2ERKNS_4PortE",
+          "raw_line": "  2013: 0810e97d    60 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGateC2ERKNS_4PortE"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::MotorGate",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "input_owner_constructor",
+      "start": 135331820,
+      "end": 135331902,
+      "bytes": 82,
+      "binding": "GLOBAL",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1743,
+          "value": 135331821,
+          "bytes": 82,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN5power10InputOwnerC1ERKNS_9InputPortE",
+          "raw_line": "  1743: 0810ffed    82 FUNC    GLOBAL DEFAULT    1 _ZN5power10InputOwnerC1ERKNS_9InputPortE"
+        },
+        {
+          "index": 1722,
+          "value": 135331821,
+          "bytes": 82,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN5power10InputOwnerC2ERKNS_9InputPortE",
+          "raw_line": "  1722: 0810ffed    82 FUNC    GLOBAL DEFAULT    1 _ZN5power10InputOwnerC2ERKNS_9InputPortE"
+        }
+      ],
+      "source_references": [
+        "src/hal/power_inputs.cpp:InputOwner::InputOwner",
+        "src/hal/power_inputs.h:InputOwner"
+      ]
+    },
+    {
+      "label": "robot_constructor",
+      "start": 135276568,
+      "end": 135278052,
+      "bytes": 1484,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1386,
+          "value": 135276569,
+          "bytes": 1484,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3fsm5RobotC1Ev",
+          "raw_line": "  1386: 08102819  1484 FUNC    WEAK   DEFAULT    1 _ZN3fsm5RobotC1Ev"
+        },
+        {
+          "index": 1871,
+          "value": 135276569,
+          "bytes": 1484,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3fsm5RobotC2Ev",
+          "raw_line": "  1871: 08102819  1484 FUNC    WEAK   DEFAULT    1 _ZN3fsm5RobotC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/fsm.h:Robot member initializers"
+      ]
+    },
+    {
+      "label": "fusion_observation_constructor",
+      "start": 135276244,
+      "end": 135276280,
+      "bytes": 36,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1507,
+          "value": 135276245,
+          "bytes": 36,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN10opp_fusion17FusionObservationC1Ev",
+          "raw_line": "  1507: 081026d5    36 FUNC    WEAK   DEFAULT    1 _ZN10opp_fusion17FusionObservationC1Ev"
+        },
+        {
+          "index": 1628,
+          "value": 135276245,
+          "bytes": 36,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN10opp_fusion17FusionObservationC2Ev",
+          "raw_line": "  1628: 081026d5    36 FUNC    WEAK   DEFAULT    1 _ZN10opp_fusion17FusionObservationC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/opp_fusion.h:FusionObservation member initializers"
+      ]
+    },
+    {
+      "label": "flank_constructor",
+      "start": 135276280,
+      "end": 135276360,
+      "bytes": 80,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1529,
+          "value": 135276281,
+          "bytes": 80,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN7openers5FlankC1Ev",
+          "raw_line": "  1529: 081026f9    80 FUNC    WEAK   DEFAULT    1 _ZN7openers5FlankC1Ev"
+        },
+        {
+          "index": 1580,
+          "value": 135276281,
+          "bytes": 80,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN7openers5FlankC2Ev",
+          "raw_line": "  1580: 081026f9    80 FUNC    WEAK   DEFAULT    1 _ZN7openers5FlankC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/openers.h:Flank member initializers"
+      ]
+    },
+    {
+      "label": "turn_constructor",
+      "start": 135276172,
+      "end": 135276218,
+      "bytes": 46,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1639,
+          "value": 135276173,
+          "bytes": 46,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motion4TurnC1Ev",
+          "raw_line": "  1639: 0810268d    46 FUNC    WEAK   DEFAULT    1 _ZN6motion4TurnC1Ev"
+        },
+        {
+          "index": 1561,
+          "value": 135276173,
+          "bytes": 46,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motion4TurnC2Ev",
+          "raw_line": "  1561: 0810268d    46 FUNC    WEAK   DEFAULT    1 _ZN6motion4TurnC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/motion.h:Turn member initializers"
+      ]
+    },
+    {
+      "label": "straight_constructor",
+      "start": 135276218,
+      "end": 135276244,
+      "bytes": 26,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1844,
+          "value": 135276219,
+          "bytes": 26,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motion8StraightC1Ev",
+          "raw_line": "  1844: 081026bb    26 FUNC    WEAK   DEFAULT    1 _ZN6motion8StraightC1Ev"
+        },
+        {
+          "index": 2007,
+          "value": 135276219,
+          "bytes": 26,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motion8StraightC2Ev",
+          "raw_line": "  2007: 081026bb    26 FUNC    WEAK   DEFAULT    1 _ZN6motion8StraightC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/motion.h:Straight member initializers"
+      ]
+    },
+    {
+      "label": "line_thresholds_constructor",
+      "start": 135267436,
+      "end": 135267460,
+      "bytes": 24,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1618,
+          "value": 135267437,
+          "bytes": 24,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN8line_qtr10ThresholdsC1Ev",
+          "raw_line": "  1618: 0810046d    24 FUNC    WEAK   DEFAULT    1 _ZN8line_qtr10ThresholdsC1Ev"
+        },
+        {
+          "index": 1865,
+          "value": 135267437,
+          "bytes": 24,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN8line_qtr10ThresholdsC2Ev",
+          "raw_line": "  1865: 0810046d    24 FUNC    WEAK   DEFAULT    1 _ZN8line_qtr10ThresholdsC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/hal/line_qtr_adapter.h:Thresholds member initializers"
+      ]
+    },
+    {
+      "label": "qtr_report_constructor",
+      "start": 135267460,
+      "end": 135267516,
+      "bytes": 56,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1809,
+          "value": 135267461,
+          "bytes": 56,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN7qtr_cal6ReportC1Ev",
+          "raw_line": "  1809: 08100485    56 FUNC    WEAK   DEFAULT    1 _ZN7qtr_cal6ReportC1Ev"
+        },
+        {
+          "index": 1848,
+          "value": 135267461,
+          "bytes": 56,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN7qtr_cal6ReportC2Ev",
+          "raw_line": "  1848: 08100485    56 FUNC    WEAK   DEFAULT    1 _ZN7qtr_cal6ReportC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/hal/qtr_cal.h:Report member initializers"
+      ]
+    },
+    {
+      "label": "line_snapshot_constructor",
+      "start": 135267516,
+      "end": 135267596,
+      "bytes": 80,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1950,
+          "value": 135267517,
+          "bytes": 80,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN8line_qtr8SnapshotC1Ev",
+          "raw_line": "  1950: 081004bd    80 FUNC    WEAK   DEFAULT    1 _ZN8line_qtr8SnapshotC1Ev"
+        },
+        {
+          "index": 1690,
+          "value": 135267517,
+          "bytes": 80,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN8line_qtr8SnapshotC2Ev",
+          "raw_line": "  1690: 081004bd    80 FUNC    WEAK   DEFAULT    1 _ZN8line_qtr8SnapshotC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/hal/line_qtr.h:Snapshot member initializers"
+      ]
+    },
+    {
+      "label": "robot_result_constructor",
+      "start": 135276360,
+      "end": 135276568,
+      "bytes": 208,
+      "binding": "WEAK",
+      "category": "constructors",
+      "symbols": [
+        {
+          "index": 1732,
+          "value": 135276361,
+          "bytes": 208,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3fsm11RobotResultC1Ev",
+          "raw_line": "  1732: 08102749   208 FUNC    WEAK   DEFAULT    1 _ZN3fsm11RobotResultC1Ev"
+        },
+        {
+          "index": 1965,
+          "value": 135276361,
+          "bytes": 208,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3fsm11RobotResultC2Ev",
+          "raw_line": "  1965: 08102749   208 FUNC    WEAK   DEFAULT    1 _ZN3fsm11RobotResultC2Ev"
+        }
+      ],
+      "source_references": [
+        "src/core/fsm.h:RobotResult member initializers"
+      ]
+    },
+    {
+      "label": "runtime_begin",
+      "start": 135270304,
+      "end": 135270484,
+      "bytes": 180,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1860,
+          "value": 135270305,
+          "bytes": 180,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+          "raw_line": "  1860: 08100fa1   180 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime5beginERKNS_11SetupGrantsE"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::begin",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "runtime_valid_ports",
+      "start": 135268904,
+      "end": 135269032,
+      "bytes": 128,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1502,
+          "value": 135268905,
+          "bytes": 128,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK3app7Runtime10validPortsEv",
+          "raw_line": "  1502: 08100a29   128 FUNC    GLOBAL DEFAULT    1 _ZNK3app7Runtime10validPortsEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::validPorts",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "runtime_initialize_sources",
+      "start": 135269800,
+      "end": 135270136,
+      "bytes": 336,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1398,
+          "value": 135269801,
+          "bytes": 336,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime17initializeSourcesEv",
+          "raw_line": "  1398: 08100da9   336 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime17initializeSourcesEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::initializeSources",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "runtime_initialize_dump",
+      "start": 135273168,
+      "end": 135273228,
+      "bytes": 60,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1459,
+          "value": 135273169,
+          "bytes": 60,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime14initializeDumpEv",
+          "raw_line": "  1459: 08101ad1    60 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime14initializeDumpEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime_dump.cpp:Runtime::initializeDump"
+      ]
+    },
+    {
+      "label": "transaction_initialize",
+      "start": 135278484,
+      "end": 135278544,
+      "bytes": 60,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1827,
+          "value": 135278485,
+          "bytes": 60,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction10initializeEv",
+          "raw_line": "  1827: 08102f95    60 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction10initializeEv"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::initialize",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "gate_begin",
+      "start": 135326384,
+      "end": 135326520,
+      "bytes": 136,
+      "binding": "GLOBAL",
+      "category": "setup",
+      "symbols": [
+        {
+          "index": 1627,
+          "value": 135326385,
+          "bytes": 136,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate5beginEv",
+          "raw_line": "  1627: 0810eab1   136 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate5beginEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::begin",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "runtime_step",
+      "start": 135271504,
+      "end": 135271820,
+      "bytes": 316,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1765,
+          "value": 135271505,
+          "bytes": 316,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime4stepEv",
+          "raw_line": "  1765: 08101451   316 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime4stepEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::step",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "transaction_open",
+      "start": 135278712,
+      "end": 135278852,
+      "bytes": 140,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1516,
+          "value": 135278713,
+          "bytes": 140,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction4openEv",
+          "raw_line": "  1516: 08103079   140 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction4openEv"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::open",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "transaction_decide_from",
+      "start": 135279228,
+      "end": 135279344,
+      "bytes": 116,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1859,
+          "value": 135279229,
+          "bytes": 116,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+          "raw_line": "  1859: 0810327d   116 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction10decideFromERKNS_14DecisionSourceE"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::decideFrom",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "transaction_apply_decision",
+      "start": 135278936,
+      "end": 135279228,
+      "bytes": 292,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1365,
+          "value": 135278937,
+          "bytes": 292,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+          "raw_line": "  1365: 08103159   292 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::applyDecision",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "gate_apply",
+      "start": 135327052,
+      "end": 135327304,
+      "bytes": 252,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1845,
+          "value": 135327053,
+          "bytes": 252,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate5applyEjRKN3fsm11RobotResultE",
+          "raw_line": "  1845: 0810ed4d   252 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate5applyEjRKN3fsm11RobotResultE"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::apply",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "gate_transact",
+      "start": 135326948,
+      "end": 135327052,
+      "bytes": 104,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 2014,
+          "value": 135326949,
+          "bytes": 104,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE",
+          "raw_line": "  2014: 0810ece5   104 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::transact",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "runtime_complete_epoch",
+      "start": 135271280,
+      "end": 135271504,
+      "bytes": 224,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1820,
+          "value": 135271281,
+          "bytes": 224,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime13completeEpochEv",
+          "raw_line": "  1820: 08101371   224 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime13completeEpochEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::completeEpoch",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "transaction_complete",
+      "start": 135279344,
+      "end": 135279544,
+      "bytes": 200,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1390,
+          "value": 135279345,
+          "bytes": 200,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction8completeEbj",
+          "raw_line": "  1390: 081032f1   200 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction8completeEbj"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::complete",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "transaction_finish_after",
+      "start": 135279544,
+      "end": 135279556,
+      "bytes": 12,
+      "binding": "GLOBAL",
+      "category": "dispatch_completion",
+      "symbols": [
+        {
+          "index": 1584,
+          "value": 135279545,
+          "bytes": 12,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction11finishAfterEj",
+          "raw_line": "  1584: 081033b9    12 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction11finishAfterEj"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::finishAfter",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "runtime_fail",
+      "start": 135269620,
+      "end": 135269752,
+      "bytes": 132,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1585,
+          "value": 135269621,
+          "bytes": 132,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime4failENS_12RuntimeFaultE",
+          "raw_line": "  1585: 08100cf5   132 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime4failENS_12RuntimeFaultE"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::fail",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "runtime_cancel_sources",
+      "start": 135269492,
+      "end": 135269620,
+      "bytes": 128,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1351,
+          "value": 135269493,
+          "bytes": 128,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app7Runtime13cancelSourcesEv",
+          "raw_line": "  1351: 08100c75   128 FUNC    GLOBAL DEFAULT    1 _ZN3app7Runtime13cancelSourcesEv"
+        }
+      ],
+      "source_references": [
+        "src/app/runtime.cpp:Runtime::cancelSources",
+        "src/app/runtime.h:Runtime"
+      ]
+    },
+    {
+      "label": "transaction_fail",
+      "start": 135278596,
+      "end": 135278712,
+      "bytes": 116,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1514,
+          "value": 135278597,
+          "bytes": 116,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction4failENS_5FaultE",
+          "raw_line": "  1514: 08103005   116 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction4failENS_5FaultE"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::fail",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "transaction_abort",
+      "start": 135279556,
+      "end": 135279568,
+      "bytes": 12,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1614,
+          "value": 135279557,
+          "bytes": 12,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN3app11Transaction5abortEv",
+          "raw_line": "  1614: 081033c5    12 FUNC    GLOBAL DEFAULT    1 _ZN3app11Transaction5abortEv"
+        }
+      ],
+      "source_references": [
+        "src/app/transaction.cpp:Transaction::abort",
+        "src/app/transaction.h:Transaction"
+      ]
+    },
+    {
+      "label": "gate_halt",
+      "start": 135327304,
+      "end": 135327464,
+      "bytes": 160,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1916,
+          "value": 135327305,
+          "bytes": 160,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate4haltEv",
+          "raw_line": "  1916: 0810ee49   160 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate4haltEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::halt",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "gate_inhibit",
+      "start": 135326226,
+      "end": 135326384,
+      "bytes": 158,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1552,
+          "value": 135326227,
+          "bytes": 158,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate7inhibitEv",
+          "raw_line": "  1552: 0810ea13   158 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate7inhibitEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::inhibit",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "gate_zero_pwm",
+      "start": 135326192,
+      "end": 135326226,
+      "bytes": 34,
+      "binding": "GLOBAL",
+      "category": "fault_cleanup",
+      "symbols": [
+        {
+          "index": 1643,
+          "value": 135326193,
+          "bytes": 34,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors9MotorGate7zeroPwmEv",
+          "raw_line": "  1643: 0810e9f1    34 FUNC    GLOBAL DEFAULT    1 _ZN6motors9MotorGate7zeroPwmEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::zeroPwm",
+        "src/hal/motors.h:MotorGate"
+      ]
+    },
+    {
+      "label": "configure_enable_low",
+      "start": 135324508,
+      "end": 135324816,
+      "bytes": 308,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1595,
+          "value": 135324509,
+          "bytes": 308,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort18configureEnableLowEPv",
+          "raw_line": "  1595: 0810e35d   308 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort18configureEnableLowEPv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::configureEnableLow",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "configure_pwm",
+      "start": 135325352,
+      "end": 135325588,
+      "bytes": 236,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1771,
+          "value": 135325353,
+          "bytes": 236,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE",
+          "raw_line": "  1771: 0810e6a9   236 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::configurePwm",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "write_enable",
+      "start": 135324816,
+      "end": 135324916,
+      "bytes": 100,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1625,
+          "value": 135324817,
+          "bytes": 100,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort11writeEnableEPvb",
+          "raw_line": "  1625: 0810e491   100 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort11writeEnableEPvb"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::writeEnable",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "write_pwm",
+      "start": 135325588,
+      "end": 135325816,
+      "bytes": 228,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1574,
+          "value": 135325589,
+          "bytes": 228,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj",
+          "raw_line": "  1574: 0810e795   228 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::writePwm",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "motor_settle",
+      "start": 135325884,
+      "end": 135326076,
+      "bytes": 192,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1537,
+          "value": 135325885,
+          "bytes": 192,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort6settleEPv",
+          "raw_line": "  1537: 0810e8bd   192 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort6settleEPv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::settle",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "motor_clock",
+      "start": 135323788,
+      "end": 135323796,
+      "bytes": 8,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1517,
+          "value": 135323789,
+          "bytes": 8,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors8UnoQPort7clockUsEPv",
+          "raw_line": "  1517: 0810e08d     8 FUNC    GLOBAL DEFAULT    1 _ZN6motors8UnoQPort7clockUsEPv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::clockUs",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "candidate_period",
+      "start": 135323728,
+      "end": 135323748,
+      "bytes": 20,
+      "binding": "LOCAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 835,
+          "value": 135323729,
+          "bytes": 20,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors12_GLOBAL__N_115candidatePeriodEj",
+          "raw_line": "   835: 0810e051    20 FUNC    LOCAL  DEFAULT    1 _ZN6motors12_GLOBAL__N_115candidatePeriodEj"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:candidatePeriod",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "map_channel",
+      "start": 135323940,
+      "end": 135324204,
+      "bytes": 264,
+      "binding": "LOCAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 844,
+          "value": 135323941,
+          "bytes": 264,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZN6motors12_GLOBAL__N_110mapChannelEjRj",
+          "raw_line": "   844: 0810e125   264 FUNC    LOCAL  DEFAULT    1 _ZN6motors12_GLOBAL__N_110mapChannelEjRj"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:mapChannel",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "enable_owned",
+      "start": 135324336,
+      "end": 135324508,
+      "bytes": 172,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1699,
+          "value": 135324337,
+          "bytes": 172,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK6motors8UnoQPort11enableOwnedEv",
+          "raw_line": "  1699: 0810e2b1   172 FUNC    GLOBAL DEFAULT    1 _ZNK6motors8UnoQPort11enableOwnedEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::enableOwned",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "enable_low",
+      "start": 135324916,
+      "end": 135324968,
+      "bytes": 52,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1427,
+          "value": 135324917,
+          "bytes": 52,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK6motors8UnoQPort9enableLowEv",
+          "raw_line": "  1427: 0810e4f5    52 FUNC    GLOBAL DEFAULT    1 _ZNK6motors8UnoQPort9enableLowEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::enableLow",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "timer_valid",
+      "start": 135324968,
+      "end": 135325352,
+      "bytes": 384,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1806,
+          "value": 135324969,
+          "bytes": 384,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK6motors8UnoQPort10timerValidEj",
+          "raw_line": "  1806: 0810e529   384 FUNC    GLOBAL DEFAULT    1 _ZNK6motors8UnoQPort10timerValidEj"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::timerValid",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "bank_valid",
+      "start": 135325816,
+      "end": 135325884,
+      "bytes": 68,
+      "binding": "GLOBAL",
+      "category": "native_motor_callbacks",
+      "symbols": [
+        {
+          "index": 1443,
+          "value": 135325817,
+          "bytes": 68,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK6motors8UnoQPort9bankValidEv",
+          "raw_line": "  1443: 0810e879    68 FUNC    GLOBAL DEFAULT    1 _ZNK6motors8UnoQPort9bankValidEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motor_port_unoq.cpp:UnoQPort::bankValid",
+        "src/hal/motor_port_unoq.h:UnoQPort"
+      ]
+    },
+    {
+      "label": "gate_valid_port",
+      "start": 135326136,
+      "end": 135326192,
+      "bytes": 56,
+      "binding": "GLOBAL",
+      "category": "port_validation",
+      "symbols": [
+        {
+          "index": 1853,
+          "value": 135326137,
+          "bytes": 56,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1,
+          "name": "_ZNK6motors9MotorGate9validPortEv",
+          "raw_line": "  1853: 0810e9b9    56 FUNC    GLOBAL DEFAULT    1 _ZNK6motors9MotorGate9validPortEv"
+        }
+      ],
+      "source_references": [
+        "src/hal/motors.cpp:MotorGate::validPort",
+        "src/hal/motors.h:MotorGate"
+      ]
+    }
+  ],
+  "local_labels": [
+    "global_initializer",
+    "candidate_period",
+    "map_channel"
+  ],
+  "weak_labels": [
+    "init_variant",
+    "main",
+    "robot_constructor",
+    "fusion_observation_constructor",
+    "flank_constructor",
+    "turn_constructor",
+    "straight_constructor",
+    "line_thresholds_constructor",
+    "qtr_report_constructor",
+    "line_snapshot_constructor",
+    "robot_result_constructor"
+  ],
+  "initialization": {
+    "bounds": [
+      {
+        "index": 1311,
+        "value": 135344612,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__init_array_start",
+        "raw_line": "  1311: 081131e4     0 NOTYPE  LOCAL  DEFAULT    2 __init_array_start"
+      },
+      {
+        "index": 1309,
+        "value": 135344616,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__init_array_end",
+        "raw_line": "  1309: 081131e8     0 NOTYPE  LOCAL  DEFAULT    2 __init_array_end"
+      },
+      {
+        "index": 1312,
+        "value": 135344612,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__preinit_array_start",
+        "raw_line": "  1312: 081131e4     0 NOTYPE  LOCAL  DEFAULT    2 __preinit_array_start"
+      },
+      {
+        "index": 1310,
+        "value": 135344612,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__preinit_array_end",
+        "raw_line": "  1310: 081131e4     0 NOTYPE  LOCAL  DEFAULT    2 __preinit_array_end"
+      },
+      {
+        "index": 1934,
+        "value": 135344612,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__static_thread_data_list_start",
+        "raw_line": "  1934: 081131e4     0 NOTYPE  GLOBAL DEFAULT    2 __static_thread_data_list_start"
+      },
+      {
+        "index": 1682,
+        "value": 135344612,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 2,
+        "name": "__static_thread_data_list_end",
+        "raw_line": "  1682: 081131e4     0 NOTYPE  GLOBAL DEFAULT    2 __static_thread_data_list_end"
+      }
+    ],
+    "section": {
+      "address": 135344612,
+      "alignment": 4,
+      "flags": 3,
+      "load_address": 135344612,
+      "name": ".init_array",
+      "size": 4,
+      "type": 14
+    },
+    "section_index": 2,
+    "expected_pointer": 135266561,
+    "expected_little_endian_bytes_hex": "01011008",
+    "contents_observed": false
+  },
+  "startup_symbols": {
+    "_ebss": [
+      {
+        "index": 1604,
+        "value": 537118488,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 5,
+        "name": "_ebss",
+        "raw_line": "  1604: 2003c718     0 NOTYPE  GLOBAL DEFAULT    5 _ebss"
+      }
+    ],
+    "_edata": [
+      {
+        "index": 1887,
+        "value": 536951136,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 4,
+        "name": "_edata",
+        "raw_line": "  1887: 20013960     0 NOTYPE  GLOBAL DEFAULT    4 _edata"
+      }
+    ],
+    "_sbss": [
+      {
+        "index": 1450,
+        "value": 536951136,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 5,
+        "name": "_sbss",
+        "raw_line": "  1450: 20013960     0 NOTYPE  GLOBAL DEFAULT    5 _sbss"
+      }
+    ],
+    "_sdata": [
+      {
+        "index": 1522,
+        "value": 536950928,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 4,
+        "name": "_sdata",
+        "raw_line": "  1522: 20013890     0 NOTYPE  GLOBAL DEFAULT    4 _sdata"
+      }
+    ],
+    "_sidata": [
+      {
+        "index": 1404,
+        "value": 135349008,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": "ABS",
+        "name": "_sidata",
+        "raw_line": "  1404: 08114310     0 NOTYPE  GLOBAL DEFAULT  ABS _sidata"
+      }
+    ]
+  },
+  "checked_startup_layout": {
+    "entry": 135266321,
+    "sections": [
+      {
+        "address": 135266320,
+        "alignment": 8,
+        "flags": 6,
+        "load_address": 135266320,
+        "name": ".text",
+        "size": 78292,
+        "type": 1
+      },
+      {
+        "address": 135344612,
+        "alignment": 4,
+        "flags": 3,
+        "load_address": 135344612,
+        "name": ".init_array",
+        "size": 4,
+        "type": 14
+      },
+      {
+        "address": 135344616,
+        "alignment": 4,
+        "flags": 2,
+        "load_address": 135344616,
+        "name": ".rodata",
+        "size": 4392,
+        "type": 1
+      },
+      {
+        "address": 536950928,
+        "alignment": 4,
+        "flags": 3,
+        "load_address": 135349008,
+        "name": ".data",
+        "size": 208,
+        "type": 1
+      },
+      {
+        "address": 536951136,
+        "alignment": 8,
+        "flags": 3,
+        "load_address": null,
+        "name": ".bss",
+        "size": 167584,
+        "type": 8
+      }
+    ],
+    "data_copy": {
+      "bytes": 208,
+      "destination": 536950928,
+      "source": 135349008
+    },
+    "bss_zero": {
+      "bytes": 167352,
+      "end": 537118488,
+      "start": 536951136
+    }
+  },
+  "constructor_absent_func_tokens": {
+    "AcquirerC": [],
+    "AttemptRecorderC": [],
+    "BusC": [],
+    "NativeSourcesC": [],
+    "RuntimeReportC": [],
+    "SetupC": [],
+    "TransferC": [],
+    "UnoQDumpPortC": [],
+    "UnoQPortC": [],
+    "configuredSetupGrants": [],
+    "stand_sequence8SequenceC": [],
+    "stand_sequence6ReportC": []
+  },
+  "projection": {
+    "reader": {
+      "input": [
+        13204,
+        "069af034c960acc478b11ec8c516da58121a8adf2d936531309d298d7ca3feba"
+      ],
+      "projected": [
+        13226,
+        "5df04ffc6c532d236006bb67bfa772493d8b2dc165b5523e4777300a04f0bba9"
+      ],
+      "steps": [
+        {
+          "old": "'/inspect_static_abi.py'",
+          "new": "'/inspect_static_entry.py'",
+          "count": 1,
+          "before": [
+            13204,
+            "069af034c960acc478b11ec8c516da58121a8adf2d936531309d298d7ca3feba"
+          ],
+          "after": [
+            13206,
+            "a88e1096e5bf12db9d427541e6d79ff6cc02e71276af9366ec85fd70b02a4591"
+          ]
+        },
+        {
+          "old": "'native_abi_static01'",
+          "new": "'native_entry_static01'",
+          "count": 1,
+          "before": [
+            13206,
+            "a88e1096e5bf12db9d427541e6d79ff6cc02e71276af9366ec85fd70b02a4591"
+          ],
+          "after": [
+            13208,
+            "55a9cf07b94f9bf52e8cebbba3fc6f9f4441a99dbbf0345d913f66041fb3d060"
+          ]
+        },
+        {
+          "old": "b4-app-m0-abi-static01",
+          "new": "b4-app-m0-entry-static01",
+          "count": 1,
+          "before": [
+            13208,
+            "55a9cf07b94f9bf52e8cebbba3fc6f9f4441a99dbbf0345d913f66041fb3d060"
+          ],
+          "after": [
+            13210,
+            "3f0c7c38f00f16a65e5715ffd5a2e0617da1e8f8443b02fb436aee4bd3688455"
+          ]
+        },
+        {
+          "old": "D215_STATIC_FILE_ONLY_ABI",
+          "new": "D217_STATIC_FILE_ONLY_ENTRY",
+          "count": 2,
+          "before": [
+            13210,
+            "3f0c7c38f00f16a65e5715ffd5a2e0617da1e8f8443b02fb436aee4bd3688455"
+          ],
+          "after": [
+            13214,
+            "af9086ef2929d4d35c1bd0e5508db0a46cf0a5531f4df09ba797f92984247dac"
+          ]
+        },
+        {
+          "old": "STATIC_ABI_CHECKED",
+          "new": "STATIC_ENTRY_CHECKED",
+          "count": 1,
+          "before": [
+            13214,
+            "af9086ef2929d4d35c1bd0e5508db0a46cf0a5531f4df09ba797f92984247dac"
+          ],
+          "after": [
+            13216,
+            "696f42475280905f718b02f0d589711f90505c2a9b38ebccd54f9a67ffcb5b6b"
+          ]
+        },
+        {
+          "old": "STATIC_ABI_OBSERVED",
+          "new": "STATIC_ENTRY_OBSERVED",
+          "count": 1,
+          "before": [
+            13216,
+            "696f42475280905f718b02f0d589711f90505c2a9b38ebccd54f9a67ffcb5b6b"
+          ],
+          "after": [
+            13218,
+            "396fa2f64f85c2d90cc4c06621c2e6a70e076554face68551a885dbd30bd3f6f"
+          ]
+        },
+        {
+          "old": "'file-abi'",
+          "new": "'file-entry'",
+          "count": 1,
+          "before": [
+            13218,
+            "396fa2f64f85c2d90cc4c06621c2e6a70e076554face68551a885dbd30bd3f6f"
+          ],
+          "after": [
+            13220,
+            "c96ecddb3e61d1e043c65e59a95946459c842549fde2fb5815eebd81739f5093"
+          ]
+        },
+        {
+          "old": "'abi.json'",
+          "new": "'entry.json'",
+          "count": 1,
+          "before": [
+            13220,
+            "c96ecddb3e61d1e043c65e59a95946459c842549fde2fb5815eebd81739f5093"
+          ],
+          "after": [
+            13222,
+            "5e69ce26e727b4b3bb7ae7a435b6dc5e66057132780c803278ceeea310599234"
+          ]
+        },
+        {
+          "old": "StaticAbi",
+          "new": "StaticEntry",
+          "count": 2,
+          "before": [
+            13222,
+            "5e69ce26e727b4b3bb7ae7a435b6dc5e66057132780c803278ceeea310599234"
+          ],
+          "after": [
+            13226,
+            "5df04ffc6c532d236006bb67bfa772493d8b2dc165b5523e4777300a04f0bba9"
+          ]
+        }
+      ]
+    },
+    "parser": {
+      "input": [
+        10317,
+        "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+      ],
+      "projected": [
+        14256,
+        "dd011caad902b86cc6e47fded3be1695e4a96f84581e6a654acf38a2c96a1bfc"
+      ],
+      "steps": [
+        {
+          "old": "/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino",
+          "new": "/home/arduino/sumox26_codex_build/b4-app-m0-static01/build/app.ino",
+          "count": 1,
+          "before": [
+            10317,
+            "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+          ],
+          "after": [
+            10299,
+            "b078767565c1aaf7ea4a0074b9727669412db16ebc1d9472a5918e9c7cb8d2a8"
+          ]
+        },
+        {
+          "old": "RANGES = (\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\n    ('setup', 0x081000c8, 0x081000e8, ('setup',)),\n    ('loop', 0x081000e8, 0x08100104, ('loop',)),\n    ('global_initializer', 0x08100104, 0x08100298, ('_GLOBAL__sub_I_setup',)),\n    ('app_dump_port', 0x081002a8, 0x081002d0, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\n    ('sources_port', 0x081003e0, 0x0810045c, ('_ZN3app13NativeSources4portEv',)),\n    ('sources_adc_port', 0x0810045c, 0x08100470, ('_ZN3app13NativeSources7adcPortEv',)),\n    ('runner_constructor', 0x08103984, 0x08103b58, tuple('_ZN15app_motor_fault6RunnerC' + str(n) +\n        'ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE' for n in (1, 2))),\n    ('runner_application_valid', 0x08103b58, 0x08103bb0, ('_ZNK15app_motor_fault6Runner16applicationValidEv',)),\n    ('runner_stop_reason', 0x08103bb0, 0x08103c08, ('_ZNK15app_motor_fault6Runner10stopReasonEv',)),\n    ('runner_freeze', 0x08103c08, 0x08103c94, ('_ZN15app_motor_fault6Runner6freezeENS_6ReasonE',)),\n    ('runner_begin', 0x08103c94, 0x08103d24, ('_ZN15app_motor_fault6Runner5beginERKN11motor_fault6GrantsE',)),\n    ('runner_poll', 0x08103d24, 0x08103d78, ('_ZN15app_motor_fault6Runner4pollEv',)),\n    ('dump_port', 0x0810c760, 0x0810c774, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\n    ('loop_hook', 0x08110bfc, 0x08110bfe, ('_Z10__loopHookv',)),\n    ('candidate_rate', 0x08110c70, 0x08110cd8, ('_ZN6motors12_GLOBAL__N_113candidateRateEj',)),\n    ('candidate_period', 0x08110cd8, 0x08110d10, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\n    ('motor_port', 0x08110ed8, 0x08110f64, ('_ZN6motors8UnoQPort4portEv',)),\n    ('power_reader_port', 0x0811326c, 0x08113290, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\n    ('trace_constructor', 0x08115bec, 0x08115c7c,\n        tuple('_ZN11motor_fault5TraceC' + str(n) + 'ERKN6motors4PortE' for n in (1, 2))),\n    ('trace_port', 0x08115c7c, 0x08115cfc, ('_ZN11motor_fault5Trace4portEv',)),\n    ('memcpy', 0x08115f6c, 0x08115f74, ('memcpy',)),\n    ('memset', 0x08115f74, 0x08115f7c, ('memset',)),\n    ('unsigned_divide', 0x0811602c, 0x08116036, ('__aeabi_uldivmod',)),\n    ('init_variant', 0x08116044, 0x08116046, ('initVariant',)),\n    ('main', 0x08116048, 0x08116074, ('main',)),\n    ('start_static_threads', 0x08116074, 0x081160e0, ('_Z20start_static_threadsv',)),\n)",
+          "new": "RANGES = (\n    ('entry_point', 0x08100010, 0x081000c8, ('entry_point',)),\n    ('setup', 0x081000c8, 0x081000f0, ('setup',)),\n    ('loop', 0x081000f0, 0x08100100, ('loop',)),\n    ('global_initializer', 0x08100100, 0x08100294, ('_GLOBAL__sub_I_setup',)),\n    ('app_dump_port', 0x081002a4, 0x081002cc, ('_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE',)),\n    ('sources_port', 0x081003dc, 0x08100458, ('_ZN3app13NativeSources4portEv',)),\n    ('sources_adc_port', 0x08100458, 0x0810046c, ('_ZN3app13NativeSources7adcPortEv',)),\n    ('dump_port', 0x08109b40, 0x08109b54, ('_ZN8recorder4dump12UnoQDumpPort4portEv',)),\n    ('motor_port', 0x0810e22c, 0x0810e2b0, ('_ZN6motors8UnoQPort4portEv',)),\n    ('power_reader_port', 0x081105d0, 0x081105f4, ('_ZN5power15readerInputPortERNS_6ReaderE',)),\n    ('loop_hook', 0x0810dfdc, 0x0810dfde, ('_Z10__loopHookv',)),\n    ('memcpy', 0x08112f44, 0x08112f4c, ('memcpy',)),\n    ('memset', 0x08112f4c, 0x08112f54, ('memset',)),\n    ('init_variant', 0x08113010, 0x08113012, ('initVariant',)),\n    ('main', 0x08113014, 0x08113040, ('main',)),\n    ('start_static_threads', 0x08113040, 0x081130ac, ('_Z20start_static_threadsv',)),\n    ('runtime_constructor', 0x08100510, 0x08100a26, ('_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE', '_ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE')),\n    ('transaction_constructor', 0x08102de4, 0x08102f94, ('_ZN3app11TransactionC1ERKN6motors4PortE', '_ZN3app11TransactionC2ERKN6motors4PortE')),\n    ('gate_constructor', 0x0810e97c, 0x0810e9b8, ('_ZN6motors9MotorGateC1ERKNS_4PortE', '_ZN6motors9MotorGateC2ERKNS_4PortE')),\n    ('input_owner_constructor', 0x0810ffec, 0x0811003e, ('_ZN5power10InputOwnerC1ERKNS_9InputPortE', '_ZN5power10InputOwnerC2ERKNS_9InputPortE')),\n    ('robot_constructor', 0x08102818, 0x08102de4, ('_ZN3fsm5RobotC1Ev', '_ZN3fsm5RobotC2Ev')),\n    ('fusion_observation_constructor', 0x081026d4, 0x081026f8, ('_ZN10opp_fusion17FusionObservationC1Ev', '_ZN10opp_fusion17FusionObservationC2Ev')),\n    ('flank_constructor', 0x081026f8, 0x08102748, ('_ZN7openers5FlankC1Ev', '_ZN7openers5FlankC2Ev')),\n    ('turn_constructor', 0x0810268c, 0x081026ba, ('_ZN6motion4TurnC1Ev', '_ZN6motion4TurnC2Ev')),\n    ('straight_constructor', 0x081026ba, 0x081026d4, ('_ZN6motion8StraightC1Ev', '_ZN6motion8StraightC2Ev')),\n    ('line_thresholds_constructor', 0x0810046c, 0x08100484, ('_ZN8line_qtr10ThresholdsC1Ev', '_ZN8line_qtr10ThresholdsC2Ev')),\n    ('qtr_report_constructor', 0x08100484, 0x081004bc, ('_ZN7qtr_cal6ReportC1Ev', '_ZN7qtr_cal6ReportC2Ev')),\n    ('line_snapshot_constructor', 0x081004bc, 0x0810050c, ('_ZN8line_qtr8SnapshotC1Ev', '_ZN8line_qtr8SnapshotC2Ev')),\n    ('robot_result_constructor', 0x08102748, 0x08102818, ('_ZN3fsm11RobotResultC1Ev', '_ZN3fsm11RobotResultC2Ev')),\n    ('runtime_begin', 0x08100fa0, 0x08101054, ('_ZN3app7Runtime5beginERKNS_11SetupGrantsE',)),\n    ('runtime_valid_ports', 0x08100a28, 0x08100aa8, ('_ZNK3app7Runtime10validPortsEv',)),\n    ('runtime_initialize_sources', 0x08100da8, 0x08100ef8, ('_ZN3app7Runtime17initializeSourcesEv',)),\n    ('runtime_initialize_dump', 0x08101ad0, 0x08101b0c, ('_ZN3app7Runtime14initializeDumpEv',)),\n    ('transaction_initialize', 0x08102f94, 0x08102fd0, ('_ZN3app11Transaction10initializeEv',)),\n    ('gate_begin', 0x0810eab0, 0x0810eb38, ('_ZN6motors9MotorGate5beginEv',)),\n    ('runtime_step', 0x08101450, 0x0810158c, ('_ZN3app7Runtime4stepEv',)),\n    ('transaction_open', 0x08103078, 0x08103104, ('_ZN3app11Transaction4openEv',)),\n    ('transaction_decide_from', 0x0810327c, 0x081032f0, ('_ZN3app11Transaction10decideFromERKNS_14DecisionSourceE',)),\n    ('transaction_apply_decision', 0x08103158, 0x0810327c, ('_ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj',)),\n    ('gate_apply', 0x0810ed4c, 0x0810ee48, ('_ZN6motors9MotorGate5applyEjRKN3fsm11RobotResultE',)),\n    ('gate_transact', 0x0810ece4, 0x0810ed4c, ('_ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE',)),\n    ('runtime_complete_epoch', 0x08101370, 0x08101450, ('_ZN3app7Runtime13completeEpochEv',)),\n    ('transaction_complete', 0x081032f0, 0x081033b8, ('_ZN3app11Transaction8completeEbj',)),\n    ('transaction_finish_after', 0x081033b8, 0x081033c4, ('_ZN3app11Transaction11finishAfterEj',)),\n    ('runtime_fail', 0x08100cf4, 0x08100d78, ('_ZN3app7Runtime4failENS_12RuntimeFaultE',)),\n    ('runtime_cancel_sources', 0x08100c74, 0x08100cf4, ('_ZN3app7Runtime13cancelSourcesEv',)),\n    ('transaction_fail', 0x08103004, 0x08103078, ('_ZN3app11Transaction4failENS_5FaultE',)),\n    ('transaction_abort', 0x081033c4, 0x081033d0, ('_ZN3app11Transaction5abortEv',)),\n    ('gate_halt', 0x0810ee48, 0x0810eee8, ('_ZN6motors9MotorGate4haltEv',)),\n    ('gate_inhibit', 0x0810ea12, 0x0810eab0, ('_ZN6motors9MotorGate7inhibitEv',)),\n    ('gate_zero_pwm', 0x0810e9f0, 0x0810ea12, ('_ZN6motors9MotorGate7zeroPwmEv',)),\n    ('configure_enable_low', 0x0810e35c, 0x0810e490, ('_ZN6motors8UnoQPort18configureEnableLowEPv',)),\n    ('configure_pwm', 0x0810e6a8, 0x0810e794, ('_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE',)),\n    ('write_enable', 0x0810e490, 0x0810e4f4, ('_ZN6motors8UnoQPort11writeEnableEPvb',)),\n    ('write_pwm', 0x0810e794, 0x0810e878, ('_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj',)),\n    ('motor_settle', 0x0810e8bc, 0x0810e97c, ('_ZN6motors8UnoQPort6settleEPv',)),\n    ('motor_clock', 0x0810e08c, 0x0810e094, ('_ZN6motors8UnoQPort7clockUsEPv',)),\n    ('candidate_period', 0x0810e050, 0x0810e064, ('_ZN6motors12_GLOBAL__N_115candidatePeriodEj',)),\n    ('map_channel', 0x0810e124, 0x0810e22c, ('_ZN6motors12_GLOBAL__N_110mapChannelEjRj',)),\n    ('enable_owned', 0x0810e2b0, 0x0810e35c, ('_ZNK6motors8UnoQPort11enableOwnedEv',)),\n    ('enable_low', 0x0810e4f4, 0x0810e528, ('_ZNK6motors8UnoQPort9enableLowEv',)),\n    ('timer_valid', 0x0810e528, 0x0810e6a8, ('_ZNK6motors8UnoQPort10timerValidEj',)),\n    ('bank_valid', 0x0810e878, 0x0810e8bc, ('_ZNK6motors8UnoQPort9bankValidEv',)),\n    ('gate_valid_port', 0x0810e9b8, 0x0810e9f0, ('_ZNK6motors9MotorGate9validPortEv',)),\n)",
+          "count": 1,
+          "before": [
+            10299,
+            "b078767565c1aaf7ea4a0074b9727669412db16ebc1d9472a5918e9c7cb8d2a8"
+          ],
+          "after": [
+            14038,
+            "a40a9d9afe89edf05d6d24931ef415bab57b11da67044fde9a4b52904b8afd90"
+          ]
+        },
+        {
+          "old": "BOUNDS = {name: (0x0811621c if name == '__init_array_end' else 0x08116218)\n          for name in ('__init_array_start', '__init_array_end', '__preinit_array_start',\n                       '__preinit_array_end', '__static_thread_data_list_start', '__static_thread_data_list_end')}",
+          "new": "BOUNDS = {\n    '__init_array_start': 0x081131e4,\n    '__init_array_end': 0x081131e8,\n    '__preinit_array_start': 0x081131e4,\n    '__preinit_array_end': 0x081131e4,\n    '__static_thread_data_list_start': 0x081131e4,\n    '__static_thread_data_list_end': 0x081131e4,\n}",
+          "count": 1,
+          "before": [
+            14038,
+            "a40a9d9afe89edf05d6d24931ef415bab57b11da67044fde9a4b52904b8afd90"
+          ],
+          "after": [
+            14025,
+            "1cb14d0b467e10e95e8318335dd3814281f30411dfdabe01f61ae72362ab83d8"
+          ]
+        },
+        {
+          "old": "label in ('global_initializer', 'candidate_rate', 'candidate_period')",
+          "new": "label in ('global_initializer', 'candidate_period', 'map_channel')",
+          "count": 1,
+          "before": [
+            14025,
+            "1cb14d0b467e10e95e8318335dd3814281f30411dfdabe01f61ae72362ab83d8"
+          ],
+          "after": [
+            14022,
+            "adff67575a11758138aa09abb1592bf0eb3d8b62ceea42a59cdc4f8cca56a033"
+          ]
+        },
+        {
+          "old": "label in ('init_variant', 'main')",
+          "new": "label in ('init_variant', 'main', 'robot_constructor', 'fusion_observation_constructor', 'flank_constructor', 'turn_constructor', 'straight_constructor', 'line_thresholds_constructor', 'qtr_report_constructor', 'line_snapshot_constructor', 'robot_result_constructor')",
+          "count": 1,
+          "before": [
+            14022,
+            "adff67575a11758138aa09abb1592bf0eb3d8b62ceea42a59cdc4f8cca56a033"
+          ],
+          "after": [
+            14256,
+            "1a16c170af415ac5eb544c0d9b2a22ac1df7dd7d1f32a27a9937ae6882fb3edb"
+          ]
+        },
+        {
+          "old": "sections[0]['address'] == 0x08116218",
+          "new": "sections[0]['address'] == 0x081131e4",
+          "count": 1,
+          "before": [
+            14256,
+            "1a16c170af415ac5eb544c0d9b2a22ac1df7dd7d1f32a27a9937ae6882fb3edb"
+          ],
+          "after": [
+            14256,
+            "0d3b85cebd6ac7ed8a85f35a5fdcf9ed50e8c5b678e697f8850c1d2f81928807"
+          ]
+        },
+        {
+          "old": "int(lines[0][0], 16) == 0x08116218",
+          "new": "int(lines[0][0], 16) == 0x081131e4",
+          "count": 1,
+          "before": [
+            14256,
+            "0d3b85cebd6ac7ed8a85f35a5fdcf9ed50e8c5b678e697f8850c1d2f81928807"
+          ],
+          "after": [
+            14256,
+            "ce5b6e5f06196858f07855707bea7e8e157d0a882b9c5b1c93f78f7544eb0b98"
+          ]
+        },
+        {
+          "old": "return dict(address=0x08116218, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)",
+          "new": "return dict(address=0x081131e4, bytes_hex=data.hex(), pointer=pointer, bounds=BOUNDS)",
+          "count": 1,
+          "before": [
+            14256,
+            "ce5b6e5f06196858f07855707bea7e8e157d0a882b9c5b1c93f78f7544eb0b98"
+          ],
+          "after": [
+            14256,
+            "4dc681187e843d4c453baab41c4c6496b9078dd7c6f74f31dfc0be8a330befa5"
+          ]
+        },
+        {
+          "old": "pointer == 0x08100105",
+          "new": "pointer == 0x08100101",
+          "count": 1,
+          "before": [
+            14256,
+            "4dc681187e843d4c453baab41c4c6496b9078dd7c6f74f31dfc0be8a330befa5"
+          ],
+          "after": [
+            14256,
+            "dd011caad902b86cc6e47fded3be1695e4a96f84581e6a654acf38a2c96a1bfc"
+          ]
+        }
+      ]
+    }
+  },
+  "public_interface": {
+    "load_reader": "load_reader(*, root=ROOT)",
+    "project_reader": "project_reader(raw: bytes) -> bytes",
+    "project_parser": "project_parser(raw: bytes) -> bytes",
+    "class": "StaticEntry",
+    "cli": [
+      "--check-only|--execute",
+      "--reviewed-head",
+      "<40lowerhex>"
+    ],
+    "queries": "queries(reader)",
+    "summarize": "summarize(result, layout)",
+    "summary_keys": [
+      "status",
+      "initialization",
+      "disassembly",
+      "limitation"
+    ],
+    "status": "STATIC_ENTRY_OBSERVED"
+  },
+  "limits": {
+    "child_reap_seconds": 5,
+    "child_stream_limit_bytes": 1048576,
+    "child_timeout_seconds": 60,
+    "file_children": 4,
+    "local_min_free_bytes": 134217728,
+    "marker_group_count_less_than": 100,
+    "remote_closing_checks": 13,
+    "remote_file_pins": 12,
+    "transport_calls": 1,
+    "transport_reply_limit_bytes": 8388608,
+    "transport_timeout_seconds": 400,
+    "windows_command_limit_utf16_units": 30000
+  },
+  "scope_limitations": [
+    "Selected file instructions only; no closed B4 call-graph proof.",
+    "Seven new stand function ranges are deliberately not queried. Stand routing, governor and lifecycle interiors remain source/host evidence.",
+    "Current M0/all17setup grants0/probe0 image only; no upload, reset, MCU memory access, motor permission or runtime acceptance.",
+    "Absent helper constructors or terminate FUNC symbols do not establish inlining or absent work; review enlarged selected Robot/RobotResult constructors and zero-BSS.",
+    "Initializer pointer contents remain unobserved until the exact readelf -x .init_array child."
+  ]
+}

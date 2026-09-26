@@ -1,3 +1,20 @@
+## Current checkpoint - 2026-09-26T21:01:24.040048+04:00
+
+D217 source/host and conditional native admission FINAL PASS8054c937.
+Corrected8Linux+8WindowsPASS/169pins stable, closureb29e8d7c; original
+0-test fixture identity failure and bounded repair retained. Checkerb2158281,
+bindingfb2ab19d, scope4b0a7303. Native union175 files now frozen.
+Next exact-byte staging/clean commit then entry_native_driver01.py once.
+Local native_entry_static01 and entry_native_invocations01.json absent;
+no live exec. D218 production/test authors HOLD writes through native closure.
+
+D218 capture-to-CSV layer agreed in messages: fixed26reads/852624B, ten16KiB
+owner chunks plus two120B lifecycle brackets, exactB4 fullflash checks before
+SRAM and after. Capture module reuses fixed base guards; separate purehost
+decoder requires successful returned envelope and13exactretrievedleaves.
+No D218files/source/tests/native action yet. CurrentMCU remainsordinaryD212;
+no B4map applied to itsRAM. Allphysical/human gates remain absent, BOARD ONLY.
+
 ## Current checkpoint - 2026-09-26T20:46:58.333317+04:00
 
 D215 actual file-only B4ABI is accepted reviewc7fe6fe9 FINAL PASS at native

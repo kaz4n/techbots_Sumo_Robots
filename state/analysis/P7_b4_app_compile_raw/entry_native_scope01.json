@@ -1,0 +1,131 @@
+{
+  "schema": "d217-b4-entry-native-scope-v1",
+  "created": "2026-09-26T20:59:14.950098+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "operation": "One check-only then one conditional fixed file-only execution at clean reviewed HEAD after separate conditional admission in the FINAL source/host review. No compiler, upload, reset, MCU read, privilege or retry.",
+  "profile": {
+    "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "motors_allowed": 0,
+    "project": "app.ino",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a"
+  },
+  "bindings": {
+    "build_owner": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+    "remote_scope": "/home/arduino/sumox26_codex_build/b4-app-m0-entry-static01",
+    "local_owner": "state/analysis/P7_b4_app_compile_raw/native_entry_static01",
+    "scope": "D217_STATIC_FILE_ONLY_ENTRY"
+  },
+  "query_counts": {
+    "groups": 64,
+    "aliases": 77,
+    "selected_bytes": 10488,
+    "expressions": 129,
+    "children": 4
+  },
+  "prospective_program": {
+    "bytes": 13785,
+    "sha256": "b440eede7e9ec6bc601256ff1253b6bb7fdf69e8e15346dfa53dcbb6d3e0afb4",
+    "compressed_base64_bytes": 5152,
+    "windows_utf16_units_including_nul": 5457,
+    "remote_file_closing_checks": 12,
+    "identity_closing_checks": 1,
+    "program_constructed_as_data_only": true
+  },
+  "limits": {
+    "child_reap_seconds": 5,
+    "child_stream_limit_bytes": 1048576,
+    "child_timeout_seconds": 60,
+    "file_children": 4,
+    "local_min_free_bytes": 134217728,
+    "marker_group_count_less_than": 100,
+    "remote_closing_checks": 13,
+    "remote_file_pins": 12,
+    "transport_calls": 1,
+    "transport_reply_limit_bytes": 8388608,
+    "transport_timeout_seconds": 400,
+    "windows_command_limit_utf16_units": 30000,
+    "outer_seconds": 500
+  },
+  "roles": {
+    "subject": "state/analysis/P7_b4_app_compile_raw/inspect_static_entry.py",
+    "contract": "state/analysis/P7_b4_app_entry_contract.md",
+    "binding": "state/analysis/P7_b4_app_compile_raw/entry_binding01.json",
+    "derivation": "state/analysis/P7_b4_app_compile_raw/entry_derivation01.json",
+    "oracle": "state/analysis/P7_b4_app_compile_raw/entry_oracle02.json",
+    "test": "tests/tooling/test_b4_app_entry.py",
+    "coordinator": "state/analysis/P7_b4_app_compile_raw/entry_coordinator_freeze02.json",
+    "host_closing": "state/analysis/P7_b4_app_compile_raw/entry_host_closing01.json",
+    "native_driver": "state/analysis/P7_b4_app_compile_raw/entry_native_driver01.py",
+    "native_driver_derivation": "state/analysis/P7_b4_app_compile_raw/entry_native_driver_derivation01.json",
+    "compile_artifacts": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+    "compile_review": "state/reviews/P7_b4_app_compile_actual_review.md",
+    "abi_result": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json",
+    "abi_layout": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json",
+    "abi_review": "state/reviews/P7_b4_app_abi_actual_review.md"
+  },
+  "files": {
+    "state/analysis/P7_b4_app_compile_raw/inspect_static_entry.py": {
+      "bytes": 18983,
+      "sha256": "b21582816f26b3dbc7e2ca961d186840aed5606ee50b3426f9c5187fa00362bc"
+    },
+    "state/analysis/P7_b4_app_entry_contract.md": {
+      "bytes": 7264,
+      "sha256": "bcc3072ccb1a219c3cf70ab92ce78d6e140fb4b619b2a370fc56d112a6daa543"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_binding01.json": {
+      "bytes": 78168,
+      "sha256": "fb2ab19d0cd0337f7d74a9578eee58d2e0029bf8a45ad6851a9ddbf558c79d55"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_derivation01.json": {
+      "bytes": 31050,
+      "sha256": "2bc2cd7d2e20582e7c0ae3d8eba10fd95230f79ed333ac7615b39503fc21cf81"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_oracle02.json": {
+      "bytes": 8469,
+      "sha256": "2a5334f7e99e2b0e114cd5b56ead60d70281499fa8d17f5f101ffe237a5f2b81"
+    },
+    "tests/tooling/test_b4_app_entry.py": {
+      "bytes": 25045,
+      "sha256": "a7d401cec037bdac0c70b897bb650791d1c71d2466870790f91b77a057d8c972"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_coordinator_freeze02.json": {
+      "bytes": 26598,
+      "sha256": "68628d44281b341849021edddf1a7eb1cdaf9a2524aaab1d76ec8eab454146c4"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_host_closing01.json": {
+      "bytes": 5595,
+      "sha256": "b29e8d7ce7f51641ffa95749efdaae749f3b7834084fa311725635ae852531c2"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_native_driver01.py": {
+      "bytes": 5165,
+      "sha256": "730e160444ee0436b18abf0944fac8a4c9745b096c3f0cb87035aba5bb134af5"
+    },
+    "state/analysis/P7_b4_app_compile_raw/entry_native_driver_derivation01.json": {
+      "bytes": 930,
+      "sha256": "0d34d5e36e80f66ebeb540d6e6b4b9674cf27fe4aa4dc658baced8833f2da4f4"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    "state/reviews/P7_b4_app_compile_actual_review.md": {
+      "bytes": 8486,
+      "sha256": "7490c2325668a744ebaf3685a12c24365843be402c2d9dae166a79e4a1e4faad"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json": {
+      "bytes": 597470,
+      "sha256": "ac0f379ad7da6d02d9cce4f1035405f48fd4f9fcf19de4bb7bcec7f31cf8f69a"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    "state/reviews/P7_b4_app_abi_actual_review.md": {
+      "bytes": 5715,
+      "sha256": "c7fe6fe9b0629e65548e69eb7aa66a94cbda3bf9da5f5e13baeaa18be32902b6"
+    }
+  },
+  "review": "Final state/reviews/P7_b4_app_entry_review.md is a separate prerequisite, added to coordinator native union after review; no circular self-pinning.",
+  "fresh_admission": "Inherited sole remote call checks exact board identity, resources, absent scope and12files;13remote checks plus local closure. No duplicate board inventory."
+}

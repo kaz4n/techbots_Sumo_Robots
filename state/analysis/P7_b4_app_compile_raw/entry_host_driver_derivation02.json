@@ -1,0 +1,26 @@
+{
+  "schema": "d217-repaired-oracle-host-driver-v1",
+  "source": "state/analysis/P7_b4_app_compile_raw/entry_host_driver01.py",
+  "source_pin": {
+    "bytes": 3497,
+    "sha256": "6f1fbffa26ee3e26e8a81a815442654d8d99cada2b44ec4e34d6e6fbe19bc08f"
+  },
+  "target": "state/analysis/P7_b4_app_compile_raw/entry_host_driver02.py",
+  "target_pin": {
+    "bytes": 3497,
+    "sha256": "a587a9f77d76b234c5a9b1378f204b55525bb170105cd1c360b3e2efccd831c9"
+  },
+  "ordered_substitutions": [
+    {
+      "old": "entry_coordinator_freeze01.json",
+      "new": "entry_coordinator_freeze02.json",
+      "count": 1
+    },
+    {
+      "old": "platform + '01'",
+      "new": "platform + '02'",
+      "count": 1
+    }
+  ],
+  "reason": "Original independent oracle setup refused before tests; only fresh freeze/output owners change after bounded fixture repair. Algorithms and limits unchanged."
+}

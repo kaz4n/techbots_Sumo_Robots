@@ -522,3 +522,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T20:46:58.333317+04:00 D216puredecoder testing generated only smallsource/map/receipts and8savedhostinvocationfiles; CSV/owner fixtures stayed in memory or automaticallyscopedtemporaryfiles. Windows scopedtemporary is empty; retained as0payloadownership evidence. No boardfiles, buildproducts, pycache or repeatednativecapture were generated. Preservemap/transcription and40outcome evidence.
+
+
+2026-09-26T20:59:49.011778+04:00 - D217 host evidence retained: originalzero-testLinuxfailure, original24420-byteoracle source, boundedrepairreceipt and16passingoutcomes. Unique failure/review/reproduction evidence remains needed. CorrectedWindows temporary owner haszero children/zero payloadbytes; retainedempty. Linuxfixturetemporary root was/dev/shm; no independentremnantinventoryclaimed. C: free6353764352B atpre-hostcheck. No boardfilescreated/deleted byhosttests; prior blockedlocalstage retained withoutretry.

@@ -2,9 +2,10 @@
 
 Latest update: D214 B4 M0/static/default compile-only is accepted in commit
 e3b2f9bc, with independent actual review7490c232 PASS. Its checked package is
-82,912 bytes; no B4 upload occurred. D215 file-only B4 ABI/recorder-layout
-preparation is underway using the existing four-child inspection path and
-focused new tests. D212 remains the latest verified loaded ordinary inhibited
+82,912 bytes; no B4 upload occurred. D215 file-only B4 ABI/recorder layout is
+accepted in303441e0 (actual reviewc7fe6fe9), and D216's pure retained-recorder
+decoder is accepted in6c3cf6f3 (reviewe817e691; 20 tests per host platform).
+D217 file-only B4 entry inspection is being prepared. D212 remains the latest verified loaded ordinary inhibited
 application. The bare board has no accepted sensor/motor setup. The paragraphs
 below are dated historical audit evidence; their pending-D214 statements are
 superseded by this update. See P7_b4_app_compile_actual_validation.md.

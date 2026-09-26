@@ -3,7 +3,7 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-Current status, 26 September 2026 (D214): the core/HAL/runtime and operator
+Current status, 26 September 2026 (D216): the core/HAL/runtime and operator
 preparation are implemented, but the connected hardware is the UNO Q alone.
 D212's ordinary M0 application was uploaded and independently reviewed. Two
 passive samples reported RUNNING/NONE, maximum execution 477 us and no missed
@@ -14,8 +14,10 @@ completed with a checked 82,912-byte package; it was not uploaded.
 Use [D212 actual validation](P7_ordinary_app_run_actual_validation.md),
 [D214 actual validation](P7_b4_app_compile_actual_validation.md), and the
 [current completion audit](P7_completion_audit_20260926.md). Fresh B4 file-only
-ABI/retained-recorder tooling is being prepared. Native UART delivery, full
-rearming, live RAM/stack/timing, wiring/calibration, physical trials, printed
+ABI is independently accepted. The fixed recorder decoder passed 20 tests on
+each host platform; it preserves raw bytes and every loss field, with capture
+origin and coherence still unproven. File-only B4 entry inspection is next.
+Native UART delivery, log-preserving reset/restart qualification, live RAM/stack/timing, wiring/calibration, physical trials, printed
 team materials and human gates remain open. The dated evidence below describes
 historical preparation; its earlier pending-upload statements are superseded
 by this paragraph, not retroactively changed into acceptance.

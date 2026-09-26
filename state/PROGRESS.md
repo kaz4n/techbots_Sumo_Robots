@@ -1535,3 +1535,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T20:46:58.333317+04:00 | P7/D216 | PureB4recorderdecoder43347b56 accepted reviewe817e691: first20Linux+20WindowsPASS/no skips/repairs,26pinsstable; exactmapf9b4b153/closure3fab6436. Preservesraw/ring/status/36CSVfields/22losses; no livecapture. D217minimalfile-onlyentry preparation next. | pending
+
+
+2026-09-26T20:51:41.782973+04:00 | P7/D217 | Fixed file-only B4 entry scope adopted under D051; binding fb2ab19d/contract bcc3072c, unchanged D210 algorithms and fresh D215 symbols. D215 actual committed303441e0; D216 decoder committed6c3cf6f3. Source/oracle preparation; no D217 host/native run yet. | pending
+
+
+2026-09-26T20:59:49.011778+04:00 | P7/D217 | Corrected independent focused suite8Linux+8WindowsPASS/noskips,169pinsstable, rootclosureb29e8d7c. OriginalLinux0-testfixtureidentityerror806782d5 preserved; helper-onlyoracle repair retainsall8methods, checkerb2158281unchanged. File-onlyscope4b0a7303 awaits FINALreview/cleanHEAD. | pending

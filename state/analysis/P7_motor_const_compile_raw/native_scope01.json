@@ -1,0 +1,71 @@
+{
+  "schema": "d203-prepared-compile-scope-v1",
+  "at": "2026-09-26T12:48:50.805950+04:00",
+  "operation": "Exactly one fixed compile-only attempt after clean reviewed HEAD; no upload/reset/MCU read",
+  "source_sha256": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "board_serial": "2629958581",
+  "fqbn": "arduino:zephyr:unoq:link_mode=static",
+  "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+  "startup": "default",
+  "attempt": "app-motor-const-static01",
+  "local_output": "state/analysis/P7_motor_const_compile_raw/native_static01",
+  "stage_owner": "build/stage/app-motor-const-static01",
+  "remote_owner": "/home/arduino/sumox26_codex_build/app-motor-const-static01",
+  "manifest_count": 129,
+  "staged_files": 108,
+  "staged_bytes": 781200,
+  "limits": {
+    "queries": 1,
+    "compilers": 1,
+    "jobs": 1,
+    "query_seconds": 60,
+    "compile_seconds": 720,
+    "reap_seconds": 5,
+    "local_free_min": 134217728,
+    "board_free_min": 1073741824
+  },
+  "authorization": "D051/D202/D203 software continuation only; no motor-capable permission or human gate",
+  "files": {
+    "tools/compile_motor_const.py": {
+      "bytes": 7557,
+      "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+    },
+    "state/analysis/P7_motor_const_compile_contract.md": {
+      "bytes": 11305,
+      "sha256": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174"
+    },
+    "state/analysis/P7_motor_settle_probe_contract.md": {
+      "bytes": 12585,
+      "sha256": "3346b11970814ce7703c48f56cb38405449453964bb79d1740d5a49e78610f7c"
+    },
+    "state/analysis/P7_motor_expected_metadata_contract.md": {
+      "bytes": 6222,
+      "sha256": "2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846"
+    },
+    "state/analysis/P7_motor_expected_metadata_validation.md": {
+      "bytes": 6791,
+      "sha256": "e3f0bb9b8ef20794448875ead24e2967f5ce13f07ee05a0495f35d12c6d64043"
+    },
+    "state/reviews/P7_motor_expected_metadata_review.md": {
+      "bytes": 12702,
+      "sha256": "f7b8a116464ac0590aa93dc19a66db0d4f4cebe4eed717a5a4f67780c75021ae"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/admission01.json": {
+      "bytes": 29735,
+      "sha256": "dc082eac69bbd86a35c10636b3015580f6faf8c7553aa7833b8c033b897d5514"
+    },
+    "state/analysis/P7_motor_const_compile_raw/host_closing01.json": {
+      "bytes": 3355,
+      "sha256": "b36f777e4001b814817bef0fd6f635349005f93fcc1c12d91732117080d85601"
+    },
+    "state/reviews/P7_motor_const_compile_review.md": {
+      "bytes": 19413,
+      "sha256": "c68852ff788e3c862e0d2c83cbbff23e9e53e69f77a4d3b4d7b3906619bcc9d1"
+    }
+  }
+}

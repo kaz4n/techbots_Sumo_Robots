@@ -1,0 +1,98 @@
+{
+  "schema": "d203-host-closing-v1",
+  "at": "2026-09-26T12:46:55.780292+04:00",
+  "frozen_inputs": 196,
+  "changed": [],
+  "results": [
+    {
+      "owner": "caller_first_linux01",
+      "platform": "linux",
+      "group": "caller",
+      "methods": 69,
+      "passed": 69,
+      "skipped": 0,
+      "errors": 0,
+      "receipt_sha256": "5662d712eb86db2da9f6cb0d0f523790cffca4c0e41056c4fb1ae9b6dbf64603",
+      "stderr_sha256": "2c268d290d15c15ff19b08b7274acacf003b777c5bba4eae06ed3f06a3fbec45"
+    },
+    {
+      "owner": "remote_first_linux01",
+      "platform": "linux",
+      "group": "remote",
+      "methods": 38,
+      "passed": 38,
+      "skipped": 0,
+      "errors": 0,
+      "receipt_sha256": "dc7b17263cdad5a766bff140839b0e67d4d9dcda9d3fed89e2bfec76a61de2a6",
+      "stderr_sha256": "82feca7e8f3de8fb704c7c315411de880bc47adf1cd956b230303236fe66fe17"
+    },
+    {
+      "owner": "caller_first_windows01",
+      "platform": "windows",
+      "group": "caller-first",
+      "methods": 69,
+      "passed": 65,
+      "skipped": 3,
+      "errors": 1,
+      "receipt_sha256": "8f6e4073fb864334760d4327fb5383b575982424c8f5309cbf30aa3aec3d162b",
+      "stderr_sha256": "17bf49d2b321039765a3797b795c13658b9082e21bc85d5d135120eb99109820"
+    },
+    {
+      "owner": "remote_first_windows01",
+      "platform": "windows",
+      "group": "remote",
+      "methods": 38,
+      "passed": 19,
+      "skipped": 19,
+      "errors": 0,
+      "receipt_sha256": "86fb274775deb83201e20cb87c1d514a04a9671e555147397d157b0f715a7251",
+      "stderr_sha256": "0895f1c70ff8054f109ec6945a6a96aa02c86eef8bda56fc67dde2b82bf16bac"
+    },
+    {
+      "owner": "caller_isolated_windows01",
+      "platform": "windows",
+      "group": "caller-isolated",
+      "methods": 69,
+      "passed": 66,
+      "skipped": 3,
+      "errors": 0,
+      "receipt_sha256": "5d63e13a1b3e1501993d17861ea4eafe4748dcf83271bf675965a4648e754075",
+      "stderr_sha256": "5eb4742dad8505ed2850ec0d4996bf700552006f4da8191c235dad4e016d999c"
+    }
+  ],
+  "windows_remnants": {
+    "sumox-d188-caller-*": [],
+    "sumox-d193-*": [],
+    "sumox-d198-*": [],
+    "sumox-d203-*": [],
+    "sumox-d187-*": [],
+    "sumox-d188-remote-*": []
+  },
+  "linux_ram_remnants": {
+    "sumox-d188-caller-*": [],
+    "sumox-d193-*": [],
+    "sumox-d198-*": [],
+    "sumox-d203-*": [],
+    "sumox-d187-*": [],
+    "sumox-d188-remote-*": []
+  },
+  "isolated_remnants": [],
+  "ram_scan": {
+    "argv": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--exec",
+      "python3",
+      "-I",
+      "-B",
+      "-c",
+      "from pathlib import Path;import json;print(json.dumps({g:[str(p) for p in Path(\"/dev/shm\").glob(g)] for g in ['sumox-d188-caller-*', 'sumox-d193-*', 'sumox-d198-*', 'sumox-d203-*', 'sumox-d187-*', 'sumox-d188-remote-*']}))"
+    ],
+    "returncode": 0,
+    "stdout": "{\"sumox-d188-caller-*\": [], \"sumox-d193-*\": [], \"sumox-d198-*\": [], \"sumox-d203-*\": [], \"sumox-d187-*\": [], \"sumox-d188-remote-*\": []}\n",
+    "stderr": ""
+  },
+  "c_free_bytes": 17782038528,
+  "qualification": "Linux107PASS; current isolated Windowscaller66PASS3skip plus first remote19PASS19skip. Original caller first65PASS3skip1ERROR retained; diagnostic1PASS/six stable reads is non-reproduction only, cause unknown."
+}

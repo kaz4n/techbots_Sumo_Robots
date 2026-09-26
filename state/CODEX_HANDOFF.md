@@ -70,54 +70,34 @@ until a new fixed compile, actual ABI/entry and separately reviewed inhibited
 runtime attempt. All prior native owners are consumed; do not rerun historical
 launchers, reset the MCU casually or repin old manifests.
 
-## Exact next task: D203 compile-only host validation
+## Exact next task: D203 single compile-only attempt
 
-Contract analysis/P7_motor_const_compile_contract.md11305B/318a6267 and
-derivation17980B/d4c89cd5 were adopted4333c2ed. Initial unexecuted launcher
-tools/compile_motor_const.py was committeddd3bf2d1 with author receipt
-raw/implementation01.json7189B/e2fd9ce9. Its ten exact metadata substitutions
-are specified to yield7557B/957666a8, caller29874/bda40e96, remote6893/914d4d11;
-adapter8266/e3d23d5c and all shared bootstrap/lifecycle guards stay exact.
-Root and reviewer's independent data-only reconstruction agree. Oracle FINAL
-freezeebdbefd3 now precedes actual new implementation inspection; its bytes
-match957666a8 exactly, no material source/oracle finding so far.
+D203 contract318a6267, launcher957666a8 and independent frozen oracles are
+accepted by finalhostreviewc68852ff. Linux107PASS; acceptedWindows85PASS and
+22explicit skips individually coveredLinux. OriginalWindowscaller65PASS/
+3skip/1ERROR is preserved22c0750c; causeunknown. Single unchanged-method
+trace96cde093 is non-reproduction only. Complete unchanged isolatedTEMP
+caller5d63e13a passes66/3skip;196pins exact. No production/guard/assertion edit.
+See analysis/P7_motor_const_compile_validation.md and raw/host_closing01.json.
 
-Independent caller oracle647a98ea has69methods; remoteaa9b2520 has38. The176
-author pins exclude the unread implementation; root coordinatorfreeze246568ca
-binds185 current inputs after that barrier. Initial oracles/freeze committed
-f6f8b337. Agent fresh_review stopped writes; const_compile_review is review-only
-and waits for host results; const_compile_spec stopped after implementation.
-All four first runs are preserved in22c0750c: Linux69caller+38remotePASS;
-Windowscaller65PASS/3skip/1ERROR, remote19PASS/19skip. All185pins unchanged.
-The caller error is inherited private-loading test's final source stamp guard
-on a temporary original copy, before private caller execution. Traceback
-does not identify the changed stamp; shared Temp ancestry mutation is only
-a hypothesis. No guard/assertion/source change or automatic retry.
-Independent author fresh_review is preparing one observation-only
-windows_stamp_diagnostic01.py using sys.settrace of unchanged method locals,
-with separate freeze/owner; const_compile_review must inspect before root
-executes. Full Windows first suite remains FAIL. No manifest, actual admission
-or D203 native owner exists. Final host adjudication/review precedes them.
+Read-only admission01 dc082eac passes currentidentity/sameboot,28installedpins,
+fullcredentials,resources,ownerabsence andclosingidentity; no nativeaction.
+Manifest inputs_static.json1b847d96 binds129files. Diagnosticmapping
+4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2 has110inventory
+files782068B/108mapped781200B; onlyD202motorcpp differs fromD198. Local
+manifestadmission passed. Scope01 c08195d7 binds10files and freshowners.
 
-Current diagnostic mapping source4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2
-has110inventoryfiles782068B and108mapped781200B. Only motorcpp differs from
-D198; substituting ff35c83e predecessor bytes in memory reproduces117cc0e7.
-New ownership is app-motor-const-static01 / P7_motor_const_compile_raw,
-same app_motor_observe/static/default/MATCH0/MOTORS0/probe1. No actual manifest,
-stage, compiler, upload, reset or MCU read exists for D203 yet.
-
-After host review, use D198's successful raw/admission02.json source as the
-read-only admission baseline (correct installed compiler hardlinks; do not
-restore admission01's nlink1 error). The complete source is in
-commands[0].argv[-1], with PACKET identities/28installedpins/remoteowner. Fresh
-D203 observation must change only owner metadata and preserve semantic checks;
-record fresh outputs and closing identity. Manifest generation is local via
-reviewed launcher.load_caller, CompileDiagnostic.source_names/source_mapping,
-and base.read; no prepare/claim/stage/run. Four manifest keys are schema,
-source_sha256, boot_id, files; files maps each REQUIRED|source_names path to a
-SHA string. Recompute current source, observe current boot and save exclusively.
-Actual scope/clean reviewedHEAD/check-only precede one jobs1 compile. All new
-artifacts need actual ABI/entry evidence before any later inhibited upload.
+Review-only const_compile_review owns separate
+reviews/P7_motor_const_compile_admission_review.md; hostreview is immutable.
+Its FINAL PASS e85747af is saved; all agents stopped writes. Commit preparation to cleanHEAD,
+run tools/compile_motor_const.py --check-only --reviewed-head HEAD withPython-I-B,
+then exactly one --execute using -X pycache_prefix=<absoluteRAW>/native_static01/pycache.
+Record check/execute in memory until nativechild completes to preservecleanHEAD.
+Retain onequery60s,onecompilerjobs1/720s,reap5s andall8artifact/closingchecks.
+No concurrent writers/tests/compilers; allownerssingle-use, preservefirsterrors.
+No upload/reset/MCUread. Newartifacts require freshABI/entry before a later
+separately reviewed inhibitedruntime. NeverreuseD199addresses or assume
+candidateRate/Period remain emitted. D201 remains latest flashedimage.
 
 ## Evidence prerequisites already complete
 
@@ -165,5 +145,4 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No native board process is active. D203 linux caller host session92129 is active;
-check its saved owner/result before starting the next serial group.
+No host or board job is active. D203 actual compile is not yet started.

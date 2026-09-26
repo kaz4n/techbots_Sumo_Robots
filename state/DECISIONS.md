@@ -2341,3 +2341,9 @@ D-203 first Windows refusal and bounded observation 2026-09-26T12:41:20.510990+0
 
 
 D-203 Windows environment-scoped validation 2026-09-26T12:44:36.396616+04:00: Reviewed single-method diagnostic96cde093 passes exactlyone test/six original reads with allsaved guard predicates true and191pins unchanged. This is non-reproduction only; original firstWindows suite remains FAIL and its cause unknown. UnderD051 adopt one full unchanged69method caller run with new caller_isolated_windows01 owner and dedicated TEMP/TMP/TMPDIR beneath that owner, outside sharedWindowsTemp ancestry. Driverbce2da43/freeze4230a7cd binds196inputs,360s timeout,no retries, originalassertions/guards unchanged, savedrawstreams andremnantclosure. Independent source review precedes execution. Stable current validation may establish readiness under the recorded fixture environment, never retrospectively explain or relabel the firstfailure; no production fix is authorized.
+
+
+D-203 host closure 2026-09-26T12:50:01.171247+04:00: Adopt final independent reviewc68852ff: exact launcher/oracles unchanged, Linux107PASS and isolatedWindowscaller66PASS3skip plus firstWindowsremote19PASS19skip, all196pins closeb36f777e. The firstWindowscaller remainsFAIL/causeunknown; singletrace96cde093 is non-reproduction, no productionfix. Freshreadonlyadmissiondc082eac and manifest1b847d96/scopec08195d7 are prepared; separate admissionreview and cleanHEAD/check-only precede one compile-only operation. No upload/reset/MCUread or timing claim.
+
+
+D-203 native preparation closure 2026-09-26T12:51:52.919732+04:00: Adopt independent admissionreviewe85747afPASS, hostreviewc68852ff unchanged. Exact129manifest/10scope/196hostpins and freshread-onlyboard observations close. Execute at most one fixed compile-only attempt after clean committedreviewedHEAD and localcheck-only, preserving ownerconsumption/firsterrors/alluse-timechecks. This authorization does not include upload, reset or MCUmemory access.

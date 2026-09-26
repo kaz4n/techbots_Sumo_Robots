@@ -436,3 +436,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T12:11:56.472308+04:00 | D202 host evidence and scratch | Retain 1019 compact owner files/1295868B for original carrier-zero compiler failure, complete historical-symbol mismatch, unchanged locked regression PASS and corrected independent matrix PASS. Production/source/oracles/freezes and Git history retained. Each fixture released only its uniquely owned temporary objects/executables; scratch_closing03 direct WSL --exec observation returns0 with no sumox-d202/sumox-d197/sumo-native-motor directories in /dev/shm. Released byte count was not measured, so no recovered-size claim. The failed read-only WSL shell interpretation in scratch_closing02 is preserved; it caused no mutation. All154 pinned inputs unchanged; C: 18607923200B free at closing. No board cleanup, historical denied target, user file or system paging change.
+
+
+2026-09-26T12:50:01.171247+04:00 | D203 host evidence closure | Retain 22 compact result/stream/intent/trace files totalling 134763B across6consumedowners for reproduction/review and originalfailure evidence. Test-owned fixtures self-cleaned; b36f777e confirms no matchedWindows/LinuxRAM remnants and emptyisolatedTEMP. No recursive/manualdeletion or historicalowner cleanup. Cfree17782038528B; targetartifacts notyetcreated.

@@ -2517,3 +2517,12 @@ D-215 source/host acceptance (2026-09-26T20:33:59.995208+04:00): Adopt contractf
 
 
 D-215 native admission (2026-09-26T20:34:50.339299+04:00): Adopt review907243b5 FINAL conditional PASS for scope4899430a. All14roles/153coordinator/130manifest pins agree; native prerequisite union has166files. Permit one localcheck followed by one file-only execute after exact committedcleanHEAD; freeze allwriters throughclosure. Use inheritedfreshidentity/12remotefiles/4boundedchildren/13remote+localclosing. Localstage remains after automatic policydenial; no dependency impact or alternate deletion. No upload/reset/MCUread/motor/human gate.
+
+
+D-215 actual acceptance (2026-09-26T20:40:51.857897+04:00): Adopt reviewc7fe6fe9 FINAL PASS for one file-only attempt at cleana68ab59e. Fourchildren/13remote+localclosingPASS;21layouts/135numericanswers/156markers/2037symbols freshly observed. All166current+HEADpins match; rootclosure02c505a725 corrects preserved01 decimal-onlysymbolcount without changing rawABI. Recorder159200B at536954120, Runtime166456B at536951136. No MCUread/upload/liveRAM/WCET/physical/gate claim. Ownerconsumed.
+
+## D-216 (2026-09-26T20:40:51.857897+04:00, fixed B4 retained-recorder decoding)
+UnderD051 adopt contract843055fb and exactmapf9b4b153 transcribed from acceptedD215ABI25bf5764, with separate independent map/source/host review. Pure decode_recorder(body:bytes,layout_raw:bytes) preserves bounded rawinput and exact CSVpayload/order/status/36summaryfields/22lossOR; only35essentialscalars/9bools/3arrays are interpreted. Exactactualmaphash binds this M0profile; unsupported interpretedbool/status/index values refuse export rather than repaired data. Keep format,ownerconsistency,lifecycle andunprovenbodyorigin/coherence separate. No file output,transport,capture,firmware or permissionAPI. Independent focusedfixtures freeze beforeexecution; no broadnative-suite repeat.
+
+
+D-216 acceptance (2026-09-26T20:46:58.333317+04:00): Adopt independent reviewe817e691 FINAL PASS for exact decoder43347b56/mapf9b4b153. First20Linux+20WindowsPASS/no skips/repairs, all26frozeninputs unchanged; closure3fab6436 binds40outcomes/8files. Syntheticrawowners exercise everypublicsemanticboundary against acceptedD215layout; no capturedRAM/hardwareorigin/coherence claim. No nativeoperation or firmwarechange.

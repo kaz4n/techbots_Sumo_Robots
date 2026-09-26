@@ -1529,3 +1529,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T20:33:59.995208+04:00 | P7/D215 | Fixed B4 file-only ABI adapter source/host accepted3e6ec1d8; first20Linux+20WindowsPASS/no skips,153pinsstable, closure35323fb4. Native scope4899430a prepared; separate admission/cleanHEAD/check next. No nativeABI yet. | pending
+
+
+2026-09-26T20:40:51.857897+04:00 | P7/D215 | Actualreviewc7fe6fe9 FINAL PASS:1fileonlytransport/4children/13remote+localPASS,21layouts/135numericanswers/2037symbols,166current+HEADpins unchanged. FreshB4recorder159200B observed; no MCUread/upload. D216puredecoder/map/fixtures inprogress. | nativeHEADa68ab59e
+
+
+2026-09-26T20:46:58.333317+04:00 | P7/D216 | PureB4recorderdecoder43347b56 accepted reviewe817e691: first20Linux+20WindowsPASS/no skips/repairs,26pinsstable; exactmapf9b4b153/closure3fab6436. Preservesraw/ring/status/36CSVfields/22losses; no livecapture. D217minimalfile-onlyentry preparation next. | pending

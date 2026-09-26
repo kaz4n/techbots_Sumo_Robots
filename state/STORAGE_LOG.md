@@ -516,3 +516,9 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T20:33:59.995208+04:00 D215 disposable localstage retirement was blocked by automatic approval review before execution, with only blocked by policy. The stage remains present; acceptedD214closure records104files764405B. No deletion or alternate route ran. The first combined read-only/record-writing batch was likewise denied beforeexecution; a separate source patch recorded the tool responses in local_stage_cleanup_blocked01.json. Keep this small stage and all earlier denied targets. Fresh host Windows temporary root is empty and retained as zero-payload ownership evidence.
+
+
+2026-09-26T20:40:51.857897+04:00 D215 retains one bounded file-only observation and both rootclosure receipts;02 repairs count-only audit inventory,01 remains unique evidence. No firmware or objectbuild generated. D216map4443B and per-fieldtranscriptionreceipt retained for reproducible decoder preparation. Disposable localstage remains afterpolicydenial; no additional retirement attempt.
+
+
+2026-09-26T20:46:58.333317+04:00 D216puredecoder testing generated only smallsource/map/receipts and8savedhostinvocationfiles; CSV/owner fixtures stayed in memory or automaticallyscopedtemporaryfiles. Windows scopedtemporary is empty; retained as0payloadownership evidence. No boardfiles, buildproducts, pycache or repeatednativecapture were generated. Preservemap/transcription and40outcome evidence.

@@ -1,0 +1,213 @@
+{
+  "schema": "b4-recorder-layout-v1",
+  "binding": {
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+    "artifacts_sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085",
+    "abi_sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc",
+    "profile": "b4-app-m0-static"
+  },
+  "byte_order": "little",
+  "owner": {
+    "type": "recorder::AttemptRecorder",
+    "address": 536954120,
+    "bytes": 159200,
+    "alignment": 8
+  },
+  "arrays": {
+    "frames_.payloads_": {
+      "offset": 0,
+      "bytes": 125025,
+      "stride": 25,
+      "count": 5001
+    },
+    "frames_.statuses_": {
+      "offset": 125025,
+      "bytes": 1251,
+      "stride": 1,
+      "count": 1251
+    },
+    "events_.events_": {
+      "offset": 126300,
+      "bytes": 32768,
+      "stride": 8,
+      "count": 4096
+    }
+  },
+  "fields": {
+    "frames_.first_": {
+      "offset": 126276,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "frames_.size_": {
+      "offset": 126280,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "frames_.overwritten_": {
+      "offset": 126284,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "frames_.rejected_status_": {
+      "offset": 126288,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "frames_.clamped_": {
+      "offset": 126292,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "frames_.invalid_": {
+      "offset": 126296,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "events_.size_": {
+      "offset": 159068,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "events_.rejected_": {
+      "offset": 159072,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "events_.overflowed_": {
+      "offset": 159076,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.epoch_token": {
+      "offset": 159080,
+      "bytes": 8,
+      "kind": "u64"
+    },
+    "summary_.last_frame_token": {
+      "offset": 159088,
+      "bytes": 8,
+      "kind": "u64"
+    },
+    "summary_.release_us": {
+      "offset": 159096,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.mode": {
+      "offset": 159100,
+      "bytes": 1,
+      "kind": "u8"
+    },
+    "summary_.observed_results": {
+      "offset": 159104,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.missing_results": {
+      "offset": 159108,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.rejected_results": {
+      "offset": 159112,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.identity_rejected": {
+      "offset": 159116,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.malformed_batches": {
+      "offset": 159120,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.event_semantic_rejected": {
+      "offset": 159124,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.upstream_event_rejected": {
+      "offset": 159128,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.upstream_event_invalid": {
+      "offset": 159132,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.source_regressions": {
+      "offset": 159136,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.skipped_frames": {
+      "offset": 159140,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.ticks.ticks": {
+      "offset": 159144,
+      "bytes": 8,
+      "kind": "u64"
+    },
+    "summary_.ticks.overruns": {
+      "offset": 159152,
+      "bytes": 8,
+      "kind": "u64"
+    },
+    "summary_.ticks.max_us": {
+      "offset": 159160,
+      "bytes": 4,
+      "kind": "u32"
+    },
+    "summary_.ticks.saturated": {
+      "offset": 159164,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.upstream_event_overflow": {
+      "offset": 159168,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.timing_incomplete": {
+      "offset": 159169,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.recording_incomplete": {
+      "offset": 159170,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.go_seen": {
+      "offset": 159171,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.final_frame_missing": {
+      "offset": 159172,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.interrupted": {
+      "offset": 159173,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "summary_.terminal_exhausted": {
+      "offset": 159174,
+      "bytes": 1,
+      "kind": "bool"
+    },
+    "phase_": {
+      "offset": 159193,
+      "bytes": 1,
+      "kind": "u8"
+    }
+  }
+}

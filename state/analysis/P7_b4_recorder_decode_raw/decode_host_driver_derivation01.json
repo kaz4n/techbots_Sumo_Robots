@@ -1,0 +1,41 @@
+{
+  "schema": "d216-host-driver-derivation-v1",
+  "base": {
+    "path": "state/analysis/P7_b4_app_compile_raw/abi_host_driver01.py",
+    "bytes": 3491,
+    "sha256": "d6113e10dbd69f6909d8dae81fcb56102f6a27c7b0878874417bfd82ac5f749e"
+  },
+  "result": {
+    "path": "state/analysis/P7_b4_recorder_decode_raw/decode_host_driver01.py",
+    "bytes": 3505,
+    "sha256": "428776fe6299fd6a261df2869640ce8666e81d567db8201f311d53908d774954"
+  },
+  "steps": [
+    {
+      "old": "D215",
+      "new": "D216",
+      "count": 1
+    },
+    {
+      "old": "d215-first-host-invocation-v1",
+      "new": "d216-first-host-invocation-v1",
+      "count": 1
+    },
+    {
+      "old": "abi_coordinator_freeze01.json",
+      "new": "decode_coordinator_freeze01.json",
+      "count": 1
+    },
+    {
+      "old": "'abi_first_'",
+      "new": "'decode_first_'",
+      "count": 1
+    },
+    {
+      "old": "tests/tooling/test_b4_app_abi.py",
+      "new": "tests/tooling/test_b4_recorder_decode.py",
+      "count": 1
+    }
+  ],
+  "boundary": "Metadata-only; same serial360s exclusive-host workflow. No execution."
+}

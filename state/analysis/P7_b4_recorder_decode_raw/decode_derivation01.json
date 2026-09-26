@@ -1,0 +1,210 @@
+{
+  "schema": "b4-recorder-decoder-derivation-v1",
+  "status": "IMPLEMENTATION_SEALED_NOT_EXECUTED",
+  "subject": {
+    "path": "tools/decode_b4_recorder.py",
+    "bytes": 11743,
+    "sha256": "43347b569098b78cbdbf32a1e4b06ebbbef245c4c57b91609fa38d8bb3cca8a3"
+  },
+  "inputs": [
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json",
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json",
+      "bytes": 597470,
+      "sha256": "ac0f379ad7da6d02d9cce4f1035405f48fd4f9fcf19de4bb7bcec7f31cf8f69a"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/local_result.json",
+      "bytes": 275,
+      "sha256": "7175682488de957b36582fc3b030554ac3cfb8a83ea6ab10ffde6fa2a8534729"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    {
+      "path": "src/hal/recorder.h",
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    {
+      "path": "src/hal/recorder.cpp",
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    {
+      "path": "src/hal/recorder_frames.h",
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    {
+      "path": "src/hal/recorder_frames.cpp",
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    {
+      "path": "src/hal/recorder_csv.h",
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    {
+      "path": "src/hal/recorder_csv.cpp",
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    {
+      "path": "src/core/logframe.h",
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    {
+      "path": "src/config.h",
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    {
+      "path": "tools/validate_csv_bundle.py",
+      "bytes": 19324,
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    },
+    {
+      "path": "state/analysis/P7_b4_recorder_decode_raw/layout01.json",
+      "bytes": 4443,
+      "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+    },
+    {
+      "path": "state/analysis/P7_b4_recorder_decode_raw/map_derivation01.json",
+      "bytes": 25482,
+      "sha256": "86ec272d73f5a1243725480e44af4298e718f976cc2ba49b42752fa931d61ac0"
+    },
+    {
+      "path": "state/analysis/P7_b4_recorder_decode_contract.md",
+      "bytes": 10168,
+      "sha256": "843055fbc3837611ae310d0ecb7e549063ed7280783436581219fd1120fc5d13"
+    }
+  ],
+  "public_api": "decode_recorder(body: bytes, *, layout_raw: bytes) -> dict",
+  "fixed_map_sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d",
+  "scope": {
+    "native_scalars": 35,
+    "native_bools": 9,
+    "arrays": 3,
+    "summary_fields": 36,
+    "loss_fields": 22,
+    "owner_bytes": 159200
+  },
+  "dependency_reuse": {
+    "module": "tools.validate_csv_bundle",
+    "mode": "conventional import; unchanged pure helpers/constants only",
+    "symbols": [
+      "ROLES",
+      "SUMMARY_FIELDS",
+      "HEADERS",
+      "LOSS_FIELDS",
+      "FRAME_WIRE",
+      "EVENT_WIRE",
+      "MAX_CSV_BYTES",
+      "_new_report",
+      "_line_text",
+      "_parse_row",
+      "_check_owner",
+      "_error",
+      "_InvalidInput"
+    ],
+    "file_apis_called": false
+  },
+  "static_checks": {
+    "ast_parse": "PASS",
+    "functions": [
+      [
+        "_need",
+        3
+      ],
+      [
+        "_keys",
+        3
+      ],
+      [
+        "_object",
+        6
+      ],
+      [
+        "_number",
+        2
+      ],
+      [
+        "_integers",
+        3
+      ],
+      [
+        "_geometry",
+        30
+      ],
+      [
+        "_layout",
+        18
+      ],
+      [
+        "_report",
+        10
+      ],
+      [
+        "_native",
+        19
+      ],
+      [
+        "_summary",
+        6
+      ],
+      [
+        "_row",
+        7
+      ],
+      [
+        "_frames",
+        15
+      ],
+      [
+        "_events",
+        7
+      ],
+      [
+        "_export",
+        21
+      ],
+      [
+        "decode_recorder",
+        21
+      ],
+      [
+        "__init__",
+        3
+      ]
+    ],
+    "functions_at_most_60_lines": true,
+    "imports": [
+      "import hashlib",
+      "import json",
+      "from tools import validate_csv_bundle as _csv"
+    ],
+    "no_cli": true,
+    "fixed_map_pin_matches": true
+  },
+  "execution": {
+    "subject_imported": false,
+    "subject_executed": false,
+    "tests_read": false,
+    "tests_executed": false,
+    "native_actions": false
+  },
+  "limitations": [
+    "This is implementation and static syntax evidence only; independent source/oracle review and host execution remain pending.",
+    "Raw owner origin, coherence, common-attempt, transport and hardware acceptance are unproven.",
+    "No CLI, transport, memory capture or file output is implemented."
+  ]
+}

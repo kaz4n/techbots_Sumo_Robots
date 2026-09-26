@@ -1,0 +1,123 @@
+{
+  "schema": "d216-b4-recorder-independent-oracle-v1",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T20:41:32.3582926+04:00",
+  "author": "b4_next_scope",
+  "basis": "Independent recorder source semantics and accepted D073 literal CSV goldens, normative D216 public contract, and immutable actual D215 map. New decoder source was not read, hashed, imported or executed before this oracle seal.",
+  "subject": "tools/decode_b4_recorder.py",
+  "subject_identity": "Root coordinator binds the separately sealed implementation after this independent oracle seal.",
+  "test": {
+    "path": "tests/tooling/test_b4_recorder_decode.py",
+    "bytes": 28930,
+    "sha256": "6baf8870e080f56499de4b42b26061dcd4d77fadf367c2e312b0dbb0a28a2a2b"
+  },
+  "method_count": 20,
+  "methods": [
+    "test_exact_observed_map_has_35_essential_fields_and_fixed_artifact_binding",
+    "test_empty_owner_exports_exact_headers_and_complete_summary_without_origin_claim",
+    "test_d073_literal_csv_preserves_signed_extrema_raw_minus128_and_unknown_payloads",
+    "test_wrapped_frames_and_event_prefix_preserve_timestamp_insertion_order",
+    "test_four_status_lanes_and_unused_status3_are_distinguished",
+    "test_exact_full_capacities_and_last_first_index_are_accepted",
+    "test_all_summary_columns_and_native_unsigned_widths_preserve_maxima",
+    "test_distinct_scalar_values_detect_swapped_fields_and_endian_errors",
+    "test_each_of_22_loss_fields_independently_sets_incomplete_without_hiding_data",
+    "test_nonloss_fields_and_lifecycle_do_not_invent_incomplete",
+    "test_lifetime_status_consistency_is_separate_from_format_and_export",
+    "test_each_known_and_unknown_phase_preserves_numeric_code_and_lifecycle",
+    "test_any_changed_map_bytes_refuse_with_raw_body_and_no_origin_claim",
+    "test_owner_length_must_equal_exact_observed_extent",
+    "test_exact_byte_types_and_limits_refuse_before_hash_or_parse",
+    "test_every_interpreted_boolean_rejects2_and_preserves_all_raw_scalars",
+    "test_indices_refuse_outside_capacity_and_first_is_checked_even_when_empty",
+    "test_retained_status3_refuses_all_csv_but_keeps_decoded_summary",
+    "test_unused_bytes_lanes_and_uninterpreted_terminal_bool_do_not_refuse",
+    "test_public_decode_is_pure_and_repeated_outputs_do_not_alias_mutable_state"
+  ],
+  "focus": [
+    "Exact production map hash and artifact/profile binding; altered bytes refused without bypassing production trust.",
+    "35 observed scalar fields, distinct sentinel values for endian/swapped-field detection, unsigned maxima and all 36 summary columns.",
+    "Independent D073 literal frame/event CSV bytes, signed minima and raw duty -128, unknown payload codes.",
+    "Chronological physical ring wrap at slots 5000/0/1, four packed status lanes, prefix event order and unmodified timestamp wraps/equalities.",
+    "Full 5001-frame/4096-event capacities and exact index bounds.",
+    "All 22 individual loss terms, nonloss exclusions, saturation, lifetime/retained consistency with separate format/export status.",
+    "Nine native bool=2 refusals preserve every raw scalar; retained status3 refuses atomically after summary decoding.",
+    "Unused status3 lanes, stale arrays, padding and uninterpreted terminal bool=2 remain raw and do not refuse.",
+    "Known and unknown lifecycle phases remain separate from loss, capture provenance, coherence and hardware acceptance.",
+    "Exact bytes types and limits before hashing/parsing; raw-preserving map/body/native refusal; repeated pure calls without mutable-state aliasing."
+  ],
+  "suite": "Focused 20 methods only; no inherited test suites, fresh C++ formatter compilation, subprocess/device actions or transport campaigns.",
+  "geometry_boundary": "Exact production map identity makes altered-map geometry unreachable through the accepted public API. Fresh geometry is independently reviewed against D215 layouts; this oracle never patches decoder globals to weaken identity.",
+  "preservation": "Only the new test and this receipt were written by this oracle author. Existing subjects/tests/contracts/receipts were preserved.",
+  "commands": [
+    "python3 -I -B tests/tooling/test_b4_recorder_decode.py",
+    "python -I -B tests/tooling/test_b4_recorder_decode.py"
+  ],
+  "executed": false,
+  "inputs": {
+    "tools/validate_csv_bundle.py": {
+      "bytes": 19324,
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    },
+    "tests/tooling/test_csv_bundle.py": {
+      "bytes": 46588,
+      "sha256": "56d580f8a462abe24989c058877e0f59d03f5096860eff434e5dd0451813a0ac"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder.cpp": {
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/recorder_frames.cpp": {
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_csv.cpp": {
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/logframe.cpp": {
+      "bytes": 13820,
+      "sha256": "2c23e3b504f452a0316f9b8db594f8a54fbe6fd8af68c9a54535239387753ff3"
+    },
+    "src/config.h": {
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    "state/analysis/P2_csv_contract.md": {
+      "bytes": 4790,
+      "sha256": "9996195e11ce33607f0e3ec16d4f67c1606cba5670831281d378d6969e3c4fdd"
+    },
+    "state/analysis/P7_b4_recorder_decode_contract.md": {
+      "bytes": 10168,
+      "sha256": "843055fbc3837611ae310d0ecb7e549063ed7280783436581219fd1120fc5d13"
+    },
+    "state/analysis/P7_b4_recorder_decode_raw/layout01.json": {
+      "bytes": 4443,
+      "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+    },
+    "state/analysis/P7_b4_recorder_decode_raw/map_derivation01.json": {
+      "bytes": 25482,
+      "sha256": "86ec272d73f5a1243725480e44af4298e718f976cc2ba49b42752fa931d61ac0"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    }
+  }
+}

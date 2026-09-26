@@ -1,3 +1,33 @@
+## Current checkpoint - 2026-09-26T20:46:58.333317+04:00
+
+D215 actual file-only B4ABI is accepted reviewc7fe6fe9 FINAL PASS at native
+cleana68ab59e: one transport/fourchildren/13remote+localclosing,21layouts,
+135numericanswers/156markers/2037symbols. All166current+HEADpins unchanged.
+ABI25bf5764; rootclosure02c505a725 corrects retained01symbol-countaudit only.
+Recorder159200B at536954120/Runtimeoffset2984; Runtime166456B. No liveexec.
+Native owner consumed. D214compile accepted e3b2f9bc; D212ordinaryM0 latestflash.
+
+D216puredecoder is complete: source43347b56, exactmapf9b4b153, contract843055fb,
+reviewe817e691 FINAL PASS; first20Linux+20Windows/noskips/repairs,26pinsstable,
+closure3fab6436. Onlysyntheticownerbytes; no actualrecording orcaptureauthority.
+Keep format/consistency/lifecycle/loss/provenance separate. Details in
+analysis/P7_b4_recorder_decode_validation.md. AllD215/D216source/oracles frozen.
+
+Next D217 minimalfile-onlyB4entryadapter: worker ordinary_abi_scope owns brief
+contract/new inspect_static_entry.py/binding/derivation; b4_next_scope owns
+independentfocusednewentrytests/oracle. Same64D210groups/77aliases/129expressions
+allpresentfreshD2152037symbols; selectedspan10488B. Only4selectedsizeschanged.
+Reuseparser/lifecycle byteexact withfreshranges/pins/owners; keepsevenB4-specific
+strategyfunctions outside limitedentryclaim. No source/test/nativeexecutionyet.
+Separatecode/map/source-hostreview andcleanHEAD before any new file-onlyattempt.
+
+UserBOARD ONLY. Allgrants absent; no initializedWCET/liveRAM/physical/motor/
+human gate. BareboardB4run cannot qualifydirectionsequence. NativeUARTdelivery
+remainsseparate from plannedretainedRAMcapture. Existingreset+normalstart is
+sufficientrearmfeature; physicalprocedure stillneedsqualification/rehearsal.
+Disposablelocalstage retirement automaticallyblocked; retain764405B, no retry.
+Priorblockedemptytemp andotherdeniedtargets remain. Credentials notstored.
+
 ## Current checkpoint - 2026-09-26T20:34:50.339299+04:00
 
 D215 is ready for one file-only B4 ABI attempt. Source4b31dfed, independent

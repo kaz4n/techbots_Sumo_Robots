@@ -1,0 +1,672 @@
+{
+  "schema": "b4-recorder-map-derivation-v1",
+  "status": "PREPARED_FROM_ACTUAL_FILE_ONLY_ABI",
+  "layout": {
+    "path": "state/analysis/P7_b4_recorder_decode_raw/layout01.json",
+    "bytes": 4443,
+    "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+  },
+  "inputs": [
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json",
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json",
+      "bytes": 597470,
+      "sha256": "ac0f379ad7da6d02d9cce4f1035405f48fd4f9fcf19de4bb7bcec7f31cf8f69a"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/local_result.json",
+      "bytes": 275,
+      "sha256": "7175682488de957b36582fc3b030554ac3cfb8a83ea6ab10ffde6fa2a8534729"
+    },
+    {
+      "path": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    {
+      "path": "src/hal/recorder.h",
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    {
+      "path": "src/hal/recorder.cpp",
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    {
+      "path": "src/hal/recorder_frames.h",
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    {
+      "path": "src/hal/recorder_frames.cpp",
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    {
+      "path": "src/hal/recorder_csv.h",
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    {
+      "path": "src/hal/recorder_csv.cpp",
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    {
+      "path": "src/core/logframe.h",
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    {
+      "path": "src/config.h",
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    {
+      "path": "tools/validate_csv_bundle.py",
+      "bytes": 19324,
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    }
+  ],
+  "method": "Every leaf offset/width is transcribed directly from the complete AttemptRecorder block. Standalone parent blocks independently cross-check each observation; addition is only a cross-check, not a guessed offset.",
+  "raw_gdb_stdout": {
+    "bytes": 287430,
+    "sha256": "6f5073a66a6e9ecc72a92098c943f83ba004cfbe17a1ac1ea80b2e8c3b40cbc2",
+    "layout_occurrences": 1
+  },
+  "layout_blocks": {
+    "recorder::AttemptRecorder": {
+      "sha256": "428b7e2996985d7d0c20b6f5f5a13cf3c3d9440b6fd30511c85b15c14dc9ca67",
+      "bytes": 3499,
+      "lines": 67
+    },
+    "recorder::FrameBuffer": {
+      "sha256": "e6a500d0f01fac787da47cf1fb29e4165f9d72ddf7dd78a66dfd21c869a4e94f",
+      "bytes": 600,
+      "lines": 12
+    },
+    "logframe::EventBuffer": {
+      "sha256": "ba12c23eaf0910cd10038afb47b2c0913faf1ec142cf098ffed95ec504051ca7",
+      "bytes": 406,
+      "lines": 9
+    },
+    "recorder::AttemptSummary": {
+      "sha256": "2cb04fb00368c2cf83a319ab99c33eda18d4aea3cfa375122ac58d1df10a31fa",
+      "bytes": 1821,
+      "lines": 36
+    },
+    "logframe::TickStatistics": {
+      "sha256": "82f1054ea418122a5fbe08d98ef35b705fbb357630fc679325fa828f39280456",
+      "bytes": 384,
+      "lines": 9
+    }
+  },
+  "runtime_window": {
+    "address": 536954120,
+    "alignment": 8,
+    "bytes": 159200,
+    "object": "runtime",
+    "offset": 2984,
+    "type": "recorder::AttemptRecorder"
+  },
+  "fields": [
+    {
+      "field": "frames_.payloads_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 3,
+      "text": "/*      0      |  125025 */        logframe::FrameBytes payloads_[5001];",
+      "direct_observed_offset": 0,
+      "bytes": 125025,
+      "cpp_type": "logframe::FrameBytes",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 2,
+      "crosscheck_text": "/*      0      |  125025 */    logframe::FrameBytes payloads_[5001];",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.statuses_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 4,
+      "text": "/* 125025      |    1251 */        uint8_t statuses_[1251];",
+      "direct_observed_offset": 125025,
+      "bytes": 1251,
+      "cpp_type": "uint8_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 3,
+      "crosscheck_text": "/* 125025      |    1251 */    uint8_t statuses_[1251];",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "events_.events_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 15,
+      "text": "/* 126300      |   32768 */        logframe::EventBytes events_[4096];",
+      "direct_observed_offset": 126300,
+      "bytes": 32768,
+      "cpp_type": "logframe::EventBytes",
+      "crosscheck_block": "logframe::EventBuffer",
+      "crosscheck_line_1based": 2,
+      "crosscheck_text": "/*      0      |   32768 */    logframe::EventBytes events_[4096];",
+      "parent_observed_offset": 126300,
+      "parent_observed_bytes": 32780
+    },
+    {
+      "field": "frames_.first_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 5,
+      "text": "/* 126276      |       4 */        std::size_t first_;",
+      "direct_observed_offset": 126276,
+      "bytes": 4,
+      "cpp_type": "std::size_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 4,
+      "crosscheck_text": "/* 126276      |       4 */    std::size_t first_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.size_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 6,
+      "text": "/* 126280      |       4 */        std::size_t size_;",
+      "direct_observed_offset": 126280,
+      "bytes": 4,
+      "cpp_type": "std::size_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 5,
+      "crosscheck_text": "/* 126280      |       4 */    std::size_t size_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.overwritten_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 7,
+      "text": "/* 126284      |       4 */        uint32_t overwritten_;",
+      "direct_observed_offset": 126284,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 6,
+      "crosscheck_text": "/* 126284      |       4 */    uint32_t overwritten_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.rejected_status_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 8,
+      "text": "/* 126288      |       4 */        uint32_t rejected_status_;",
+      "direct_observed_offset": 126288,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 7,
+      "crosscheck_text": "/* 126288      |       4 */    uint32_t rejected_status_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.clamped_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 9,
+      "text": "/* 126292      |       4 */        uint32_t clamped_;",
+      "direct_observed_offset": 126292,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 8,
+      "crosscheck_text": "/* 126292      |       4 */    uint32_t clamped_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "frames_.invalid_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 10,
+      "text": "/* 126296      |       4 */        uint32_t invalid_;",
+      "direct_observed_offset": 126296,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::FrameBuffer",
+      "crosscheck_line_1based": 9,
+      "crosscheck_text": "/* 126296      |       4 */    uint32_t invalid_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 126300
+    },
+    {
+      "field": "events_.size_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 16,
+      "text": "/* 159068      |       4 */        std::size_t size_;",
+      "direct_observed_offset": 159068,
+      "bytes": 4,
+      "cpp_type": "std::size_t",
+      "crosscheck_block": "logframe::EventBuffer",
+      "crosscheck_line_1based": 3,
+      "crosscheck_text": "/*  32768      |       4 */    std::size_t size_;",
+      "parent_observed_offset": 126300,
+      "parent_observed_bytes": 32780
+    },
+    {
+      "field": "events_.rejected_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 17,
+      "text": "/* 159072      |       4 */        uint32_t rejected_;",
+      "direct_observed_offset": 159072,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "logframe::EventBuffer",
+      "crosscheck_line_1based": 4,
+      "crosscheck_text": "/*  32772      |       4 */    uint32_t rejected_;",
+      "parent_observed_offset": 126300,
+      "parent_observed_bytes": 32780
+    },
+    {
+      "field": "events_.overflowed_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 18,
+      "text": "/* 159076      |       1 */        bool overflowed_;",
+      "direct_observed_offset": 159076,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "logframe::EventBuffer",
+      "crosscheck_line_1based": 5,
+      "crosscheck_text": "/*  32776      |       1 */    bool overflowed_;",
+      "parent_observed_offset": 126300,
+      "parent_observed_bytes": 32780
+    },
+    {
+      "field": "summary_.epoch_token",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 24,
+      "text": "/* 159080      |       8 */        uint64_t epoch_token;",
+      "direct_observed_offset": 159080,
+      "bytes": 8,
+      "cpp_type": "uint64_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 2,
+      "crosscheck_text": "/*      0      |       8 */    uint64_t epoch_token;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.last_frame_token",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 25,
+      "text": "/* 159088      |       8 */        uint64_t last_frame_token;",
+      "direct_observed_offset": 159088,
+      "bytes": 8,
+      "cpp_type": "uint64_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 3,
+      "crosscheck_text": "/*      8      |       8 */    uint64_t last_frame_token;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.release_us",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 26,
+      "text": "/* 159096      |       4 */        uint32_t release_us;",
+      "direct_observed_offset": 159096,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 4,
+      "crosscheck_text": "/*     16      |       4 */    uint32_t release_us;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.mode",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 27,
+      "text": "/* 159100      |       1 */        core::Mode mode;",
+      "direct_observed_offset": 159100,
+      "bytes": 1,
+      "cpp_type": "core::Mode",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 5,
+      "crosscheck_text": "/*     20      |       1 */    core::Mode mode;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.observed_results",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 29,
+      "text": "/* 159104      |       4 */        uint32_t observed_results;",
+      "direct_observed_offset": 159104,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 7,
+      "crosscheck_text": "/*     24      |       4 */    uint32_t observed_results;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.missing_results",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 30,
+      "text": "/* 159108      |       4 */        uint32_t missing_results;",
+      "direct_observed_offset": 159108,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 8,
+      "crosscheck_text": "/*     28      |       4 */    uint32_t missing_results;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.rejected_results",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 31,
+      "text": "/* 159112      |       4 */        uint32_t rejected_results;",
+      "direct_observed_offset": 159112,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 9,
+      "crosscheck_text": "/*     32      |       4 */    uint32_t rejected_results;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.identity_rejected",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 32,
+      "text": "/* 159116      |       4 */        uint32_t identity_rejected;",
+      "direct_observed_offset": 159116,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 10,
+      "crosscheck_text": "/*     36      |       4 */    uint32_t identity_rejected;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.malformed_batches",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 33,
+      "text": "/* 159120      |       4 */        uint32_t malformed_batches;",
+      "direct_observed_offset": 159120,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 11,
+      "crosscheck_text": "/*     40      |       4 */    uint32_t malformed_batches;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.event_semantic_rejected",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 34,
+      "text": "/* 159124      |       4 */        uint32_t event_semantic_rejected;",
+      "direct_observed_offset": 159124,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 12,
+      "crosscheck_text": "/*     44      |       4 */    uint32_t event_semantic_rejected;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.upstream_event_rejected",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 35,
+      "text": "/* 159128      |       4 */        uint32_t upstream_event_rejected;",
+      "direct_observed_offset": 159128,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 13,
+      "crosscheck_text": "/*     48      |       4 */    uint32_t upstream_event_rejected;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.upstream_event_invalid",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 36,
+      "text": "/* 159132      |       4 */        uint32_t upstream_event_invalid;",
+      "direct_observed_offset": 159132,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 14,
+      "crosscheck_text": "/*     52      |       4 */    uint32_t upstream_event_invalid;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.source_regressions",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 37,
+      "text": "/* 159136      |       4 */        uint32_t source_regressions;",
+      "direct_observed_offset": 159136,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 15,
+      "crosscheck_text": "/*     56      |       4 */    uint32_t source_regressions;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.skipped_frames",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 38,
+      "text": "/* 159140      |       4 */        uint32_t skipped_frames;",
+      "direct_observed_offset": 159140,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 16,
+      "crosscheck_text": "/*     60      |       4 */    uint32_t skipped_frames;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.ticks.ticks",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 40,
+      "text": "/* 159144      |       8 */            uint64_t ticks;",
+      "direct_observed_offset": 159144,
+      "bytes": 8,
+      "cpp_type": "uint64_t",
+      "crosscheck_block": "logframe::TickStatistics",
+      "crosscheck_line_1based": 2,
+      "crosscheck_text": "/*      0      |       8 */    uint64_t ticks;",
+      "parent_observed_offset": 159144,
+      "parent_observed_bytes": 24
+    },
+    {
+      "field": "summary_.ticks.overruns",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 41,
+      "text": "/* 159152      |       8 */            uint64_t overruns;",
+      "direct_observed_offset": 159152,
+      "bytes": 8,
+      "cpp_type": "uint64_t",
+      "crosscheck_block": "logframe::TickStatistics",
+      "crosscheck_line_1based": 3,
+      "crosscheck_text": "/*      8      |       8 */    uint64_t overruns;",
+      "parent_observed_offset": 159144,
+      "parent_observed_bytes": 24
+    },
+    {
+      "field": "summary_.ticks.max_us",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 42,
+      "text": "/* 159160      |       4 */            uint32_t max_us;",
+      "direct_observed_offset": 159160,
+      "bytes": 4,
+      "cpp_type": "uint32_t",
+      "crosscheck_block": "logframe::TickStatistics",
+      "crosscheck_line_1based": 4,
+      "crosscheck_text": "/*     16      |       4 */    uint32_t max_us;",
+      "parent_observed_offset": 159144,
+      "parent_observed_bytes": 24
+    },
+    {
+      "field": "summary_.ticks.saturated",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 43,
+      "text": "/* 159164      |       1 */            bool saturated;",
+      "direct_observed_offset": 159164,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "logframe::TickStatistics",
+      "crosscheck_line_1based": 5,
+      "crosscheck_text": "/*     20      |       1 */    bool saturated;",
+      "parent_observed_offset": 159144,
+      "parent_observed_bytes": 24
+    },
+    {
+      "field": "summary_.upstream_event_overflow",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 48,
+      "text": "/* 159168      |       1 */        bool upstream_event_overflow;",
+      "direct_observed_offset": 159168,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 26,
+      "crosscheck_text": "/*     88      |       1 */    bool upstream_event_overflow;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.timing_incomplete",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 49,
+      "text": "/* 159169      |       1 */        bool timing_incomplete;",
+      "direct_observed_offset": 159169,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 27,
+      "crosscheck_text": "/*     89      |       1 */    bool timing_incomplete;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.recording_incomplete",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 50,
+      "text": "/* 159170      |       1 */        bool recording_incomplete;",
+      "direct_observed_offset": 159170,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 28,
+      "crosscheck_text": "/*     90      |       1 */    bool recording_incomplete;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.go_seen",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 51,
+      "text": "/* 159171      |       1 */        bool go_seen;",
+      "direct_observed_offset": 159171,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 29,
+      "crosscheck_text": "/*     91      |       1 */    bool go_seen;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.final_frame_missing",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 52,
+      "text": "/* 159172      |       1 */        bool final_frame_missing;",
+      "direct_observed_offset": 159172,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 30,
+      "crosscheck_text": "/*     92      |       1 */    bool final_frame_missing;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.interrupted",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 53,
+      "text": "/* 159173      |       1 */        bool interrupted;",
+      "direct_observed_offset": 159173,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 31,
+      "crosscheck_text": "/*     93      |       1 */    bool interrupted;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "summary_.terminal_exhausted",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 54,
+      "text": "/* 159174      |       1 */        bool terminal_exhausted;",
+      "direct_observed_offset": 159174,
+      "bytes": 1,
+      "cpp_type": "bool",
+      "crosscheck_block": "recorder::AttemptSummary",
+      "crosscheck_line_1based": 32,
+      "crosscheck_text": "/*     94      |       1 */    bool terminal_exhausted;",
+      "parent_observed_offset": 159080,
+      "parent_observed_bytes": 96
+    },
+    {
+      "field": "phase_",
+      "owner_block": "recorder::AttemptRecorder",
+      "line_1based": 62,
+      "text": "/* 159193      |       1 */    recorder::AttemptPhase phase_;",
+      "direct_observed_offset": 159193,
+      "bytes": 1,
+      "cpp_type": "recorder::AttemptPhase",
+      "crosscheck_block": "recorder::AttemptRecorder",
+      "crosscheck_line_1based": 62,
+      "crosscheck_text": "/* 159193      |       1 */    recorder::AttemptPhase phase_;",
+      "parent_observed_offset": 0,
+      "parent_observed_bytes": 159200
+    }
+  ],
+  "checks": {
+    "scalars": 35,
+    "arrays": 3,
+    "native_bools": 9,
+    "all_extents_nonoverlap": true,
+    "all_extents_within_owner": true,
+    "all_primary_offsets_directly_observed": true,
+    "all_parent_crosschecks_match": true
+  },
+  "excluded_raw_only": [
+    "highest_token_",
+    "stopping_token_",
+    "previous_state_",
+    "terminal_seen_"
+  ],
+  "limitations": [
+    "No memory capture occurred in D215. This is file-only layout evidence.",
+    "Map binding does not authenticate body origin or prove a coherent/common attempt.",
+    "D215 actual independent review was pending when this transcription was prepared."
+  ],
+  "authoring_observation": "Initial read-only JSON inspection used nonexistent types key, raising KeyError; no subject/test/device execution or files resulted. Inspection corrected to actual layouts/sizes/alignments keys. A subsequent input-pin lookup used local.json instead of actual local_result.json and failed before directory/file creation; the exact observed filename was then used."
+}

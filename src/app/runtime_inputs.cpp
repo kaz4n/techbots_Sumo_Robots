@@ -162,7 +162,7 @@ void Runtime::projectStartStatus(ui::DisplaySample& sample) const {
         !robot.fresh || robot.token == 0U || decision_input_.t_us != tick.decision_us ||
         !dumpReceiptValid()) return;
     sample.start_status_available = true;
-    if constexpr (MOTORS_ALLOWED && !(SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
+    if constexpr (MOTORS_ALLOWED && !(SUMOX_B7_BROWNOUT || SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
         SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL || SUMOX_P4_REACTIVE ||
         SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING)) {
         sample.start_ready = report_.phase == RuntimePhase::RUNNING &&

@@ -33,6 +33,9 @@ bool profileCap(const Request& request, float& cap) {
 #if SUMOX_P3_STOP_TRIAL
     case Profile::STOP_TRIAL_FORWARD: cap = config::STOP_TRIAL_DUTY; break;
 #endif
+#if SUMOX_B7_BROWNOUT
+    case Profile::B7_ELECTRICAL: cap = config::BROWNOUT_FULL_DUTY; break;
+#endif
     default: return false;
     }
     cap = std::clamp(cap, 0.0F, 1.0F);
@@ -80,7 +83,11 @@ Result Governor::step(std::uint32_t t_us, const Request& request) {
         last_l_ = last_r_ = 0.0F;
         return result;
     }
-    const double scale = static_cast<double>(config::V_NOM_V) /
+    const double scale =
+#if SUMOX_B7_BROWNOUT
+        request.profile == Profile::B7_ELECTRICAL ? 1.0 :
+#endif
+        static_cast<double>(config::V_NOM_V) /
         std::max(filtered_vbat_v_, config::VBAT_MIN_COMP_V);
     const float rise = config::SLEW_DUTY_PER_MS *
         (static_cast<float>(elapsed_us) / 1000.0F);

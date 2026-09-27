@@ -34,6 +34,15 @@
 #ifndef SUMOX_MOTOR_FAULT_PROBE
 #define SUMOX_MOTOR_FAULT_PROBE 0
 #endif
+#ifndef SUMOX_B7_BROWNOUT
+#define SUMOX_B7_BROWNOUT 0
+#endif
+static_assert(SUMOX_B7_BROWNOUT == 0 || SUMOX_B7_BROWNOUT == 1,
+              "SUMOX_B7_BROWNOUT must be 0 or 1");
+static_assert(!SUMOX_B7_BROWNOUT || (!MATCH && !SUMOX_B4_STAND &&
+              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL &&
+              !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE && !SUMOX_P5_ABORT_TIMING &&
+              !SUMOX_MOTOR_FAULT_PROBE), "B7 brownout is exclusive and not a MATCH build");
 // D169 selects an inert diagnostic build; it grants no upload or motor permission.
 static_assert(SUMOX_MOTOR_FAULT_PROBE == 0 || SUMOX_MOTOR_FAULT_PROBE == 1,
               "SUMOX_MOTOR_FAULT_PROBE must be 0 or 1");
@@ -131,6 +140,15 @@ inline constexpr std::uint32_t APP_MOTOR_OBSERVE_MAX_POLLS = 10000000U;
 // D119 pure B4 sequence development defaults; not physical motor qualification.
 inline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segment
 inline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission
+// D244 fixed B7 electrical endpoint trial; these values grant no physical permission.
+inline constexpr std::uint32_t BROWNOUT_CYCLES = 20U; // fixed count-name exception
+inline constexpr float BROWNOUT_FULL_DUTY = 1.0F;
+inline constexpr std::uint32_t BROWNOUT_DWELL_MS = 500U;
+inline constexpr std::uint32_t BROWNOUT_REACH_MS = 1000U;
+inline constexpr std::uint32_t BROWNOUT_RECEIPT_MAX_GAP_US = 2000U;
+static_assert(BROWNOUT_CYCLES == 20U && BROWNOUT_FULL_DUTY == 1.0F &&
+              BROWNOUT_DWELL_MS == 500U && BROWNOUT_REACH_MS == 1000U &&
+              BROWNOUT_RECEIPT_MAX_GAP_US == 2000U, "D244 fixed finite B7 contract");
 // D124 finite P3 turn-trial brake request; no measured settling-time claim.
 inline constexpr std::uint32_t TURN_TRIAL_BRAKE_MS = 500U; // ms after observed turn termination
 inline constexpr float TURN_TRIAL_DEG = 90.0F; // D125 one compiled rightward trial; unmeasured

@@ -104,6 +104,24 @@ foreach(motors 0 1)
   add_test(NAME stand_integration_m${motors}_host COMMAND ${b4_target})
 endforeach()
 
+# D244 is a separate compiler-wide profile; these callbacks never reach hardware.
+foreach(b7_motors 0 1)
+  set(b7_target b7_brownout_m${b7_motors}_tests)
+  add_executable(${b7_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_b7_brownout.cc")
+  target_include_directories(${b7_target} PRIVATE ../src ../tests)
+  target_include_directories(${b7_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${b7_target} PRIVATE DOCTEST_CONFIG_NO_EXCEPTIONS
+    MATCH=0 SUMOX_B7_BROWNOUT=1 MOTORS_ALLOWED=${b7_motors})
+  if(MSVC)
+    target_compile_options(${b7_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${b7_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME b7_brownout_m${b7_motors}_host COMMAND ${b7_target})
+endforeach()
+
 # D134 copied configs select availability; every target keeps real Gate semantics.
 foreach(motors 0 1)
   set(mode_target mode_availability_m${motors}_tests)

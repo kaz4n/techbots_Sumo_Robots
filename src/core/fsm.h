@@ -11,6 +11,9 @@
 #include "openers.h"
 #include "stall.h"
 #include "logframe.h"
+#if SUMOX_B7_BROWNOUT
+#include "brownout_sequence.h"
+#endif
 #if SUMOX_B4_STAND
 #include "stand_sequence.h"
 #endif
@@ -450,6 +453,12 @@ struct RobotInput {
 #endif
 };
 struct RobotResult {
+    static constexpr bool BROWNOUT_PROFILE = SUMOX_B7_BROWNOUT != 0;
+#if SUMOX_B7_BROWNOUT
+    brownout_sequence::Report brownout;
+    bool brownout_stopping = false;
+    bool brownout_edge_interrupted = false;
+#endif
     static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
     static constexpr bool DRIVE_TEST_PROFILE = SUMOX_P3_DRIVE_TEST != 0;
     static constexpr bool TURN_TRIAL_PROFILE = SUMOX_P3_TURN_TRIAL != 0;
@@ -579,6 +588,10 @@ private:
         bool after_go = false;
         bool match_tick = false;
         bool frame_due = false;
+#if SUMOX_B7_BROWNOUT
+        brownout_sequence::Phase brownout_phase = brownout_sequence::Phase::NOT_STARTED;
+        std::uint8_t brownout_leg_index = 0U;
+#endif
 #if SUMOX_TIMING_EVIDENCE
         bool contact = false;
 #endif
@@ -611,6 +624,9 @@ private:
         bool forced_brake = false;
         bool frame_immediate = false;
         bool line_start_inhibited = false;
+#if SUMOX_B7_BROWNOUT
+        brownout_sequence::Receipt brownout_receipt;
+#endif
 #if SUMOX_TIMING_EVIDENCE
         bool timing_approach = false;
         bool timing_loss_brake = false;
@@ -716,6 +732,13 @@ private:
     void publishStand();
 #endif
     void startOpener();
+#if SUMOX_B7_BROWNOUT
+    void receiveBrownout(const RobotInput& input, bool applied_valid);
+    void routeBrownout(const RobotInput& input);
+    void runBrownout(const RobotInput& input);
+    void publishBrownout();
+    void resetBrownout();
+#endif
     void runOpener(const RobotInput& input);
     void acceptFlank(const openers::FlankResult& result, bool brake);
     void runReflank();
@@ -796,6 +819,12 @@ private:
     bool stand_edge_interrupted_ = false;
     bool stand_stopping_ = false;
     bool stand_inhibited_ = false;
+#endif
+#if SUMOX_B7_BROWNOUT
+    brownout_sequence::Sequence brownout_;
+    bool brownout_edge_interrupted_ = false;
+    bool brownout_stopping_ = false;
+    bool brownout_inhibited_ = false;
 #endif
     RobotResult result_;
     Pending pending_;

@@ -32,6 +32,28 @@ bool validOutput(const core::Outputs& output) {
     }
 }
 
+#if SUMOX_B7_BROWNOUT
+bool brownoutCommand(const fsm::RobotResult& command) {
+    const auto& trial = command.brownout;
+    const auto& output = command.outputs;
+    const bool active = trial.phase == brownout_sequence::Phase::REACH ||
+        trial.phase == brownout_sequence::Phase::DWELL;
+    if (!active || !trial.consumed || !trial.started || trial.terminal_valid ||
+        trial.reason != brownout_sequence::Reason::NONE || trial.leg_index >= 40U ||
+        (trial.phase == brownout_sequence::Phase::DWELL) != trial.endpoint_valid ||
+        trial.completed_legs != trial.leg_index || trial.completed_cycles != trial.leg_index / 2U ||
+        command.brownout_stopping || command.brownout_edge_interrupted ||
+        output.ui_state != core::State::OPENER) return false;
+    const auto endpoint = (trial.leg_index & 1U) == 0U ?
+        config::BROWNOUT_FULL_DUTY : -config::BROWNOUT_FULL_DUTY;
+    if (trial.duty_l != endpoint || trial.duty_r != endpoint ||
+        output.duty_l * endpoint < 0.0F || output.duty_r * endpoint < 0.0F) return false;
+    if (std::fabs(output.duty_l) == 1.0F || std::fabs(output.duty_r) == 1.0F)
+        return output.duty_l == endpoint && output.duty_r == endpoint;
+    return true;
+}
+#endif
+
 float wheelPulses(float duty, std::uint32_t first, const Port& port,
                   std::uint32_t (&pulses)[4]) {
     const std::uint32_t channel = first + (duty < 0.0F ? 1U : 0U);
@@ -137,6 +159,9 @@ bool MotorGate::validCommand(std::uint32_t now, const fsm::RobotResult& command)
     if (gate.phase != countdown::Phase::READY || !gate.motion_permitted || !hold_complete_ ||
         command.contract_faults != 0U || command.escape_fault != edge::EscapeFault::NONE)
         return false;
+#if SUMOX_B7_BROWNOUT
+    if (output.ui_state == core::State::OPENER) return brownoutCommand(command);
+#endif
     if (std::fabs(output.duty_l) == 1.0F || std::fabs(output.duty_r) == 1.0F)
         return output.ui_state == core::State::ATTACK && command.contact &&
                opp_fusion::frontView(command.opponent_mask).centered;

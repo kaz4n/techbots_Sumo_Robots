@@ -27,7 +27,7 @@ void Transaction::rememberStoppedCompletion() {
 }
 
 bool Transaction::resetStoppedRobotForService() {
-#if SUMOX_B4_STAND
+#if SUMOX_B4_STAND || SUMOX_B7_BROWNOUT
     return false;
 #else
     const auto phase = recorder_.phase();

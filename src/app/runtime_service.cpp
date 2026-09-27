@@ -131,7 +131,7 @@ void Runtime::serviceMode(std::uint32_t source_us) {
 }
 
 void Runtime::observeServiceReset() {
-#if SUMOX_B4_STAND
+#if SUMOX_B4_STAND || SUMOX_B7_BROWNOUT
     return;
 #else
     if (report_.phase != RuntimePhase::STOP_OBSERVING || report_.service_only) return;
@@ -148,7 +148,7 @@ void Runtime::observeServiceReset() {
 }
 
 bool Runtime::applyServiceReset() {
-#if SUMOX_B4_STAND
+#if SUMOX_B4_STAND || SUMOX_B7_BROWNOUT
     return true;
 #else
     if (!report_.service_reset_pending) return true;

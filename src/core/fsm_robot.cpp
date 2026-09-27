@@ -9,7 +9,7 @@ namespace fsm {
 namespace {
 constexpr std::uint64_t FRAME_PERIOD_US = 1000000ULL / config::LOG_HZ;
 constexpr std::uint64_t FRAME_EPOCH_US = (1ULL << 32U) * 1000ULL;
-constexpr bool MATCH_START_PROFILE = !(SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
+constexpr bool MATCH_START_PROFILE = !(SUMOX_B7_BROWNOUT || SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
     SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL || SUMOX_P4_REACTIVE ||
     SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING);
 static_assert(config::LOG_HZ > 0U && 1000000U % config::LOG_HZ == 0U);
@@ -54,6 +54,9 @@ bool validProfile(governor::Profile profile) {
 #endif
 #if SUMOX_P3_STOP_TRIAL
     case governor::Profile::STOP_TRIAL_FORWARD:
+#endif
+#if SUMOX_B7_BROWNOUT
+    case governor::Profile::B7_ELECTRICAL:
 #endif
         return true;
     }
@@ -136,7 +139,7 @@ RobotResult Robot::step(const RobotInput& input) {
     if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
         if (escape_.pushThroughActive() &&
             (tick_.selected != core::State::ATTACK || faults_ != 0U)) revokePushThrough(resolved);
-#if !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL
+#if !SUMOX_B7_BROWNOUT && !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL
     checkStall(resolved);
 #endif
     prepareFinalRequest();
@@ -211,6 +214,9 @@ void Robot::receive(const RobotInput& input) {
 #endif
 #if SUMOX_P5_ABORT_TIMING
     receiveOpenerTiming(input, applied);
+#endif
+#if SUMOX_B7_BROWNOUT
+    receiveBrownout(input, applied);
 #endif
     receiveTiming(input, identity_time);
     receiveFrame(receipt, applied);
@@ -379,6 +385,9 @@ void Robot::runLifecycle(const RobotInput& input) {
     }
     result_.lifecycle = lifecycle_.stepObserved(sample, input.button, button_timing_, input.previous_bias_dps,
                                         input.stop_requested || faults_ != 0U
+#if SUMOX_B7_BROWNOUT
+                                        || brownout_stopping_
+#endif
 #if SUMOX_B4_STAND
                                         || stand_stopping_
 #endif
@@ -510,7 +519,9 @@ void Robot::cancelMotion() {
 }
 
 void Robot::routeMotion(const RobotInput& input) {
-#if SUMOX_B4_STAND
+#if SUMOX_B7_BROWNOUT
+    routeBrownout(input);
+#elif SUMOX_B4_STAND
     routeStand(input);
 #elif SUMOX_P3_STOP_TRIAL
     (void)input;
@@ -860,6 +871,9 @@ void Robot::prepareFinalRequest() {
     if (faults_ != 0U) tick_.selected = core::State::STOPPED;
     tick_.request.inhibited = !tick_.permission || faults_ != 0U ||
         !moving(tick_.selected) || result_.escape_fault != edge::EscapeFault::NONE
+#if SUMOX_B7_BROWNOUT
+        || brownout_inhibited_
+#endif
 #if SUMOX_B4_STAND
         || stand_inhibited_
 #endif
@@ -1068,6 +1082,10 @@ void Robot::savePending(const RobotInput& input) {
     pending_.timing_start_us = explicit_tick_timing_ ? input.timing.started_us : input.t_us;
     pending_.timing_valid = validTimingStart(input);
     pending_.requested = result_.outputs;
+#if SUMOX_B7_BROWNOUT
+    pending_.brownout_phase = result_.brownout.phase;
+    pending_.brownout_leg_index = result_.brownout.leg_index;
+#endif
 #if SUMOX_P5_ABORT_TIMING
     if (abort_trace_phase_ == AbortTracePhase::RECEIPT) {
         pending_.abort_handover = tick_.abort_token == pending_.token &&
@@ -1085,6 +1103,9 @@ void Robot::savePending(const RobotInput& input) {
 }
 
 void Robot::finish(const RobotInput& input) {
+#if SUMOX_B7_BROWNOUT
+    publishBrownout();
+#endif
 #if SUMOX_B4_STAND
     publishStand();
 #endif
@@ -1127,6 +1148,9 @@ RobotResult Robot::exhaust(const RobotInput& input) {
     tick_.entry = state_;
     receive(input);
     faults_ |= TOKEN_EXHAUSTED;
+#if SUMOX_B7_BROWNOUT
+    publishBrownout();
+#endif
     tick_.selected = state_ = core::State::STOPPED;
     result_.outputs = {};
     result_.outputs.ui_state = state_;
@@ -1163,8 +1187,12 @@ RobotResult Robot::exhaust(const RobotInput& input) {
 }
 
 void Robot::reset() {
+#if SUMOX_B7_BROWNOUT
+    resetBrownout();
+#else
     const auto next = next_token_;
     *this = Robot{};
     next_token_ = next;
+#endif
 }
 } // namespace fsm

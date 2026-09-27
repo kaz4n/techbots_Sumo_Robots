@@ -1650,3 +1650,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T03:47:50.801865+04:00 | Goal continuation | NO_PROGRESS / blocked audit3: clean53a1f9d9, same absent hardware/qualification/human gates and unanswered B7/R6 decision. No external prerequisite change or substantive authorized software action. Audits1-3 are consecutive and only bookkeeping; blocked threshold satisfied. Full objective unachieved; coordinator transitions goal to BLOCKED. | audit only
 
 2026-09-27T07:23:23.755430+04:00 | P2 B7 continuation | User explicitly approved the dedicated B7-only R6 contact exception; D244 recorded, original20-cycle/half-charge/zero-reset criterion preserved. Software preparation resumes; actual motor-run authority and hardware facts remain absent. | decision checkpoint
+
+2026-09-27T07:43:57.4040021+04:00 | P2 B7/D244 | Dedicated brownout source and focused host/tool/config checks PASS, source1ba538e1; preserved fixture failures independently adjudicated. M0/M1 target and ordinary production compilation next; no upload or physical acceptance. | source1ba538e1; fixturesdcb17b25; tools96a19c1d

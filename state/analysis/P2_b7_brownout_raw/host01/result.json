@@ -1,0 +1,875 @@
+{
+  "schema": "d244-focused-host-v1",
+  "target_evidence": false,
+  "commands": [
+    {
+      "argv": [
+        "g++",
+        "--version"
+      ],
+      "returncode": 0,
+      "expected_compile_rejection": false,
+      "seconds": 0.05243706703186035
+    },
+    {
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsanitize=undefined",
+        "-fno-sanitize-recover=all",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=0",
+        "-DSUMOX_B7_BROWNOUT=1",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/brownout_sequence.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/countdown.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/edge.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_brownout.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_buttons.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_drive_test.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_imu.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_line.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_opener_timing.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_qtr_cal.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_robot.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_stand.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_stop_trial.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_timing.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_turn_trial.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/governor.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/logframe.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/motion.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/openers.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/opp_fusion.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stall.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/turn_trial.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motors.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/recorder.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/recorder_frames.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/recorder_csv.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/recorder_dump.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/power_inputs.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/ui.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_heading.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_adapter.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/line_qtr_adapter.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/qtr_cal.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/qtr_cal_format.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/ui_display.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/transaction.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/runtime.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/runtime_inputs.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/runtime_dump.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/runtime_service.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/runtime_calibration.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/app/transaction_service.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/motor_gate_main.cpp",
+        "-o",
+        "/dev/shm/sumo-d244-apy1jyg1/b7_m0_default"
+      ],
+      "returncode": 0,
+      "expected_compile_rejection": false,
+      "seconds": 26.806079626083374
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d244-apy1jyg1/b7_m0_default",
+        "--no-colors"
+      ],
+      "returncode": 1,
+      "expected_compile_rejection": false,
+      "seconds": 0.021020174026489258
+    }
+  ],
+  "started_unix": 1790480159.8488452,
+  "scratch": "/dev/shm/sumo-d244-apy1jyg1",
+  "pins_before": {
+    "host/CMakeLists.txt": {
+      "bytes": 16054,
+      "sha256": "c563ebbd18b979dfbae09aed7650298b6243dde6b16fce4c5d744bbf2e6a79af"
+    },
+    "host/motor_gate_main.cpp": {
+      "bytes": 298,
+      "sha256": "b768278d2f3a1f292b9664cefefeadb2fd527c350fc2be54cdd3673c09dac4a8"
+    },
+    "host/third_party/doctest.h": {
+      "bytes": 323200,
+      "sha256": "94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced"
+    },
+    "src/app/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/app/app.ino": {
+      "bytes": 1843,
+      "sha256": "d7d7458c4fedc193ebd8a7350ab96420f8e0a71b9ae58d169a6464abddfd6302"
+    },
+    "src/app/calibration_output.h": {
+      "bytes": 880,
+      "sha256": "ed7e085f8504895d375938ebac45f264e8da4c84d56fb4b6805095185464533a"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 2111,
+      "sha256": "da0c65a75fe18308a55adf78649a1bad459fc2bf9a47bd082d49ee50ff598d8b"
+    },
+    "src/app/dump_port.h": {
+      "bytes": 676,
+      "sha256": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+    },
+    "src/app/dump_port_unoq.cpp": {
+      "bytes": 755,
+      "sha256": "162ff2bc33e1c1e79def845ef89c491e6628e234b59d7d5ae60826d8c8ee8335"
+    },
+    "src/app/epoch_timing.h": {
+      "bytes": 4007,
+      "sha256": "46960d854f19f863e737422937616223d3c961be35b20502c1d05b92b1be7c05"
+    },
+    "src/app/native_sources_unoq.cpp": {
+      "bytes": 2430,
+      "sha256": "291e88a6ae007a18a5e94d105e722c15b2bdc7dbce81062f2ab5f218d9576047"
+    },
+    "src/app/native_sources_unoq.h": {
+      "bytes": 1689,
+      "sha256": "11cd88cc1ae4f94b4b0f3ccafbf68bc9087b7098cbb008ec5daeca4298c381b5"
+    },
+    "src/app/outer_loop_timing.h": {
+      "bytes": 8017,
+      "sha256": "372542f723779761d07061858c7a24600331c818e534fbfccd61edfee752800c"
+    },
+    "src/app/runtime.cpp": {
+      "bytes": 14087,
+      "sha256": "84ad84f3e1e4c5e4647b074465c69ffb072276fd89b9452cbddbb665cc6fc3af"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9975,
+      "sha256": "ced423d850d116cdecd13e9e12e68e901a04b293d257148a667acdb14bb882c3"
+    },
+    "src/app/runtime_calibration.cpp": {
+      "bytes": 9248,
+      "sha256": "18bf09803ad4140ac16ffe57646953d81020c16cadcaccb8539b31f48c60c3e6"
+    },
+    "src/app/runtime_dump.cpp": {
+      "bytes": 2798,
+      "sha256": "8bf657d0fb8450c7da181f5cadc9bd1b3a4f7b18166d0f6917a0bd8ac6abff7c"
+    },
+    "src/app/runtime_inputs.cpp": {
+      "bytes": 10737,
+      "sha256": "8e52b4422d2bfb7ee5549a66e9d80414389ad204387483eabd92c49f7e1ed7a1"
+    },
+    "src/app/runtime_service.cpp": {
+      "bytes": 8509,
+      "sha256": "5dd32c70655450e75f7561f01d6eed97fa1e44c8299116acf179420b4e841fa6"
+    },
+    "src/app/transaction.cpp": {
+      "bytes": 5739,
+      "sha256": "ada8080d67d76750a1bc41fc522bbe17076d66a3f887d735c8530f7414993f63"
+    },
+    "src/app/transaction.h": {
+      "bytes": 3710,
+      "sha256": "a3c3f12eb49e517f116560b1efed1376110da0e424f6a1714098fcc3c8a84b19"
+    },
+    "src/app/transaction_service.cpp": {
+      "bytes": 2148,
+      "sha256": "fb8354e1ef7f94baff17f91c941478e949571bf2a40e8647dc0b60c67d31b5da"
+    },
+    "src/config.h": {
+      "bytes": 24633,
+      "sha256": "be9c1d2d608552df48faa3a9c93b01f3fb301080655240866dacdd4fb9895b02"
+    },
+    "src/core/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/core/brownout_sequence.cpp": {
+      "bytes": 4932,
+      "sha256": "58f79a759306f81e050aa5d08777fd331718c05c474b3da2b7716e1c95e52d42"
+    },
+    "src/core/brownout_sequence.h": {
+      "bytes": 2992,
+      "sha256": "ff16d6a4fab0dcc19fbe16068d347d96a60947a96d3776b142655c68705a89f7"
+    },
+    "src/core/countdown.cpp": {
+      "bytes": 19273,
+      "sha256": "4875714d84e2a1caff22c006dbf4e9d2cc389db9e9686346581181d1c0ede5e6"
+    },
+    "src/core/countdown.h": {
+      "bytes": 17321,
+      "sha256": "283a8bbeda0e1f6b5f2c171c4d3a0e00fd2d3a0e532886c787d0ce55dca866f7"
+    },
+    "src/core/edge.cpp": {
+      "bytes": 18797,
+      "sha256": "ffd8d1d2fd5900c540aba011a8f79a43fb7be8b200e13769035a25766b45ede6"
+    },
+    "src/core/edge.h": {
+      "bytes": 13823,
+      "sha256": "b29b3982e27138be1fae361fde0b22e7ff58cf84e80d4cd4f3738a68c4796271"
+    },
+    "src/core/fsm.cpp": {
+      "bytes": 26474,
+      "sha256": "cad394ff8ee7f9072a8596a566092e2f3b9fadfda5966170e3d126ea18c71bb0"
+    },
+    "src/core/fsm.h": {
+      "bytes": 42092,
+      "sha256": "0bd5c26b20a72b0ddbc94c0c8c56c9f6632ff7dd797cf4aa8a5ebda60995b0fb"
+    },
+    "src/core/fsm_brownout.cpp": {
+      "bytes": 4032,
+      "sha256": "fd96c232185c9cc14d00eddac06ce8507a216fe2b570eb73349b9570310a8fb3"
+    },
+    "src/core/fsm_buttons.cpp": {
+      "bytes": 4396,
+      "sha256": "82ba1038c75e172012d59921051aadf98e9928f5b1acb27dbb4e91eef3dbfbdd"
+    },
+    "src/core/fsm_drive_test.cpp": {
+      "bytes": 1139,
+      "sha256": "d1e7c0ce587637e8a4ad95818d1ebfca356797e860112a2ed4bb734b13849421"
+    },
+    "src/core/fsm_imu.cpp": {
+      "bytes": 5234,
+      "sha256": "5e873f5825e97976bc64c1d2fdd85eb44bc51697176bfec737677aa4e367d1e7"
+    },
+    "src/core/fsm_line.cpp": {
+      "bytes": 4746,
+      "sha256": "5ade80a598b501aa1ef7b2b3226916aefbc8e54ba7396d47b1ece5c7e48dd372"
+    },
+    "src/core/fsm_opener_timing.cpp": {
+      "bytes": 5359,
+      "sha256": "eda6945e6bc5535bab9174872642ae266b3e22baaee9895b47c05fd5d40d7d72"
+    },
+    "src/core/fsm_qtr_cal.cpp": {
+      "bytes": 6632,
+      "sha256": "bc1ce76fc3021c2a1f8434322c8a37324ecf86cadc9f0f9e4373a43b0dcceb00"
+    },
+    "src/core/fsm_robot.cpp": {
+      "bytes": 50238,
+      "sha256": "52a0f53a9c03ae976e7ddf17f802bcdd5d701900540fb89b3c046e98075995ac"
+    },
+    "src/core/fsm_stand.cpp": {
+      "bytes": 2774,
+      "sha256": "c766dbe959a68c17f8c17085f0b8a00bcad518c6e99dfefcbf580c4a8c969550"
+    },
+    "src/core/fsm_stop_trial.cpp": {
+      "bytes": 5630,
+      "sha256": "78410d6775ea1e114c2083f1b5238e6c8c03ea7b1ab75b3cbeee5ef94e62ebac"
+    },
+    "src/core/fsm_timing.cpp": {
+      "bytes": 6937,
+      "sha256": "e372d59115373f563f0599117676f1d7d05e8169c30799d8c5e99d903fb2c0b7"
+    },
+    "src/core/fsm_turn_trial.cpp": {
+      "bytes": 4359,
+      "sha256": "4d4af54e72097626be8870153559a138530021945d7e5d3cd3c1e4e40be748e3"
+    },
+    "src/core/governor.cpp": {
+      "bytes": 4250,
+      "sha256": "06b2e1d17199ac36c4f62e917dee972771e9458865247b495dc088aee0266394"
+    },
+    "src/core/governor.h": {
+      "bytes": 2072,
+      "sha256": "515b2156ca674d301cbc6d645933e9670ab65f9c7df324d134a1ae7b07a78abf"
+    },
+    "src/core/logframe.cpp": {
+      "bytes": 13820,
+      "sha256": "2c23e3b504f452a0316f9b8db594f8a54fbe6fd8af68c9a54535239387753ff3"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/motion.cpp": {
+      "bytes": 9185,
+      "sha256": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656"
+    },
+    "src/core/motion.h": {
+      "bytes": 6982,
+      "sha256": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78"
+    },
+    "src/core/openers.cpp": {
+      "bytes": 13552,
+      "sha256": "fafaabe0373e97dd72becca0eabf1a7948dcfe8a20656016201c3d4dad871d80"
+    },
+    "src/core/openers.h": {
+      "bytes": 10478,
+      "sha256": "3982ac808a831bbf1ee17b2e5307129bd615e8d96de17488835e048679a743f4"
+    },
+    "src/core/opp_fusion.cpp": {
+      "bytes": 16361,
+      "sha256": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85"
+    },
+    "src/core/opp_fusion.h": {
+      "bytes": 12108,
+      "sha256": "66b31cd0b85aaee4a52a6574fc596a4117bbc0ffcca8180936b29ab467cc454b"
+    },
+    "src/core/stall.cpp": {
+      "bytes": 4456,
+      "sha256": "46e0f67eb3d3b820150d156eb2a1cae2e074e44c56f98d6ab4b739c837229436"
+    },
+    "src/core/stall.h": {
+      "bytes": 3700,
+      "sha256": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3"
+    },
+    "src/core/stand_sequence.cpp": {
+      "bytes": 3762,
+      "sha256": "7c76616dc8adef0560fe88fc7b9ec198f60dc191f9162220dbc929ca8471b476"
+    },
+    "src/core/stand_sequence.h": {
+      "bytes": 1602,
+      "sha256": "8e4d3e8f631529555d3adb8031de8ea33f3a221c6326c9a09f13fd6b87f6f843"
+    },
+    "src/core/stop_trial.h": {
+      "bytes": 1026,
+      "sha256": "11e400c333cec032d321a28d72bdfaf1a7362dea4343a6b76f2b67f8198c6d0c"
+    },
+    "src/core/turn_trial.cpp": {
+      "bytes": 4149,
+      "sha256": "cc88727fa5a19117ceb88ad3c4b068ea4df815a8570f7d5c7b80c23ae4d3d62f"
+    },
+    "src/core/turn_trial.h": {
+      "bytes": 1892,
+      "sha256": "74f6a41c750e72f7b5ad355d8700da39054de702928fac52d5893f6cc72009c0"
+    },
+    "src/core/types.h": {
+      "bytes": 4094,
+      "sha256": "8fec6d334fcb1c631c48ed0a076100d2925fee812706af721bb8a208c8c5b8eb"
+    },
+    "src/hal/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "bytes": 19862,
+      "sha256": "0ad432cf80eb99db2582b53a0da8916743d36b4e01d970e6a7c71c55f065b76f"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 4244,
+      "sha256": "5a88a26ac50d7765fff08895ee7e4badb88af0b1a24b32660249506cc105a693"
+    },
+    "src/hal/imu.cpp": {
+      "bytes": 10419,
+      "sha256": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37"
+    },
+    "src/hal/imu.h": {
+      "bytes": 2743,
+      "sha256": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750"
+    },
+    "src/hal/imu_acquisition.cpp": {
+      "bytes": 7164,
+      "sha256": "0f5aef4921c961cc85bc0c335792740972c9a02bb04c2d9624ea4c22a10c6f0e"
+    },
+    "src/hal/imu_acquisition.h": {
+      "bytes": 3658,
+      "sha256": "2528f6ff678550f2655ae6c42b1e133792385cdcec99a875712a2690b8b440df"
+    },
+    "src/hal/imu_acquisition_async.cpp": {
+      "bytes": 6907,
+      "sha256": "1bcdf95293eec7ec13c2b014726274bd97d7d53de1b7222361e38b01b83b59e9"
+    },
+    "src/hal/imu_adapter.cpp": {
+      "bytes": 4549,
+      "sha256": "4e82f5659c6b4ceda6b76292b0b374efeb66d30b9739ee1fa14519101d7dd340"
+    },
+    "src/hal/imu_adapter.h": {
+      "bytes": 654,
+      "sha256": "27ef58be36c239bee56c7f205cbf1a3043c7a472a90f78b5c06245385d4314d6"
+    },
+    "src/hal/imu_bus_async_unoq.cpp": {
+      "bytes": 8839,
+      "sha256": "097c5ae9a2f99f8155652ef78e4c7d254fbd3ea2b826faade9af8bd5faba5e29"
+    },
+    "src/hal/imu_bus_unoq.cpp": {
+      "bytes": 25366,
+      "sha256": "48ab37f899805c8ed99003ca8bc36bd74b3138969c0c430fcd4db832653f468e"
+    },
+    "src/hal/imu_bus_unoq.h": {
+      "bytes": 6677,
+      "sha256": "bb00c91780ef35e4de7d9118039fec558218b0a63f5e9e141e23c2573b512ffe"
+    },
+    "src/hal/imu_heading.cpp": {
+      "bytes": 8863,
+      "sha256": "e314f57b78980993f782cf85aa48f0cd6ffadf1cb1ae99fb801c7981f1736411"
+    },
+    "src/hal/imu_heading.h": {
+      "bytes": 3175,
+      "sha256": "178f0c24a8b2b2c637a5fd6c860169906792f1d71acca662a8ec14448763848d"
+    },
+    "src/hal/line_qtr.cpp": {
+      "bytes": 18927,
+      "sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a"
+    },
+    "src/hal/line_qtr.h": {
+      "bytes": 3751,
+      "sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24"
+    },
+    "src/hal/line_qtr_adapter.cpp": {
+      "bytes": 9600,
+      "sha256": "f6257c422b97d8ac5bd63768401d55750eaaa8d3faf83982e516b0e7de3c02d0"
+    },
+    "src/hal/line_qtr_adapter.h": {
+      "bytes": 1638,
+      "sha256": "2374055556fe4f3e2ddf1ec7273e11135256cbaa553d2e88b67c9647067dff54"
+    },
+    "src/hal/loop_hook.cpp": {
+      "bytes": 259,
+      "sha256": "bc481ea9f4567a4c8f8dde741134c94ac4f70b42257a39807a80c7ed93ba6839"
+    },
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "src/hal/motor_port_unoq.h": {
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "src/hal/motors.cpp": {
+      "bytes": 11338,
+      "sha256": "c7f9c3023cdadb46828ea9680b429d1a0da0b963b2fed8271b50f90acd6b8dec"
+    },
+    "src/hal/motors.h": {
+      "bytes": 2428,
+      "sha256": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149"
+    },
+    "src/hal/native_pins.cpp": {
+      "bytes": 629,
+      "sha256": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+    },
+    "src/hal/native_pins.h": {
+      "bytes": 456,
+      "sha256": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c"
+    },
+    "src/hal/opp_sensors.cpp": {
+      "bytes": 3316,
+      "sha256": "c68f13bf8d3aa41e52f94d7a1af2e8e47216df2e9ec0e5c15d45605d8f033509"
+    },
+    "src/hal/opp_sensors.h": {
+      "bytes": 935,
+      "sha256": "445fb48b903b32fdc885bae41cd1d5e923aac12195363379881a2f7cee0ca97b"
+    },
+    "src/hal/power.cpp": {
+      "bytes": 23632,
+      "sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599"
+    },
+    "src/hal/power.h": {
+      "bytes": 3142,
+      "sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d"
+    },
+    "src/hal/power_inputs.cpp": {
+      "bytes": 9306,
+      "sha256": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c"
+    },
+    "src/hal/power_inputs.h": {
+      "bytes": 3521,
+      "sha256": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864"
+    },
+    "src/hal/power_inputs_unoq.cpp": {
+      "bytes": 862,
+      "sha256": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173"
+    },
+    "src/hal/qtr_cal.cpp": {
+      "bytes": 9618,
+      "sha256": "b23a7e7665eb89a18eea8fb98334e5794b611a35dbc0de7542dbdd095905ca60"
+    },
+    "src/hal/qtr_cal.h": {
+      "bytes": 2925,
+      "sha256": "d8af2a7ad89974642b2afd84904cae740f981d822184ef3351b832157ca5e03e"
+    },
+    "src/hal/qtr_cal_format.cpp": {
+      "bytes": 2010,
+      "sha256": "90da4efc9377cbf4f814421ee97bfdcd1f0cbf426dc05856c8bd3ec04d8cb6b7"
+    },
+    "src/hal/recorder.cpp": {
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder_csv.cpp": {
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_dump.cpp": {
+      "bytes": 15424,
+      "sha256": "b65f1a9e67eea89a01e7e03b39c618d27bc2dcaad98deb71db2035c2012f585c"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3201,
+      "sha256": "e25df3d2875e822b78c770baccecadbd70547c4fce2632250c6f42bff03fc552"
+    },
+    "src/hal/recorder_frames.cpp": {
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/ui.cpp": {
+      "bytes": 3413,
+      "sha256": "cfda5ea3077b28325425e45bee0dc54fb95803ab826ee4e098348a359ed4a3e8"
+    },
+    "src/hal/ui.h": {
+      "bytes": 889,
+      "sha256": "fc0231e65be092c8b26d73fc16b0c13d220347c30e5959d00aed13acb811a326"
+    },
+    "src/hal/ui_display.cpp": {
+      "bytes": 12037,
+      "sha256": "496b5f289e5199f8aad6d01313befbd5d12401b65e3c3977397ac605c884991d"
+    },
+    "src/hal/ui_display.h": {
+      "bytes": 2314,
+      "sha256": "5619adc7a0228fca3b15cb2ef2007d71eea4e620a41616de5e4a7f0c25004e02"
+    },
+    "src/hal/ui_matrix_unoq.cpp": {
+      "bytes": 3206,
+      "sha256": "c42cd52a399d4177d9e28b7595349babf0ee8e9069328be2d272a2538b8af412"
+    },
+    "src/hal/ui_matrix_unoq.h": {
+      "bytes": 1344,
+      "sha256": "4df1c4f5404c0c19b032d62f7e1a24777da3ce328030afbab7a7d41d824d5024"
+    },
+    "state/analysis/P2_b7_brownout_contract.md": {
+      "bytes": 9621,
+      "sha256": "58ef6ed749756ca8542560a312711964d9fc3cb2782869b61ee118843192d7ea"
+    },
+    "tests/fixtures/__pycache__/recorder_heap_vectors.cpython-312.pyc": {
+      "bytes": 4145,
+      "sha256": "16ec01528c5ae2aebc592f42705fffefe01710f3cb09ea0c6dfdc91906cfe733"
+    },
+    "tests/fixtures/__pycache__/recorder_heap_vectors.cpython-313.pyc": {
+      "bytes": 4082,
+      "sha256": "4862bcae4cbdb08fbdcfcb648615ccde1a94b50140511a65e4443673e894bbb7"
+    },
+    "tests/fixtures/app_build_overrides/README.md": {
+      "bytes": 2207,
+      "sha256": "a0c84c8f719423dfd6758564cfd49cf9c68ffa87f68c04849eb778caeb93c050"
+    },
+    "tests/fixtures/app_build_overrides/__pycache__/fault_command.cpython-313.pyc": {
+      "bytes": 7434,
+      "sha256": "f22f3e6d3aa46866fbdca3ffa77ae28c3416c4da9fc612e1b443251e059171a9"
+    },
+    "tests/fixtures/app_build_overrides/fault_command.py": {
+      "bytes": 5179,
+      "sha256": "cf68b7d1a02971338d0609203b625001cbe405ad707c7b08277fe3313ae3e076"
+    },
+    "tests/fixtures/app_build_overrides/mutations.json": {
+      "bytes": 5228,
+      "sha256": "33f3c43ad58ea9c5f260a235f968c68a9c7b1e6b1a87fd66be1e2a528b45ec64"
+    },
+    "tests/fixtures/app_build_policy/README.md": {
+      "bytes": 1568,
+      "sha256": "5ed55dcc03baf8b4d93336a31722db7d4d10223ba05db6e7da28eecaf0ebd8bb"
+    },
+    "tests/fixtures/app_build_policy/SumoPolicyFixture/library.properties": {
+      "bytes": 264,
+      "sha256": "625abfffd0baa1ea4f372eb84a12e727d521399d02c7bb5fd386c59db27157b6"
+    },
+    "tests/fixtures/app_build_policy/SumoPolicyFixture/src/SumoPolicyFixture.h": {
+      "bytes": 331,
+      "sha256": "dade9fa804b08c90565a93408dbcfbb775b6b44c5de17f9b69ec8276a0ff60b8"
+    },
+    "tests/fixtures/app_build_policy/fault_command.py": {
+      "bytes": 3512,
+      "sha256": "178bd758bdf8b7a873e1deb2900ed865ce9baaa1a4470c448693908982c6e313"
+    },
+    "tests/fixtures/app_build_policy/phase_probe/phase_probe.ino": {
+      "bytes": 422,
+      "sha256": "e1fba689fee52276c4e76a98004a039cdf6bdaaebfee9f0fc8bfbca27f646677"
+    },
+    "tests/fixtures/app_build_policy/valid_result.json": {
+      "bytes": 21856,
+      "sha256": "dd57c82e856c1510a6dcfa1006f0c0ebbbb7538eb2f35484de4be3a1cd567c5b"
+    },
+    "tests/fixtures/app_dump/fixture.h": {
+      "bytes": 6203,
+      "sha256": "ef811dc357c38f3fd9186206f0c238057c93a2cfe25c63476b45839c5b439111"
+    },
+    "tests/fixtures/app_dump/roundtrip.cc": {
+      "bytes": 2150,
+      "sha256": "2a05fd678b4b52ece7d38112630055c3f98e652f5fd74aae81a17e69fc36b85e"
+    },
+    "tests/fixtures/app_runtime_fixture.h": {
+      "bytes": 14039,
+      "sha256": "cb4ba1621498214bf611660e99a48535d99849f8c64dd7fdf6c2a8822c4995c2"
+    },
+    "tests/fixtures/app_service_reset/fixture.h": {
+      "bytes": 7334,
+      "sha256": "49668a6057bd1aaeb3a795642bdd532dd2e0f50e53b73979cad4e1b60b311586"
+    },
+    "tests/fixtures/app_service_reset/roundtrip.cc": {
+      "bytes": 1582,
+      "sha256": "ee6d5f929820420e80cad8c05091cdc146813185dcfbbdee84a81cdb495c7d37"
+    },
+    "tests/fixtures/app_transaction_fixture.h": {
+      "bytes": 5189,
+      "sha256": "eb9bcab2f3a5c19d40e312a272e82738085ac1d7a3e74990ae4cc7b41daa40d1"
+    },
+    "tests/fixtures/b7_fixture.h": {
+      "bytes": 4855,
+      "sha256": "708ed730472fe05a4de07c339c748722e13b638a7661d2fef300ffb6f1c92289"
+    },
+    "tests/fixtures/drive_test_fixture.h": {
+      "bytes": 5053,
+      "sha256": "cf3d5761b85c0b316706862dec4d7429aaca93e8b7603e9d36c27f7c2b3f11b1"
+    },
+    "tests/fixtures/dump_fixture.h": {
+      "bytes": 7851,
+      "sha256": "b584e4343493912341220ca56a47db9a4aae009f8c18dc63a842d673f9fce7e8"
+    },
+    "tests/fixtures/dump_main.cc": {
+      "bytes": 302,
+      "sha256": "4c419b117d7609402b27e08b45a1500dfb427b9c6fa363effc005ae867246e8b"
+    },
+    "tests/fixtures/dump_stream.cc": {
+      "bytes": 708,
+      "sha256": "46465c32381df55b5023c6304d74bc64e8c4ebf0b4e5ce6d60795fd389960a29"
+    },
+    "tests/fixtures/dump_uart_fifo/cases.cc": {
+      "bytes": 16983,
+      "sha256": "a189c4e09b5a13c9f7e3e82e0f82a47e8140df16bee382c2e31d7a0088faa784"
+    },
+    "tests/fixtures/dump_uart_fifo/fixture.h": {
+      "bytes": 2283,
+      "sha256": "2ffd1b8c833274563ce90aebbe68948241ce7aa8ee47c0544e7fbdc6c81e6cbf"
+    },
+    "tests/fixtures/dump_uart_fifo/hardware.cc": {
+      "bytes": 7805,
+      "sha256": "5f25d894cf86180061d5ea2f5b1aaa318fb95eb5f0c08a41d7741cc5c0e138e2"
+    },
+    "tests/fixtures/dump_uart_fifo/session_cases.cc": {
+      "bytes": 4071,
+      "sha256": "1dce591e56e058871c3bcd5e3152678721cec0fc88fe1716fb70f7a2583aca07"
+    },
+    "tests/fixtures/dump_uart_fifo/sketch.cc": {
+      "bytes": 1495,
+      "sha256": "30982edc06def89a443f8ba18285be576e61849bf59de140b3433aec5f25ad1a"
+    },
+    "tests/fixtures/dump_uart_fifo/sketch_dump_stub.h": {
+      "bytes": 1626,
+      "sha256": "12dd8ed86a58874f98de9136f0b0f5abbcce34b03f350cd713c30589ced72c94"
+    },
+    "tests/fixtures/dump_uart_fifo/sketch_runner_stub.h": {
+      "bytes": 847,
+      "sha256": "e585d647d20e00bc9b6e3aca57f42e73e370d149ce81ce57bf9a4a3e46da0517"
+    },
+    "tests/fixtures/dump_uart_fifo/sketch_sources_stub.h": {
+      "bytes": 400,
+      "sha256": "5a8b8ae0827f7790d87ef670a8c6e82e394d97c310b28e28c2c72ea514b889f4"
+    },
+    "tests/fixtures/dump_uart_fifo/streams.cc": {
+      "bytes": 5360,
+      "sha256": "6dfeae2352709d74dc9a57d2cdaac29a83e2fd79ae589f99664f5668cbd4994c"
+    },
+    "tests/fixtures/dump_uart_native/Arduino.h": {
+      "bytes": 261,
+      "sha256": "7d0f9e98dd640aaa382aaff6cfed7106fe64f9ea7fbecaeda03b49c0bb6b5882"
+    },
+    "tests/fixtures/dump_uart_native/cases.cc": {
+      "bytes": 18265,
+      "sha256": "233ef4b20ba8243de401da4ede0b598dd696ebdd412ae2677660a4095b854c7c"
+    },
+    "tests/fixtures/dump_uart_native/cmsis_core.h": {
+      "bytes": 1292,
+      "sha256": "552be3685cdc2711be62a57c4d553eccd6984bccb2634af705131b89e6dbe72a"
+    },
+    "tests/fixtures/dump_uart_native/installed_uart.h": {
+      "bytes": 30025,
+      "sha256": "59347fc80878bac040748a528b6d161d3df428513df0d81aa0dce714ecf2e9a3"
+    },
+    "tests/fixtures/dump_uart_native/serial/uart_stm32.h": {
+      "bytes": 276,
+      "sha256": "6cfa1fd1f88cac175a82cd4509c26f2cce8bf3a633f8913dbf4120714c15e5a8"
+    },
+    "tests/fixtures/dump_uart_native/stm32_ll_usart.h": {
+      "bytes": 274,
+      "sha256": "76c811eb6a4342fe2d647811962d5b850433db95974de67ed9a59e54bc671295"
+    },
+    "tests/fixtures/dump_uart_native/stm32u5xx_ll_rcc.h": {
+      "bytes": 1959,
+      "sha256": "7856e98d7d778734794c9ab8506d1ba1f3c28036212a7a8f8d1afbc1e81f8aec"
+    },
+    "tests/fixtures/dump_uart_native/stm32u5xx_ll_usart.h": {
+      "bytes": 268,
+      "sha256": "56b5af422155db0fd38460c83f40254e30559acdbc8e078371d6abb6fe29f3d3"
+    },
+    "tests/fixtures/dump_uart_native/uart_stm32.h": {
+      "bytes": 1461,
+      "sha256": "38d86b28de0407759ecbad1d5609c65d617fc32d8e5a0a5b1a0f658bf8039e44"
+    },
+    "tests/fixtures/dump_uart_native/zephyr/device.h": {
+      "bytes": 498,
+      "sha256": "17af1cc5a8c44c2d7b78bdfa35a4cbb3c1b34b1ebb0cdeda424ef4ac6b8f1edb"
+    },
+    "tests/fixtures/dump_uart_native/zephyr/devicetree.h": {
+      "bytes": 974,
+      "sha256": "72ea2b85701557efc96fb1550056f8e4a35069d34f26f3996bb6d577b61a2eca"
+    },
+    "tests/fixtures/dump_uart_native/zephyr/drivers/clock_control/stm32_clock_control.h": {
+      "bytes": 434,
+      "sha256": "f7857109e10d9b979d79d8b9087e511e6d46f91f10339840fbc8c2734e7fa266"
+    },
+    "tests/fixtures/dump_uart_native/zephyr/drivers/gpio.h": {
+      "bytes": 1105,
+      "sha256": "94c0982c56399233b231e8bc7fb903be9dd36b8776c39ee59251fef69587e4e5"
+    },
+    "tests/fixtures/mode_availability_fixture.h": {
+      "bytes": 6274,
+      "sha256": "9dfa39cd3b6fa46f00d833587e189c9412bab35cc10ad9a4772c7200026b43de"
+    },
+    "tests/fixtures/p5_abort_fixture.h": {
+      "bytes": 12824,
+      "sha256": "ddc7ce8acd0b51bb891e99debc881167684adc54ffcb2aa9c23b57343d755682"
+    },
+    "tests/fixtures/power_inputs_fixture.h": {
+      "bytes": 3905,
+      "sha256": "11e50b560cf885f48caa87816fca77679c68ededfacef6d468152044b0b3e891"
+    },
+    "tests/fixtures/push_through_fixture.h": {
+      "bytes": 8836,
+      "sha256": "28c477f31c4e38399dedfa97f8419a0cd77e6f314a87b906e5de7bb79df54ae8"
+    },
+    "tests/fixtures/qtr_cal_fixture.h": {
+      "bytes": 8280,
+      "sha256": "114446ae852c9299a435f253fb24d8e47f912a28be9e98a4e92b011e74dd4d0f"
+    },
+    "tests/fixtures/qtr_cal_main.cc": {
+      "bytes": 281,
+      "sha256": "34df84d2e72ab40d822ac08717584fca89e0d84b07bd5f8b64707441810acd29"
+    },
+    "tests/fixtures/qtr_cal_startup.cc": {
+      "bytes": 1239,
+      "sha256": "0ff0e091eb38a551cb1ae1c3749a87d99fb45a9b5276800e888454e883644985"
+    },
+    "tests/fixtures/reactive_profile_fixture.h": {
+      "bytes": 4968,
+      "sha256": "eecf9fab1782d52ea6968c35d477ce527d68eba593ee6692b61d4a1e8c496fc0"
+    },
+    "tests/fixtures/recorder_heap_vectors.py": {
+      "bytes": 2438,
+      "sha256": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+    },
+    "tests/fixtures/recorder_transport/config.cc": {
+      "bytes": 1086,
+      "sha256": "19122bd156d6a2eba0abebf39601b4831955af43a4d3b4abfabd0200a8c2f3eb"
+    },
+    "tests/fixtures/recorder_transport/fixture.h": {
+      "bytes": 10152,
+      "sha256": "c565deb1e5bbef2a7cdda0eba7c88bd65d69163d4624a810b79450cbb180e147"
+    },
+    "tests/fixtures/recorder_transport/native.cc": {
+      "bytes": 2927,
+      "sha256": "c5fde8c2830bd1578da2e42f5503442f4d2f649ee608bfd9676d55616295f225"
+    },
+    "tests/fixtures/stop_trial_fixture.h": {
+      "bytes": 4864,
+      "sha256": "d126634738b2eb9aa1e43dd9208c14f9b2d3e5d99556c05caf92fe9428400d6f"
+    },
+    "tests/fixtures/tick_timing_fixture.h": {
+      "bytes": 6871,
+      "sha256": "de2037f7028ff1d95a65a330094925689385a070bde3fa31530e27934670b52f"
+    },
+    "tests/fixtures/turn_integration_fixture.h": {
+      "bytes": 5243,
+      "sha256": "d2adea09ad5920f91303133224dd270d25b4287ab719c5986d8bc3c9803ed253"
+    },
+    "tests/fixtures/ui_matrix_native/cmsis_core.h": {
+      "bytes": 417,
+      "sha256": "9f7154ae1cdb689778007f8b42cb7129bb2830181f21624bffed76401f58a4c1"
+    },
+    "tests/fixtures/ui_matrix_native/native_cases.cc": {
+      "bytes": 8109,
+      "sha256": "107d3cc0e3859f2757275388f69b44604fb9f9454bbf7d8a1b1469fcbce589f2"
+    },
+    "tests/fixtures/ui_matrix_native/zephyr/device.h": {
+      "bytes": 424,
+      "sha256": "99392e4fcc46b39d972695781a76693da89074714a0087ce128d9e5ac994a11d"
+    },
+    "tests/fixtures/ui_matrix_native/zephyr/devicetree.h": {
+      "bytes": 306,
+      "sha256": "bc5eeee41007275506c187e0e5508dc73c7dcc50427689d5feaf3b847a5e25f7"
+    },
+    "tests/locked/test_countdown.cpp": {
+      "bytes": 17843,
+      "sha256": "6c0b4875e33a09eb43d60a17a2778cc6958303bc0d8d2c5a68ec6de084c14e24"
+    },
+    "tests/locked/test_countdown_integration.cpp": {
+      "bytes": 13246,
+      "sha256": "034c83cf5da2ec132341b5704e53c2010ce536c326fef78b8d80cbfd50a0131e"
+    },
+    "tests/locked/test_countdown_lifecycle.cpp": {
+      "bytes": 19335,
+      "sha256": "7af1ff45491b3665d0f311b000c796b36049c764cf8650e6176bb878b7e27e28"
+    },
+    "tests/locked/test_countdown_services.cpp": {
+      "bytes": 25585,
+      "sha256": "24250c5b9693259358ea8d92d8bbf96284e945b1a36bcd9f425a25c7304274d6"
+    },
+    "tests/locked/test_edge_escape.cpp": {
+      "bytes": 36749,
+      "sha256": "a7671865d609369cf36b1d814f3e88374c748e8a689b93648614ee4e14e56278"
+    },
+    "tests/locked/test_edge_guard.cpp": {
+      "bytes": 9280,
+      "sha256": "524c966b41b8643628ac72e375f00944986fdea2d2505c92e9ae918fb2169a9f"
+    },
+    "tests/locked/test_edge_headon.cpp": {
+      "bytes": 13914,
+      "sha256": "783a526891f31ebbb422e0f2e7995dea0b0dd1227a6598800687f0ff476413bd"
+    },
+    "tests/locked/test_motor_gate.cpp": {
+      "bytes": 37446,
+      "sha256": "54609648fb0ba5f9c559767b9ede247b5e14d91f3c630f571514708584187821"
+    },
+    "tests/test_b7_brownout.cc": {
+      "bytes": 21828,
+      "sha256": "7226096227a6732f20938099eead55d38cf13aa0a2f6fa7d815793cd00a35e32"
+    },
+    "tests/test_governor.cpp": {
+      "bytes": 16299,
+      "sha256": "d2233e28501c2bb4a892cb49dc4c210734e58ae9e8421db4e6b7fd2f8a61af5b"
+    },
+    "tests/tooling/test_b7_brownout.py": {
+      "bytes": 7721,
+      "sha256": "aa688efbd1749d4b70abb2c4bf201d502909de90beddec79018dd113bea94891"
+    },
+    "tests/tooling/test_epoch_timing.py": {
+      "bytes": 6191,
+      "sha256": "fe5f3323a59bfe8ec61ccd59df0e87d55704c8397913aa7ba9b480cb07f99a63"
+    }
+  },
+  "synthetic_buttons": {
+    "source": "// Holds the documented BEHAVIOR.md B16 development defaults.\n// Centralizes tunables without asserting that proposed hardware pins are verified.\n// P0 scaffold compiles this header; behavior and target tests follow their gates.\n#pragma once\n#include <cstdint>\n\n#ifndef MATCH\n#define MATCH 0\n#endif\n#ifndef MOTORS_ALLOWED\n#define MOTORS_ALLOWED 0\n#endif\n#ifndef SUMOX_B4_STAND\n#define SUMOX_B4_STAND 0\n#endif\n#ifndef SUMOX_P3_DRIVE_TEST\n#define SUMOX_P3_DRIVE_TEST 0\n#endif\n#ifndef SUMOX_P3_TURN_TRIAL\n#define SUMOX_P3_TURN_TRIAL 0\n#endif\n#ifndef SUMOX_P3_STOP_TRIAL\n#define SUMOX_P3_STOP_TRIAL 0\n#endif\n#ifndef SUMOX_P4_REACTIVE\n#define SUMOX_P4_REACTIVE 0\n#endif\n#ifndef SUMOX_TIMING_EVIDENCE\n#define SUMOX_TIMING_EVIDENCE 0\n#endif\n#ifndef SUMOX_P5_ABORT_TIMING\n#define SUMOX_P5_ABORT_TIMING 0\n#endif\n#ifndef SUMOX_MOTOR_FAULT_PROBE\n#define SUMOX_MOTOR_FAULT_PROBE 0\n#endif\n#ifndef SUMOX_B7_BROWNOUT\n#define SUMOX_B7_BROWNOUT 0\n#endif\nstatic_assert(SUMOX_B7_BROWNOUT == 0 || SUMOX_B7_BROWNOUT == 1,\n              \"SUMOX_B7_BROWNOUT must be 0 or 1\");\nstatic_assert(!SUMOX_B7_BROWNOUT || (!MATCH && !SUMOX_B4_STAND &&\n              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL &&\n              !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE && !SUMOX_P5_ABORT_TIMING &&\n              !SUMOX_MOTOR_FAULT_PROBE), \"B7 brownout is exclusive and not a MATCH build\");\n// D169 selects an inert diagnostic build; it grants no upload or motor permission.\nstatic_assert(SUMOX_MOTOR_FAULT_PROBE == 0 || SUMOX_MOTOR_FAULT_PROBE == 1,\n              \"SUMOX_MOTOR_FAULT_PROBE must be 0 or 1\");\nstatic_assert(!SUMOX_MOTOR_FAULT_PROBE || (!MATCH && !MOTORS_ALLOWED &&\n              !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL &&\n              !SUMOX_P3_STOP_TRIAL && !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE &&\n              !SUMOX_P5_ABORT_TIMING),\n              \"Motor fault probe is exclusive and requires inert flags\");\nstatic_assert(SUMOX_P5_ABORT_TIMING == 0 || SUMOX_P5_ABORT_TIMING == 1,\n              \"SUMOX_P5_ABORT_TIMING must be 0 or 1\");\nstatic_assert(!SUMOX_P5_ABORT_TIMING || (!MATCH && !SUMOX_B4_STAND &&\n              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL &&\n              !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE),\n              \"P5 abort timing is exclusive and not a MATCH build\");\nstatic_assert(SUMOX_TIMING_EVIDENCE == 0 || SUMOX_TIMING_EVIDENCE == 1,\n              \"SUMOX_TIMING_EVIDENCE must be 0 or 1\");\nstatic_assert(!SUMOX_TIMING_EVIDENCE || SUMOX_P4_REACTIVE,\n              \"Timing evidence requires the P4 reactive profile\");\nstatic_assert(MATCH == 0 || MATCH == 1, \"MATCH must be 0 or 1\");\nstatic_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, \"MOTORS_ALLOWED must be 0 or 1\");\nstatic_assert(SUMOX_B4_STAND == 0 || SUMOX_B4_STAND == 1, \"SUMOX_B4_STAND must be 0 or 1\");\nstatic_assert(!SUMOX_B4_STAND || !MATCH, \"B4 stand profile is not a MATCH build\");\nstatic_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,\n              \"SUMOX_P3_DRIVE_TEST must be 0 or 1\");\nstatic_assert(!SUMOX_P3_DRIVE_TEST || (!MATCH && !SUMOX_B4_STAND),\n              \"P3 drive profile is exclusive and not a MATCH build\");\nstatic_assert(SUMOX_P3_TURN_TRIAL == 0 || SUMOX_P3_TURN_TRIAL == 1,\n              \"SUMOX_P3_TURN_TRIAL must be 0 or 1\");\nstatic_assert(!SUMOX_P3_TURN_TRIAL || (!MATCH && !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST),\n              \"P3 turn trial is exclusive and not a MATCH build\");\nstatic_assert(SUMOX_P3_STOP_TRIAL == 0 || SUMOX_P3_STOP_TRIAL == 1,\n              \"SUMOX_P3_STOP_TRIAL must be 0 or 1\");\nstatic_assert(!SUMOX_P3_STOP_TRIAL || (!MATCH && !SUMOX_B4_STAND &&\n              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL),\n              \"P3 stopping trial is exclusive and not a MATCH build\");\nstatic_assert(SUMOX_P4_REACTIVE == 0 || SUMOX_P4_REACTIVE == 1,\n              \"SUMOX_P4_REACTIVE must be 0 or 1\");\nstatic_assert(!SUMOX_P4_REACTIVE || (!MATCH && !SUMOX_B4_STAND &&\n              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL),\n              \"P4 reactive profile is exclusive and not a MATCH build\");\n\nnamespace config {\n// D180 declarative setup inputs: dimensionless flags, not verification evidence.\n// Enable only against actual accepted hardware/ownership facts; defaults deny.\ninline constexpr std::uint32_t APP_GRANT_OPPONENTS = 0U;\ninline constexpr std::uint32_t APP_GRANT_ADC_PAIR = 0U;\ninline constexpr std::uint32_t APP_GRANT_QTR_EXCLUSIVE_PADS = 0U;\ninline constexpr std::uint32_t APP_GRANT_IMU_ENABLED = 0U;\ninline constexpr std::uint32_t APP_GRANT_IMU_POWER_CONFIRMED = 0U;\ninline constexpr std::uint32_t APP_GRANT_IMU_MOUNTING_CONFIRMED = 0U;\ninline constexpr std::int32_t APP_IMU_BODY_AXIS[3] = {0, 0, 0}; // signed sensor-axis IDs; unconfigured\ninline constexpr std::uint32_t APP_GRANT_DEFAULT_LINE_THRESHOLDS = 0U;\ninline constexpr std::uint32_t APP_GRANT_MATRIX_ENABLED = 0U;\ninline constexpr std::uint32_t APP_GRANT_MATRIX_NORMAL_STARTUP = 0U;\ninline constexpr std::uint32_t APP_GRANT_MATRIX_EXCLUSIVE_OWNER = 0U;\ninline constexpr std::uint32_t APP_GRANT_DUMP_ENABLED = 0U;\ninline constexpr std::uint32_t APP_GRANT_DUMP_SETUP_PHASE = 0U;\ninline constexpr std::uint32_t APP_GRANT_DUMP_EXCLUSIVE_UART = 0U;\ninline constexpr std::uint32_t APP_GRANT_DUMP_READY_PIN_OWNED = 0U;\ninline constexpr std::uint32_t APP_GRANT_DUMP_FRAMING_CLEAN = 0U;\ninline constexpr std::uint32_t APP_DUMP_ORIGIN = 0U; // enum ID: unknown0, synthetic1, hardware-reported2\ninline constexpr std::uint32_t APP_DUMP_RECEIVE_STREAM_ID = 0U; // trusted0, identified/untrusted1\ninline constexpr std::uint64_t APP_DUMP_SESSION_ID = 0U; // zero preserves legacy per-request identity\ninline constexpr std::uint32_t APP_GRANT_LOCAL_SERVICE_RESET = 0U;\ninline constexpr std::uint32_t APP_GRANT_CALIBRATION_OUTPUT = 0U;\nstatic_assert(APP_GRANT_OPPONENTS <= 1U && APP_GRANT_ADC_PAIR <= 1U &&\n              APP_GRANT_QTR_EXCLUSIVE_PADS <= 1U && APP_GRANT_IMU_ENABLED <= 1U &&\n              APP_GRANT_IMU_POWER_CONFIRMED <= 1U && APP_GRANT_IMU_MOUNTING_CONFIRMED <= 1U &&\n              APP_GRANT_DEFAULT_LINE_THRESHOLDS <= 1U && APP_GRANT_MATRIX_ENABLED <= 1U &&\n              APP_GRANT_MATRIX_NORMAL_STARTUP <= 1U && APP_GRANT_MATRIX_EXCLUSIVE_OWNER <= 1U &&\n              APP_GRANT_DUMP_ENABLED <= 1U && APP_GRANT_DUMP_SETUP_PHASE <= 1U &&\n              APP_GRANT_DUMP_EXCLUSIVE_UART <= 1U && APP_GRANT_DUMP_READY_PIN_OWNED <= 1U &&\n              APP_GRANT_DUMP_FRAMING_CLEAN <= 1U && APP_GRANT_LOCAL_SERVICE_RESET <= 1U &&\n              APP_GRANT_CALIBRATION_OUTPUT <= 1U, \"App setup flags must be zero or one\");\nstatic_assert(APP_IMU_BODY_AXIS[0] >= -3 && APP_IMU_BODY_AXIS[0] <= 3 &&\n              APP_IMU_BODY_AXIS[1] >= -3 && APP_IMU_BODY_AXIS[1] <= 3 &&\n              APP_IMU_BODY_AXIS[2] >= -3 && APP_IMU_BODY_AXIS[2] <= 3,\n              \"App mounting entries must be signed sensor-axis IDs or zero\");\nstatic_assert(APP_DUMP_ORIGIN <= 2U, \"App dump origin must be a declared origin ID\");\nstatic_assert(APP_DUMP_RECEIVE_STREAM_ID <= 1U, \"App dump stream must be a declared stream ID\");\n// Names follow B16 verbatim, including its count/ratio/gain naming exceptions.\n// Pin assignments await P0 source verification and human PINMAP OK.\n// D076 copies HARDWARE3 proposals for compile-only HAL development, not approval.\ninline constexpr std::uint32_t OPP_INPUT_PINS[7] = {11U, 12U, 13U, 16U, 17U, 18U, 19U};\n// D077 names unchanged HARDWARE3 proposals; no PINMAP or waveform approval.\ninline constexpr std::uint32_t MOTOR_PWM_PINS[4] = {3U, 5U, 6U, 9U};\ninline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;\n// New D077 development carrier/settle limits, not measured timing or B16 tuning.\ninline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz\ninline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass\ninline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception\n// D192 development observation bounds; count-name exceptions, not measured time.\ninline constexpr std::uint32_t APP_MOTOR_OBSERVE_EPOCHS = 10000U;\ninline constexpr std::uint32_t APP_MOTOR_OBSERVE_MAX_POLLS = 10000000U;\n// D119 pure B4 sequence development defaults; not physical motor qualification.\ninline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segment\ninline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission\n// D244 fixed B7 electrical endpoint trial; these values grant no physical permission.\ninline constexpr std::uint32_t BROWNOUT_CYCLES = 20U; // fixed count-name exception\ninline constexpr float BROWNOUT_FULL_DUTY = 1.0F;\ninline constexpr std::uint32_t BROWNOUT_DWELL_MS = 500U;\ninline constexpr std::uint32_t BROWNOUT_REACH_MS = 1000U;\ninline constexpr std::uint32_t BROWNOUT_RECEIPT_MAX_GAP_US = 2000U;\nstatic_assert(BROWNOUT_CYCLES == 20U && BROWNOUT_FULL_DUTY == 1.0F &&\n              BROWNOUT_DWELL_MS == 500U && BROWNOUT_REACH_MS == 1000U &&\n              BROWNOUT_RECEIPT_MAX_GAP_US == 2000U, \"D244 fixed finite B7 contract\");\n// D124 finite P3 turn-trial brake request; no measured settling-time claim.\ninline constexpr std::uint32_t TURN_TRIAL_BRAKE_MS = 500U; // ms after observed turn termination\ninline constexpr float TURN_TRIAL_DEG = 90.0F; // D125 one compiled rightward trial; unmeasured\nstatic_assert(TURN_TRIAL_DEG == -180.0F || TURN_TRIAL_DEG == -90.0F ||\n              TURN_TRIAL_DEG == 90.0F || TURN_TRIAL_DEG == 180.0F,\n              \"Turn accuracy trial requires one of the four specified signed angles\");\n// D126 bounded stopping-trial requests, not measured safe motion/settling limits.\ninline constexpr float STOP_TRIAL_DUTY = 0.30F;\ninline constexpr std::uint32_t STOP_TRIAL_APPROACH_MS = 1000U;\ninline constexpr std::uint32_t STOP_TRIAL_BRAKE_MS = 500U;\nstatic_assert(STOP_TRIAL_DUTY == 0.30F || STOP_TRIAL_DUTY == 0.40F ||\n              STOP_TRIAL_DUTY == 0.50F || STOP_TRIAL_DUTY == 0.60F ||\n              STOP_TRIAL_DUTY == 0.70F, \"Stopping trial requires one specified duty\");\nstatic_assert(STOP_TRIAL_APPROACH_MS > 0U && STOP_TRIAL_BRAKE_MS > 0U &&\n              STOP_TRIAL_APPROACH_MS < 0x80000000U / 1000U &&\n              STOP_TRIAL_BRAKE_MS < 0x80000000U / 1000U,\n              \"Stopping trial intervals must be positive and below clock half range\");\n// D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.\n// Nominal scaling is not measured divider/reference calibration or PINMAP OK.\ninline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9\ninline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only\n// D087 raw-count windows remain unconfigured until a supported electrical profile.\n// Order: NONE, START, MODE, BOTH. RAW/count names are explicit unit exceptions.\ninline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 1U;\ninline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U};\ninline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U};\ninline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit\ninline constexpr std::uint32_t UI_BENCH_SAMPLES = 128U; // D112 finite raw/decoder capture; count exception\ninline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V\ninline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception\ninline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;\ninline constexpr std::uint32_t VBAT_ADC_CALIBRATION_US = 5000U;\ninline constexpr std::uint32_t VBAT_ADC_POST_CAL_US = 2U;\ninline constexpr std::uint32_t VBAT_ADC_ENABLE_US = 100U;\ninline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;\ninline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;\n// D093 app evidence limits; development defaults, not measured physical margins.\ninline constexpr std::uint32_t VBAT_SAMPLE_PERIOD_US = 10000U;\ninline constexpr std::uint32_t VBAT_BENCH_SAMPLES = 128U; // D110 finite capture; count exception\ninline constexpr std::uint32_t VBAT_SAMPLE_MAX_AGE_US = 20000U;\ninline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception\ninline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception\n// D079 installed Qwiic route and conditional native timing; not PINMAP approval.\n// Address remains a development selection until the actual AD0 strap is checked.\ninline constexpr std::uint32_t IMU_I2C_ADDRESS = 0x68U; // 7-bit address exception\ninline constexpr std::uint32_t IMU_I2C_GPIO_PORT = 3U; // port D, zero-based exception\ninline constexpr std::uint32_t IMU_I2C_SCL_PIN = 12U; // installed PD12\ninline constexpr std::uint32_t IMU_I2C_SDA_PIN = 13U; // installed PD13\ninline constexpr std::uint32_t IMU_I2C_AF = 4U; // installed alternate-function exception\ninline constexpr std::uint32_t IMU_I2C_TIMINGR = 0x40EB202CU; // register-value exception\ninline constexpr std::uint32_t IMU_I2C_SETUP_US = 100U;\ninline constexpr std::uint32_t IMU_I2C_TRANSFER_US = 600U;\ninline constexpr std::uint32_t IMU_I2C_CLEANUP_US = 50U;\ninline constexpr std::uint32_t IMU_I2C_MAX_POLLS = 8192U; // count exception\n// D080 fixed MPU6050 profile and finite setup acceptance, not measured settling.\ninline constexpr std::uint32_t IMU_GYRO_RANGE_DPS = 1000U;\ninline constexpr std::uint32_t IMU_ACCEL_RANGE_G = 8U;\ninline constexpr std::uint32_t IMU_DLPF_CFG = 1U; // register-field exception\ninline constexpr std::uint32_t IMU_SAMPLE_DIVIDER = 0U; // register-field exception\ninline constexpr std::uint32_t IMU_POWER_WAIT_US = 110000U;\ninline constexpr std::uint32_t IMU_RESET_WAIT_US = 110000U;\ninline constexpr std::uint32_t IMU_GYRO_WAIT_US = 50000U;\ninline constexpr std::uint32_t IMU_PLL_WAIT_US = 20000U;\ninline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;\ninline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;\ninline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception\ninline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception\n// D111 finite bench evidence bounds, not physical timing; counts are naming exceptions.\ninline constexpr std::uint32_t IMU_BENCH_TRIAL_US = 60000000U;\ninline constexpr std::uint32_t IMU_BENCH_CHECKPOINT_US = 1000000U;\ninline constexpr std::uint32_t IMU_BENCH_CHECKPOINTS = 61U;\ninline constexpr std::uint32_t IMU_BENCH_DEADLINE_US = 70000000U;\ninline constexpr std::uint32_t IMU_BENCH_MAX_POLLS = 100000000U;\ninline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline\ninline constexpr std::uint32_t IMU_HEADING_MAX_GAP_US = 2000U; // D082 development continuity limit\n// D085 asynchronous QTR development bounds and unchanged HARDWARE pin proposals.\n// Source/host guards are not physical acceptance, measured cadence or PINMAP OK.\ninline constexpr std::uint32_t QTR_INPUT_PINS[4] = {2U, 4U, 7U, 8U};\ninline constexpr std::uint32_t QTR_QUANTIZATION_US = 1U;\ninline constexpr std::uint32_t QTR_START_PERIOD_US = 2000U;\ninline constexpr std::uint32_t QTR_FRAME_MAX_US = 2500U;\ninline constexpr std::uint32_t QTR_CALL_MAX_US = 100U;\ninline constexpr std::uint32_t QTR_CLEANUP_MAX_US = 100U;\ninline constexpr std::uint32_t QTR_CHARGE_MAX_US = 100U;\ninline constexpr std::uint32_t QTR_MAX_ADVANCES = 8192U; // count exception\ninline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;\ninline constexpr std::uint32_t QTR_BENCH_FRAMES = 128U; // D109 finite bench capture; count exception\ninline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms\ninline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms\ninline constexpr std::uint32_t TICK_US = 1000U; // us\n// D229 exact S..C diagnostic range; this does not change a scheduler deadline.\ninline constexpr std::uint32_t TICK_DISTRIBUTION_LIMIT_US = 800U; // us, exclusive\n// D243 diagnostic cohort only; no control or safety deadline changes.\ninline constexpr std::uint32_t OUTER_LOOP_WINDOW_US = 300000000U; // us, five minutes\n// D096 development service limits; no claim of measured complete-tick WCET.\ninline constexpr std::uint32_t APP_QTR_SERVICE_US = 600U;\ninline constexpr std::uint32_t APP_SERVICE_MAX_PASSES = 8192U; // count exception\ninline constexpr std::uint32_t APP_CLOCK_STALL_MAX_POLLS = 65536U; // count exception\ninline constexpr std::uint32_t QTR_CHARGE_US = 10U; // us\ninline constexpr std::uint32_t QTR_TIMEOUT_US = 1500U; // us\ninline constexpr std::uint32_t QTR_WHITE_US[4] = {300U, 300U, 300U, 300U};\ninline constexpr std::uint32_t QTR_CONFIRM_TICKS = 1U; // ticks\ninline constexpr std::uint32_t QTR_STUCK_MS = 1500U; // ms\ninline constexpr std::uint32_t OPP_ACTIVE_LOW_MASK = 0x78U; // bits\ninline constexpr std::uint32_t OPP_SET_TICKS = 2U; // ticks\ninline constexpr std::uint32_t OPP_CLEAR_MS = 30U; // ms\ninline constexpr std::uint32_t OPP_STUCK_MS = 5000U; // ms\ninline constexpr float CAL_MAX_SPREAD_DPS = 2.0F; // dps\ninline constexpr float SEARCH_DUTY_MAX = 0.30F; // duty\ninline constexpr float SCAN_DUTY = 0.45F; // duty\ninline constexpr float TURN_DUTY = 0.80F; // duty\ninline constexpr float TURN_MIN_DUTY = 0.25F; // duty\ninline constexpr float K_TURN_PER_DEG = 0.02F; // duty/deg\ninline constexpr std::uint32_t HEADING_TOL_DEG = 5U; // deg\ninline constexpr std::uint32_t TURN_TIMEOUT_MS = 700U; // ms\ninline constexpr float TURN_MS_PER_DEG = 2.0F; // ms/deg\ninline constexpr std::uint32_t SEARCH_MEMORY_MS = 3000U; // ms\ninline constexpr std::uint32_t SEARCH_ADVANCE_MS = 300U; // ms\ninline constexpr float TRACK_DUTY = 0.45F; // duty\ninline constexpr float K_TRACK_PER_DEG = 0.02F; // duty/deg\ninline constexpr std::uint32_t ATTACK_ENTER_TICKS = 3U; // ticks\ninline constexpr float ATTACK_APPROACH_DUTY = 0.60F; // duty\ninline constexpr float ATTACK_DUTY = 1.00F; // duty\ninline constexpr std::uint32_t CONTACT_TICKS = 20U; // ticks\ninline constexpr float IMPACT_G = 1.5F; // g\ninline constexpr float SLEW_DUTY_PER_MS = 0.02F; // duty/ms\ninline constexpr float V_NOM_V = 11.1F; // V\ninline constexpr float VBAT_MIN_COMP_V = 9.0F; // V\ninline constexpr float VBAT_WARN_V = 10.8F; // V\ninline constexpr float EDGE_BACK_DUTY = 0.80F; // duty\ninline constexpr std::uint32_t EDGE_BACK_MS = 120U; // ms\ninline constexpr std::uint32_t EDGE_BACK_LONG_MS = 180U; // ms\ninline constexpr std::uint32_t EDGE_TURN_DEG = 120U; // deg\ninline constexpr std::uint32_t EDGE_TURN_FULL_DEG = 160U; // deg\ninline constexpr std::uint32_t EDGE_FWD_MS = 200U; // ms\ninline constexpr std::uint32_t EDGE_MAX_REPLANS = 3U; // count\ninline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U; // ms\ninline constexpr std::uint32_t PHANTOM_WINDOW_MS = 1500U; // ms\ninline constexpr std::uint32_t PHANTOM_MS = 3000U; // ms\ninline constexpr std::uint32_t PHANTOM_MASK_DEG = 25U; // deg\ninline constexpr std::uint32_t STALL_MS = 1000U; // ms\ninline constexpr float STALL_MIN_DUTY = 0.80F; // duty\ninline constexpr std::uint32_t STALL_DEFLECT_DEG = 25U; // deg\ninline constexpr std::uint32_t STALL_USE_IMU = 0U; // flag\ninline constexpr float STALL_MIN_DISP_M = 0.10F; // m\ninline constexpr std::uint32_t REFLANK_BACK_MS = 150U; // ms\ninline constexpr float REFLANK_BACK_DUTY = 0.80F; // duty\ninline constexpr std::uint32_t REFLANK_PIVOT_DEG = 60U; // deg\ninline constexpr std::uint32_t REFLANK_ARC_MS = 400U; // ms\ninline constexpr float REFLANK_ARC_RATIO = 0.40F; // ratio\ninline constexpr std::uint32_t REFLANK_MAX_PER_10S = 2U; // count\ninline constexpr std::uint32_t ALL_IN_MS = 1500U; // ms\ninline constexpr std::uint32_t DEFEND_TIMEOUT_MS = 800U; // ms\ninline constexpr std::uint32_t DEFEND_EVADE_FIRST = 0U; // flag\ninline constexpr std::uint32_t EVADE_MS = 200U; // ms\ninline constexpr float OPENER_DUTY_MAX = 0.85F; // duty\ninline constexpr std::uint32_t SS_PIVOT_DEG = 50U; // deg\ninline constexpr std::uint32_t SS_DRIVE_MS = 250U; // ms\ninline constexpr std::uint32_t SS_TURNIN_DEG = 110U; // deg\ninline constexpr std::uint32_t DIRECT_MS = 400U; // ms\ninline constexpr std::uint32_t ARC_PIVOT_DEG = 80U; // deg\ninline constexpr float ARC_RATIO = 0.45F; // ratio\ninline constexpr float ARC_DUTY = 0.70F; // duty\ninline constexpr std::uint32_t ARC_SWEEP_DEG = 200U; // deg\ninline constexpr std::uint32_t ARC_MAX_MS = 1500U; // ms\ninline constexpr std::uint32_t WAIT_MAX_MS = 2000U; // ms\ninline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms\ninline constexpr std::uint32_t LOG_HZ = 25U; // Hz; D-072 B15 low-memory fallback\ninline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms\n// D088 display-only development choices, not battery calibration or tick proof.\ninline constexpr std::uint32_t UI_FRAME_PERIOD_US = 40000U;\ninline constexpr std::uint32_t UI_FAULT_PAGE_MS = 500U;\ninline constexpr float UI_BATTERY_EMPTY_V = 9.5F;\ninline constexpr float UI_BATTERY_FULL_V = 12.6F;\ninline constexpr std::uint32_t UI_BENCH_SCENE_MS = 2000U;\n// D089 provisional batch size/deadline; not optical calibration evidence.\ninline constexpr std::uint32_t QTR_CAL_SAMPLES = 16U; // count exception\ninline constexpr std::uint32_t QTR_CAL_CAPTURE_MS = 1000U;\n// D090 bounded IDLE export defaults; no measured throughput or WCET claim.\ninline constexpr std::uint32_t DUMP_PAYLOAD_BYTES = 64U;\ninline constexpr std::uint32_t DUMP_STALL_MS = 2000U;\ninline constexpr std::uint32_t DUMP_TOTAL_MS = 300000U;\ninline constexpr std::uint32_t DUMP_UART_STEP_BYTES = 6U;\ninline constexpr std::uint32_t DUMP_UART_STEP_US = 80U;\ninline constexpr std::uint32_t DUMP_UART_PACKET_MS = 100U;\ninline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms\ninline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound\ninline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode\n// D134 dimensionless availability; historical mode IDs remain unchanged.\ninline constexpr std::uint32_t MODE_ARC_ENABLED = 1U; // availability: 0 or 1\ninline constexpr std::uint32_t MODE_WAIT_ENABLED = 1U; // availability: 0 or 1\n// B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.\ninline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6\ninline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window\ninline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028\ninline constexpr std::uint32_t LOG_FRAME_WINDOW_MS = 200000U; // ms, B15 minimum window\n// D-069 includes the initial frame and a coalesced or off-cadence final frame.\ninline constexpr std::uint64_t LOG_FRAME_CAPACITY =\n    (static_cast<std::uint64_t>(LOG_FRAME_WINDOW_MS) * LOG_HZ + 999U) / 1000U + 1U;\ninline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021\ninline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3\ninline constexpr std::uint32_t TICK_OVERRUN_PERCENT = 1U; // percent, B14 warning threshold\ninline constexpr std::uint32_t RECENT_EDGE_MS = 5000U; // ms, B8/B11 inward/side history\ninline constexpr std::uint32_t SEARCH_SCAN_DEG = 360U; // deg, B8 full directed sweep\n// B3 service boundaries and the human-approved D-024 minimum sample count.\ninline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release\ninline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint\ninline constexpr std::uint32_t CAL_MIN_SAMPLES = 2U; // samples, D-024\ninline constexpr std::uint32_t COUNTDOWN_LINE_WARN_MS = 1000U; // ms before GO\ninline constexpr std::uint32_t COUNTDOWN_SNAPSHOT_MS = 300U; // ms before GO\n// P0 diagnostic-only defaults; no behavior tuning or proposed pin assignments.\ninline constexpr std::uint32_t P0_SCROLL_MS = 100U;\ninline constexpr std::uint32_t P0_COUNTER_MS = 1000U;\ninline constexpr std::uint32_t P0_MONITOR_TIMEOUT_US = 100000U; // D-062 diagnostic only\ninline constexpr std::uint32_t P0_MONITOR_BAUD_BPS = 115200U; // validate installed link, never reconfigure\ninline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;\ninline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;\ninline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only calls\ninline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK\ninline constexpr std::uint32_t P0_GPIO_SAMPLES = 400U; // D-064 fixed RAM diagnostic\ninline constexpr std::uint32_t P0_GPIO_PIN = 50U; // installed LED_BUILTIN/LED3_R, not D13\ninline constexpr std::uint32_t P0_QTR_SAMPLES_PER_MODE = 100U; // D-065 diagnostic datasets\ninline constexpr std::uint32_t P0_QTR_GUARD_POLLS = 4096U; // finite charge/observation guard\ninline constexpr std::uint32_t P0_QTR_PINS[4] = {2U, 4U, 7U, 8U}; // installed D2/D4/D7/D8; no PINMAP approval\ninline constexpr std::uint32_t P0_QTR_QUANTIZATION_US = 1U; // additional clock tick after requested charge\n} // namespace config\n",
+    "production_sha256": "be9c1d2d608552df48faa3a9c93b01f3fb301080655240866dacdd4fb9895b02",
+    "configured_sha256": "02cdf661b48128c57489cec1e50089cacbad941d5945921c0fcb6721ee4cdc52",
+    "purpose": "Synthetic host A1 windows only; all production setup grants unchanged"
+  },
+  "status": "FAIL",
+  "error": "RuntimeError('Unexpected command 2 result; raw output retained')",
+  "finished_unix": 1790480191.1285317,
+  "scratch_bytes_before_cleanup": 2587149,
+  "scratch_removed": true
+}

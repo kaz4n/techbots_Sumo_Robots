@@ -1,0 +1,10 @@
+In file included from /dev/shm/sumo-d244-vmn5ufur/profile.cc:1:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:42:34: error: static assertion failed: B7 brownout is exclusive and not a MATCH build
+   42 | static_assert(!SUMOX_B7_BROWNOUT || (!MATCH && !SUMOX_B4_STAND &&
+      |               ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   43 |               !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL &&
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   44 |               !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE && !SUMOX_P5_ABORT_TIMING &&
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   45 |               !SUMOX_MOTOR_FAULT_PROBE), "B7 brownout is exclusive and not a MATCH build");
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~

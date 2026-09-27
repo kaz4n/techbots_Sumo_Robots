@@ -1,0 +1,29 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:71:
+TEST CASE:  B7 D244 endpoint loss is immediate and cannot restart dwell
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:81: ERROR: CHECK( terminal.reason == Reason::ENDPOINT_LOST ) is NOT correct!
+  values: CHECK( 4 == 9 )
+
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:163:
+TEST CASE:  B6 B7 D244 real Robot Governor Gate reaches full electrical endpoints at low and high voltage
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:171: ERROR: CHECK( r.robot.outputs.duty_l - previous <= .02001F ) is NOT correct!
+  values: CHECK( 0.04 <= 0.02001 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:169: ERROR: CHECK( r.robot.outputs.ui_state == core::State::OPENER ) is NOT correct!
+  values: CHECK( 10 == 3 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:171: ERROR: CHECK( r.robot.outputs.duty_l - previous <= .02001F ) is NOT correct!
+  values: CHECK( 0.04 <= 0.02001 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_b7_brownout.cc:169: ERROR: CHECK( r.robot.outputs.ui_state == core::State::OPENER ) is NOT correct!
+  values: CHECK( 10 == 3 )
+
+===============================================================================
+[doctest] test cases:    23 |    21 passed | 2 failed | 0 skipped
+[doctest] assertions: 25778 | 25773 passed | 5 failed |
+[doctest] Status: FAILURE!

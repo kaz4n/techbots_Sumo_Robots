@@ -570,7 +570,7 @@ Compilation does not upload or run the firmware. Keep a single compiler active
 and retain the complete result. The exact FQBN is
 `arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no`.
 
-Future `deploy_match_static.py` and `run_match_identified_delivery.py` accept
+The implemented `deploy_match_static.py` and `run_match_identified_delivery.py` accept
 `--check-only` or `--execute`, followed by `--scope RELATIVE_JSON
 --reviewed-head HEAD40`. Both require exact source/artifact qualification and
 fresh STAND OK or RING OK for that run. The paired route additionally requires

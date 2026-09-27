@@ -1,10 +1,12 @@
 # Resume SumoX-26 with Codex
 
-Active phase: **P7 software/release preparation**, under D051/D075/D122/D137.
-Physical/human gates remain pending. Assumptions, dates and host tests are not
-physical acceptance. Do not reset the project to P0.
+Software preparation has advanced through **P7**, under D051/D075/D122/D137.
+The authoritative phase registry remains **P0, gates none**. Read the current
+[root handoff](../../HANDOFF.md): D244/D245 software preparation is complete;
+physical commissioning and human gates still block the full goal. Do not restart
+completed software work or promote a phase based on host/compile-only results.
 
-1. Read AGENTS.md fully, state/CODEX_HANDOFF.md and CODEX_EXECUTION.md, latest
+1. Read AGENTS.md fully, HANDOFF.md, state/CODEX_HANDOFF.md and CODEX_EXECUTION.md, latest
    PROGRESS/DECISIONS/FACTS/TUNING_LOG, active P7 prompt and relevant open findings.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
@@ -35,8 +37,11 @@ physical acceptance. Do not reset the project to P0.
    The policy-blocked build/stage/motor_fault and all other denied deletion
    targets remain untouched, including implicit staging cleanup. Do not retry
    through another method or modify paging/persistent virtual disks.
-6. P0-P5 physical/human packets, D121 B7/R6 conflict, native dump lifecycle and
-   SC-AP release readiness remain pending. P6 is conditional; P7 incomplete.
+6. P0-P5 physical/human packets, native dump lifecycle and SC-AP release readiness
+   remain pending. D244 resolved D121's B7/R6 policy conflict; B7 source/host/native
+   preparation and D245 deployment tooling passed review. Physical B7 still needs
+   qualified setup, fresh specific STAND OK and half-charge/20-cycle/no-reset
+   evidence. P6 is conditional; P7 incomplete.
    Actual P3 not passed by end28Sep requires reactive+SIDESTEP/DIRECT+recorder,
    dropping ARC/WAIT/P6 polish. P6 also needs actual P4 by30Sep. Freeze1Oct21:00
    Dubai; rehearsal2Oct; competition3Oct. No scheduled date creates a gate.

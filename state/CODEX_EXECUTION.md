@@ -1,4 +1,19 @@
-Current execution pointer, 2026-09-27T01:41:46.948550+04:00: use top CODEX_HANDOFF.md. D233 passivefirstfailure capture34538 is active; D234 session forwarding integrated. All older next-action paragraphs below are historical.
+# Current execution pointer - 2026-09-27 14:26 Dubai
+
+Read [HANDOFF.md](../HANDOFF.md) and the top of [CODEX_HANDOFF.md](CODEX_HANDOFF.md).
+D239 delivery, D243 timing preparation, D244 B7 source/host/three native compiles
+and D245 guarded deployment preparation are accepted within their scopes.
+Full completion is blocked on physical commissioning and human gates. No build,
+upload or diagnostic operation is handed off in progress.
+
+Everything below is historical. D233 and other old active sessions are closed;
+do not restart, poll or rerun them based on these old paragraphs. The next
+substantive task needs new hardware/setup evidence and an eligible qualified
+scope, as described in the root handoff.
+
+## Historical execution pointers
+
+Historical execution pointer, 2026-09-27T01:41:46.948550+04:00: use top CODEX_HANDOFF.md. D233 passivefirstfailure capture34538 was active; D234 session forwarding integrated. All older next-action paragraphs below are historical.
 
 Current execution pointer, 26 September 2026: resume from CODEX_HANDOFF.md. D219 capture and D223 sampled UART visibility are accepted. Next is the D222 sequential compile-only commissioning matrix plus remaining live synthetic delivery engineering. Historical entries below do not authorize rerunning consumed owners.
 

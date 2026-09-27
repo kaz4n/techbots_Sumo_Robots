@@ -1,4 +1,14 @@
-## Current checkpoint - 2026-09-27 08:07 Dubai
+# Current continuation entry - 2026-09-27 14:26 Dubai
+
+Start with [the repository handoff](../HANDOFF.md). It summarizes the latest
+committed code, accepted evidence, board state, remaining work and commands for
+any engineer or agent. Engineering acceptance was committed at 10758c28;
+the full goal was recorded BLOCKED at fbd39d9e pending physical commissioning
+and human gates. This refresh does not change code, contact the board or create
+motor-run authority. All cited operations are closed; no historical session
+below is handed off as active.
+
+## Latest engineering checkpoint - 2026-09-27 08:07 Dubai
 
 D244 B7 software preparation is complete: source1ba538e1, host/source review
 f00d39fe, frozen native HEAD97e32fde/source85b320de, all three native compiles PASS

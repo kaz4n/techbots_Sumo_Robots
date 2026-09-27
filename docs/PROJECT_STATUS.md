@@ -1,6 +1,9 @@
 # Current project status
 
-Updated 27 September 2026, 08:07 Dubai. Connected hardware: **UNO Q only**.
+Updated 27 September 2026, 14:26 Dubai. Latest reported hardware: **UNO Q only**.
+Start a new session from [HANDOFF.md](../HANDOFF.md). The full goal is blocked
+pending physical commissioning and human gates; no board operation was performed
+for this documentation update.
 
 The firmware modules and commissioning software are implemented. The latest
 inhibited board diagnostic delivered a complete synthetic recording: **5,001
@@ -14,7 +17,8 @@ recording reception. Their focused suites passed 9 and 6 tests respectively.
 The current competition build **passed on the UNO Q**, including package and
 layout validation and all nine closing checks. The package is 92,092 bytes; see
 [the compile evidence](../state/analysis/P7_match_static_actual_validation.md).
-It was not uploaded. The board retains the inhibited synthetic diagnostic.
+It was not uploaded. The last verified upload was the inhibited synthetic
+diagnostic; recheck the board state before a new native operation.
 
 The [full requirement audit](../state/analysis/P7_full_requirement_audit_20260927.md)
 identified P2.2 measurement preparation: outer-loop timing and a fixed

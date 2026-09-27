@@ -1,14 +1,25 @@
-# RESUME
+# Resume SumoX-26
 
-Paste into a fresh Claude Code session at the repo root. Fill the last block first.
+Use from the repository root with any engineer or coding agent.
 
----
+1. Read `AGENTS.md` fully, then `HANDOFF.md`. Check date/time, Git status, recent
+   commits and free space. Preserve user edits and retained evidence.
+2. Read the latest `state/PROGRESS.md`, `DECISIONS.md`, `FACTS.md` and
+   `TUNING_LOG.md` entries. Distinguish the formal phase registry from delegated
+   software preparation. Do not restart completed work or invent a human gate.
+3. Read `state/analysis/P7_full_requirement_audit_20260927.md` and the relevant
+   phase prompt. Select an unfinished requirement whose prerequisites are
+   available. Historical process IDs are not active work.
+4. Check `docs/PLAN.md` section 3 against today and apply scope/freeze rules when
+   due. Compile/test results cannot establish physical acceptance.
+5. Report briefly: verified checkpoint, missing prerequisites, schedule status
+   and next concrete action. Continue authorized work; request only genuinely
+   missing physical observations or specific run authorization.
+6. Record changes, evidence, limitations and next action in state files; update
+   the handoff as state changes. Use small local commits; do not push or rewrite
+   history without authorization.
 
-Continue the SumoX-26 firmware run.
-1. Run `date`. Read AGENTS.md (section 4 carefully), then state/PROGRESS.md and the last 10 entries of state/DECISIONS.md.
-2. Report in at most 6 lines: active phase; last completed task; open HUMAN ACTION items; open review findings; schedule status against docs/PLAN.md section 3 (on track, or behind by N days); what you will do next.
-3. If behind, apply the date gates in AGENTS.md section 8 and state which scope you are cutting.
-4. Open the active phase file and continue from the first unchecked task.
+New information from the team since the handoff:
 
-New information from the team since the last session:
-<paste measurements, answers to HUMAN ACTION blocks, organizer replies, anything that broke>
+<assembly changes, measurements, hardware confirmations, organizer replies,
+specific run authorizations, and failures>

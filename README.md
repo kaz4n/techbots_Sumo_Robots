@@ -1,33 +1,43 @@
-# SumoX-26 Agent Kit
+# SumoX-26 robot firmware
 
-Plan, specs, and agent prompts for your SumoX-26 sumo robot (Dubai Techbots League, Saturday 3 October 2026, Canadian University Dubai).
+Arduino UNO Q firmware and commissioning tools for the 3 kg autonomous sumo
+robot competing on 3 October 2026 in Dubai.
 
-## What's inside
+**Continuing the project? Start with [HANDOFF.md](HANDOFF.md), then read
+[AGENTS.md](AGENTS.md).** The handoff contains the current code checkpoint,
+verified tests and board builds, operating limits, commands and next actions.
 
-| Path | Read by | Purpose |
-|---|---|---|
-| docs/PLAN.md | You first; agents on demand | Goal, metrics, decisions, schedule, order list, organizer questions, strategy stress test, risks, not-doing list, judge evidence map |
-| docs/HARDWARE.md | Build team and agents | Power, pin map, wiring with pre-connect checks, sensor layout, weight budget, physics limits |
-| docs/BEHAVIOR.md | Agents and judges | State machine, openers, sensor fusion, speed governor, re-flank, tunables |
-| AGENTS.md | Codex and Claude Code (auto-loaded) | Rules file: hard safety rules, architecture, conventions, commands, workflow |
-| CLAUDE.md | Claude Code (auto-loaded) | Imports AGENTS.md; sub-agent and Codex review policy |
-| .claude/agents/ | Claude Code | Sub-agents: fact-checker, test-author, safety-auditor, log-analyst |
-| docs/prompts/00_KICKOFF.md | You paste it once | The super prompt that starts the run |
-| docs/prompts/RESUME.md | You paste it each new session | Resume from state/ |
-| docs/prompts/P0 to P7 | The agent, one per phase | Phase tasks and exit gates |
-| docs/prompts/REVIEW_GATE.md | Codex | Independent review at every gate |
-| state/ | Agents write, you read | Progress, decisions, facts, tuning log |
+As of 27 September, software preparation and the latest board compilation checks
+are accepted within their recorded scopes. The latest hardware report is UNO Q
+only. The assembled robot, physical measurements and human phase gates remain
+unaccepted; this is not an operator-ready release.
 
-## Do this today, in order
+## Repository map
 
-1. Place the order in docs/PLAN.md section 4.
-2. Send the organizer questions in docs/PLAN.md section 5.
-3. Lock the motor layout (docs/HARDWARE.md section 6) before cutting the chassis.
-4. Create a git repo, copy this kit into its root, commit.
-5. Open Claude Code in the repo (WSL/Ubuntu) and paste docs/prompts/00_KICKOFF.md. It will walk you through putting the UNO Q on Wi-Fi with SSH.
+| Path | Purpose |
+|---|---|
+| [HANDOFF.md](HANDOFF.md) | Current continuation snapshot for any engineer or agent |
+| [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) | Short project status |
+| `src/core/` | Hardware-independent C++17 robot behavior |
+| `src/hal/` and `src/app/` | UNO Q interfaces, scheduler and application services |
+| `src/config.h` | Tunables, build profiles and setup declarations |
+| `bench/`, `host/`, `tests/` | Commissioning sketches and host tests |
+| [tools/README.md](tools/README.md) | Guarded build, deployment, capture and analysis tools |
+| [docs/PLAN.md](docs/PLAN.md) | Scope, schedule, acceptance metrics and phase gates |
+| [docs/HARDWARE.md](docs/HARDWARE.md) | Wiring proposals, electrical constraints and hardware qualification |
+| [docs/BEHAVIOR.md](docs/BEHAVIOR.md) | Strategy, state machine and safety behavior |
+| [docs/RUNBOOK.md](docs/RUNBOOK.md) | Prepared competition operating procedures |
+| [state/PROGRESS.md](state/PROGRESS.md) | Authoritative phase and append-only progress registry |
+| `state/analysis/`, `state/reviews/` | Original evidence, contracts and independent reviews |
 
-## How the work splits
+## Continuing safely
 
-The agent writes, tests, and reviews code. You build, wire, measure, and run every test that turns a wheel. The agent prints a `HUMAN ACTION REQUIRED` block whenever it needs your hands, a tape measure, or a yes. Answer those fast: they are the critical path.
+Use [the common resume instructions](docs/prompts/RESUME.md) or
+[the Codex resume instructions](docs/prompts/CODEX_RESUME.md).
+Preserve evidence and user edits. Compile-only success is not permission to
+upload or run motors. Every motor-capable run needs specific human authorization;
+phase gates are written by the human after actual acceptance.
 
-Gates: each phase closes only when you write `GATE Pn PASS` in state/PROGRESS.md.
+Host checks use CMake/CTest on Ubuntu WSL. The handoff provides serial commands
+for constrained machines. Read the relevant tool contract before board work;
+old diagnostic attempts must not be rerun.

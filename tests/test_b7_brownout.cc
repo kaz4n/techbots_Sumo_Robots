@@ -72,7 +72,7 @@ TEST_CASE("B7 D244 endpoint loss is immediate and cannot restart dwell") {
     for (unsigned fault = 0U; fault < 5U; ++fault) {
         Sequence owner; APP_REQUIRE(owner.start(0U)); owner.step(1000U, receipt(1U, 0U, 1000U));
         auto lost = receipt(2U, 0U, 2000U);
-        if (fault == 0U) lost.enabled = false;
+        if (fault == 0U) { lost.enabled = false; lost.duty_l = lost.duty_r = 0.0F; }
         if (fault == 1U) lost.duty_l = std::nextafter(1.0F, 0.0F);
         if (fault == 2U) lost.duty_r = .999F;
         if (fault == 3U) lost.duty_l = -1.0F;
@@ -82,6 +82,15 @@ TEST_CASE("B7 D244 endpoint loss is immediate and cannot restart dwell") {
         CHECK(terminal.endpoint_started_us == 1000U); CHECK(terminal.last_endpoint_us == 1000U);
         same(owner.step(3000U, receipt(3U, 0U, 3000U)), terminal);
     }
+}
+
+TEST_CASE("B7 D244 disabled nonzero receipt is an application fault") {
+    Sequence owner; APP_REQUIRE(owner.start(0U)); owner.step(1000U, receipt(1U, 0U, 1000U));
+    auto malformed = receipt(2U, 0U, 2000U); malformed.enabled = false;
+    const auto terminal = owner.step(2000U, malformed); aborted(terminal);
+    CHECK(terminal.reason == Reason::APPLICATION);
+    CHECK(terminal.completed_legs == 0U); CHECK(terminal.completed_cycles == 0U);
+    same(owner.step(3000U, receipt(3U, 0U, 3000U)), terminal);
 }
 
 TEST_CASE("B7 D244 independent decision and applied gap limits admit2000 and reject2001") {
@@ -162,10 +171,19 @@ TEST_CASE("B3 B7 D244 real MotorGate remains zero for the full qualified5100ms h
 
 TEST_CASE("B6 B7 D244 real Robot Governor Gate reaches full electrical endpoints at low and high voltage") {
     for (float voltage : {9.0F, 12.6F}) {
-        Rig rig; rig.source.vbat_v = voltage; rig.begin(); float previous = 0.0F;
+        Rig rig; rig.source.vbat_v = voltage; rig.begin();
+        float previous = rig.owner.report().robot.outputs.duty_l;
+        CHECK(previous >= 0.0F); CHECK(previous <= .02001F);
         bool full = false;
         for (unsigned tick = 1U; tick <= 1000U; ++tick) {
             const auto& r = rig.next(); CHECK_FALSE(r.robot.contact);
+            if (!MOTORS_ALLOWED && r.robot.brownout.phase == Phase::ABORTED) {
+                CHECK(r.robot.brownout.reason == Reason::REACH_TIMEOUT);
+                CHECK(r.robot.outputs.ui_state == core::State::STOPPED);
+                CHECK(r.robot.brownout.completed_legs == 0U);
+                CHECK(r.robot.brownout.completed_cycles == 0U);
+                zero(r, rig.port); break;
+            }
             CHECK(r.robot.outputs.ui_state == core::State::OPENER);
             CHECK(r.robot.outputs.duty_l == r.robot.outputs.duty_r);
             CHECK(r.robot.outputs.duty_l - previous <= .02001F); previous = r.robot.outputs.duty_l;
@@ -173,7 +191,6 @@ TEST_CASE("B6 B7 D244 real Robot Governor Gate reaches full electrical endpoints
             if (r.applied.feedback.duty_l == 1.0F && r.applied.feedback.duty_r == 1.0F) {
                 full = true; CHECK(r.applied.feedback.motors_enabled); break;
             }
-            if (!MOTORS_ALLOWED && r.robot.brownout.phase == Phase::ABORTED) break;
         }
         CHECK(full == (MOTORS_ALLOWED != 0));
         if (!MOTORS_ALLOWED) { CHECK(rig.port.highs == 0U); CHECK(rig.port.nonzero == 0U); }

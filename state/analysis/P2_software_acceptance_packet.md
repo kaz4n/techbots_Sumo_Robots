@@ -5,6 +5,13 @@ Current phase remains P2 under D051/D075. **P2 is not passed and the full P0-P7
 project is not complete.** No human GATE, PINMAP or EXPLAINED acceptance is supplied.
 This index consolidates existing requirements/evidence; it creates no new phase.
 
+**2026-09-27 B7 update:** D244 records the human-approved B7-only full-duty
+exception. It supersedes the policy implementation stop in the historical D121
+section below. Dedicated applied-feedback software and target compilation are
+being verified; original half-charge/20-cycle/no-reset acceptance remains open.
+See [the current contract](P2_b7_brownout_contract.md). Other entries retain their
+dated evidence scopes and are not a claim about the latest loaded firmware.
+
 ## Filled review request
 
 - Phase: P2 software/readiness checkpoint; full physical gate remains pending.

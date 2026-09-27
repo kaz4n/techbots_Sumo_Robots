@@ -51,7 +51,7 @@ If two documents conflict, stop and ask (section 9). Never pick one silently.
 - **R3. Linux independence.** The control loop never waits for Linux. No Bridge call may block. With the Immediate startup option, check the Linux-ready signal before any Bridge use.
 - **R4. Deterministic tick.** 1 kHz control tick scheduled with micros(). After setup: no delay(), no heap allocation, no Arduino String, no unbounded loops, no I2C without a timeout. Worst-case tick under 800 us, measured on the robot.
 - **R5. Edge first.** EDGE_ESCAPE outranks every behavior except the countdown gate. The single exception is the push-through window in docs/BEHAVIOR.md B9.4.
-- **R6. Governor.** All motor duty passes through the governor (B6). Full duty only after contact with a centered opponent.
+- **R6. Governor.** All motor duty passes through the governor (B6). Full duty only after contact with a centered opponent. D-244 permits a dedicated B7 bench-only exception to that contact condition; retain countdown, governor slew/braking, MotorGate and stop/edge guards, and require fresh `STAND OK` for its actual run.
 - **R7. Motors need a human.** Never flash or run a build that can energize motors unless the human has replied `STAND OK` (wheels off the ground) or `RING OK` (on the ring, area clear) for that specific run. Bench builds default to `MOTORS_ALLOWED 0`.
 - **R8. Wiring is human-owned.** Never change a pin, voltage, or wiring assumption without a DECISIONS.md entry and a human "yes".
 - **R9. Tunables** live only in src/config.h, with units in the name (_MS, _US, _DEG, _DPS, _DUTY, _V, _G, _M).

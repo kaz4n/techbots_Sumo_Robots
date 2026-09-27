@@ -1,4 +1,18 @@
-## Current impasse - 2026-09-27T03:47:50.801865+04:00
+## Current authorized work - 2026-09-27T07:23:23.755430+04:00
+
+The user explicitly approved A, the B7-only bench exception to R6 contact
+qualification. D244 supersedes that policy blocker only. Implement the original
+20-cycle full-forward/full-reverse test as a dedicated default-disabled profile,
+with full hold, Governor slew/braking, MotorGate and stop/edge/source guards.
+No STAND OK, new physical/setup fact or phase gate has been supplied.
+Root owns the decision/behavioral contract, tooling and board compilation;
+separate workers/reviewer will own scoped source/tests/review. Previous D243
+accepted evidence remains intact. Fresh work is now authorized by the user reply;
+do not keep treating the answered B7 question as pending. System goal status may
+still show blocked until user-controlled resume; continue this explicitly
+requested engineering work without trying to mutate goal status to active.
+
+## Historical impasse - 2026-09-27T03:47:50.801865+04:00
 
 Three consecutive goal continuations verified the same genuine blocker after
 D243 completion: board-only hardware, missing physical qualification and human

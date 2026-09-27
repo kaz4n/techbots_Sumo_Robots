@@ -273,7 +273,7 @@ until reset even if their input later clears.
 
 ## B6. Speed governor
 
-Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then voltage compensation, then state cap, then acceleration slew on final electrical duty, then clamp to [-1, 1]. Braking and safety-cap reductions are immediate. Full duty still requires centered contact. This supersedes the original cap/slew-before-compensation ordering; all B16 defaults remain unchanged.
+Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then voltage compensation, then state cap, then acceleration slew on final electrical duty, then clamp to [-1, 1]. Braking and safety-cap reductions are immediate. Full duty still requires centered contact. D-244 (human-approved 27 September 2026) adds only a dedicated B7 brownout-bench exception to this contact condition; ordinary MATCH remains unchanged. The bench retains the governor, slew/reversal braking, countdown, MotorGate and stop/edge guards, and actual runs require fresh STAND OK. This supersedes the original cap/slew-before-compensation ordering; all B16 defaults remain unchanged.
 
 | Situation | Cap |
 |---|---|

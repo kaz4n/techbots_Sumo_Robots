@@ -479,6 +479,22 @@ current artifact/layout bindings and fresh attempt scope.
 
 ## Shared commissioning app compilation (D222)
 
+The separate D244 B7 brownout profile uses
+`python -I -B tools/compile_b7_app.py --check-only --profile b7_brownout --motors-allowed 0 --attempt native01 --reviewed-head FULL_HEAD`,
+followed by the same arguments with `--execute` after admission. Motor mode must
+be explicitly 0 or 1; both selections are compile-only. This preserves the
+existing D222 profiles and policies. See
+[the B7 build contract](../state/analysis/P2_b7_build_contract.md) and
+[software evidence](../state/analysis/P2_b7_brownout_validation.md).
+The separate guarded route is
+`python -I -B tools/deploy_b7_app.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`.
+Its `--execute` action requires the same fully qualified, source/image-bound
+scope and fresh specific STAND OK for M1. It rejects RING OK and does not accept
+identified-delivery mode. The current board-only M1 build has absent grants and
+cannot supply operational qualification. See
+[the deployment contract](../state/analysis/P2_b7_deploy_contract.md) and
+[host validation](../state/analysis/P2_b7_deploy_validation.md).
+
 Use `python -I -B tools/compile_commissioning_app.py --check-only --profile PROFILE --motors-allowed 0 --attempt native01 --reviewed-head FULL_HEAD`, then the same arguments with `--execute` after admission. Profiles: b4_stand, p3_drive, p3_turn, p3_stop, p4_reactive, p4_timing, p5_abort_timing. Motors must be explicitly 0 or 1. This compiles the real main application with static/default startup and MATCH0; it never uploads. Keep one compiler at a time and retain/commit each owner before the next. See state/reviews/P7_commissioning_build_review.md for the admitted matrix and failure handling.
 
 D223 observe_uart_holders.py produced one consumed privileged metadata-only observation; its exact source/transport and actual review are under state/analysis/P7_uart_holder_raw and state/reviews/P7_uart_holder_actual_review.md. It is evidence of two samples, not a general UART preparation or recurring privilege command.

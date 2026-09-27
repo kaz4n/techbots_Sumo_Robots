@@ -1652,3 +1652,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T07:23:23.755430+04:00 | P2 B7 continuation | User explicitly approved the dedicated B7-only R6 contact exception; D244 recorded, original20-cycle/half-charge/zero-reset criterion preserved. Software preparation resumes; actual motor-run authority and hardware facts remain absent. | decision checkpoint
 
 2026-09-27T07:43:57.4040021+04:00 | P2 B7/D244 | Dedicated brownout source and focused host/tool/config checks PASS, source1ba538e1; preserved fixture failures independently adjudicated. M0/M1 target and ordinary production compilation next; no upload or physical acceptance. | source1ba538e1; fixturesdcb17b25; tools96a19c1d
+
+2026-09-27T08:01:41.8315506+04:00 | P2 B7/D245 | Dedicated stand-only deployment preparation source/host accepted, independent review2fd710ec;12Linux+12Windows tests PASS with stable source/oracle pins. No upload or physical qualification. | source98b13db0

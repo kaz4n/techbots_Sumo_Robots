@@ -9,7 +9,9 @@ This wrapper requires compiler-wide `SUMOX_B7_BROWNOUT=1`, `MATCH=0` and
 `MOTORS_ALLOWED=0`; all setup grants remain absent. It is not a qualified robot
 configuration. Use the separate app compile-only command documented in
 `state/analysis/P2_b7_build_contract.md` for M0/M1 toolchain checks. Do not use
-another bench profile's upload route or motor authorization for B7.
+another bench profile's upload route or motor authorization for B7. The dedicated
+`tools/deploy_b7_app.py` route is host-tested and requires a qualified B7 scope;
+see `state/analysis/P2_b7_deploy_contract.md`. It has not uploaded an image.
 
 Actual acceptance still needs verified wiring/setup, a half-charged pack,
 fresh run-specific STAND OK, observed direction, and independent continuous

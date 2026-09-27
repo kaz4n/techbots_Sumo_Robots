@@ -104,11 +104,12 @@ class PublicContract(unittest.TestCase):
             self.assertEqual(len(owner.flags.split()), 11)
             self.assertEqual(owner.fqbn, 'arduino:zephyr:unoq:link_mode=static')
             self.assertEqual(owner.output, ROOT / paths(motors, source=owner.source_sha256)['output'])
-            self.assertTrue(set(original.REQUIRED) | ADDITIONS <= set(module.REQUIRED))
+            self.assertEqual(set(original.REQUIRED) | ADDITIONS, set(module.REQUIRED))
             with self.assertRaises(ValueError):
                 module.CompileDiagnostic('f' * 40, root=ROOT)
         self.assertEqual(states[0][1].flags, states[2][1].flags)
         self.assertEqual(len({id(module) for module, owner in states}), 3)
+        self.assertEqual([module.FLAGS for module, owner in states], [flags(0), flags(1), flags(0)])
         self.assertEqual(set(original.PROFILES), set(OLD_CALLER.PROFILES))
         for name, pin in OLD_PINS.items():
             body = (ROOT / name).read_bytes()

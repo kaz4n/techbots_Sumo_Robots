@@ -122,23 +122,30 @@ def exclusions(scratch, run):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--raw', type=Path, required=True)
+    parser.add_argument('--groups', nargs='+', choices=('b7_m0', 'b7_m1', 'ordinary', 'profiles'),
+                        default=['b7_m0', 'b7_m1', 'ordinary', 'profiles'])
     args = parser.parse_args()
     raw = args.raw.resolve()
     raw.mkdir(parents=True, exist_ok=False)
     scratch = Path(tempfile.mkdtemp(prefix='sumo-d244-', dir='/dev/shm'))
     receipt = {'schema': 'd244-focused-host-v1', 'target_evidence': False,
-        'commands': [], 'started_unix': time.time(), 'scratch': str(scratch)}
+        'commands': [], 'started_unix': time.time(), 'scratch': str(scratch),
+        'groups': args.groups}
     run = lambda argv, **kwargs: execute(raw, receipt, argv, **kwargs)
     try:
         receipt['pins_before'] = pins()
         run(['g++', '--version'])
         source = configured_source(scratch, receipt)
         for motors in (0, 1):
+            if f'b7_m{motors}' not in args.groups:
+                continue
             compile_run(scratch, run, ROOT / 'src', motors)
             compile_run(scratch, run, source, motors, configured=True)
-        for motors in (0, 1):
-            compile_run(scratch, run, ROOT / 'src', motors, ordinary=True)
-        exclusions(scratch, run)
+        if 'ordinary' in args.groups:
+            for motors in (0, 1):
+                compile_run(scratch, run, ROOT / 'src', motors, ordinary=True)
+        if 'profiles' in args.groups:
+            exclusions(scratch, run)
         receipt['pins_after'] = pins()
         if receipt['pins_before'] != receipt['pins_after']:
             raise RuntimeError('Inputs changed during focused validation')

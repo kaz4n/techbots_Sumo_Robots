@@ -216,7 +216,9 @@ TEST_CASE("B7 D244 disabled actual M0 receipts receive no endpoint credit and ti
 TEST_CASE("B6 B7 D244 actual twenty pairs use zero-before-reversal and retain complete evidence") {
     if (!MOTORS_ALLOWED) return;
     Rig rig; rig.begin(); unsigned completed = 0U, reversals = 0U;
-    float previous = 0.0F; int last_sign = 0; bool zero_seen = true;
+    float previous = rig.owner.report().robot.outputs.duty_l;
+    CHECK(previous >= 0.0F); CHECK(previous <= .02001F);
+    int last_sign = 0; bool zero_seen = true;
     bool finished = false;
     for (unsigned tick = 0U; tick < 35000U; ++tick) {
         const auto r = rig.next(); const auto& b = r.robot.brownout;

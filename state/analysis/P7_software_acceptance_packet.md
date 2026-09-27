@@ -34,7 +34,7 @@ and a fixed five-minute population for P2.2: 16 cases/143 assertions, independen
 source review, both current target compiles and offline retained-code/layout
 checks pass. The ordinary production package remains byte-identical to D241.
 See [D243 actual validation](P7_outer_loop_timing_actual_validation.md). No live
-five-minute timing trial is claimed. B7 retains its protected R6 conflict;
+five-minute timing trial is claimed. The user has now approved B7's dedicated R6 contact exception; D244 implementation is in progress;
 P6 deliverables remain absent and currently ineligible. Current compile and
 synthetic-delivery evidence are accepted within their stated scopes. Do not infer physical
 acceptance from host tests, artifact layout or the synthetic board experiment.

@@ -701,7 +701,13 @@ SC-AL loadedRAM remainsopen; corrected appdefault has only8bytes modeled span.
 
 SC-AL D118 actual default-image update 2026-09-24T04:42:52.533106+04:00: exactsourcee820c0e1/defaultM0 now has actual fullflashbracket/resident-sketch/progress and retainedheap evidence, independently reviewed744checks. Two262144B pool snapshots have4500free payload/4364largest; metadata agrees. This closes the narrowly scoped missing actual defaultload/retainedheap observation, preserving the historical8-byte conditional peak model. Stackspace, allsource/full800us timing, MATCH physical qualification and assembledrobot acceptance remain OPEN. Stored513us is not those proofs. See P2_app_default_actual_validation.md/F147; no config/grant/phasegate change.
 
-## SC-AM: P2 B7 full reverse versus R6 authority (OPEN, D121 disposition)
+## SC-AM: P2 B7 full reverse versus R6 authority (POLICY RESOLVED D244; physical acceptance open)
+Current disposition,27 September2026: the user explicitly approved the dedicated
+B7-only contact exception. D244 and P2_b7_brownout_contract.md define the narrow
+implementation, preserved authority and regression requirements. The historical
+D121 no-implementation policy below is superseded only for that approved scope;
+actual B7 half-charge/20cycles/no-reset acceptance and run permission remain open.
+
 Sources: docs/prompts/P2_hal_bench.md B7 requires20full-forward/full-reverse cycles; AGENTS.md R6 and BEHAVIOR.md B6 reserve full duty for centered contact. src/core/governor.cpp profileCap caps non-ATTACK below full; src/core/fsm.cpp frontDemand does not request full reverse in ATTACK; src/hal/motors.cpp independently checks full-duty ATTACK/centered/contact. Existing analysis: P2_motor_stand_feasibility.md, P2_after_D115_checkpoint.md and D115/D120.
 Consequence: current actual Robot/Gate cannot honestly perform the specified full-reversal stress test. Fabricated contact, patched duties, a lower-duty substitute or direct pin path would conceal rather than resolve the conflict. The D1200.25sequence is B4 software evidence only.
 Options: A) preserve R6 and the original B7 criterion, leave B7 blocked/unaccepted; B) separately define an explicit protected stress-test resolution, preserving sole MotorGate/full hold/edge/receipts and requiring fresh specific motor-run authorization.

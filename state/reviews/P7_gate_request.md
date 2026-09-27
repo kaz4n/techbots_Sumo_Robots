@@ -13,8 +13,8 @@ robot, operational application capture or motor-run acceptance.
 D243 outer-loop/five-minute timing preparation passes focused host tests, both
 current target compiles and offline ARM retention/exclusion checks. See
 [actual validation](../analysis/P7_outer_loop_timing_actual_validation.md).
-Actual five-minute all-sensor timing remains unmeasured. B7 retains its
-protected R6 conflict. P6 deliverables are absent and currently ineligible.
+Actual five-minute all-sensor timing remains unmeasured. D244 now records human
+approval of the B7-only contact exception; its implementation is in progress. P6 deliverables are absent and currently ineligible.
 No qualified final release/config/deployment, v1.0 tag, printed team-approved
 runbook, three actual best-of-three rehearsal sets or human GATE P7 PASS exists.
 Required physical P0-P5 evidence and human gates remain pending.

@@ -23,8 +23,9 @@ assertions, independent review and two passing current target builds. Offline
 ARM inspection proves timing-observer retention and ordinary-profile exclusion;
 the production package is byte-identical to D241. See the
 [current timing/build evidence](../state/analysis/P7_outer_loop_timing_actual_validation.md).
-A live-sensor timing trial still needs the assembled robot. B7 also needs an
-explicit resolution of its full-reverse versus R6 conflict. P6 judge deliverables
+A live-sensor timing trial still needs the assembled robot. The user approved
+the dedicated B7 full-power bench exception; D244 software implementation is now
+in progress. Physical B7 acceptance and specific STAND OK remain outstanding. P6 judge deliverables
 remain conditional on the real P4 gate. The full project is not complete.
 
 The connected-board result uses synthetic inputs. Wiring, pin acceptance,

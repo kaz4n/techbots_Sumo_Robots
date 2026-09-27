@@ -1,6 +1,6 @@
 # Current project status
 
-Updated 27 September 2026, 03:43 Dubai. Connected hardware: **UNO Q only**.
+Updated 27 September 2026, 08:07 Dubai. Connected hardware: **UNO Q only**.
 
 The firmware modules and commissioning software are implemented. The latest
 inhibited board diagnostic delivered a complete synthetic recording: **5,001
@@ -23,10 +23,16 @@ assertions, independent review and two passing current target builds. Offline
 ARM inspection proves timing-observer retention and ordinary-profile exclusion;
 the production package is byte-identical to D241. See the
 [current timing/build evidence](../state/analysis/P7_outer_loop_timing_actual_validation.md).
-A live-sensor timing trial still needs the assembled robot. The user approved
-the dedicated B7 full-power bench exception; D244 software implementation is now
-in progress. Physical B7 acceptance and specific STAND OK remain outstanding. P6 judge deliverables
-remain conditional on the real P4 gate. The full project is not complete.
+A live-sensor timing trial still needs the assembled robot. The approved B7
+exception is now implemented and independently reviewed: all four host variants,
+ordinary safety regressions, and B7 M0/M1 target compiles passed. A fresh ordinary
+competition compile produces the same package and executable bytes as before.
+The separate B7 deployment route passed 12 tests on each host platform and
+requires qualified setup plus fresh specific STAND OK. No image was uploaded.
+See [B7 target evidence](../state/analysis/P2_b7_brownout_actual_validation.md) and
+[deployment evidence](../state/analysis/P2_b7_deploy_validation.md).
+Physical B7 acceptance remains outstanding. P6 judge deliverables remain
+conditional on the real P4 gate. The full project is not complete.
 
 The connected-board result uses synthetic inputs. Wiring, pin acceptance,
 sensor calibration, actual motor behavior, initialized robot timing, stopping

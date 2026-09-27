@@ -1030,3 +1030,19 @@ D241 actual independent closure (2026-09-27T03:05:15.797045+04:00): reviewdbbac6
 
 ### D243 current compilation and offline code/layout (2026-09-27T03:45:20.981253+04:00)
 Direct sources: analysis/P7_outer_loop_timing_actual_validation.md and reviews/P7_outer_loop_timing_actual_review.md (06588b00, PASS). Frozen sourcefcb9a31a atce15bb96 passed timing-M0/static and production-M1/static/Immediate compile-only. Exact timing ELF47a6d01c contains the unique6688B,8-byte-aligned outer_loop_timing BSS object at0x2003d430; hash-bound offline GDB shows real stores for both histogram populations and context/anchor/status fields. The production finalELFba9766a8/package7895a4d8 are byte-identical to accepted D241 and exclude the outer observer. Structural RAM remaining timing84112B/production91280B is linker accounting only. This observation supplies no live RAM, target execution, sensor liveness, five-minute timing, motor authorization or human gate. No MCU action occurred.
+
+
+### D244 current B7 and production compilation (2026-09-27 08:09 Dubai)
+
+Direct sources: [native validation](analysis/P2_b7_brownout_actual_validation.md)
+and [independent review](reviews/P2_b7_brownout_actual_review.md), SHA256
+52af99fcea539d1082771ce8a06fd7444b05374e8ef318a3261e6037e41a0a26.
+Confidence high for these saved compile-only operations. Frozen application
+source 85b320de at HEAD 97e32fde compiles as dedicated B7 M0/M1 static/default
+startup and ordinary MATCH M1 static/Immediate. B7 packages 84,284 B / e370976c
+and 84,656 B / b7e2f20b have 90,256 B structural RAM remaining. Ordinary package
+92,092 B / 7895a4d8 and final ELF ba9766a8 exactly match D241/D243, with 91,280 B
+structural RAM remaining. All package/layout and closing checks passed.
+These are linker counts, not measured runtime memory or timing. Setup grants
+remain absent. No upload, reset, MCU execution, motor run or physical acceptance
+is established by these builds.

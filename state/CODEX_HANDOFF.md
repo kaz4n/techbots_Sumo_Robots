@@ -1,4 +1,33 @@
-## Current authorized work - 2026-09-27T07:23:23.755430+04:00
+## Current checkpoint - 2026-09-27 08:07 Dubai
+
+D244 B7 software preparation is complete: source1ba538e1, host/source review
+f00d39fe, frozen native HEAD97e32fde/source85b320de, all three native compiles PASS
+and actual review52af99fc. B7 M0/M1 packages84284B/e370976c and84656B/b7e2f20b;
+ordinary production package92092B/7895a4d8 and final ELFba9766a8 are byte-identical
+to D241/D243. See analysis/P2_b7_brownout_actual_validation.md for exact hashes,
+owners and limits. All original fixture failures and corrections remain saved.
+
+D245 adds the practical B7-only guarded deployment route; source98b13db0,
+review2fd710ec, first Linux12/Windows12 tests PASS, accepted atcfe7412d.
+It retains qualification/source/artifact/descriptor/lifecycle safeguards and
+requires specifically STAND OK for M1. Current sources have absent setup grants;
+compile acceptance does not make these M1 artifacts operationally qualified.
+No B7 deployment scope, upload, reset or motor run was created/performed.
+
+Next substantive work requires actual assembled-hardware/setup measurements and
+human phase gates, then an appropriately qualified source/build/run scope.
+Physical B7 still needs half-charge,20 actual forward/reverse cycles and external
+continuous uptime evidence. Board remains UNO Q only; no STAND/RING or PINMAP
+acceptance is supplied. P6 is still ineligible. Do not rerun unchanged accepted
+software checks or infer physical success from these results.
+
+New local stage cleanup was rejected by automatic approval review, reason
+"blocked by policy". All three verified109-file/799786B copies remain; no retry.
+Exact read-only inventory is P2_b7_build_raw/stage_cleanup_blocked01.json. Keep
+remote artifacts, source/Git and raw evidence. Historical blocked stage scopes
+remain untouched. See STORAGE_LOG.md.
+
+## Historical authorization - 2026-09-27T07:23:23.755430+04:00
 
 The user explicitly approved A, the B7-only bench exception to R6 contact
 qualification. D244 supersedes that policy blocker only. Implement the original

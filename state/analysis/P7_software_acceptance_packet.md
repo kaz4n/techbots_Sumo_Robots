@@ -34,7 +34,12 @@ and a fixed five-minute population for P2.2: 16 cases/143 assertions, independen
 source review, both current target compiles and offline retained-code/layout
 checks pass. The ordinary production package remains byte-identical to D241.
 See [D243 actual validation](P7_outer_loop_timing_actual_validation.md). No live
-five-minute timing trial is claimed. The user has now approved B7's dedicated R6 contact exception; D244 implementation is in progress;
+five-minute timing trial is claimed. D244's approved B7 exception is implemented:
+host checks, three current UNO Q compiles and independent review passed. See
+[B7 native validation](P2_b7_brownout_actual_validation.md). D245's stand-only
+deployment preparation passed 12 tests on each host platform and independent
+review; [its validation](P2_b7_deploy_validation.md) records no actual deployment.
+Physical B7 still needs the assembled robot and fresh specific STAND OK.
 P6 deliverables remain absent and currently ineligible. Current compile and
 synthetic-delivery evidence are accepted within their stated scopes. Do not infer physical
 acceptance from host tests, artifact layout or the synthetic board experiment.

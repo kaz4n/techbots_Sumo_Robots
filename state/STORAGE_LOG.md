@@ -592,3 +592,23 @@ Retained1154 original compile-owner files2793717B byteexact,14 outer/copy-closur
 
 ### D244 host preparation (2026-09-27T07:43:57.4040021+04:00)
 Preserved all three original host runs (including two failed fixture histories), both compiler-tool runs (first excluded for changed oracle hash), and nested registry evidence. Owned /dev/shm scratch was removed after each closed run:2587149B,6261061B,9511398B respectively; no target files or user data removed. New147-path sparse build manifest avoids duplicate full checkouts. Checked current source, contracts and Git history remain retained; prior policy-blocked stages were not retried.
+
+
+### D244/D245 final retention and blocked cleanup (2026-09-27 08:09 Dubai)
+
+Retain 1,331 original native owner files / 3,860,978 B, outer command/copy
+receipts, checked target artifacts, source contracts and independent reviews for
+reproduction and future qualified deployment. Also retain D245's two successful
+platform runs and independent frozen oracle. No duplicate full repository archive
+was made; prior unique failure evidence and Git history remain intact.
+
+After all three compilers closed and hashes were verified, automatic approval
+review rejected native PowerShell removal of the three new local stage/app
+copies before execution: "blocked by policy". The copies are disposable source
+staging, each 109 files / 799,786 B; total 327 files / 2,399,358 B. Zero bytes
+were removed. Read-only verification records exact paths, hashes and
+removed=false in analysis/P2_b7_build_raw/stage_cleanup_blocked01.json.
+No retry or alternative deletion method was used. The older blocked scopes
+remain untouched. Checked remote artifacts, sparse source checkouts, user data,
+credentials and system paging settings were preserved. Last recorded C: free
+space was 1,454,403,584 B.

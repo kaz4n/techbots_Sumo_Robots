@@ -7,9 +7,11 @@ This index consolidates existing requirements/evidence; it creates no new phase.
 
 **2026-09-27 B7 update:** D244 records the human-approved B7-only full-duty
 exception. It supersedes the policy implementation stop in the historical D121
-section below. Dedicated applied-feedback software and target compilation are
-being verified; original half-charge/20-cycle/no-reset acceptance remains open.
-See [the current contract](P2_b7_brownout_contract.md). Other entries retain their
+section below. Dedicated applied-feedback software, host validation and all three
+target compile-only checks passed independent review; original half-charge/
+20-cycle/no-reset acceptance remains open. The stand-only deployment route is
+host-tested and unexecuted. See [target evidence](P2_b7_brownout_actual_validation.md)
+and [deployment evidence](P2_b7_deploy_validation.md). Other entries retain their
 dated evidence scopes and are not a claim about the latest loaded firmware.
 
 ## Filled review request

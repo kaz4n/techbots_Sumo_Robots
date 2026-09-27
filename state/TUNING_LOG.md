@@ -395,3 +395,6 @@ D243 diagnostic configuration,2026-09-27: add OUTER_LOOP_WINDOW_US=300000000U fo
 2026-09-27T07:28:28.542458+04:00 | D244 planned B7-only diagnostic parameters | Contract freezes BROWNOUT_CYCLES20,BROWNOUT_FULL_DUTY1,BROWNOUT_DWELL_MS500,BROWNOUT_REACH_MS1000,BROWNOUT_RECEIPT_MAX_GAP_US2000. These are new default-disabled bench-profile constants, not production tuning; implementation/testing follows. No existing value, physical pin or setup grant changes.
 
 2026-09-27T07:43:57.4040021+04:00 | D244 software parameter validation | BROWNOUT_CYCLES20,FULL_DUTY1,DWELL_MS500,REACH_MS1000,RECEIPT_MAX_GAP_US2000 implemented in1ba538e1. Four B7 host selections and literal configuration registry PASS, no existing control value/grant/pin changed. These endpoint/dwell choices remain unmeasured on hardware; target compile follows.
+
+
+2026-09-27 08:09 Dubai | D244 target compile validation, no further tuning | The same B7 constants passed M0/M1 UNO Q compilation; independent actual review52af99fc PASS. Ordinary production package and final ELF are byte-identical to D241/D243. No pin, grant, control value or diagnostic constant changed during native validation. No physical endpoint, dwell, voltage, uptime, RAM or timing measurement was taken. See analysis/P2_b7_brownout_actual_validation.md.

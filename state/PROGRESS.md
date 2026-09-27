@@ -1654,3 +1654,6 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T07:43:57.4040021+04:00 | P2 B7/D244 | Dedicated brownout source and focused host/tool/config checks PASS, source1ba538e1; preserved fixture failures independently adjudicated. M0/M1 target and ordinary production compilation next; no upload or physical acceptance. | source1ba538e1; fixturesdcb17b25; tools96a19c1d
 
 2026-09-27T08:01:41.8315506+04:00 | P2 B7/D245 | Dedicated stand-only deployment preparation source/host accepted, independent review2fd710ec;12Linux+12Windows tests PASS with stable source/oracle pins. No upload or physical qualification. | source98b13db0
+
+
+2026-09-27 08:09 Dubai | P2 B7/D244 native closure | All three serial UNO Q compiles and independent review52af99fc PASS. B7 M0/M1 packages accepted; ordinary production package and ELF unchanged from D241/D243. Software preparation complete; no upload, reset or motor run. Physical acceptance and human gates remain open. | frozen97e32fde; raw3baf77b5/3aca4532/990a4749

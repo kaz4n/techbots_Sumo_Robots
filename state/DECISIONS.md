@@ -2848,3 +2848,17 @@ Decision: adopt analysis/P2_b7_deploy_contract.md for an additive two-file check
 Consequence: independent host fixtures and source review are required. No actual upload, MCU run, manufactured qualification, pin change, physical acceptance or phase gate follows.
 
 D245 source/host acceptance (2026-09-27T08:01:41.8315506+04:00): adopt review2fd710ec PASS_SOURCE_AND_HOST. Source98b13db0 unchanged; independently frozen12-method oracle passes first Linux and Windows runs with all pins stable. Exact B7/P1/stand/STAND-only route retains original compile/source/qualification/descriptor/lifecycle checks and refuses identified delivery. No actual deployment scope, upload, cleanup or motor run occurred; current absent-grant M1 source is not operationally qualified.
+
+
+D244 native acceptance (2026-09-27 08:09 Dubai): adopt independent review
+52af99fc, PASS_NATIVE_COMPILE_ONLY. Frozen HEAD 97e32fde / application source
+85b320de passed all three serial UNO Q compile-only operations: B7 M0, B7 M1,
+and ordinary MATCH M1. Each has one properties query, one compiler, nine reaped
+checked children and nine successful closing checks. B7 packages are 84,284 B
+(e370976c) and 84,656 B (b7e2f20b). Ordinary package 92,092 B (7895a4d8) and final
+ELF ba9766a8 are byte-identical to D241/D243. Retained raw commits are 3baf77b5,
+3aca4532 and 990a4749; exact identities and limits are in
+analysis/P2_b7_brownout_actual_validation.md. This completes D244 software
+preparation alongside accepted D245 deployment preparation. No upload, reset,
+MCU operation or motor run occurred. Setup grants remain absent; physical B7,
+runtime RAM/WCET and human gates remain unaccepted.

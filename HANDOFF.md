@@ -174,6 +174,15 @@ MATCH flashing does not replace qualification.
 
 ## Storage and historical records
 
+**29 September cleanup update:** required test/bench source remains in use.
+Removal of four obsolete standalone host executables was rejected by automatic
+approval review ("blocked by policy"); they remain and must not be retried.
+An initial compression pass failed while saving its receipt; the corrected
+LZX pass preserves all 127 selected logs byte-for-byte against Git. They contain
+2.04 GB logically and occupy about 215 MB by the Windows storage API. This is
+not a claim of net space saved. See the dated STORAGE_LOG entry and
+[cleanup closure](state/analysis/storage_cleanup_20260929_closure.json).
+
 C: had approximately 6.28 GB free during preparation; recheck before heavy work.
 Preserve checked target artifacts, original evidence, unique failures, source,
 credentials and Git history. Build outputs, Python caches, the local CLI binary

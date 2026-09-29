@@ -612,3 +612,48 @@ No retry or alternative deletion method was used. The older blocked scopes
 remain untouched. Checked remote artifacts, sparse source checkouts, user data,
 credentials and system paging settings were preserved. Last recorded C: free
 space was 1,454,403,584 B.
+
+
+### 2026-09-29T16:49:46.015774+04:00 - User-requested test/bench cleanup
+
+Read-only source audit found no obsolete nonempty tracked test/bench source:
+48 bench sketches / 155 files / 316,083 B and 529 test files / 7,279,427 B remain
+needed by current tools, regression coverage, commissioning or historical
+source-bound evidence. In particular test_scaffold.cpp supplies doctest main;
+the recorder25 candidate and historical fixed-scope oracles must remain.
+No locked test, firmware source, fixture, bench or checked target was removed.
+
+Four disjoint, independently reviewed obsolete standalone host executables were
+selected: build/robot_failure_repro, build/p2_frame_size, build/p2_attempt_size,
+and build/qtr_cal_fresh_review/source_era_probe (1,002,376 B total). Their source,
+scripts and original failure/pass receipts remain. Automatic approval review
+rejected the native PowerShell deletion before execution: "blocked by policy".
+All four remain with their original hashes; no retry or alternate deletion was
+attempted. Their receipt is analysis/storage_cleanup_20260929_binaries.json.
+All previously denied deletion targets remained excluded.
+
+The initial file-compression selection incorrectly treated the absence of the
+NTFS Compressed attribute as uncompressed: these logs already used another
+Windows compression mode. Ordinary NTFS conversion was not an effective space
+reduction; saving its receipt failed with ENOSPC after at least 16 verified
+files. The receipt had become empty and was replaced with truthful failure
+metadata in analysis/storage_compression_20260929.json. The exact first-pass
+completion count was not durably captured and is not invented.
+
+Recovery used file-specific LZX compression without deletion, preserving paths
+and contents. Append-only analysis/storage_compression_20260929_lzx.jsonl closes
+127 files / 2,040,950,827 logical bytes, all exit0 and equal before/after SHA256.
+A final independent-of-compression comparison verified 126 exact Git blobs and
+one exact checkout-filter result (normal CRLF); all 143 native source/input
+pins also match. No tracked content changed before this bookkeeping. Summary:
+analysis/storage_cleanup_20260929_closure.json. Smaller 64KiB-1MiB text files
+were already compressed; no further candidate was found.
+
+Windows GetCompressedFileSizeW reports 214,593,536 B stored for the 127 files.
+The corrected batch's 134,075,417 B reduction (plus the separate pilot recovery)
+recovers first-pass expansion and MUST NOT be reported as net new space saved.
+C: free was 163,303,424 B at initial inspection and 445,923,328 B at final
+verification; system activity also affects free space. Net task savings are not
+established. No board operation, test/build rerun, paging change, Git history
+rewrite or source deletion occurred. Retain these compact receipts for the
+unique failure, recovery verification and blocked-deletion handoff.
